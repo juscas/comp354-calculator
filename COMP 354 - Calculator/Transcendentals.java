@@ -40,5 +40,18 @@ public class Transcendentals
 		return moreAccurateApp;
 	}
 
+	// ln approximation function based on the area hyperbolic tangent function - more iterations for more accuracy when size of x increases
+	static double ln(double x){
+		if (x < 0){
+			throw new IllegalArgumentException("No values under 0");
+		}
 
+		double sum = 0;
+
+		for (int i = 0; i < 1000; i++){
+			sum += 1.0/(2*i +1)*MathFunctions.intPower(((x-1)/(x+1)), (2*i + 1));
+		}
+
+		return 2 * sum;
+	}
 }

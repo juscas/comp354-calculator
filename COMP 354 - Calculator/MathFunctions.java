@@ -12,7 +12,7 @@ public class MathFunctions
 	 * @param exponent
 	 * @return
 	 */
-	public static double intpower(double base, int exponent) {
+	public static double intPower(double base, int exponent) {
 		
 		
 		if(exponent == 0) // anything to the exponent 0 is 1 by definition

@@ -10,6 +10,8 @@ public class Main
 		}
 
 		//testSquareRoot(100);
+
+		//System.out.println(Transcendentals.ln(200));
 		
 
 	} // ***END OF main***
@@ -28,6 +30,5 @@ public class Main
 			number+=1;
 		}
 	}
-
 }
 
