@@ -1,5 +1,3 @@
-
-
 public class Main
 {
 	public static void main(String[] args) {
@@ -10,6 +8,8 @@ public class Main
 			System.out.println(Transcendentals.cos(number) - Math.cos(number));
 			number += 0.1;
 		}
+
+		//testSquareRoot(100);
 		
 
 	} // ***END OF main***
@@ -18,6 +18,14 @@ public class Main
 		for(int i = 0; i < 100; ++i) {
 			System.out.println(Transcendentals.cos(number) - Math.cos(number));
 			number += 0.1;
+		}
+	}
+
+	private static void testSquareRoot(double number) {
+		System.out.println("Testing square roots from " + number + " to " + (number + 99));
+		for(int i = 0; i < 100; ++i) {
+			System.out.println("Square root of " + number + " is " + Transcendentals.squareRoot(number));
+			number+=1;
 		}
 	}
 

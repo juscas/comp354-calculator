@@ -19,5 +19,26 @@ public class Transcendentals
 		
 		return result;
 	}
-	
+
+	// Babylonian/Newton's Method for approximating square roots (good for smaller numbers, larger number require more iterations to be accuratez)
+	static double squareRoot(double x) {
+
+		if (x == 0){
+			return 0.0;
+		}
+		if (x < 0){
+			throw new IllegalArgumentException("No negative values allowed");
+		}
+
+		// first approximation
+		double app = 0.5 * x;
+		double moreAccurateApp = 0.0;
+		for (int i = 0; i < 100; i++){
+			moreAccurateApp = 0.5 * (app + x/app);
+			app = moreAccurateApp;
+		}
+		return moreAccurateApp;
+	}
+
+
 }
