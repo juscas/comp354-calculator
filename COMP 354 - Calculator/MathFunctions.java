@@ -114,4 +114,36 @@ public class MathFunctions
 			return -x;
 		return x;
 	}
+
+	/**
+	 * Returns the the value of a number to the root of anynumber
+	 * @param base: double
+	 * @param root: int
+	 * @return the nth root of the base number
+	 */
+	public static double nroot(double base, int root) {
+
+		//initial random guess is set to 5
+		double aprx = 5;
+
+		// setting the accuracy level
+		double acc = 0.001;
+
+		// initializing difference to some high number, higher than acc
+		double difference = 10;
+
+		//initialising betterAprx
+		double betterAprx = 0.0;
+
+		// loop until difference is less than acc
+		while (difference > acc) {
+			// calculating current value from previous
+			// value by newton's method
+			betterAprx = ((root - 1.0) * aprx +
+					(double) base / MathFunctions.intPower(aprx, root - 1))/ root;
+			difference = abs(betterAprx - aprx);
+			aprx = betterAprx;
+		}
+		return aprx;
+	}
 }

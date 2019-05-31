@@ -42,8 +42,8 @@ public class Transcendentals
 
 	// ln approximation function based on the area hyperbolic tangent function - more iterations for more accuracy when size of x increases
 	static double ln(double x){
-		if (x < 0){
-			throw new IllegalArgumentException("No values under 0");
+		if (x <= 0){
+			throw new IllegalArgumentException("No values under or equal 0");
 		}
 
 		double sum = 0;
