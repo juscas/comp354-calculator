@@ -56,17 +56,17 @@ public class Transcendentals
 	}
 	
 	//(incomplete) power function for decimal/fractional exponents
-	static double realPower(double base, double exponent){
+	static double realPower(double base, double exponent) {
 
 		//if the exponent value is an integer, we perform the simple power function in MathFunctions class
-		if(exponent==(int)exponent){
-			return MathFunctions.intPower(base,(int)exponent);
-		}else{
-			int integerExp;			//integer part of the exponent
-			int decimalExp;			//decimal part of the exponent
-			double integerValue;	//value of the base number to the power of integerExp (i.e. just the integer part of the exponent)
+		if (exponent == (int) exponent) {
+			return MathFunctions.intPower(base, (int) exponent);
+		} else {
+			int integerExp;            //integer part of the exponent
+			int decimalExp;            //decimal part of the exponent
+			double integerValue;    //value of the base number to the power of integerExp (i.e. just the integer part of the exponent)
 			double decimalValue;    //value of the base number to the power of decimalExp (i.e. just the decimal part of the exponent)
-			int decimallength = 1;	//value of the denominator when the decimal is converted into a fraction
+			int decimallength = 1;    //value of the denominator when the decimal is converted into a fraction
 
 			//converting the exponent number into array of 2 strings. 1 containing the integer part, the other containing the decimal part
 			//the integer String is converted into an int again. The decimal part will be trimmed of any useless 0s on the right
@@ -76,14 +76,14 @@ public class Transcendentals
 			String tempDecimal = String.valueOf(exponent).split("\\.")[1];
 
 			//removing any 0s from the right side of the decimal value
-			while(tempDecimal.charAt(tempDecimal.length()-1)==0){
-				tempDecimal = tempDecimal.substring(0,tempDecimal.length()-1);
+			while (tempDecimal.charAt(tempDecimal.length() - 1) == 0) {
+				tempDecimal = tempDecimal.substring(0, tempDecimal.length() - 1);
 			}
 
 			//to convert a decimal into a fraction form, we have to have it in the form of number/10^n
 			//this for loop calculates the denominator (i.e. the actual value of 10^n)
-			for(int i=0;i<tempDecimal.length();i++){
-				decimallength=decimallength*10;
+			for (int i = 0; i < tempDecimal.length(); i++) {
+				decimallength = decimallength * 10;
 			}
 
 			//converting the refined decimal number back to int
@@ -91,7 +91,7 @@ public class Transcendentals
 
 			//using the power function from class MathFunctions to calculate the value of the base number to the power of the integer
 			//part of the exponent
-			integerValue = MathFunctions.intPower(base,integerExp);
+			integerValue = MathFunctions.intPower(base, integerExp);
 
 			//calculation of base^(1/decimallength) should, in theory, be estimated using Newton's method
 
@@ -100,6 +100,8 @@ public class Transcendentals
 			return 0;
 
 		}
+
+	}
 		
 		/**
 		 * Calculates e^x.
@@ -121,4 +123,4 @@ public class Transcendentals
 		}
 		
 	}
-}
+

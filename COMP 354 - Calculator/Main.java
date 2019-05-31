@@ -5,9 +5,11 @@ public class Main
 		double number = -5.0;
 
 		for(int i = 0; i < 100; ++i) {
-			System.out.println(Transcendentals.cos(number) - Math.cos(number));
+			//System.out.println(Transcendentals.cos(number) - Math.cos(number));
 			number += 0.1;
 		}
+
+		System.out.println(MathFunctions.nroot(54,5));
 
 		//testSquareRoot(100);
 

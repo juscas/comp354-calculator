@@ -127,7 +127,7 @@ public class MathFunctions
 		double aprx = 5;
 
 		// setting the accuracy level
-		double acc = 0.001;
+		double acc = 0.00001;
 
 		// initializing difference to some high number, higher than acc
 		double difference = 10;
