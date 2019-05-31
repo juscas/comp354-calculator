@@ -116,18 +116,24 @@ public class MathFunctions
 	}
 
 	/**
-	 * Returns the the value of a number to the root of anynumber
+	 * returns the nth root of the base value. 3rd parameter x is for accuracy, higher x = higher accuracy
 	 * @param base: double
 	 * @param root: int
+	 * @param x: int
 	 * @return the nth root of the base number
 	 */
-	public static double nroot(double base, int root) {
+	public static double nroot(double base, int root, int x) {
 
 		//initial random guess is set to 5
 		double aprx = 5;
 
-		// setting the accuracy level
-		double acc = 0.00001;
+		// setting the default accuracy level
+		double acc = 0.01;
+
+		// decreases the acc variable, which increases accuracy
+		for(int i=0;i<x;i++){
+			acc=acc/10;
+		}
 
 		// initializing difference to some high number, higher than acc
 		double difference = 10;
@@ -146,4 +152,156 @@ public class MathFunctions
 		}
 		return aprx;
 	}
+
+	/**
+	 * Wrapper function for nroot(3) that takes only 2 parameters instead of 3. The 3rd parameter is set to a default of 0.
+	 * @param base: double
+	 * @param root: int
+	 * @return the nth root of the base number
+	 */
+	public static double nroot (double base, int root){
+		return nroot(base,root,0);
+	}
+/**
+	 * returns the nth root of the base value. 3rd parameter x is for accuracy, higher x = higher accuracy
+	 * @param base: double
+	 * @param root: int
+	 * @param x: int
+	 * @return the nth root of the base number
+	 */
+	public static double nroot(double base, int root, int x) {
+
+		//initial random guess is set to 5
+		double aprx = 5;
+
+		// setting the default accuracy level
+		double acc = 0.01;
+
+		// decreases the acc variable, which increases accuracy
+		for(int i=0;i<x;i++){
+			acc=acc/10;
+		}
+
+		// initializing difference to some high number, higher than acc
+		double difference = 10;
+
+		//initialising betterAprx
+		double betterAprx = 0.0;
+
+		// loop until difference is less than acc
+		while (difference > acc) {
+			// calculating current value from previous
+			// value by newton's method
+			betterAprx = ((root - 1.0) * aprx +
+					(double) base / MathFunctions.intPower(aprx, root - 1))/ root;
+			difference = abs(betterAprx - aprx);
+			aprx = betterAprx;
+		}
+		return aprx;
+	}
+
+	/**
+	 * Wrapper function for nroot(3) that takes only 2 parameters instead of 3. The 3rd parameter is set to a default of 0.
+	 * @param base: double
+	 * @param root: int
+	 * @return the nth root of the base number
+	 */
+	public static double nroot (double base, int root){
+		return nroot(base,root,0);
+	}
+/**
+	 * returns the nth root of the base value. 3rd parameter x is for accuracy, higher x = higher accuracy
+	 * @param base: double
+	 * @param root: int
+	 * @param x: int
+	 * @return the nth root of the base number
+	 */
+	public static double nroot(double base, int root, int x) {
+
+		//initial random guess is set to 5
+		double aprx = 5;
+
+		// setting the default accuracy level
+		double acc = 0.01;
+
+		// decreases the acc variable, which increases accuracy
+		for(int i=0;i<x;i++){
+			acc=acc/10;
+		}
+
+		// initializing difference to some high number, higher than acc
+		double difference = 10;
+
+		//initialising betterAprx
+		double betterAprx = 0.0;
+
+		// loop until difference is less than acc
+		while (difference > acc) {
+			// calculating current value from previous
+			// value by newton's method
+			betterAprx = ((root - 1.0) * aprx +
+					(double) base / MathFunctions.intPower(aprx, root - 1))/ root;
+			difference = abs(betterAprx - aprx);
+			aprx = betterAprx;
+		}
+		return aprx;
+	}
+
+	/**
+	 * Wrapper function for nroot(3) that takes only 2 parameters instead of 3. The 3rd parameter is set to a default of 0.
+	 * @param base: double
+	 * @param root: int
+	 * @return the nth root of the base number
+	 */
+	public static double nroot (double base, int root){
+		return nroot(base,root,0);
+	}
+	/**
+	 * returns the nth root of the base value. 3rd parameter x is for accuracy, higher x = higher accuracy
+	 * @param base: double
+	 * @param root: int
+	 * @param x: int
+	 * @return the nth root of the base number
+	 */
+	public static double nroot(double base, int root, int x) {
+
+		//initial random guess is set to 5
+		double aprx = 5;
+
+		// setting the default accuracy level
+		double acc = 0.01;
+
+		// decreases the acc variable, which increases accuracy
+		for(int i=0;i<x;i++){
+			acc=acc/10;
+		}
+
+		// initializing difference to some high number, higher than acc
+		double difference = 10;
+
+		//initialising betterAprx
+		double betterAprx = 0.0;
+
+		// loop until difference is less than acc
+		while (difference > acc) {
+			// calculating current value from previous
+			// value by newton's method
+			betterAprx = ((root - 1.0) * aprx +
+					(double) base / MathFunctions.intPower(aprx, root - 1))/ root;
+			difference = abs(betterAprx - aprx);
+			aprx = betterAprx;
+		}
+		return aprx;
+	}
+
+	/**
+	 * Wrapper function for nroot(3) that takes only 2 parameters instead of 3. The 3rd parameter is set to a default of 0.
+	 * @param base: double
+	 * @param root: int
+	 * @return the nth root of the base number
+	 */
+	public static double nroot (double base, int root){
+		return nroot(base,root,0);
+	}
+
 }
