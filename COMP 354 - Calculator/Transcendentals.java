@@ -100,5 +100,25 @@ public class Transcendentals
 			return 0;
 
 		}
+		
+		/**
+		 * Calculates e^x.
+		 * WARNINIG: DO NOT USE PRECISION > 20 FOR ESTIMATE OR FUNCTION WILL NOT WORK
+		 * NOTE: To match most calculators estimate of e^x, use precision = 13.
+		 * @param x: double
+		 * @return e^x: double
+		 */
+		public static double e_to_x(double x) {
+			
+			double result = 0;
+			int precision = 13; // 13 matches most calculators. DO NOT EXCEED 20.
+			
+			for(int i = 0; i < precision; ++i) {
+				result += MathFunctions.intPower(x, i) / MathFunctions.factorial(i);
+			}
+			
+			return result;
+		}
+		
 	}
 }

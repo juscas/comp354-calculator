@@ -48,4 +48,70 @@ public class MathFunctions
 	        fact = fact * i;
 	    return fact;
 	}
+	
+		/**
+	 * Returns the absolute value of a byte.
+	 * @param x: byte
+	 * @return absolute value of x: byte
+	 */
+	public static byte abs(byte x) {
+		if(x < 0)
+			return (byte) x;
+		return (byte) x;
+	}
+	
+	/**
+	 * Returns the absolute value of a short.
+	 * @param x: short
+	 * @return absolute value of x: short
+	 */
+	public static short abs(short x) {
+		if(x < 0)
+			return (short) x;
+		return (short) x;
+	}
+	
+	/**
+	 * Returns the absolute value of an int.
+	 * @param x: int
+	 * @return absolute value of x: int
+	 */
+	public static int abs(int x) {
+		if(x < 0)
+			return -x;
+		return x;
+	}
+	
+	/**
+	 * Returns the absolute value of a long.
+	 * @param x: long
+	 * @return absolute value of x: long
+	 */
+	public static long abs(long x) {
+		if(x < 0)
+			return -x;
+		return x;
+	}
+	
+	/**
+	 * Returns the absolute value of a float.
+	 * @param x: float
+	 * @return absolute value of x: float
+	 */
+	public static float abs(float x) {
+		if(x < 0)
+			return -x;
+		return x;
+	}
+	
+	/**
+	 * Returns the absolute value of a double.
+	 * @param x: double
+	 * @return absolute value of x: double
+	 */
+	public static double abs(double x) {
+		if(x < 0)
+			return -x;
+		return x;
+	}
 }
