@@ -2,19 +2,9 @@ public class Main
 {
 	public static void main(String[] args) {
 		
-		double number = -5.0;
-
-		for(int i = 0; i < 100; ++i) {
-			//System.out.println(Transcendentals.cos(number) - Math.cos(number));
-			number += 0.1;
-		}
-
-		System.out.println(MathFunctions.nroot(54,5));
-
-		//testSquareRoot(100);
-
-		//System.out.println(Transcendentals.ln(200));
 		
+		System.out.println(MathFunctions.degreeToRadian(20));
+		System.out.println(MathFunctions.radianToDegree(20));
 
 	} // ***END OF main***
 
@@ -30,6 +20,14 @@ public class Main
 		for(int i = 0; i < 100; ++i) {
 			System.out.println("Square root of " + number + " is " + Transcendentals.squareRoot(number));
 			number+=1;
+		}
+	}
+	
+	private static void sinTest(double number) {
+		System.out.println("Testing the sin(x) function vs the stock java.Math.sin(x) functions:");
+		for(int i = 0; i < 100; ++i) {
+			System.out.println("number = " + number + "|| answer = " + (Transcendentals.sin(number) - Math.sin(number)));
+			number += 0.1;
 		}
 	}
 }

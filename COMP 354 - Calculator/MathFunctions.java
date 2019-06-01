@@ -2,21 +2,22 @@
 
 public class MathFunctions
 {
-	final static double e = 2.7182818284590452;
-	final static double pi = 3.141592653589793;
-	
+	final static double E = 2.7182818284590452;
+	final static double PI = 3.141592653589793;
+	final static double LN10 = 2.30258509299404568402;
 	
 	/**
 	 * Power function that works ONLY FOR INTEGER EXPONENTS
-	 * @param base
-	 * @param exponent
-	 * @return
+	 * @param base: double
+	 * @param exponent: double
+	 * @return x^y : double
 	 */
 	public static double intPower(double base, int exponent) {
 		
-		
 		if(exponent == 0) // anything to the exponent 0 is 1 by definition
 			return 1;
+		if(exponent == 1)
+			return base;
 		
 		double result = base;
 		int posExponent = exponent; // can be used to make a negative exponent temporarily positive.
@@ -34,6 +35,23 @@ public class MathFunctions
 		return result;
 	}
 	
+	/**
+	 * Converts from radians to degrees.
+	 * @param radian: double
+	 * @return degrees: double
+	 */
+	public static double radianToDegree(double radian) {
+		return radian * (180 / MathFunctions.PI); 
+	}
+	
+	/**
+	 * Converts from degrees to radians.
+	 * @param degrees: double
+	 * @return radians: double
+	 */
+	public static double degreeToRadian(double degree) {
+		return degree * (MathFunctions.PI / 180);
+	}
 	
 	/**
 	 * Calculates the factorial of a number.
@@ -180,7 +198,7 @@ public class MathFunctions
 	}
 	
 	/**
-	 * Calculates the binomial coefficient (n choose K, nCk).
+	 * Calculates the binomial coefficient (aka. "n choose K" or "nCk").
 	 * @param n: long
 	 * @param k: long
 	 * @return n choose k: long
@@ -188,7 +206,7 @@ public class MathFunctions
 	public static long binomialCoefficient(long n, long k) {
 		
 		if(k > n || n <= 0 || k < 0)
-			throw new ArithmeticException("n must be larger or equal to k.");
+			throw new ArithmeticException("Binomial coefficient undefined for these parameters");
 		if(n == k || k == 0)
 			return 1; // this is true for all 'n choose n' OR where k = 0
 		if(k == 1)
