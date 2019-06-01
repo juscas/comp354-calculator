@@ -49,6 +49,21 @@ public class MathFunctions
 	    return fact;
 	}
 	
+	/**
+	 * Calculates the factorial of a number. Don't go nuts with this - you can wrap around very
+	 * quickly so limit the size of these.
+	 * @param n: long
+	 * @return long
+	 */
+	public static long factorial(long n) {
+		if(n < 0)
+			throw new IllegalArgumentException("No negative values allowed");
+		int fact = 1;
+	    for (int i = 2; i <= n; i++)
+	        fact = fact * i;
+	    return fact;
+	}
+	
 		/**
 	 * Returns the absolute value of a byte.
 	 * @param x: byte
@@ -162,6 +177,41 @@ public class MathFunctions
 	 */
 	public static double nroot (double base, int root){
 		return nroot(base,root,0);
+	}
+	
+	/**
+	 * Calculates the binomial coefficient (n choose K, nCk).
+	 * @param n: long
+	 * @param k: long
+	 * @return n choose k: long
+	 */
+	public static long binomialCoefficient(long n, long k) {
+		
+		if(k > n || n <= 0 || k < 0)
+			throw new ArithmeticException("n must be larger or equal to k.");
+		if(n == k || k == 0)
+			return 1; // this is true for all 'n choose n' OR where k = 0
+		if(k == 1)
+			return k; // this is true for all 'n choose 1'
+		
+		// this is an optimization that cancels out the n! and the k! (2 less factorials to compute)
+		// ex. 10C7 -> 10! / 7!(10-7)! -> 10!/7! = 10*9*8 = 720
+		long numerator = 1;
+		for(long i = k+1; i <= n; ++i) {
+			numerator *= i;
+		}
+		
+		return(numerator / MathFunctions.factorial(n-k));
+	}
+	
+	/**
+	 * Calculates the binomial coefficient (n choose K, nCk).
+	 * @param n: int
+	 * @param k: int
+	 * @return n choose k: int
+	 */
+	public static long binomialCoefficient(int n, int k) {
+		return binomialCoefficient((long) n, (long) k);
 	}
 
 }

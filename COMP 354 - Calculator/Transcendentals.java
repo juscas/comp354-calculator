@@ -104,24 +104,40 @@ public class Transcendentals
 
 	}
 		
-		/**
-		 * Calculates e^x.
-		 * WARNINIG: DO NOT USE PRECISION > 20 FOR ESTIMATE OR FUNCTION WILL NOT WORK
-		 * NOTE: To match most calculators estimate of e^x, use precision = 13.
-		 * @param x: double
-		 * @return e^x: double
-		 */
-		public static double e_to_x(double x) {
-			
-			double result = 0;
-			int precision = 13; // 13 matches most calculators. DO NOT EXCEED 20.
-			
-			for(int i = 0; i < precision; ++i) {
-				result += MathFunctions.intPower(x, i) / MathFunctions.factorial(i);
-			}
-			
-			return result;
+	/**
+	 * Calculates e^x.
+	 * @param x: double
+	 * @return e^x: double
+	 */
+	public static double e_to_x(double x) {
+		
+		double result = 0;
+		int precision = 13; // 13 matches most calculators. DO NOT EXCEED 20.
+		
+		// This is the Taylor expansion of e^x.
+		for(int i = 0; i < precision; ++i)
+			result += MathFunctions.intPower(x, i) / MathFunctions.factorial(i);
+		
+		return result;
+	}
+	
+	/**
+	 * UNTESTED!!!
+	 * Calculates arcsin of x.
+	 * 
+	 * @param x: double
+	 * @return arcsion(x): double
+	 */
+	public static double arcsin(double x) {
+		double result = 0;
+		
+		for(int i = 0; i < 50; ++i) {
+			result += (2/(2*i + 1)*MathFunctions.binomialCoefficient(2*i, i) *
+					MathFunctions.intPower(x/2, 2*i + 1));
 		}
+		
+		return result;
+	}
 		
 	}
 
