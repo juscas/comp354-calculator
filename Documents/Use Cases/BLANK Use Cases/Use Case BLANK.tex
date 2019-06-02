@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{booktabs}
+
+\newcommand\addrow[2]{#1 &#2\\ }
+
+\newcommand\addheading[2]{#1 &#2\\ \hline}
+\newcommand\tabularhead{\begin{tabular}{lp{10cm}}
+\hline
+}
+
+\newcommand\addmulrow[2]{ \begin{minipage}[t][][t]{2.5cm}#1\end{minipage}% 
+   &\begin{minipage}[t][][t]{10cm}
+    \begin{enumerate} #2   \end{enumerate}
+    \end{minipage}\\ }
+
+\newenvironment{usecase}{\tabularhead}
+{\hline\end{tabular}}
+
+\begin{document}
+{\Large\textit{Use case description}} \\
+\begin{usecase}
+  \addheading{\textbf{Name:}}{Some name}
+  \addheading{\textbf{Identifier}}{UC 1}
+  \addrow{\textbf{Description}}{Blah blah blah}
+  \addrow{\textbf{Precondition}}{The system, shows, in the form part of an object type, the number   indication.}
+  \addrow{\textbf{Postcondition}}{A disconnected number indicating the type of `other constructed object'.}
+  \addmulrow{\textbf{Main path}}{
+  	\item User selects \ldots
+    \item System demands \ldots}
+  \addmulrow{\textbf{Alt. path}}{
+  	\item User selects \ldots
+    \item System demands \ldots}
+\end{usecase}
+
+\end{document}
