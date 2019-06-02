@@ -1,11 +1,10 @@
 public class Main
 {
 	public static void main(String[] args) {
-		
-		
-		System.out.println(MathFunctions.degreeToRadian(20));
-		System.out.println(MathFunctions.radianToDegree(20));
 
+		
+		
+		
 	} // ***END OF main***
 
 	private static void testCos(double number) {

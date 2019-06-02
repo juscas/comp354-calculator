@@ -231,5 +231,52 @@ public class MathFunctions
 	public static long binomialCoefficient(int n, int k) {
 		return binomialCoefficient((long) n, (long) k);
 	}
-
+	
+	/**
+	 * Adds variable amount of numbers.
+	 * @param x: double
+	 * @return result: double
+	 */
+	public static double add(double ... x) {
+		long result = 0;
+		for(int i = 0; i < x.length; ++i)
+			result += x[i];
+		return result;
+	}
+	
+	/**
+	 * Subtracts variable amount of numbers.
+	 * @param x: double
+	 * @return result: double
+	 */
+	public static double subtract(double ... x) {
+		long result = 0;
+		for(int i = 0; i < x.length; ++i)
+			result -= x[i];
+		return result;
+	}
+	
+	/**
+	 * Multiplies variable amount of numbers.
+	 * @param x: double
+	 * @return result: double
+	 */
+	public static double multiply(double ... x) {
+		long result = 0;
+		for(int i = 0; i < x.length; ++i)
+			result *= x[i];
+		return result;
+	}
+	
+	/**
+	 * Divides variable amount of numbers.
+	 * @param x: double
+	 * @return result: double
+	 */
+	public static double divide(double ... x) {
+		long result = 0;
+		for(int i = 0; i < x.length; ++i)
+			result /= x[i];
+		return result;
+	}
 }
