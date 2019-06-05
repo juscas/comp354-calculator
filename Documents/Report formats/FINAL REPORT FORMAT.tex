@@ -10,6 +10,79 @@
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[toc,section=section]{glossaries}
+
+
+\makenoidxglossaries
+ 
+\newglossaryentry{java}
+{
+    name=Java,
+    description={A general purpose object-oriented programming language}
+}
+
+\newglossaryentry{javafx}
+{
+    name=JavaFX,
+    description={A graphical user interface library for Java}
+}
+
+\newglossaryentry{git}
+{
+    name=Git,
+    description={An open sourece distributed version control software}
+}
+
+\newglossaryentry{github}
+{
+    name=GitHub,
+    description={A web service that hosts git repositories for ease of use between developers}
+}
+
+\newglossaryentry{discord}
+{
+    name=Discord,
+    description={A communication software hosted on the web used for scheduling, discussion and sharing of files}
+}
+
+\newglossaryentry{junit}
+{
+    name=Junit,
+    description={A library in Java used for writing unit tests}
+}
+
+\newglossaryentry{latex}
+{
+    name=Latex,
+    description={A textual interface for writing technical and scientific documents}
+}
+
+\newglossaryentry{javadoc}
+{
+    name=JavaDoc,
+    description={A code documentation generator for Java}
+}
+
+\newglossaryentry{transcendentalfunction}
+{
+    name=Transcendental Function,
+    description={"A function that does not satisfy any single-variable
+polynomial equation whose coefficients are themselves roots of polynomials"}
+}
+
+\newglossaryentry{eclipse}
+{
+    name=Eclipse,
+    description={A Java Integrated Development Environment}
+}
+
+\newglossaryentry{intellij}
+{
+    name=IntelliJ,
+    description={A Java Integrated Development Environment}
+}
+
 
 \makeindex
 
@@ -55,6 +128,11 @@
 \blindtext[1]
 
 \subsection{Annex A - Interviews}
+
+\clearpage
+\glsaddallunused
+\printnoidxglossaries
+ 
 
 \end{document}
 
