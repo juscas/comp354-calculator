@@ -1,120 +1,143 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.3)  5 JUN 2019 11:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  5 JUN 2019 13:52
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
-**PersonasInterviews.tex
-(./PersonasInterviews.tex
-LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+**./PersonasInterviews.tex
+(PersonasInterviews.tex
+LaTeX2e <2018-12-01>
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.clo"
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 )
-\c@part=\count79
-\c@section=\count80
-\c@subsection=\count81
-\c@subsubsection=\count82
-\c@paragraph=\count83
-\c@subparagraph=\count84
-\c@figure=\count85
-\c@table=\count86
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.st
+y"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.st
+y"
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+ ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graphic
+s.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdftex.
+def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-(./PersonasInterviews.aux)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/wrapfig\wrapfig.sty"
+\wrapoverhang=\dimen105
+\WF@size=\dimen106
+\c@WF@wrappedlines=\count88
+\WF@box=\box27
+\WF@everypar=\toks15
+Package: wrapfig 2003/01/31  v 3.6
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/paralist\paralist.st
+y"
+Package: paralist 2017/01/22 v2.7 Extended list environments
+\pltopsep=\skip43
+\plpartopsep=\skip44
+\plitemsep=\skip45
+\plparsep=\skip46
+\pl@lab=\toks16
+) (PersonasInterviews.aux)
 \openout1 = `PersonasInterviews.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/context/base\supp-pdf.mkii
+"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count87
-\scratchdimen=\dimen105
-\scratchbox=\box26
-\nofMPsegments=\count88
-\nofMParguments=\count89
-\everyMPshowfont=\toks15
-\MPscratchCnt=\count90
-\MPscratchDim=\dimen106
-\MPnumerator=\count91
-\makeMPintoPDFobject=\count92
-\everyMPtoPDFconversion=\toks16
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+\scratchcounter=\count89
+\scratchdimen=\dimen107
+\scratchbox=\box28
+\nofMPsegments=\count90
+\nofMParguments=\count91
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count92
+\MPscratchDim=\dimen108
+\MPnumerator=\count93
+\makeMPintoPDFobject=\count94
+\everyMPtoPDFconversion=\toks18
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-ba
+se.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\infwarerr
+.sty"
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\grfext.sty"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvdefinek
+eys.sty"
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ltxcmds.s
+ty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )))
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptions.s
+ty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvsetkeys
+.sty"
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\etexcmds.
+sty"
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifluatex.
+sty"
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+))))
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\pdftexcmd
+s.sty"
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifpdf.sty
+"
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -127,163 +150,147 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
+)
 <images/sarah.png, id=1, 401.5pt x 401.5pt>
 File: images/sarah.png Graphic file (type png)
 <use images/sarah.png>
-Package pdftex.def Info: images/sarah.png  used on input line 7.
-(pdftex.def)             Requested size: 200.7495pt x 200.7495pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 13.
+Package pdftex.def Info: images/sarah.png  used on input line 14.
+(pdftex.def)             Requested size: 137.9979pt x 137.9969pt.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 21.
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
- [1
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/sarah.png>]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 59.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 59.
- [2]
-Missing character: There is no ‚ in font cmbx10!
-Missing character: There is no Ä in font cmbx10!
-Missing character: There is no ô in font cmbx10!
- [3]
-<images/kevin.png, id=18, 1606.0pt x 985.6825pt>
-File: images/kevin.png Graphic file (type png)
-<use images/kevin.png>
-Package pdftex.def Info: images/kevin.png  used on input line 92.
-(pdftex.def)             Requested size: 240.8896pt x 147.846pt.
- [4 <./images/kevin.png>]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
 
-Overfull \hbox (3.75058pt too wide) in paragraph at lines 157--158
-\OT1/cmr/m/n/10 and in-te-gra-tion func-tions be-cause theyre rel-e-vant to his
- en-gi-neer-ing courses.
  []
 
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-[5]
-Missing character: There is no ‚ in font cmbx10!
-Missing character: There is no Ä in font cmbx10!
-Missing character: There is no ô in font cmbx10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
- [6]
-<images/tarek.jpg, id=28, 147.4308pt x 98.2872pt>
-File: images/tarek.jpg Graphic file (type jpg)
-<use images/tarek.jpg>
-Package pdftex.def Info: images/tarek.jpg  used on input line 187.
-(pdftex.def)             Requested size: 221.14565pt x 147.4304pt.
- [7 <./images/tarek.jpg>]
-Overfull \hbox (1.83385pt too wide) in paragraph at lines 236--237
+[1
+
+{C:/Users/Dan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/sara
+h.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 65.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 65.
+ [2] [3]
+<images/kevin2.jpg, id=17, 501.875pt x 501.875pt>
+File: images/kevin2.jpg Graphic file (type jpg)
+<use images/kevin2.jpg>
+Package pdftex.def Info: images/kevin2.jpg  used on input line 98.
+(pdftex.def)             Requested size: 137.9979pt x 137.9969pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--126
+
+ []
+
+[4 <./images/kevin2.jpg>]
+Overfull \hbox (6.52837pt too wide) in paragraph at lines 162--163
+\OT1/cmr/m/n/10 and in-te-gra-tion func-tions be-cause they're rel-e-vant to hi
+s en-gi-neer-ing courses.
+ []
+
+[5] [6]
+<images/tarek2.jpg, id=27, 250.9375pt x 305.14pt>
+File: images/tarek2.jpg Graphic file (type jpg)
+<use images/tarek2.jpg>
+Package pdftex.def Info: images/tarek2.jpg  used on input line 192.
+(pdftex.def)             Requested size: 137.9979pt x 167.81354pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--200
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--221
+
+ []
+
+[7 <./images/tarek2.jpg>]
+Overfull \hbox (1.83385pt too wide) in paragraph at lines 238--239
 []\OT1/cmr/m/n/10 One of the main fea-tures he re-ally wants to see is the abil
 -ity to save/transfer
  []
 
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ¶ in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-[8]
-Missing character: There is no ‚ in font cmbx10!
-Missing character: There is no Ä in font cmbx10!
-Missing character: There is no ô in font cmbx10!
- [9]
-<images/arash.jpg, id=39, 614.295pt x 433.62pt>
+[8] [9]
+<images/arash.jpg, id=38, 614.295pt x 433.62pt>
 File: images/arash.jpg Graphic file (type jpg)
 <use images/arash.jpg>
-Package pdftex.def Info: images/arash.jpg  used on input line 284.
-(pdftex.def)             Requested size: 153.57336pt x 108.40472pt.
- [10 <./images/arash.jpg>]
-Missing character: There is no ‚ in font cmbx10!
-Missing character: There is no Ä in font cmbx10!
-Missing character: There is no ô in font cmbx10!
- [11]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
- [12]
-<images/victoria.jpg, id=50, 451.6875pt x 301.125pt>
+Package pdftex.def Info: images/arash.jpg  used on input line 291.
+(pdftex.def)             Requested size: 137.9979pt x 97.40811pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--298
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--319
+
+ []
+
+[10 <./images/arash.jpg>]
+<images/victoria.jpg, id=42, 451.6875pt x 301.125pt>
 File: images/victoria.jpg Graphic file (type jpg)
 <use images/victoria.jpg>
-Package pdftex.def Info: images/victoria.jpg  used on input line 371.
-(pdftex.def)             Requested size: 180.67178pt x 120.44786pt.
- [13 <./images/victoria.jpg>]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmbx10!
-Missing character: There is no Ä in font cmbx10!
-Missing character: There is no ô in font cmbx10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
+Package pdftex.def Info: images/victoria.jpg  used on input line 322.
+(pdftex.def)             Requested size: 137.9979pt x 92.0015pt.
 
-[14] [15] (./PersonasInterviews.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 324--329
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--350
+
+ []
+
+[11 <./images/victoria.jpg>] [12] [13]
+File: images/victoria.jpg Graphic file (type jpg)
+<use images/victoria.jpg>
+Package pdftex.def Info: images/victoria.jpg  used on input line 414.
+(pdftex.def)             Requested size: 137.9979pt x 92.0015pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 416--421
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 440--445
+
+ []
+
+[14] [15] [16] (PersonasInterviews.aux) ) 
 Here is how much of TeX's memory you used:
- 1464 strings out of 494923
- 21252 string characters out of 6180743
- 74453 words of memory out of 5000000
- 4787 multiletter control sequences out of 15000+600000
- 5158 words of font info for 19 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 41i,5n,25p,450b,171s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-
-Output written on PersonasInterviews.pdf (15 pages, 1567796 bytes).
+ 1647 strings out of 492946
+ 25149 string characters out of 3127155
+ 88912 words of memory out of 3000000
+ 5545 multiletter control sequences out of 15000+200000
+ 4860 words of font info for 18 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,5n,25p,453b,175s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Dan/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dan/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dan/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/U
+sers/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7
+.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb>
+Output written on PersonasInterviews.pdf (16 pages, 440910 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 83 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
