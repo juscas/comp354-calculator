@@ -1,0 +1,60 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, inner=1.7cm, outer=2.7cm, top=2cm, bottom=2cm, bindingoffset=1.2cm]{geometry}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+	\graphicspath{ {images/} }
+\usepackage{wrapfig}
+\usepackage{paralist}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+
+\makeindex
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+
+% TITLE PAGE CODE ------------------------------------
+\title{\LARGE{\textbf{Team F - ETERNITY Calculator}}}
+\author{
+	Castonguay, Justin | Fakhr, Daniel | Hernandez, Jaime Andres \\ Thibault-Shea, Daniel |
+	Yaghma, Ashkhan \\
+}
+\date{June 6, 2019}
+
+\fancyhf{}
+
+\clearpage\maketitle
+\thispagestyle{empty} % Ensures no page numbering on title page
+\pagebreak
+
+\setcounter{page}{2} % Start counting on page 2
+\fancyhf{}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyhead[LE,RO]{\rightmark}
+\tableofcontents
+\pagebreak
+
+\section{A section}
+\blindtext[2]
+
+\subsection{poop}
+
+\section{Smoothie}
+\blindtext[2]
+
+\section{Perfect Meal Recipe}
+
+
+\section{Appendices}
+\blindtext[1]
+
+\subsection{Annex A - Interviews}
+
+\end{document}
+
