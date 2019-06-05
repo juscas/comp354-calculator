@@ -21,7 +21,11 @@ public class Transcendentals
 		return moreAccurateApp;
 	}
 
-	// ln approximation function based on the area hyperbolic tangent function - more iterations for more accuracy when size of x increases
+	/**
+	 * ln function that is more accurate the more iterations that are done. Currently set to 1000 iterations.
+	 * @param x: double
+	 * @return ln(x) : double
+	 */
 	static double ln(double x){
 		if (x <= 0){
 			throw new IllegalArgumentException("No values under or equal 0");
