@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 JUN 2019 18:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 JUN 2019 17:41
 entering extended mode
-**"./FINAL REPORT FORMAT.tex"
-("FINAL REPORT FORMAT.tex"
+**./Strategy.tex
+(Strategy.tex
 LaTeX2e <2018-12-01>
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
@@ -432,26 +432,197 @@ ossary-tree.sty"
 Package: glossary-tree 2019/01/06 v4.42 (NLCT)
 \glstreeindent=\skip72
 ))
-\@indexfile=\write3
-\openout3 = `"FINAL REPORT FORMAT.idx"'.
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lipsum\lipsum.sty"
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3.sty"
+Package: expl3 2019-05-28 L3 programming layer (loader) 
 
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3-code.
+tex"
+Package: expl3 2019-05-28 L3 programming layer (code)
+\c_max_int=\count154
+\l_tmpa_int=\count155
+\l_tmpb_int=\count156
+\g_tmpa_int=\count157
+\g_tmpb_int=\count158
+\g__kernel_prg_map_int=\count159
+\c__ior_term_ior=\count160
+\c_log_iow=\count161
+\l_iow_line_count_int=\count162
+\l__iow_line_target_int=\count163
+\l__iow_one_indent_int=\count164
+\l__iow_indent_int=\count165
+\c_zero_dim=\dimen138
+\c_max_dim=\dimen139
+\l_tmpa_dim=\dimen140
+\l_tmpb_dim=\dimen141
+\g_tmpa_dim=\dimen142
+\g_tmpb_dim=\dimen143
+\c_zero_skip=\skip73
+\c_max_skip=\skip74
+\l_tmpa_skip=\skip75
+\l_tmpb_skip=\skip76
+\g_tmpa_skip=\skip77
+\g_tmpb_skip=\skip78
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+\l_keys_choice_int=\count166
+\l__intarray_loop_int=\count167
+\c__intarray_sp_dim=\dimen144
+\g__intarray_font_int=\count168
+\c__fp_leading_shift_int=\count169
+\c__fp_middle_shift_int=\count170
+\c__fp_trailing_shift_int=\count171
+\c__fp_big_leading_shift_int=\count172
+\c__fp_big_middle_shift_int=\count173
+\c__fp_big_trailing_shift_int=\count174
+\c__fp_Bigg_leading_shift_int=\count175
+\c__fp_Bigg_middle_shift_int=\count176
+\c__fp_Bigg_trailing_shift_int=\count177
+\c__kernel_randint_max_int=\count178
+\g__fp_array_int=\count179
+\l__fp_array_loop_int=\count180
+\l__sort_length_int=\count181
+\l__sort_min_int=\count182
+\l__sort_top_int=\count183
+\l__sort_max_int=\count184
+\l__sort_true_max_int=\count185
+\l__sort_block_int=\count186
+\l__sort_begin_int=\count187
+\l__sort_end_int=\count188
+\l__sort_A_int=\count189
+\l__sort_B_int=\count190
+\l__sort_C_int=\count191
+\l__tl_analysis_normal_int=\count192
+\l__tl_analysis_index_int=\count193
+\l__tl_analysis_nesting_int=\count194
+\l__tl_analysis_type_int=\count195
+\l__regex_internal_a_int=\count196
+\l__regex_internal_b_int=\count197
+\l__regex_internal_c_int=\count198
+\l__regex_balance_int=\count199
+\l__regex_group_level_int=\count266
+\l__regex_mode_int=\count267
+\c__regex_cs_in_class_mode_int=\count268
+\c__regex_cs_mode_int=\count269
+\l__regex_catcodes_int=\count270
+\l__regex_default_catcodes_int=\count271
+\c__regex_catcode_D_int=\count272
+\c__regex_catcode_S_int=\count273
+\c__regex_catcode_L_int=\count274
+\c__regex_catcode_O_int=\count275
+\c__regex_catcode_A_int=\count276
+\c__regex_all_catcodes_int=\count277
+\l__regex_show_lines_int=\count278
+\l__regex_min_state_int=\count279
+\l__regex_max_state_int=\count280
+\l__regex_left_state_int=\count281
+\l__regex_right_state_int=\count282
+\l__regex_capturing_group_int=\count283
+\l__regex_min_pos_int=\count284
+\l__regex_max_pos_int=\count285
+\l__regex_curr_pos_int=\count286
+\l__regex_start_pos_int=\count287
+\l__regex_success_pos_int=\count288
+\l__regex_curr_char_int=\count289
+\l__regex_curr_catcode_int=\count290
+\l__regex_last_char_int=\count291
+\l__regex_case_changed_char_int=\count292
+\l__regex_curr_state_int=\count293
+\l__regex_step_int=\count294
+\l__regex_min_active_int=\count295
+\l__regex_max_active_int=\count296
+\l__regex_replacement_csnames_int=\count297
+\l__regex_match_count_int=\count298
+\l__regex_min_submatch_int=\count299
+\l__regex_submatch_int=\count300
+\l__regex_zeroth_submatch_int=\count301
+\g__regex_trace_regex_int=\count302
+\c_empty_box=\box36
+\l_tmpa_box=\box37
+\l_tmpb_box=\box38
+\g_tmpa_box=\box39
+\g_tmpb_box=\box40
+\l__box_top_dim=\dimen145
+\l__box_bottom_dim=\dimen146
+\l__box_left_dim=\dimen147
+\l__box_right_dim=\dimen148
+\l__box_top_new_dim=\dimen149
+\l__box_bottom_new_dim=\dimen150
+\l__box_left_new_dim=\dimen151
+\l__box_right_new_dim=\dimen152
+\l__box_internal_box=\box41
+\l__coffin_internal_box=\box42
+\l__coffin_internal_dim=\dimen153
+\l__coffin_offset_x_dim=\dimen154
+\l__coffin_offset_y_dim=\dimen155
+\l__coffin_x_dim=\dimen156
+\l__coffin_y_dim=\dimen157
+\l__coffin_x_prime_dim=\dimen158
+\l__coffin_y_prime_dim=\dimen159
+\c_empty_coffin=\box43
+\l__coffin_aligned_coffin=\box44
+\l__coffin_aligned_internal_coffin=\box45
+\l_tmpa_coffin=\box46
+\l_tmpb_coffin=\box47
+\g_tmpa_coffin=\box48
+\g_tmpb_coffin=\box49
+\l__coffin_bounding_shift_dim=\dimen160
+\l__coffin_left_corner_dim=\dimen161
+\l__coffin_right_corner_dim=\dimen162
+\l__coffin_bottom_corner_dim=\dimen163
+\l__coffin_top_corner_dim=\dimen164
+\l__coffin_scaled_total_height_dim=\dimen165
+\l__coffin_scaled_width_dim=\dimen166
+\c__coffin_empty_coffin=\box50
+\l__coffin_display_coffin=\box51
+\l__coffin_display_coord_coffin=\box52
+\l__coffin_display_pole_coffin=\box53
+\l__coffin_display_offset_dim=\dimen167
+\l__coffin_display_x_dim=\dimen168
+\l__coffin_display_y_dim=\dimen169
+\g__file_internal_ior=\read1
+\l__seq_internal_a_int=\count303
+\l__seq_internal_b_int=\count304
+\c__deprecation_minus_one=\count305
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\l3pdfmode.d
+ef"
+File: l3pdfmode.def 2019-04-06 v L3 Experimental driver: PDF mode
+\l__driver_internal_box=\box54
+\l__driver_color_stack_int=\count306
+))
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/xparse\xp
+arse.sty"
+Package: xparse 2019-05-28 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count307
+\g__xparse_grabber_int=\count308
+\l__xparse_m_args_int=\count309
+\l__xparse_v_nesting_int=\count310
+)
+Package: lipsum 2019/01/02 v2.2 150 paragraphs of Lorem Ipsum dummy text
 
-Writing index file "FINAL REPORT FORMAT".idx
-("FINAL REPORT FORMAT.aux")
-\openout1 = `"FINAL REPORT FORMAT.aux"'.
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lipsum\lipsum.ltd.te
+x"
+File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
+)) (Strategy.aux)
+\openout1 = `Strategy.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -475,7 +646,7 @@ LaTeX Font Info:    ... okay on input line 91.
 * \headsep=25.0pt
 * \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=57.0pt
+* \marginparwidth=65.0pt
 * \marginparsep=11.0pt
 * \columnsep=10.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
@@ -491,16 +662,16 @@ LaTeX Font Info:    ... okay on input line 91.
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/context/base\supp-pdf.mkii
 "
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count154
-\scratchdimen=\dimen138
-\scratchbox=\box36
-\nofMPsegments=\count155
-\nofMParguments=\count156
+\scratchcounter=\count311
+\scratchdimen=\dimen170
+\scratchbox=\box55
+\nofMPsegments=\count312
+\nofMParguments=\count313
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count157
-\MPscratchDim=\dimen139
-\MPnumerator=\count158
-\makeMPintoPDFobject=\count159
+\MPscratchCnt=\count314
+\MPscratchDim=\dimen171
+\MPnumerator=\count315
+\makeMPintoPDFobject=\count316
 \everyMPtoPDFconversion=\toks38
 )
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-ba
@@ -554,260 +725,34 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-) [1
-
-
-{C:/Users/Dan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-
-Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 112.
-
-("FINAL REPORT FORMAT.toc")
-\tf@toc=\write4
-\openout4 = `"FINAL REPORT FORMAT.toc"'.
-
- [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 126.
-
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 33.
 
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 126.
-<images/ExpectationSignatures.jpg, id=12, 890.5772pt x 658.71094pt>
-File: images/ExpectationSignatures.jpg Graphic file (type jpg)
-<use images/ExpectationSignatures.jpg>
-Package pdftex.def Info: images/ExpectationSignatures.jpg  used on input line 1
-70.
-(pdftex.def)             Requested size: 175.2664pt x 129.62912pt.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
 
-[3 <./images/ExpectationSignatures.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
+[1
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
-
- []
-
-<images/TestingMatrix.jpg, id=20, 512.91624pt x 312.16624pt>
-File: images/TestingMatrix.jpg Graphic file (type jpg)
-<use images/TestingMatrix.jpg>
-Package pdftex.def Info: images/TestingMatrix.jpg  used on input line 236.
-(pdftex.def)             Requested size: 328.62955pt x 200.00958pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
-
- []
-
-[6 <./images/TestingMatrix.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
-
- []
-
-[7]
-<images/UseCaseDiagram.jpg, id=34, 502.87875pt x 422.57875pt>
-File: images/UseCaseDiagram.jpg Graphic file (type jpg)
-<use images/UseCaseDiagram.jpg>
-Package pdftex.def Info: images/UseCaseDiagram.jpg  used on input line 347.
-(pdftex.def)             Requested size: 219.08636pt x 184.09753pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 356--357
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--367
-
- []
-
-[8 <./images/UseCaseDiagram.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 446--447
-
- []
-
-[9] [10] [11] [12] [13] [14] [15] [16]
-<images/sarah.png, id=66, 401.5pt x 401.5pt>
-File: images/sarah.png Graphic file (type png)
-<use images/sarah.png>
-Package pdftex.def Info: images/sarah.png  used on input line 780.
-(pdftex.def)             Requested size: 175.2664pt x 175.26985pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 782--787
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 796--801
-
- []
-
-<images/kevin2.jpg, id=67, 501.875pt x 501.875pt>
-File: images/kevin2.jpg Graphic file (type jpg)
-<use images/kevin2.jpg>
-Package pdftex.def Info: images/kevin2.jpg  used on input line 805.
-(pdftex.def)             Requested size: 175.2664pt x 175.26831pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 807--812
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 826--831
-
- []
-
-[17 <./images/sarah.png> <./images/kevin2.jpg>]
-<images/tarek2.jpg, id=71, 250.9375pt x 305.14pt>
-File: images/tarek2.jpg Graphic file (type jpg)
-<use images/tarek2.jpg>
-Package pdftex.def Info: images/tarek2.jpg  used on input line 834.
-(pdftex.def)             Requested size: 175.2664pt x 213.13557pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 836--842
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 856--862
-
- []
-
-<images/arash.jpg, id=72, 614.295pt x 433.62pt>
-File: images/arash.jpg Graphic file (type jpg)
-<use images/arash.jpg>
-Package pdftex.def Info: images/arash.jpg  used on input line 866.
-(pdftex.def)             Requested size: 175.2664pt x 123.7153pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 868--873
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 889--894
-
- []
-
-[18 <./images/tarek2.jpg> <./images/arash.jpg>]
-<images/victoria.jpg, id=76, 451.6875pt x 301.125pt>
-File: images/victoria.jpg Graphic file (type jpg)
-<use images/victoria.jpg>
-Package pdftex.def Info: images/victoria.jpg  used on input line 896.
-(pdftex.def)             Requested size: 175.2664pt x 116.84554pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 898--903
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 922--927
-
- []
-
-[19 <./images/victoria.jpg>]
-Underfull \hbox (badness 1688) in paragraph at lines 935--935
-[]\OT1/cmr/m/n/10 User wants the cal-cu-la-tor to re-solve his math-e-mat-i-
- []
-
-[20] [21] [22]
-Using TeX to sort glossary entries---this may take a while
-[23
-
-] ("FINAL REPORT FORMAT.aux") ) 
+{C:/Users/Dan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(Strategy.aux) ) 
 Here is how much of TeX's memory you used:
- 10329 strings out of 492946
- 178190 string characters out of 3127155
- 312195 words of memory out of 3000000
- 14019 multiletter control sequences out of 15000+200000
- 9629 words of font info for 35 fonts, out of 3000000 for 9000
+ 19618 strings out of 492946
+ 364151 string characters out of 3127155
+ 622443 words of memory out of 3000000
+ 23309 multiletter control sequences out of 15000+200000
+ 532943 words of font info for 26 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,13n,69p,2010b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dan/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dan/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Dan/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/U
-sers/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7
-.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr10.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Dan/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Dan/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "FINAL REPORT FORMAT.pdf" (23 pages, 682289 bytes).
+ 45i,4n,63p,1997b,317s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmbx12.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Strategy.pdf (1 page, 41210 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 18 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
