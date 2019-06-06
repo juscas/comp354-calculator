@@ -113,18 +113,337 @@ polynomial equation whose coefficients are themselves roots of polynomials"}
 \tableofcontents
 \pagebreak
 
-\section{A section}
-\blindtext[2]
+\section{Team organization and collaboration patterns}
 
-\subsection{poop}
+\subsection{Expectations}
+
+The first thing on our order of business was to do a round table discussions to get everyone's expectations with regards to the team dynamics. The reason for this was so that we would all be on the same page.
+
+\medskip
+
+\textbf{Danny:}
+\begin{compactitem}
+\item Do mathematical research before coding any mathematical functions.
+\item Be able to code in java and have decent technical knowledge 
+\item Be willing to compromise ,or put matters to a vote, at times of conflict
+\end{compactitem}
+\textbf{Dan: }
+\begin{compactitem}
+\item The team should be a supportive place where member can develop - if someone doesn’t know something then the team should be able to teach them. We need to communicate actively and keep our peers in the loop.
+\end{compactitem}
+\textbf{Justin:}
+\begin{compactitem}
+\item I expect everyone to respect each other and have realistic expectations of one and other.
+\item Everyone listen to each other and learn from each other.
+\end{compactitem}
+\textbf{Ashkan:}
+\begin{compactitem}
+\item It seems my level of knowledge is lower than the average of team. So I expect the team to bear with me, assign some simpler tasks to me in the beginning and support me to catch up as soon as possible.
+\end{compactitem}
+\textbf{Andres:}
+\begin{compactitem}
+\item I expect everyone to be respectful with each other
+\item I expect everyone to communicate with each other openly
+\item I expect everyone to be able to communicate if they will not be able to finish a part on time in a timely manner, so adjustments can be made before the deadline with minimal stress
+\item I expect the work to be spread fairly
+\item I expect the work to be spread out considering everyone’s skill sets and what they would like to work on themselves
+\end{compactitem}
+
+\textbf{Expectations Agreed on:}
+\begin{compactitem}
+\item The team should be a supportive place where member can develop - if someone doesn’t know something then the team should be able to teach them. We need to communicate actively and keep our peers in the loop.
+\item Respect one another
+vLearn from each other
+\item Listen 
+\item Communicate openly and constructively
+\item All tasks must be completed before the given deadline
+\item If work will not be finished it MUST be communicated in a timely manner so the team can support and readjust our strategy to deliver our work on time
+\item Team outings after milestones on a budget
+\item Distribute work fairly, evenly, and considering each member’s skill level.
+\end{compactitem}
+\bigskip
+
+This document hereby confirms that all group members listed agree to follow through with these expectations throughout the timespan of this whole project. 
 
 
+\begin{center}
+\includegraphics[width=0.4\textwidth]{ExpectationSignatures.jpg}
+\end{center}
 
-\section{Smoothie}
-\blindtext[2]
+\subsection{Meeting Schedule}
 
-\section{Perfect Meal Recipe}
+We agreed to meet at least once a week for 2 hours. We are also in constant contact on Discord and we all keep apprised of recent pushes to the Git repository to stay up to date with the advancement of the code base and the accompanying documents. Detailed meeting minutes are posted to the Git repository after every meeting by the designated secretary for that meeting. We are also using Google Docs to collaboratively work on draft documentation, which can then be used to create our final documentation with the correct formatting.
 
+\subsection{Our Strategy}
+
+In order to develop a working software calculator prototype in the coming weeks, our team has come up with a development strategy to be prepared for challenges that we may face. This strategy must take into account a plan for writing requirements for features implemented, the technologies selected to develop the calculator, ideas of algorithms for numerical computation of selected functions, and tasks to be allocated to each team member based each of our strengths. With a well advised plan of action, we are much more likely to collaborate efficiently as a team and ultimately meet the deadline of the project. 
+
+\subsection{Choice of technology}
+
+Our team needed to select technologies to meet our software needs while also complementing the team members’ development expertise. The necessary technologies included:
+\medskip
+\begin{compactitem}
+\item main programming language with unit testing libraries, a code documentation interface and a graphical user interface library
+\item communication tools
+\item version control software
+\end{compactitem}
+\medskip
+For our primary programming language we decided to pick the language in which all of our team members had experience writing code in, Java. This allowed each team member to jump right into coding when the time came since no one was blocked having to learn a new language. Java is also advantageous since it has many libraries that we would be able to use for unit testing (Junit), GUI development (JavaFX) and code documentation (Javadoc). Additionally, its object-oriented design fit with how we envisioned designing our calculator program. \\
+
+In order to coordinate with each other outside of regular meeting hours, we decided to use Discord as our communication tool. Discord can be accessed on almost any device, is very reliable and is easy to use. It also allowed us to create different chat channels for different subjects in order to keep our discussions on topic. For example, one channel could be for scheduling and one could be for brainstorming ideas about algorithms. \\
+
+We decided to choose git as our version control software since it is simple enough to use, it has tons of documentation to support our needs and some of our team had already used it. Furthermore, they would allow us to work on the same files at different times and easily keep track of changes made to any of the files. 
+
+\subsection{Task assignment}
+
+During the second team meeting we went over the requirements for deliverable 1 and made a list of all of the things that needed to get done. We quickly saw that this was a significant amount of work and that there were some dependencies between the tasks (ex. do interviews before use cases). We divided the tasks into 3 categories: 1) Information gathering, 2) Consolidation/Report, 3) Coding and prototyping. A cursory evaluation of the workload vs. the deadline showed that we could not possibly deliver all of these tasks on time. Rather than cut out the early-stage prototyping entirely, we decided on making a priority matrix of our tasks with the simple rule that higher priority tasks should be completed before an individual started work on the lower priority ones. \\
+
+We reasoned that the top priority items were those on the critical path of deliverable 1. We all had a good idea of what a calculator should be but we also knew better than to make a product for the developers. Consequently, we absolutely needed the information from the interviews as soon as possible so that we could align our efforts with what the calculator's potential users wanted. This step was so critical and urgent that we put 4 people on it with highest priority. \\
+
+We then consolidated and paraphrased the interview data. We were surprised at just how much information we got from 5 interviewees. Firstly, we extracted the key features each user wanted. Secondly, we distilled down each interview into the key themes that were important for that interviewee. Thirdly, we were able to classify our interviewees based on their expected usage of the calculator (basic use, mathematical use). Lastly, we looked for commonality across the different wants of the interviewees and obtained what we think is a much better approximation of what the market wants from a calculator. \\
+
+One team member was tasked with coming up with an outline of our testing strategy. We decided that since the users all seemed to value accuracy of the mathematical function on the calculator then a test-driven approach to development would be appropriated. \\
+
+Another person was tasked with researching the algorithms needed for the implementation of the non-trivial calculator functions. Some functions had multiple algorithms that varied in complexity. For this first iteration, it was decided that simplicity should be the key criteria in the choice of algorithm since the deadline was so tight. We all agreed that we could reevaluate this strategy for the next iteration. \\
+
+The very last priority was the implementation of the mathematical functions. Some team members were eager to start coding but we decided that it would be a much better idea to focus on the requirements gathering at this stage of development. Consequently, only a very rough implementation of some of these functions appear as code. \\
+
+\begin{table}[ht]
+\centering
+\caption{Task Priority Matrix}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name}&\textbf{Priority 1}  &\textbf{Priority 2}  &\textbf{Priority 3}  \\ \hline
+ Ashkhan&Interviews/personas  &Testing strategy (TDD)  &$a^x$, $10^x$  \\ \hline
+ Daniel F.&Interviews/personas  &Algorithm research  &$x^y$, $\sqrt[n]{x}$  \\ \hline
+ Daniel T.&Coordinate activities  &Use case diagram/desc  &$e^x$  \\ \hline
+ Jaime&Interviews/personas  &Interview summary  &$cos(x)$, $sin(x)$  \\ \hline
+ Justin&Interviews  &Strategy  &$ln(x)$  \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Testing strategy}
+
+For testing purposes, we decided to use Junit to write all of our unit tests. These tests would verify the functionality of our different mathematical functions. We would need to think of and write up as many test cases as possible for different scenarios (negative numbers, large and small numbers, invalid input, etc) in order to cover all potential issues. \\
+
+Test coverage is incredibly important in the early stages of a software project. Early and thorough testing reduces the risk of having an insurmountable amount of bugs later on. Taking this into consideration, we decided to employ a Test Driven Development strategy in which we would write unit tests before the functions were complete and imposed a rule that all valid tests must pass before any team member makes a push to our master branch. This would ensure that whenever anyone pulled from the master branch, they would not have to waste time fixing someone's bugs to work on their own task. \\
+
+We all agree that testing each other's code is of paramount importance to the project. To not do so would lead to colossal wastes of time in tracking down myriad bugs. We made the following testing matrix which will ensure that there are no conflicts of interest in the testing. The arrow indicates who can test who - no arrow means you cannot test that person's code.
+
+\begin{figure}[!h]
+\caption{Testing matrix}
+\centering
+\includegraphics[width=0.75\textwidth]{TestingMatrix}
+\end{figure}
+
+\pagebreak
+
+\section{Requirements Gathering}
+
+In order to create software requirements, our team got together to brainstorm ideas for what features the calculator would have and how to implement them. We made sure our features were realistic, keeping in mind the time constraint of the project and the development experience of the team. Once we had a base for how we thought our calculator could be developed, we decided to conduct interviews on potential users to find out what features everyday users of calculators actually valued and if our initial ideas complemented these. \\
+
+From the answers from our interviewees, we created user personas that had concrete problems and tasks that needed to be completed and that our software would solve. The user personas along with our initial discussions would then inform what different use cases might be for our calculator. The use cases were put into a standard use case diagram so that the high-level design of the calculator could be understood at a glance. Each use case was then expanded in a summary use case description.
+
+\subsection{Common interviewee points summarized}
+
+\textbf{\ \ \ \  Sarah}
+
+\underline{HR Student}
+
+\begin{compactitem}
+\item inputting full eqn like she memorized
+\item physical calculator 
+\item simple calculator
+\item prefers physical calculator but uses others
+\item functions in the book
+\item downloadable functions or packages
+\item cares about precision and the right answer
+\item doesn’t care about aesthetics
+\item hot keys for common functions
+\end{compactitem}
+\bigskip
+
+\textbf{Victoria  Benlala}
+
+\underline{Entrepreneur, Spa Owner}
+
+\begin{compactitem}
+\item Button to calculate the taxes (simple programmable functions)
+\item phyiscal calculatior first doesn’t mind others
+\item doesn’t use complicated functions
+\item simplicity and soft buttons. Would like a more portable version.
+\item mapping numbers to number keys on computer. Being able to have hot keys or set them up himself with the functions he or she is given
+\end{compactitem}
+\bigskip
+
+\textbf{Kevin}
+
+\underline{Engineering student}
+
+\begin{compactitem}
+\item Would like to be able to access functions easily for engineering 
+\item Comfortable with both software and hardware but prefers hardware
+\item He wants shortcuts
+\item Wants basic functions also
+\item Wants to use computer keyboard and not mouse pointer
+\item Portable and key mappable
+\item Use symbols that are already commonly found on calculator on the cpu keyboard also 
+\item Include a shortcut quit key
+\item Hot keys (like S for sin, T for Tan, etc.)
+\item Recommends skins for calculator
+\item Would like downloadable packages for functions to customize calculator
+\end{compactitem}
+\bigskip
+
+\textbf{Tarek}
+
+\underline{Electrical engineering student}
+
+\begin{compactitem}
+\item accuracy, speed, and comfort
+\item basic essential functions
+\item he would like it to be able to plot graphs 
+\item he would like to transfer his work from calculator to mobile
+\item prefers physical but he uses other for quick calculations
+\item wants calculator easy to hold
+\item would like it to be cheap even if it’s customizable
+\end{compactitem}
+\bigskip
+
+\textbf{Arash}
+
+\underline{Avionics Engineering Student}
+
+\begin{compactitem}
+\item specific buttons for each function
+\item prefers an app 
+\item He would assign each function to a specific button
+\end{compactitem}
+
+
+\subsection{Common Ideas}
+\begin{itemize}
+\item Simplicity 
+\item Physical calculators $\rightarrow$ GUI could look like physical calculator
+\item Hot keys 
+\item Simple functions (plus, minus, etc.) 
+\item Portability 
+\item Customizable (physical and software wise)  download functions 
+\end{itemize}
+
+\subsection{Interview Data Summary}
+
+Looking through all the interviews we were able to pick up on some important points that we chose to consider when creating our use case diagrams and to move forth with our project. We interviewed a Human Resource, Mechanical Engineering, Electrical Engineering, and Avionics Engineering student. We also interviewed an Entrepreneur/Spa Owner to gather our data. Each individual had very different needs specifying what kinds of functions they would like to see on their ideal calculator. For example, Engineers wanted integration functions, while an entrepreneur wanted percentages or tax calculating functions. \\
+
+What they all had in common though was the want for simple operations (like addition, subtraction, etc.). They all also wanted simplicity in terms of the calculator's look, how easy it would be to access the functions they wanted to use, understand what they are, and it’s portability. The majority also wanted a reliable calculator in terms of precision and accuracy. They all preferred physical calculators over software calculators (like those you would find on a computer as an extra tool application). They all liked the idea of mapping keys on a computer keyboard to their desired functions to make the calculating experience more personalized and simple to them. They all had different ways they wanted to customize their calculator, which included personalizing it physically and software-wise. The important point though was that customizability was what they valued commonly amongst each other. \\
+
+Based on the research we made from the stakeholders we interviewed, the calculator will need to be \textbf{simple}, \textbf{customizable}, and \textbf{reliable}.
+
+\subsection{Use cases}
+
+With the initial requirements gathering step mostly completed, we were now able to 
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{UseCaseDiagram.jpg}
+\end{center}
+
+\section{Prototyping}
+
+\subsection{Source code overview}
+
+This iteration was mostly marked by requirements gathering mainly through the interview process. A limited amount of research was done into evaluating different algorithms for implementing of some functions. \\
+
+While that was ongoing, we thought that we needed something concrete to present at this stage. While nothing look even remotely like a calculator at this stage, several function were implemented satisfactorily. \\
+
+For example, $ln(x)$, $sin(x)$, $e^x$, and $\sqrt[n]{x}$ were implemented with some measure of success. Choices were made to used the simplest algorithm at this stage and to only test over a certain range of inputs. The full implementation will be done for the next iteration. \\
+
+Following the interviews with the engineering students, we decided on implementing some extra functionality such as $x!$, binomial coefficient, etc. to better satisfy this class of users's needs. We were able to justify their inclusion at this early stage in part due to their relatively simple implementations. \\
+
+There are still an immense amount of implementation details that the team needs to agree on at this stage. The interview process gave us so many ideas and potential requirements/features that we have not had enough time to debate on. We reserve the resolution of these issues for the next iteration. At this stage, it is exciting to see how the product is taking shape. With every meeting we feel we are getting tangibly closer to the final version of the product. We know that we will have some hard decisions to make very soon and that there may be some slight head butting. Regardless, we are all keen on compromising and getting a good product out the door.
+
+\subsection{Algorithms evaluation}
+
+Based on our experience and with the information gleaned from the interview, we decided to implement at least the following transcendental functions: $x^y$, $e^x$, $sin(x)$ and $cos(x)$, $tan(x)$, $ln(x)$ and $sqrt(x)$. Currently, optional functions are $arcsin(x)$, $arccos(x)$, $arctan(x)$. In order to develop solutions for our calculator without help from Java’s math library, we would have to do research on numerical methods to compute these functions. We would have to find the sites with mathematical references such as Wolfram-Alpha, Wikipedia and YouTube in order to find solutions that would be feasible for us. \\
+
+A few of these functions $(sin(x)$, $cos(x)$, $tan(x)$, $e^x$, and the $arc*(x)$ functions could be approximated relatively easily by Taylor polynomials. Series lend themselves naturally to iterative methods (ie. simple 'for' loop) so that is what these algorithms are.
+\bigskip
+
+For example, here is the algorithm for $e^x$:
+
+\begin{center}
+\begin{tabular}{l}
+$result\leftarrow 0$ \\
+
+$precision\leftarrow p$ (arbitraty precision integer) \\
+
+\medskip
+$iterator\leftarrow 0$ \\
+
+\textbf{while} $iterator < precision$ \textbf{do} \\
+
+$\;\;\;result\leftarrow result + \frac{x^i}{i!}$ \\
+
+\medskip
+$\;\;\;i\leftarrow i + 1$ \\
+
+\textbf{return} $result$ \\ \\
+
+\end{tabular}
+\end{center}
+
+This algorithm does not pass test for a wide range of values of $e^x$. Currently, we are debugging this. This is an extremely simple algorithm compared to the other but they mostly take this form. The complexity of this particular algorithm is constant, however, it calls the $x^i$ function which we have implemented hamfistedly as $x$ multiplied by itself $i$ times. We intend to optimize the power function in later iteration to take advantage of the many optimizations possible (ie. bitshifting, etc.). \\
+
+The algorithm for $ln(x)$ is:
+
+\begin{center}
+\begin{tabular}{l}
+{\textbf{if}} $result\leq 0$ \\
+$\;\;\; return$ {\textbf{error}} \medskip \\ 
+
+$precision\leftarrow p$ (arbitraty precision integer) \\
+
+\medskip
+$iterator\leftarrow 0$ \\
+
+\textbf{while} $iterator < precision$ \textbf{do} \\
+
+$\;\;\;result\leftarrow result + \frac{1}{(2i+1)} * \frac{(x-1)}{(x+1)}^{(2i+1)}$ \\
+
+\medskip
+$\;\;\;i\leftarrow i + 1$ \\
+
+\textbf{return} $(2*result)$
+
+\end{tabular}
+\end{center}
+
+The $ln(x)$ algorithm is of a similar vein as $e^x$ and of a similar complexity. Tests have been successful up to about x = 870. We are still debugging this. We think it has something to do with our algorithms being centered around 0 and the solution becoming less and less precise as we increase or decrease x away from 0. We will definitely have this sorted out for iteration 2.
+
+\subsection{Exclusions}
+
+Between the requirements gathering and the work we have already done on the prototype calculator we feel we are in a much better position to evaluate what features and functionality we can currently commit to (see task matrix) and which we must exclude. The following features were discussed and rejected for reasons that are documented in brief in the following table.
+\bigskip
+
+\begin{tabular}[!h]{|p{3.5cm} | p{10cm}|}
+\hline 
+\textbf{Feature} & \textbf{Reason} \\ 
+\hline 
+Distributed on web & No one has web skills. Everyone knows Java. \\ 
+\hline
+User customizations & We are not able to determine the workload that this represents since we are not far in the development of the calculator - TBD.  \\ 
+\hline
+Mobile & Team does not have the skills to do that. \\
+\hline
+Hyperbolic functions & We don't even know what they are. The engineering interviewees never really used them except for \"that one class\". We don't think they are worth the effort. \\
+\hline
+Distributed on web & No one has web skills. Everyone knows Java. \\ 
+\hline
+Animations & No one has any skills with that. This will be the first GUI for some of us. \\ 
+\hline
+\end{tabular} 
+\bigskip
+
+The factor that most limits our willingness to undertake new functionality and features is the lack of skills found within the team. We all have the best intentions and want to provide a fully featured calculator but we had to draw the line somewhere. Currently, we are managing this by concentrating on the deliverable and focusing on the key features that the interviewees brought up. \\
 
 \pagebreak
 \section{Appendices}

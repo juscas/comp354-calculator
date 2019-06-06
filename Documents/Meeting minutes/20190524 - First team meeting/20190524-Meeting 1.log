@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  24 MAY 2019 15:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 JUN 2019 17:04
 entering extended mode
 **"./20190524-Meeting 1.tex"
 ("20190524-Meeting 1.tex"
@@ -135,19 +135,19 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )) ("20190524-Meeting 1.aux")
 \openout1 = `"20190524-Meeting 1.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 26.
 
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -186,33 +186,255 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 84.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 49.
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 84.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 49.
 
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 84.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 49.
 
 
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 84.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 49.
 
 
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 84.
+(Font)              <10.95> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 84.
+(Font)              <8> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 84.
+(Font)              <6> on input line 49.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.50 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Display math should end with $$.
+<to be read again> 
+                   \par 
+l.50 
+     
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.51 \multicolumn{1}{l|}{}
+                           & Function \\
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Undefined control sequence.
+<argument> ...nextchar \ifcase \@chclass \@classz 
+                                                  \or \@classi \or \@classii...
+l.51 \multicolumn{1}{l|}{}
+                           & Function \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@classi ->\ifcase \@lastchclass \@acol 
+                                        \@arrayrule \or \@addtopreamble {\hs...
+l.51 \multicolumn{1}{l|}{}
+                           & Function \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.51 \multicolumn{1}{l|}{} &
+                             Function \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.52 \hline
+           
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Misplaced alignment tab character &.
+l.53 Daniel  &
+               $sin(x), cos(x), tan(x)$  \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.54 \hline
+           
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Misplaced alignment tab character &.
+l.55 Daniel 2.0 &
+                  $10^x$ \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.56 \hline
+           
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Misplaced alignment tab character &.
+l.57 Justin &
+              $\sqrt{x}$\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.58 \hline
+           
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Misplaced alignment tab character &.
+l.59 Ashkhan &
+               $\log_{10} a$  \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.60 \hline
+           
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Misplaced alignment tab character &.
+l.61 Jaime &
+             $x^y$ \\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.62 \hline
+           
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Misplaced \crcr.
+\endtabular ->\crcr 
+                    \egroup \egroup $\egroup 
+l.63 \end{tabular}
+                  
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Extra }, or forgotten \endgroup.
+\endtabular ->\crcr \egroup 
+                            \egroup $\egroup 
+l.63 \end{tabular}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Extra }, or forgotten \endgroup.
+\endtabular ->\crcr \egroup \egroup 
+                                    $\egroup 
+l.63 \end{tabular}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.63 \end{tabular}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+! LaTeX Error: \begin{[} on input line 49 ended by \end{tabular}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 \end{tabular}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.63 \end{tabular}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
 [1{C:/Users/Dan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
@@ -220,17 +442,17 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ("20190524-Meeting 1.aux") ) 
 Here is how much of TeX's memory you used:
  1651 strings out of 492946
- 24828 string characters out of 3127155
- 91676 words of memory out of 3000000
+ 25084 string characters out of 3127155
+ 90676 words of memory out of 3000000
  5550 multiletter control sequences out of 15000+200000
  31983 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,10n,45p,186b,268s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,10n,45p,187b,268s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/enc/dvips/lm/lm-ec.enc}{C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts
 /enc/dvips/lm/lm-rm.enc}{C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/e
-nc/dvips/lm/lm-mathsy.enc}{C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts
-/enc/dvips/lm/lm-mathit.enc}<C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fon
+nc/dvips/lm/lm-mathit.enc}{C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts
+/enc/dvips/lm/lm-mathsy.enc}<C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/lm/lmbx10.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/public/lm/lmbx12.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/lm/lmbxi10.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 
@@ -239,7 +461,7 @@ X 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Dan/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Users/Dan/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/Dan/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
-Output written on "20190524-Meeting 1.pdf" (1 page, 122749 bytes).
+Output written on "20190524-Meeting 1.pdf" (1 page, 124339 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

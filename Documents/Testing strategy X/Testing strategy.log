@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 JUN 2019 18:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 JUN 2019 17:40
 entering extended mode
-**"./FINAL REPORT FORMAT.tex"
-("FINAL REPORT FORMAT.tex"
+**"./Testing strategy.tex"
+("Testing strategy.tex"
 LaTeX2e <2018-12-01>
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
@@ -431,27 +431,21 @@ Package: supertabular 2004/02/20 v4.1e the supertabular environment
 ossary-tree.sty"
 Package: glossary-tree 2019/01/06 v4.42 (NLCT)
 \glstreeindent=\skip72
-))
-\@indexfile=\write3
-\openout3 = `"FINAL REPORT FORMAT.idx"'.
+)) ("Testing strategy.aux")
+\openout1 = `"Testing strategy.aux"'.
 
-
-Writing index file "FINAL REPORT FORMAT".idx
-("FINAL REPORT FORMAT.aux")
-\openout1 = `"FINAL REPORT FORMAT.aux"'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -475,7 +469,7 @@ LaTeX Font Info:    ... okay on input line 91.
 * \headsep=25.0pt
 * \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=57.0pt
+* \marginparwidth=65.0pt
 * \marginparsep=11.0pt
 * \columnsep=10.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
@@ -554,260 +548,40 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-) [1
-
-
-{C:/Users/Dan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-
-Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 112.
-
-("FINAL REPORT FORMAT.toc")
-\tf@toc=\write4
-\openout4 = `"FINAL REPORT FORMAT.toc"'.
-
- [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 126.
-
-
-("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 126.
-<images/ExpectationSignatures.jpg, id=12, 890.5772pt x 658.71094pt>
-File: images/ExpectationSignatures.jpg Graphic file (type jpg)
-<use images/ExpectationSignatures.jpg>
-Package pdftex.def Info: images/ExpectationSignatures.jpg  used on input line 1
-70.
-(pdftex.def)             Requested size: 175.2664pt x 129.62912pt.
-
-[3 <./images/ExpectationSignatures.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
-
- []
-
-<images/TestingMatrix.jpg, id=20, 512.91624pt x 312.16624pt>
+<images/TestingMatrix.jpg, id=1, 512.91624pt x 312.16624pt>
 File: images/TestingMatrix.jpg Graphic file (type jpg)
 <use images/TestingMatrix.jpg>
-Package pdftex.def Info: images/TestingMatrix.jpg  used on input line 236.
+Package pdftex.def Info: images/TestingMatrix.jpg  used on input line 30.
 (pdftex.def)             Requested size: 328.62955pt x 200.00958pt.
+[1
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
-
- []
-
-[6 <./images/TestingMatrix.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
-
- []
-
-[7]
-<images/UseCaseDiagram.jpg, id=34, 502.87875pt x 422.57875pt>
-File: images/UseCaseDiagram.jpg Graphic file (type jpg)
-<use images/UseCaseDiagram.jpg>
-Package pdftex.def Info: images/UseCaseDiagram.jpg  used on input line 347.
-(pdftex.def)             Requested size: 219.08636pt x 184.09753pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 356--357
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--367
-
- []
-
-[8 <./images/UseCaseDiagram.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 446--447
-
- []
-
-[9] [10] [11] [12] [13] [14] [15] [16]
-<images/sarah.png, id=66, 401.5pt x 401.5pt>
-File: images/sarah.png Graphic file (type png)
-<use images/sarah.png>
-Package pdftex.def Info: images/sarah.png  used on input line 780.
-(pdftex.def)             Requested size: 175.2664pt x 175.26985pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 782--787
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 796--801
-
- []
-
-<images/kevin2.jpg, id=67, 501.875pt x 501.875pt>
-File: images/kevin2.jpg Graphic file (type jpg)
-<use images/kevin2.jpg>
-Package pdftex.def Info: images/kevin2.jpg  used on input line 805.
-(pdftex.def)             Requested size: 175.2664pt x 175.26831pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 807--812
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 826--831
-
- []
-
-[17 <./images/sarah.png> <./images/kevin2.jpg>]
-<images/tarek2.jpg, id=71, 250.9375pt x 305.14pt>
-File: images/tarek2.jpg Graphic file (type jpg)
-<use images/tarek2.jpg>
-Package pdftex.def Info: images/tarek2.jpg  used on input line 834.
-(pdftex.def)             Requested size: 175.2664pt x 213.13557pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 836--842
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 856--862
-
- []
-
-<images/arash.jpg, id=72, 614.295pt x 433.62pt>
-File: images/arash.jpg Graphic file (type jpg)
-<use images/arash.jpg>
-Package pdftex.def Info: images/arash.jpg  used on input line 866.
-(pdftex.def)             Requested size: 175.2664pt x 123.7153pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 868--873
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 889--894
-
- []
-
-[18 <./images/tarek2.jpg> <./images/arash.jpg>]
-<images/victoria.jpg, id=76, 451.6875pt x 301.125pt>
-File: images/victoria.jpg Graphic file (type jpg)
-<use images/victoria.jpg>
-Package pdftex.def Info: images/victoria.jpg  used on input line 896.
-(pdftex.def)             Requested size: 175.2664pt x 116.84554pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 898--903
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 922--927
-
- []
-
-[19 <./images/victoria.jpg>]
-Underfull \hbox (badness 1688) in paragraph at lines 935--935
-[]\OT1/cmr/m/n/10 User wants the cal-cu-la-tor to re-solve his math-e-mat-i-
- []
-
-[20] [21] [22]
-Using TeX to sort glossary entries---this may take a while
-[23
-
-] ("FINAL REPORT FORMAT.aux") ) 
+{C:/Users/Dan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/Test
+ingMatrix.jpg>] ("Testing strategy.aux") ) 
 Here is how much of TeX's memory you used:
- 10329 strings out of 492946
- 178190 string characters out of 3127155
- 312195 words of memory out of 3000000
- 14019 multiletter control sequences out of 15000+200000
- 9629 words of font info for 35 fonts, out of 3000000 for 9000
+ 9891 strings out of 492946
+ 170001 string characters out of 3127155
+ 303426 words of memory out of 3000000
+ 13606 multiletter control sequences out of 15000+200000
+ 4553 words of font info for 17 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,13n,69p,2010b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dan/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dan/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Dan/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/U
-sers/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7
-.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr10.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Dan/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Dan/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "FINAL REPORT FORMAT.pdf" (23 pages, 682289 bytes).
+ 45i,5n,43p,2007b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Dan/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dan/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dan/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on "Testing strategy.pdf" (1 page, 69846 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 19 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
