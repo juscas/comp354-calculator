@@ -1,35 +1,59 @@
 \documentclass{article}
-\usepackage{booktabs}
 
-\newcommand\addrow[2]{#1 &#2\\ }
+\usepackage{enumitem}
+	%\setlist{nolistsep,leftmargin=*}
 
-\newcommand\addheading[2]{#1 &#2\\ \hline}
-\newcommand\tabularhead{\begin{tabular}{lp{10cm}}
-\hline
-}
 
-\newcommand\addmulrow[2]{ \begin{minipage}[t][][t]{2.5cm}#1\end{minipage}% 
-   &\begin{minipage}[t][][t]{10cm}
-    \begin{enumerate} #2   \end{enumerate}
-    \end{minipage}\\ }
 
-\newenvironment{usecase}{\tabularhead}
-{\hline\end{tabular}}
 
 \begin{document}
-{\Large\textit{Use case description}} \\
-\begin{usecase}
-  \addheading{\textbf{Name:}}{Store variables}
-  \addheading{\textbf{Identifier}}{UC 3}
-  \addrow{\textbf{Description}}{Blah blah blah}
-  \addrow{\textbf{Precondition}}{The system, shows, in the form part of an object type, the number   indication.}
-  \addrow{\textbf{Postcondition}}{A disconnected number indicating the type of `other constructed object'.}
-  \addmulrow{\textbf{Main path}}{
-  	\item User selects \ldots
-    \item System demands \ldots}
-  \addmulrow{\textbf{Alt. path}}{
-  	\item User selects \ldots
-    \item System demands \ldots}
-\end{usecase}
+
+
+
+\begin{table}[!h]
+\begin{tabular}{|p{3cm}|p{9cm}|}
+\hline
+\textbf{ID} & UC 3  \\ \hline
+\textbf{Name} & Store variables  \\ \hline
+\textbf{Description} & User want to store values that can be recalled during calculations by referencing an alphabetical label.  \\ \hline
+\textbf{Pre-condition} &
+	\begin{itemize}
+		\vspace{-2mm}
+		\item Calculator is on
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Post-condition} &
+	\begin{itemize}
+		\vspace{-2mm}
+		\item A number is stored in the calculator's memory and is ready to be retrieved by invoking its alphabetical label.
+		\item User should be able to clear or overwrite a stored variable.
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Basic path} &
+	\begin{enumerate}
+		\vspace{-2mm}
+		\item This use case starts with the user entering an alphabetical label that will eventually be used to recall the stored value.
+		\item The user then presses "equals" to indicate that a value is to be stored under the chosen label.
+		\item The user then presses "enter" which tells the calculator to store the variable under the aforementioned label.
+		\item At any point during a calculation (UC 1), the user can evoke the value stored in a variable by entering the corresponding alphabetic character.
+		\item The calculator substitutes the variables's value into the calculation.
+		\vspace{-3.5mm}
+	\end{enumerate}  \\ \hline
+\textbf{Alternative Path} &
+	\begin{itemize}[leftmargin=6mm]
+		\vspace{-2mm}
+		\item [1a.] Clearing the variable
+			\begin{enumerate}
+				\item User enters the alphabetic label of the variable that requires clearing (value and label appear on display).
+				\item User presses "clear".
+				\item The calculator shows the variable is now cleared.
+			\end{enumerate}
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\end{tabular}
+\caption{UC 3 - Store variables}
+\end{table}
+
+
 
 \end{document}

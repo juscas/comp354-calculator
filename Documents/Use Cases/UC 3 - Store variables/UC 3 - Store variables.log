@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  1 JUN 2019 23:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  5 JUN 2019 19:30
 entering extended mode
 **"./UC 3 - Store variables.tex"
 ("UC 3 - Store variables.tex"
@@ -20,49 +20,45 @@ File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/booktabs\booktabs.st
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/enumitem\enumitem.st
 y"
-Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen103
-\lightrulewidth=\dimen104
-\cmidrulewidth=\dimen105
-\belowrulesep=\dimen106
-\belowbottomsep=\dimen107
-\aboverulesep=\dimen108
-\abovetopsep=\dimen109
-\cmidrulesep=\dimen110
-\cmidrulekern=\dimen111
-\defaultaddspace=\dimen112
-\@cmidla=\count88
-\@cmidlb=\count89
-\@aboverulesep=\dimen113
-\@belowrulesep=\dimen114
-\@thisruleclass=\count90
-\@lastruleclass=\count91
-\@thisrulewidth=\dimen115
-)
-No file "UC 3 - Store variables".aux.
+Package: enumitem 2019/02/04 v3.8 Customized lists
+\enitkv@toks@=\toks14
+\labelindent=\skip43
+\enit@outerparindent=\dimen103
+\enit@toks=\toks15
+\enit@inbox=\box27
+\enit@count@id=\count88
+\enitdp@description=\count89
+) ("UC 3 - Store variables.aux")
 \openout1 = `"UC 3 - Store variables.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 21.
+(Font)              <7> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 21.
+(Font)              <5> on input line 14.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
 
-Overfull \hbox (34.65945pt too wide) in paragraph at lines 20--34
-[] 
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
+
+Overfull \hbox (20.43306pt too wide) in paragraph at lines 14--54
+[][] 
  []
 
 [1
@@ -70,18 +66,18 @@ Overfull \hbox (34.65945pt too wide) in paragraph at lines 20--34
 {C:/Users/Dan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 ("UC 3 - Store variables.aux") ) 
 Here is how much of TeX's memory you used:
- 278 strings out of 492946
- 3763 string characters out of 3127155
- 61693 words of memory out of 3000000
- 4255 multiletter control sequences out of 15000+200000
- 4593 words of font info for 17 fonts, out of 3000000 for 9000
+ 546 strings out of 492946
+ 8778 string characters out of 3127155
+ 72098 words of memory out of 3000000
+ 4520 multiletter control sequences out of 15000+200000
+ 3948 words of font info for 15 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 23i,11n,17p,162b,227s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 23i,10n,20p,193b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dan/AppData/Local/Programs
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Dan/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "UC 3 - Store variables.pdf" (1 page, 41835 bytes).
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on "UC 3 - Store variables.pdf" (1 page, 40982 bytes).
 PDF statistics:
  18 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -1,8 +1,11 @@
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}A section}{3}
-\contentsline {subsection}{\numberline {1.1}poop}{3}
-\contentsline {section}{\numberline {2}Smoothie}{3}
-\contentsline {section}{\numberline {3}Perfect Meal Recipe}{3}
-\contentsline {section}{\numberline {4}Appendices}{3}
-\contentsline {subsection}{\numberline {4.1}Annex A - Interviews}{3}
-\contentsline {section}{Glossary}{4}
+\contentsline {section}{\numberline {1}A section}{3}% 
+\contentsline {subsection}{\numberline {1.1}poop}{3}% 
+\contentsline {section}{\numberline {2}Smoothie}{3}% 
+\contentsline {section}{\numberline {3}Perfect Meal Recipe}{3}% 
+\contentsline {section}{\numberline {4}Appendices}{4}% 
+\contentsline {subsection}{\numberline {4.1}Appendix A - Interview Questionnaire}{4}% 
+\contentsline {subsection}{\numberline {4.2}Appendix B - Interview transcripts}{5}% 
+\contentsline {subsection}{\numberline {4.3}Appendix C - Personas}{11}% 
+\contentsline {subsection}{\numberline {4.4}Appendix D - Use Case Descriptions}{14}% 
+\contentsline {section}{Glossary}{17}% 

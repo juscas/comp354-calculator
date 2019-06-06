@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage{enumitem}
+	%\setlist{nolistsep,leftmargin=*}
+
+
+
+
+\begin{document}
+
+
+
+\begin{table}[!h]
+
+\begin{tabular}{|p{3cm}|p{9cm}|}
+\hline
+\textbf{ID} & UC 2  \\ \hline
+\textbf{Name} & Recover previous result  \\ \hline
+\textbf{Description} & User wants to recall the result of a previous calculation and be able use it in another calculation.  \\ \hline
+\textbf{Pre-condition} &
+	\begin{itemize}
+		\vspace{-2mm}
+		\item Calculator is on
+		\item A successful calculation has already taken place (UC 1)
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Post-condition} &
+	\begin{itemize}
+		\vspace{-2mm}
+		\item User sees result of previous calculation and can input it into another calculation.
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Basic path} &
+	\begin{enumerate}
+		\vspace{-2mm}
+		\item User presses "Ans" button which will input result of the previous calculation into the current calculation.
+		\item User carries on with the rest of the calculation (UC 1).
+		\vspace{-3.5mm}
+	\end{enumerate}  \\ \hline
+\textbf{Alternative Path} &
+	\begin{itemize}[leftmargin=6mm]
+		\vspace{-2mm}
+		\item [1a.] User can press "mem" button and see a list of previous results that can be chosen for the current calculation.
+			\begin{enumerate}
+				\item User presses "mem" button
+				\item User scrolls to the desired result
+				\item User presses "enter" button to insert select result into current calculation.
+			\end{enumerate}
+		
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\end{tabular}
+\caption{UC 2 - Recover previous result}
+\end{table}
+
+
+
+\end{document}

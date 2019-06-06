@@ -1,35 +1,57 @@
 \documentclass{article}
-\usepackage{booktabs}
 
-\newcommand\addrow[2]{#1 &#2\\ }
-
-\newcommand\addheading[2]{#1 &#2\\ \hline}
-\newcommand\tabularhead{\begin{tabular}{lp{10cm}}
-\hline
-}
-
-\newcommand\addmulrow[2]{ \begin{minipage}[t][][t]{2.5cm}#1\end{minipage}% 
-   &\begin{minipage}[t][][t]{10cm}
-    \begin{enumerate} #2   \end{enumerate}
-    \end{minipage}\\ }
-
-\newenvironment{usecase}{\tabularhead}
-{\hline\end{tabular}}
+\usepackage{enumitem}
+%	\setlist{nolistsep,leftmargin=*} % this breaks the final report's other enumerates - don't know why?? Its awesome formating if you can get it to not break everything though!!
 
 \begin{document}
-{\Large\textit{Use case description}} \\
-\begin{usecase}
-  \addheading{\textbf{Name:}}{Calculate result}
-  \addheading{\textbf{Identifier}}{UC 1}
-  \addrow{\textbf{Description}}{Blah blah blah}
-  \addrow{\textbf{Precondition}}{The system, shows, in the form part of an object type, the number   indication.}
-  \addrow{\textbf{Postcondition}}{A disconnected number indicating the type of `other constructed object'.}
-  \addmulrow{\textbf{Main path}}{
-  	\item User selects \ldots
-    \item System demands \ldots}
-  \addmulrow{\textbf{Alt. path}}{
-  	\item User selects \ldots
-    \item System demands \ldots}
-\end{usecase}
+
+
+
+\begin{table}[!h]
+\begin{tabular}{|p{3cm}|p{9cm}|}
+\hline
+\textbf{ID} & UC 1  \\ \hline
+\textbf{Name} & Calculate result  \\ \hline
+\textbf{Description} & User wants the calculator to resolve his mathematical expression to a satisfactory level of precision near-instantaneously.  \\ \hline
+\textbf{Pre-condition} &
+	\begin{itemize}
+		\vspace{-2mm}
+		\item Calculator is on
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Post-condition} &
+	\begin{itemize}
+		\vspace{-2mm}
+		\item Calculator takes user input, parses, calculates, and arrives at a correct result.
+		\item Calculator saves the result of this operation for future use (UC 2).
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Basic path} &
+	\begin{enumerate}
+		\vspace{-2mm}
+		\item This use case starts with the user entering a mathematical expression into the calculator.
+		\item When satisfied with inputted expression user presses "=" button or "enter" on keyboard.
+		\item Calculator performs resolution of the arithmetic expression.
+		\item Calculator stores the result of the expression (UC 4).
+		\vspace{-3.5mm}
+	\end{enumerate}  \\ \hline
+\textbf{Alternative Path} &
+	\begin{itemize}[leftmargin=6mm]
+		\vspace{-2mm}
+		\item [1b.] User enters a letter and number in order to store a variable (UC 3).
+		\item [3a.] Calculator detects a syntax or arithmetic error in user's input.
+			\begin{enumerate}
+				\item Calculator detect the type of exception.
+				\item Calculator displays this exception on screen (UC 4)
+				\item User can clear exception and return to the offending arithmetic expression and attempt to correct the error (return to Basic Path 2).
+			\end{enumerate}
+		
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\end{tabular}
+\caption{UC 1 - Calculate result}
+\end{table}
+
+
 
 \end{document}

@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage{enumitem}
+	\setlist{nolistsep,leftmargin=*}
+
+\begin{document}
+
+\begin{table}[!h]
+\begin{tabular}{|p{3cm}|p{9cm}|}
+\hline
+\textbf{ID} & UC 4  \\ \hline
+\textbf{Name} & Display Result  \\ \hline
+\textbf{Description} & User wants the calculator to resolve his mathematical expression to a satisfactory level of precision near-instantaneously.  \\ \hline
+\textbf{Pre-condition} &
+	\begin{itemize}
+		\vspace{-2mm}
+		\item Result was calculated.
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Post-condition} &
+	\begin{itemize}
+		\vspace{-2mm}
+		\item Intermediate calculation is displayed on screen.
+		\item 
+		\item 
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Basic path} &
+	\begin{enumerate}
+		\vspace{-2mm}
+		\item sample
+		\vspace{-3.5mm}
+	\end{enumerate}  \\ \hline
+\textbf{Alternative Path} &
+	\begin{itemize}[leftmargin=6mm]
+		\vspace{-2mm}
+		\item [1b.] sample
+		\item [3a.] Calculator detects a syntax or arithmetic error in user's input.
+			\begin{enumerate}
+				\item Calculator detect the type of exception.
+				\item Calculator displays this exception on screen (UC 4)
+				\item User can clear exception and return to the offending arithmetic expression and attempt to correct the error (return to Basic Path 2).
+			\end{enumerate}
+		
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\end{tabular}
+\caption{UC 1 - Calculate result}
+\end{table}
+
+
+
+\end{document}
