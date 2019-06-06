@@ -1,33 +1,88 @@
+import java.util.Scanner;
+
 public class Main
 {
 	public static void main(String[] args) {
 
-		
-		
-		
-	} // ***END OF main***
+		Scanner input = new Scanner(System.in);
 
-	private static void testCos(double number) {
-		for(int i = 0; i < 100; ++i) {
-			System.out.println(Transcendentals.cos(number) - Math.cos(number));
-			number += 0.1;
-		}
-	}
+		//keeps looping until user types exit
+		while(true){
+		System.out.println("Please input the number for the function:" +
+				"\n\t- Addition (...)				-e^ (1)	"+
+				"\n\t- Subtraction (...)" +
+				"\n\t- Multiplication (...)"+
+				"\n\t- Division (..)"+
+				"\n\t- root (2)"+
+				"\n\t- factorial (1)"+
+				"\n\t- ln (1) "+
+				"\n\t- exit (0)"
 
-	private static void testSquareRoot(double number) {
-		System.out.println("Testing square roots from " + number + " to " + (number + 99));
-		for(int i = 0; i < 100; ++i) {
-			System.out.println("Square root of " + number + " is " + Transcendentals.squareRoot(number));
-			number+=1;
+		);
+		// obtaining the inputed string and splitting it at " "
+		String[] splited = input.nextLine().split(" ");
+
+		//converting the function name to lower case
+		String function = splited[0].toLowerCase();
+
+		double[] arguments= new double[splited.length-1];
+		for (int i = 1; i <=arguments.length ; i++) {
+			arguments[i-1]=Double.parseDouble(splited[i]);
 		}
-	}
-	
-	private static void sinTest(double number) {
-		System.out.println("Testing the sin(x) function vs the stock java.Math.sin(x) functions:");
-		for(int i = 0; i < 100; ++i) {
-			System.out.println("number = " + number + "|| answer = " + (Transcendentals.sin(number) - Math.sin(number)));
-			number += 0.1;
+
+
+		switch (function) {
+			case "addition": {
+				System.out.println(MathFunctions.add(arguments));
+				break;
+			}
+			case "subtraction": {
+				System.out.println(MathFunctions.subtract(arguments));
+				break;
+			}
+			case "multiplication": {
+				System.out.println(MathFunctions.multiply(arguments));
+				break;
+			}
+			case "division": {
+				System.out.println(MathFunctions.divide(arguments));
+				break;
+
+			}
+			case "root": {
+				if (arguments[1]!=(int)arguments[1]){
+					System.out.println("The root has to be an integer");
+					break;
+				}else {
+					System.out.println(MathFunctions.nroot(arguments[0], (int) arguments[1]));
+				}
+			}
+			case "factorial": {
+				if (arguments[0]!=(int)arguments[0]) {
+					System.out.println("Math error: argument has to be an integer");
+					break;
+				}else {
+					System.out.println(MathFunctions.factorial((int) arguments[0]));
+					break;
+				}
+			}
+			case "ln":{
+				System.out.println(Transcendentals.ln(arguments[0]));
+				break;
+			}
+			case "e^":{
+				System.out.println(Transcendentals.e_to_x(arguments[0]));
+				break;
+			}
+			case "exit": {
+				System.exit(0);
+			}
 		}
+		}
+
+
+
 	}
 }
+
 
