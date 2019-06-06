@@ -1,0 +1,19 @@
+\begin{center}
+\begin{tabular}{l}
+$result\leftarrow 0$ \\
+
+$precision\leftarrow p$ (arbitraty precision integer) \\
+
+\medskip
+$iterator\leftarrow 0$ \\
+
+\textbf{while} $iterator < precision$ \textbf{do} \\
+
+$\;\;\;result\leftarrow result + \frac{x^i}{i!}$ \\
+
+\medskip
+$\;\;\;i\leftarrow i + 1$ \\
+
+\textbf{return} $result$ \\
+\end{tabular}
+\end{center}
