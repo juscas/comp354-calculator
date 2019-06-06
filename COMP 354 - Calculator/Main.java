@@ -10,7 +10,7 @@ public class Main
 		while(true){
 		System.out.println("Please input the number for the function:" +
 				"\n\t- Addition (...)				-e^ (1)	"+
-				"\n\t- Subtraction (...)" +
+				"\n\t- Subtraction (...)            -manual       " +
 				"\n\t- Multiplication (...)"+
 				"\n\t- Division (..)"+
 				"\n\t- root (2)"+
@@ -74,6 +74,10 @@ public class Main
 				System.out.println(Transcendentals.e_to_x(arguments[0]));
 				break;
 			}
+			case "manual":{
+				printManual();
+				break;
+			}
 			case "exit": {
 				System.exit(0);
 			}
@@ -82,6 +86,52 @@ public class Main
 
 
 
+	}
+	public static void printManual(){
+		System.out.println("-Addition (...)\n" +
+				"  SYNTAX: addition [Double ...]\n" +
+				"  PARAMETER LIMIT: infinit  \n" +
+				"  RETURN TYPE: Double \n" +
+				"\n" +
+				"-Subtraction (...)\n" +
+				"  SYNTAX: subtraction [Double ...]\n" +
+				"  PARAMETER LIMIT: infinit  \n" +
+				"  RETURN TYPE: Double  \n" +
+				"\n" +
+				"-Multiplication (...)\n" +
+				"  SYNTAX: multiplication [Double ...]\n" +
+				"  PARAMETER LIMIT: infinit \n" +
+				"  DISCRIPTION: Multiplies the all the numbers in the parameters list \n" +
+				"  RETURN TYPE: Double \n" +
+				"\n" +
+				"-Division (...)\n" +
+				"  SYNTAX: division [Double ...]\n" +
+				"  PARAMETER LIMIT: infinit\n" +
+				"  RETURN TYPE: Double \n" +
+				"  DUSCRUPTION: Divides the first parameters by the 2nd. The answers of \n" +
+				"               that division is divided by the 3rd, which is then \n" +
+				"\t       devided by the 4th...\n" +
+				"  RETURN TYPE: Double \n" +
+				"\n" +
+				"-root (2)\n" +
+				"  SYNTAX: root [Double] [Integer]\n" +
+				"  PARAMETER LIMIT: 2\n" +
+				"  DISCRIPTION: Calculates the nth root of the 1st parameter, where n is\n" +
+				"               the 2nd parameter\n" +
+				"  RETURN TYPE: Double \n" +
+				"\n" +
+				"-factorial (1)\n" +
+				"  SYNTAX: factorial [Long/Integer]\n" +
+				"  PARAMETER LIMIT: 1\n" +
+				"  DISCRIPTION: Calculates factorial of the 1st parameter\n" +
+				"  RETURN TYPE: Long \n" +
+				"\n" +
+				"-ln (1)\n" +
+				"  SYNTAX: ln [Double]\n" +
+				"  PARAMETER LIMIT: 1\n" +
+				"  DISCRIPTION: Calculates natural logarithm of the 1st parameter\n" +
+				"  RETURN TYPE: Double \n" +
+				"\n");
 	}
 }
 

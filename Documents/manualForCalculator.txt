@@ -1,0 +1,45 @@
+-Addition (...)
+  SYNTAX: addition [Double ...]
+  PARAMETER LIMIT: infinit  
+  RETURN TYPE: Double 
+
+-Subtraction (...)
+  SYNTAX: subtraction [Double ...]
+  PARAMETER LIMIT: infinit  
+  RETURN TYPE: Double  
+
+-Multiplication (...)
+  SYNTAX: multiplication [Double ...]
+  PARAMETER LIMIT: infinit 
+  DISCRIPTION: Multiplies the all the numbers in the parameters list 
+  RETURN TYPE: Double 
+
+-Division (...)
+  SYNTAX: division [Double ...]
+  PARAMETER LIMIT: infinit
+  RETURN TYPE: Double 
+  DUSCRUPTION: Divides the first parameters by the 2nd. The answers of 
+               that division is divided by the 3rd, which is then 
+	       devided by the 4th...
+  RETURN TYPE: Double 
+
+-root (2)
+  SYNTAX: root [Double] [Integer]
+  PARAMETER LIMIT: 2
+  DISCRIPTION: Calculates the nth root of the 1st parameter, where n is
+               the 2nd parameter
+  RETURN TYPE: Double 
+
+-factorial (1)
+  SYNTAX: factorial [Long/Integer]
+  PARAMETER LIMIT: 1
+  DISCRIPTION: Calculates factorial of the 1st parameter
+  RETURN TYPE: Long 
+
+-ln (1)
+  SYNTAX: ln [Double]
+  PARAMETER LIMIT: 1
+  DISCRIPTION: Calculates natural logarithm of the 1st parameter
+  RETURN TYPE: Double 
+
+
