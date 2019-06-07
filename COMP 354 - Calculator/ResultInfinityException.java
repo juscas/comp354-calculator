@@ -1,5 +1,3 @@
-
-
 public class ResultInfinityException extends ArithmeticException
 {
 	/**
@@ -11,7 +9,7 @@ public class ResultInfinityException extends ArithmeticException
 	
 	/**
 	 * Constructor that lets you set the message.
-	 * @param message
+	 * @param message:String
 	 */
 	public ResultInfinityException(String message) {
 		super(message);
@@ -19,3 +17,4 @@ public class ResultInfinityException extends ArithmeticException
 	
 	
 }
+
