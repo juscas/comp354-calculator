@@ -12,9 +12,10 @@ public class DivideByZeroException extends ArithmeticException
 	
 	/**
 	 * Constructor that lets you set the message.
-	 * @param message
+	 * @param message:String
 	 */
 	public DivideByZeroException(String message) {
 		super(message);
 	}
 }
+
