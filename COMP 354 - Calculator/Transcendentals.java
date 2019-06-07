@@ -34,10 +34,16 @@ public class Transcendentals
 		if (x <= 0){
 			throw new IllegalArgumentException("No values under or equal 0");
 		}
+		int precision = 1000;
+
+		// Change this in the future to figure out something more efficient for precision
+		if (x > 400){
+			precision = 5000;
+		}
 
 		double sum = 0;
 
-		for (int i = 0; i < 1000; i++){
+		for (int i = 0; i < precision; i++){
 			sum += 1.0/(2*i +1)*MathFunctions.intPower(((x-1)/(x+1)), (2*i + 1));
 		}
 
