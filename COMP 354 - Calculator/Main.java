@@ -13,7 +13,7 @@ public class Main
 
 		//keeps looping until user types exit
 		while(true){
-		System.out.println("Please input the number for the function:   (you can type 'man [FunctionName] to get a manual of the function)" +
+		System.out.println("Please input the name of the function followed by the parameters (separated by spaces): (you can type 'man [FunctionName] to get more information about the function)" +
 				"\n\t- Addition (...)				-e^ (1)"+
 				"\n\t- Subtraction (...)             -power (2)"+
 				"\n\t- Multiplication (...)						"+
