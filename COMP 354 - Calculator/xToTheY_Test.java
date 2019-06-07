@@ -6,7 +6,6 @@ class xToTheY_Test
 {
 
 	@Test
-	// To be changed, I have to cast to float because scientific notation makes results offset
 	void _e_x() {
 		for (int i = 1; i < 20; i++) {
 			assertEquals(Transcendentals.realPower(Math.E, i), Math.pow(Math.E,i), 0.00001, "Fail at x = " + i + ".");
@@ -28,10 +27,25 @@ class xToTheY_Test
 	}
 
 	@Test
-	void _1to1000() {
-		for (int i = 1; i < 1000; i = i + 5){
-			//assertEquals(Transcendentals.ln(i), Math.log(i), 0.00001, "Fail at x = " + String.valueOf(i) + ".");
-		}
+	void _1to50() {
+		for (int i = 1; i < 50; i++) {
+            for (int j = 1; j < 10; j++) {
+                assertEquals(Transcendentals.realPower(i, j), Math.pow(i, j), 1, "Fail at i = " + i + " and j = " + j + ".");
+            }
+        }
 	}
+/*
+    @Test
+    void _1to10_Decimals() {
+        double j = 0.1;
 
+        for (int i = 1; i < 10; i++) {
+            while (j < 1.0) {
+                assertEquals(Transcendentals.realPower(i, j), Math.pow(i, j), 0.00001, "Fail at x = " + String.valueOf(j) + ".");
+                j += 0.1;
+                System.out.println(Transcendentals.realPower(i, j) + " " + Math.pow(i, j));
+            }
+        }
+    }
+*/
 }

@@ -22,4 +22,13 @@ class lnX_Test
             assertEquals(Transcendentals.ln(i), Math.log(i), 0.00001, "Fail at x = " + String.valueOf(i) + ".");
         }
 	}
+
+    @Test
+    void _1to100_Decimals() {
+        double i = 0.1;
+        while(i < 100.0){
+            assertEquals(Transcendentals.ln(i), Math.log(i), 0.00001, "Fail at x = " + String.valueOf(i) + ".");
+            i += 0.01;
+        }
+    }
 }
