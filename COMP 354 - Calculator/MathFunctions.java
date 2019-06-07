@@ -46,7 +46,7 @@ public class MathFunctions
 	
 	/**
 	 * Converts from degrees to radians.
-	 * @param degrees: double
+	 * @param degree: double
 	 * @return radians: double
 	 */
 	public static double degreeToRadian(double degree) {
@@ -267,7 +267,7 @@ public class MathFunctions
 			result *= x[i];
 		return result;
 	}
-	
+
 	/**
 	 * Divides variable amount of numbers.
 	 * @param x: double
@@ -275,8 +275,13 @@ public class MathFunctions
 	 */
 	public static double divide(double ... x) {
 		double result = x[0];
-		for(int i = 1; i < x.length; ++i)
+		for(int i = 1; i < x.length; ++i) {
+			if (x[i] == 0) {
+				System.out.println("Cannot divide by zero.");
+				return Double.NaN;
+			}
 			result /= x[i];
+		}
 		return result;
 	}
 }
