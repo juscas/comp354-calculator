@@ -9,15 +9,16 @@
 \contentsline {section}{\numberline {2}Requirements Gathering}{6}% 
 \contentsline {subsection}{\numberline {2.1}Common interviewee points summarized}{6}% 
 \contentsline {subsection}{\numberline {2.2}Common Ideas}{7}% 
-\contentsline {subsection}{\numberline {2.3}Interview Data Summary}{7}% 
+\contentsline {subsection}{\numberline {2.3}Interview Data Summary}{8}% 
 \contentsline {subsection}{\numberline {2.4}Use cases}{8}% 
 \contentsline {section}{\numberline {3}Prototyping}{8}% 
 \contentsline {subsection}{\numberline {3.1}Source code overview}{8}% 
-\contentsline {subsection}{\numberline {3.2}Algorithms evaluation}{8}% 
-\contentsline {subsection}{\numberline {3.3}Exclusions}{9}% 
-\contentsline {section}{\numberline {4}Appendices}{10}% 
-\contentsline {subsection}{\numberline {4.1}Appendix A - Interview Questionnaire}{10}% 
-\contentsline {subsection}{\numberline {4.2}Appendix B - Interview transcripts}{11}% 
-\contentsline {subsection}{\numberline {4.3}Appendix C - Personas}{17}% 
-\contentsline {subsection}{\numberline {4.4}Appendix D - Use Case Descriptions}{20}% 
-\contentsline {section}{Glossary}{23}% 
+\contentsline {subsection}{\numberline {3.2}Algorithms evaluation}{9}% 
+\contentsline {subsection}{\numberline {3.3}Exclusions}{10}% 
+\contentsline {section}{\numberline {4}Appendices}{11}% 
+\contentsline {subsection}{\numberline {4.1}Appendix A - Interview Questionnaire}{11}% 
+\contentsline {subsection}{\numberline {4.2}Appendix B - Interview transcripts}{12}% 
+\contentsline {subsection}{\numberline {4.3}Appendix C - Personas}{18}% 
+\contentsline {subsection}{\numberline {4.4}Appendix D - Use Case Descriptions}{21}% 
+\contentsline {section}{\numberline {5}F - Draft Calculator User Manual}{25}% 
+\contentsline {section}{Glossary}{26}% 
