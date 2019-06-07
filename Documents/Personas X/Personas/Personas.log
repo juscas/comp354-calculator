@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 JUN 2019 15:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 JUN 2019 22:15
 entering extended mode
 **./Personas.tex
 (Personas.tex
@@ -242,7 +242,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 154--159
 [5 <./images/victoria.jpg>] (Personas.aux) ) 
 Here is how much of TeX's memory you used:
  1641 strings out of 492946
- 25022 string characters out of 3127155
+ 24938 string characters out of 3127155
  87912 words of memory out of 3000000
  5540 multiletter control sequences out of 15000+200000
  4562 words of font info for 17 fonts, out of 3000000 for 9000
@@ -254,7 +254,7 @@ cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dan
 /AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
 /Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y10.pfb>
-Output written on Personas.pdf (5 pages, 401097 bytes).
+Output written on Personas.pdf (5 pages, 401081 bytes).
 PDF statistics:
  39 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
