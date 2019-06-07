@@ -10,24 +10,30 @@
 \hline
 \textbf{ID} & UC 4  \\ \hline
 \textbf{Name} & Display Result  \\ \hline
-\textbf{Description} & User wants the calculator to resolve his mathematical expression to a satisfactory level of precision near-instantaneously.  \\ \hline
+\textbf{Description} & User wants clear display of the calculation as it is being inputted. User also wants the calculator to display clear results and appropriate error messages. \\ \hline
 \textbf{Pre-condition} &
 	\begin{itemize}
 		\vspace{-2mm}
-		\item Result was calculated.
+		\item Result was calculated, or
+		\item User inputs values in calculator
 		\vspace{-3.5mm}
 	\end{itemize}  \\ \hline
-\textbf{Post-condition} &
+\textbf{Post-condition} & 
 	\begin{itemize}
 		\vspace{-2mm}
 		\item Intermediate calculation is displayed on screen.
-		\item 
+		\item Final results are displayed on screen.
+		\item Error messages are displayes correctly.
 		\vspace{-3.5mm}
 	\end{itemize}  \\ \hline
 \textbf{Basic path} &
 	\begin{enumerate}
 		\vspace{-2mm}
-		\item sample
+		\item User turns on the calculator
+			\begin{itemize}
+			\item[1a.] Welcome message is displayed.
+			\end{itemize}
+		\item User enters a 
 		\vspace{-3.5mm}
 	\end{enumerate}  \\ \hline
 \textbf{Alternative Path} &
@@ -44,7 +50,7 @@
 		\vspace{-3.5mm}
 	\end{itemize}  \\ \hline
 \end{tabular}
-\caption{UC 1 - Calculate result}
+\caption{UC 4 - Calculate result}
 \end{table}
 
 

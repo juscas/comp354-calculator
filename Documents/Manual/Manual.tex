@@ -1,0 +1,121 @@
+\documentclass{article}
+
+
+\usepackage[a4paper, inner=1.7cm, outer=2.7cm, top=2cm, bottom=2cm, bindingoffset=1.2cm]{geometry}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+	\graphicspath{ {images/} }
+\usepackage{wrapfig}
+\usepackage{paralist}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[toc,section=section]{glossaries}
+\usepackage{enumitem}
+
+\begin{document}
+
+
+\begin{flushleft}
+
+\textbf{\Large Calculator Instructions:}
+
+\begin{enumerate}
+\item Start the calculator program 
+\item Read the available functions listed
+\item Each function will have the number of required parameters in the brackets 
+\item type in the function name, along with the function parameters, all seperated by space.
+\item type exit to quite the program
+\end{enumerate}
+
+
+\textbf{\Large Function Manual}
+
+Addition (...)
+\begin{compactitem}
+  \item [] SYNTAX: addition [Double ...]
+  \item [] PARAMETER LIMIT: infinite
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+Subtraction (...)
+\begin{compactitem}
+  \item [] SYNTAX: subtraction [Double ...]
+  \item [] PARAMETER LIMIT: infinite
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+Multiplication (...)
+\begin{compactitem}
+  \item [] SYNTAX: multiplication [Double ...]
+  \item [] PARAMETER LIMIT: infinite
+  \item [] DESCRIPTION: Multiplies the all the numbers in the parameters list
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+Division (...)
+\begin{compactitem}
+  \item [] SYNTAX: division [Double ...]
+  \item [] PARAMETER LIMIT: infinite
+  \item [] RETURN TYPE: Double
+  \item [] DESCRIPTION: Divides the first parameters by the 2nd. The answers of 
+               that division is divided by the 3rd, which is then 
+	       devided by the 4th...
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+root (2)
+\begin{compactitem}
+  \item [] SYNTAX: root [Double] [Integer]
+  \item [] PARAMETER LIMIT: 2
+  \item [] DESCRIPTION: Calculates the nth root of the 1st parameter, where n is
+               the 2nd parameter
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+factorial (1)
+\begin{compactitem}
+  \item [] SYNTAX: factorial [Long/Integer]
+  \item [] PARAMETER LIMIT: 1
+  \item [] DESCRIPTION: Calculates factorial of the 1st parameter
+  \item [] RETURN TYPE: Long
+\end{compactitem}
+\medskip
+
+ln (1)
+\begin{compactitem}
+  \item [] SYNTAX: ln [Double]
+  \item [] PARAMETER LIMIT: 1
+  \item [] DESCRIPTION: Calculates natural logarithm of the 1st parameter
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+$e^x$ (1)
+\begin{compactitem}
+  \item [] SYNTAX: $e^[Double]$
+  \item [] PARAMETER LIMIT: 1
+  \item [] DESCRIPTION: Calculates Eulers number to the power of 1st parameter
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+power (2)
+\begin{compactitem}
+  \item [] SYNTAX: power [Double, Double]
+  \item [] PARAMETER LIMIT: 2
+  \item [] DESCRIPTION: Calculates parameter 1 to the power of parameter 2
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+\end{flushleft}
+
+\end{document}

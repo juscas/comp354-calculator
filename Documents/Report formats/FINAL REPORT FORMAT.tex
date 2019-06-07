@@ -236,6 +236,31 @@ We all agree that testing each other's code is of paramount importance to the pr
 \includegraphics[width=0.75\textwidth]{TestingMatrix}
 \end{figure}
 
+The source code peer review was organized such a way that no pair of people review each others code. \\
+
+The code review was done in the similar order :
+
+\medskip
+\textit{Jaime Andres Hernandez $\rightarrow$ Daniel Fakhr $\rightarrow$ Justin Castonguay $\rightarrow$ Ashkan Yaghma $\rightarrow$ Daniel Thibult-Shea $\rightarrow$ Jaime andres Hernandez.}
+\medskip
+
+The following table summarize some of the code reviews that were undertaken and the associated comments provided to the reviewees.
+
+
+\begin{table}[]
+\begin{tabular}{|l|l|l|}
+\hline
+Reviewer                                                            & Reviewee                                                         & Comments                                                                                                                                                                                                                                                                    \\ \hline
+\begin{tabular}[c]{@{}l@{}}Jaime\\ \\ Andres Hernandez\end{tabular} & Daniel Fakhr                                                     & \begin{tabular}[c]{@{}l@{}}-Try to follow Proper formatting\\ (some of your code is not properly indented)\\ -Try to comment more, some functions are missing comments.\\ \\ -Use JavaDoc comments so we can auto-generate docs\end{tabular}                                \\ \hline
+Daniel Fakhr                                                        & Justing Castonguay                                               & \begin{tabular}[c]{@{}l@{}}-Use more comments. Some of your comments are uncommented\\ -Test your functions. Some of them don't work as they should \\ -Use "throws Exception" in the method declaration when not \\ catching the Exception within the method.\end{tabular} \\ \hline
+Justing Castonguay                                                  & Ashkan Yaghma                                                    & \begin{tabular}[c]{@{}l@{}}-Format your code better\\ -Use better variable names\end{tabular}                                                                                                                                                                               \\ \hline
+Ashkan Yaghma                                                       & Daniel Thibault-Shea                                             & \begin{tabular}[c]{@{}l@{}}-Don't leave commented code.\\ -Comment your functions.\end{tabular}                                                                                                                                                                             \\ \hline
+Daniel Thibault-Shea                                                & \begin{tabular}[c]{@{}l@{}}Jaime\\ Andres Hernandez\end{tabular} & \begin{tabular}[c]{@{}l@{}}-Write JavaDoc comments (including comments for constants)\\ -Elaborate more in your comments \\ -Try to make your code more efficient\end{tabular}                                                                                              \\ \hline
+\end{tabular}
+\end{table}
+
+
+
 \pagebreak
 
 \section{Requirements Gathering}
@@ -1061,7 +1086,156 @@ At the Spa, Victoria uses a calculator to calculate all of her business expenses
 \end{table}
 \pagebreak
 
+\begin{table}[!h]
+\begin{tabular}{|p{3cm}|p{9cm}|}
+\hline
+\textbf{ID} & UC 4  \\ \hline
+\textbf{Name} & Display Result  \\ \hline
+\textbf{Description} & User wants clear display of the calculation as it is being inputted. User also wants the calculator to display clear results and appropriate error messages. \\ \hline
+\textbf{Pre-condition} &
+	\begin{itemize}
+		\vspace{-2mm}
+		\item Result was calculated, or
+		\item User inputs values in calculator
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Post-condition} & 
+	\begin{itemize}
+		\vspace{-2mm}
+		\item Intermediate calculation is displayed on screen.
+		\item Final results are displayed on screen.
+		\item Error messages are displayes correctly.
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\textbf{Basic path} &
+	\begin{enumerate}
+		\vspace{-2mm}
+		\item User turns on the calculator
+			\begin{itemize}
+			\item [1a.] Welcome message is displayed.
+			\end{itemize}
+		\item User enters a calculation. The input calculation is displayed on scree as it is typed.
+		\item User presses "=" to calculate (UC 1).
+		\item The result of the calculation is displayed on screen.
+		\vspace{-3.5mm}
+	\end{enumerate}  \\ \hline
+\textbf{Alternative Path} &
+	\begin{itemize}[leftmargin=6mm]
+		\vspace{-2mm}
+		\item [4a.] An error occured and the appropriate message is displayed to the user.
+			\begin{itemize}
+			\item [1] User can clear the error and attempt to correct it.
+			\end{itemize}
+		
+		\vspace{-3.5mm}
+	\end{itemize}  \\ \hline
+\end{tabular}
+\caption{UC 4 - Calculate result}
+\end{table}
 
+\pagebreak
+
+\section{F - Draft Calculator User Manual}
+
+\begin{flushleft}
+
+\textbf{\Large Calculator Instructions:}
+
+\begin{enumerate}
+\item Start the calculator program 
+\item Read the available functions listed
+\item Each function will have the number of required parameters in the brackets 
+\item type in the function name, along with the function parameters, all seperated by space.
+\item type exit to quite the program
+\end{enumerate}
+
+
+\textbf{\Large Function Manual}
+
+Addition (...)
+\begin{compactitem}
+  \item [] SYNTAX: addition [Double ...]
+  \item [] PARAMETER LIMIT: infinite
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+Subtraction (...)
+\begin{compactitem}
+  \item [] SYNTAX: subtraction [Double ...]
+  \item [] PARAMETER LIMIT: infinite
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+Multiplication (...)
+\begin{compactitem}
+  \item [] SYNTAX: multiplication [Double ...]
+  \item [] PARAMETER LIMIT: infinite
+  \item [] DESCRIPTION: Multiplies the all the numbers in the parameters list
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+Division (...)
+\begin{compactitem}
+  \item [] SYNTAX: division [Double ...]
+  \item [] PARAMETER LIMIT: infinite
+  \item [] RETURN TYPE: Double
+  \item [] DESCRIPTION: Divides the first parameters by the 2nd. The answers of 
+               that division is divided by the 3rd, which is then 
+	       devided by the 4th...
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+root (2)
+\begin{compactitem}
+  \item [] SYNTAX: root [Double] [Integer]
+  \item [] PARAMETER LIMIT: 2
+  \item [] DESCRIPTION: Calculates the nth root of the 1st parameter, where n is
+               the 2nd parameter
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+factorial (1)
+\begin{compactitem}
+  \item [] SYNTAX: factorial [Long/Integer]
+  \item [] PARAMETER LIMIT: 1
+  \item [] DESCRIPTION: Calculates factorial of the 1st parameter
+  \item [] RETURN TYPE: Long
+\end{compactitem}
+\medskip
+
+ln (1)
+\begin{compactitem}
+  \item [] SYNTAX: ln [Double]
+  \item [] PARAMETER LIMIT: 1
+  \item [] DESCRIPTION: Calculates natural logarithm of the 1st parameter
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+$e^x$ (1)
+\begin{compactitem}
+  \item [] SYNTAX: $e^[Double]$
+  \item [] PARAMETER LIMIT: 1
+  \item [] DESCRIPTION: Calculates Eulers number to the power of 1st parameter
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+power (2)
+\begin{compactitem}
+  \item [] SYNTAX: power [Double, Double]
+  \item [] PARAMETER LIMIT: 2
+  \item [] DESCRIPTION: Calculates parameter 1 to the power of parameter 2
+  \item [] RETURN TYPE: Double
+\end{compactitem}
+\medskip
+
+\end{flushleft}
 
 \clearpage
 \glsaddallunused
