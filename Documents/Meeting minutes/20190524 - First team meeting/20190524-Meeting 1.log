@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 JUN 2019 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 JUN 2019 21:22
 entering extended mode
 **"./20190524-Meeting 1.tex"
 ("20190524-Meeting 1.tex"
@@ -233,16 +233,16 @@ So I shall assume that you typed `$$' both times.
 ! Misplaced \omit.
 \multispan ->\omit 
                    \@multispan 
-l.51 \multicolumn{1}{l|}{}
-                           & Function \\
+l.51 \multicolumn{1}{|l|l|}{}
+                              & Function \\
 I expect to see \omit only after tab marks or the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
 ! Undefined control sequence.
 <argument> ...nextchar \ifcase \@chclass \@classz 
                                                   \or \@classi \or \@classii...
-l.51 \multicolumn{1}{l|}{}
-                           & Function \\
+l.51 \multicolumn{1}{|l|l|}{}
+                              & Function \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -252,8 +252,30 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 \@classi ->\ifcase \@lastchclass \@acol 
                                         \@arrayrule \or \@addtopreamble {\hs...
-l.51 \multicolumn{1}{l|}{}
-                           & Function \\
+l.51 \multicolumn{1}{|l|l|}{}
+                              & Function \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...nextchar \ifcase \@chclass \@classz 
+                                                  \or \@classi \or \@classii...
+l.51 \multicolumn{1}{|l|l|}{}
+                              & Function \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@classi ->\ifcase \@lastchclass \@acol 
+                                        \@arrayrule \or \@addtopreamble {\hs...
+l.51 \multicolumn{1}{|l|l|}{}
+                              & Function \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -261,8 +283,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Misplaced alignment tab character &.
-l.51 \multicolumn{1}{l|}{} &
-                             Function \\
+l.51 \multicolumn{1}{|l|l|}{} &
+                                Function \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -461,7 +483,7 @@ X 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Dan/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Users/Dan/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/Dan/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
-Output written on "20190524-Meeting 1.pdf" (1 page, 124339 bytes).
+Output written on "20190524-Meeting 1.pdf" (1 page, 124344 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
