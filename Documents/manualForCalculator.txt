@@ -1,0 +1,67 @@
+Calculator Instructions:
+  1-Sart the calculator program 
+  2-Read the available functions listed
+  3-Each function will have the number of required parameters in the brackets 
+  3-type in the function name, along with the function parameters, all seperated by space.
+  5-type exit to quite the program
+
+Function Manual
+
+-Addition (...)
+  SYNTAX: addition [Double ...]
+  PARAMETER LIMIT: infinit  
+  RETURN TYPE: Double 
+
+-Subtraction (...)
+  SYNTAX: subtraction [Double ...]
+  PARAMETER LIMIT: infinit  
+  RETURN TYPE: Double  
+
+-Multiplication (...)
+  SYNTAX: multiplication [Double ...]
+  PARAMETER LIMIT: infinit 
+  DESCRIPTION: Multiplies the all the numbers in the parameters list 
+  RETURN TYPE: Double 
+
+-Division (...)
+  SYNTAX: division [Double ...]
+  PARAMETER LIMIT: infinit
+  RETURN TYPE: Double 
+  DESCRUPTION: Divides the first parameters by the 2nd. The answers of 
+               that division is divided by the 3rd, which is then 
+	       devided by the 4th...
+  RETURN TYPE: Double 
+
+-root (2)
+  SYNTAX: root [Double] [Integer]
+  PARAMETER LIMIT: 2
+  DESCRIPTION: Calculates the nth root of the 1st parameter, where n is
+               the 2nd parameter
+  RETURN TYPE: Double 
+
+-factorial (1)
+  SYNTAX: factorial [Long/Integer]
+  PARAMETER LIMIT: 1
+  DESCRIPTION: Calculates factorial of the 1st parameter
+  RETURN TYPE: Long 
+
+-ln (1)
+  SYNTAX: ln [Double]
+  PARAMETER LIMIT: 1
+  DESCRIPTION: Calculates natural logarithm of the 1st parameter
+  RETURN TYPE: Double 
+
+-e^ (1)
+  SYNTAX: e^ [Double]
+  PARAMETER LIMIT: 1
+  DESCRIPTION: Calculates eulers number to the power of 1st parameter
+  RETURN TYPE: Double
+
+-power (2)
+  SYNTAX: e^ [Double, Double]
+  PARAMETER LIMIT: 2
+  DESCRIPTION: Calculates parameter 1 to the power of parameter 2
+  RETURN TYPE: Double 
+
+
+

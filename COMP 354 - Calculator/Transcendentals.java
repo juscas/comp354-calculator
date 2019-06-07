@@ -1,7 +1,11 @@
-
 public class Transcendentals
 {
-	// Babylonian/Newton's Method for approximating square roots (good for smaller numbers, larger number require more iterations to be accuratez)
+	/**
+	 * Babylonian/Newton's Method for approximating square roots 
+	 * (good for smaller numbers, larger number require more iterations to be accurate)
+	 * @param x:double
+	 * @return square root of x:double
+	 */
 	static double squareRoot(double x) {
 
 		if (x == 0){
@@ -106,8 +110,8 @@ public class Transcendentals
 	 *
 	 * UNTESTED AND DEFINITELY BROKEN
 	 * Calculates cos(x) provided x is in radians.
-	 * @param x
-	 * @return
+	 * @param x: double
+	 * @return cos(x):double
 	 */
 	public static double cos(double x) {
 		
@@ -152,7 +156,7 @@ public class Transcendentals
 	 * Calculates arcsin of x.
 	 * 
 	 * @param x: double
-	 * @return arcsion(x): double
+	 * @return arcsin(x): double
 	 */
 	public static double arcsin(double x) {
 		double result = 0;
