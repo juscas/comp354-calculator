@@ -238,12 +238,12 @@ public class MathFunctions
 	 * @return result: double
 	 */
 	public static double add(double ... x) {
-		double result = 0;
-		for(int i = 0; i < x.length; ++i)
+		double result = x[0];
+		for(int i = 1; i < x.length; ++i)
 			result += x[i];
 		return result;
 	}
-	
+
 	/**
 	 * Subtracts variable amount of numbers.
 	 * @param x: double
@@ -255,7 +255,7 @@ public class MathFunctions
 			result -= x[i];
 		return result;
 	}
-	
+
 	/**
 	 * Multiplies variable amount of numbers.
 	 * @param x: double
@@ -276,10 +276,7 @@ public class MathFunctions
 	public static double divide(double ... x) {
 		double result = x[0];
 		for(int i = 1; i < x.length; ++i) {
-			if (x[i] == 0) {
-				System.out.println("Cannot divide by zero.");
-				return Double.NaN;
-			}
+			if (x[i] == 0) throw new DivideByZeroException();
 			result /= x[i];
 		}
 		return result;

@@ -51,12 +51,12 @@ public class Transcendentals
 	}
 	
 	//(needs testing for accuracy) power function for decimal/fractional exponents
-	static double realPower(double base, double exponent){
+	static double power(double base, double exponent){
 
 		//if the exponent value is an integer, we perform the simple power function in MathFunctions class
 		if(exponent==(int)exponent)
 			return MathFunctions.intPower(base,(int)exponent);
-		
+
 		int integerExp;			//integer part of the exponent
 		int decimalExp;			//decimal part of the exponent
 		double integerValue;	//value of the base number to the power of integerExp (i.e. just the integer part of the exponent)
@@ -84,14 +84,17 @@ public class Transcendentals
 		//converting the refined decimal number back to int
 		decimalExp = Integer.parseInt(tempDecimal);
 
+		//if the exponent provided is negative, then so should the decimal part of the exponent
+		if(exponent<0) decimalExp = decimalExp*-1;
+
 		//using the power function from class MathFunctions to calculate the value of the base number to the power of the integer
 		//part of the exponent
 		integerValue = MathFunctions.intPower(base,integerExp);
 
 		//calculation of base^(1/decimallength) is estimated using Newton's method
 		//in this function we're applying the equation (base^(1/decimallength))^decimalExp which is = to base^(decimalExp/decimallength)
-		decimalValue = MathFunctions.intPower(MathFunctions.nroot(base,decimallength),decimalExp);
-		
+		decimalValue = MathFunctions.intPower(MathFunctions.nroot(base,decimallength,10),decimalExp);
+
 		return integerValue*decimalValue;
 	}
 		
