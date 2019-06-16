@@ -156,7 +156,10 @@ public class MathFunctions
 	 * @param x: int
 	 * @return the nth root of the base number
 	 */
-	public static double nroot(double base, int root, int x) {
+	public static double nroot(double base, int root, int x) throws ImaginaryNumberException {
+
+		//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
+		if(root%2 == 0&&base<0) throw new ImaginaryNumberException();
 
 		//initial random guess is set to 5
 		double aprx = 5;
