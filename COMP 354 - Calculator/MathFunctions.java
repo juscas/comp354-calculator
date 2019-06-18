@@ -284,4 +284,51 @@ public class MathFunctions
 		}
 		return result;
 	}
+	
+		/**
+	 * This gives the value of cos(x) where x is in radians.
+	 * @param radians: double
+	 * @return cos(radians): double
+	 */
+	public static double cos(double radians) {
+		
+		double result = 1; // first term of the Taylor expansion of cos(x) is +1
+		int accuracy = 6; // how many terms to calculate to (max 6 or else imprecise)
+		int posNeg = -1; // used to alternate between +/- in the series.
+		
+		radians = bringRadiansAroundZero(radians);
+		
+		// This is the Taylor expansion of cos(x)
+		for(int i = 1; i <= accuracy; ++i) {
+			result += posNeg * (MathFunctions.intPower(radians, 2*i) / MathFunctions.factorial(2*i));
+			posNeg = -posNeg; // flip sign for the next term
+		}
+		
+		return result;
+	}
+	
+	
+	/**
+	 * This is a helper functions. Some taylor expansions are only precise for values arount 0. This
+	 * method aims to bring radian angles down by multiples of 2Pi to get the values that is closest
+	 * to 0. (useful for ex. sin(x), cos(x).
+	 * @param radians: double
+	 * @return radians around 0: double.
+	 */
+	private static double bringRadiansAroundZero(double radians) {
+		
+		radians %= 2 * MathFunctions.PI;
+		
+		double alternateRadians = 0.0;
+		
+		if(radians > 0)
+			alternateRadians = radians - (2 * MathFunctions.PI);
+		else
+			alternateRadians = radians + (2 * MathFunctions.PI);
+		
+		if(MathFunctions.abs(alternateRadians) < MathFunctions.abs(radians))
+			radians = alternateRadians; // use the alternate instead.
+		
+		return radians;
+	}
 }
