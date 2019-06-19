@@ -199,7 +199,43 @@ public class MathFunctions
 	public static double nroot (double base, int root){
 		return nroot(base,root,0);
 	}
-	
+
+	/**
+	 * Calculates the greatest common divisor .
+	 * @param x: double
+	 * @param y: double
+	 * @return double
+	 */
+	public static double GCD (double x , double y){
+		double gcd=1;
+		double positiveX = MathFunctions.abs(x);
+		double positiveY = MathFunctions.abs(y);
+		for( int i=2;i<positiveX && i<positiveY;i++){
+			if(positiveX%i==0 && positiveY%i==0)
+				gcd =i;
+		}
+		return gcd;
+	}
+
+	/**
+	 * accepts a fraction and returns a simplified one in the from of an array
+	 * @param numerator: double
+	 * @param denominator: double
+	 * @return ans[0] : the simplified numerator , ans[1] : the simplified denominator
+	 */
+	public static  double[] fractionSimplify (double numerator, double denominator){
+		double[] ans = new double[2];
+
+		//calculating the GCD
+		double gcd = GCD(numerator,denominator);
+
+		//setting the simplified numerator
+		ans[0] = numerator/gcd;
+		//setting the simplified denominator
+		ans[1] = denominator/gcd;
+		return ans;
+	}
+
 	/**
 	 * Calculates the binomial coefficient (aka. "n choose K" or "nCk").
 	 * @param n: long
