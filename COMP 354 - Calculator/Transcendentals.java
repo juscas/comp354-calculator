@@ -62,6 +62,7 @@ public class Transcendentals
 		double integerValue;	//value of the base number to the power of integerExp (i.e. just the integer part of the exponent)
 		double decimalValue;    //value of the base number to the power of decimalExp (i.e. just the decimal part of the exponent)
 		int decimallength = 1;	//value of the denominator when the decimal is converted into a fraction
+		double positiveBase = MathFunctions.abs(base);
 
 		//converting the exponent number into array of 2 strings. 1 containing the integer part, the other containing the decimal part
 		//the integer String is converted into an int again. The decimal part will be trimmed of any useless 0s on the right
@@ -69,6 +70,10 @@ public class Transcendentals
 
 		//the decimal part of the given exponent, still in String form
 		String tempDecimal = String.valueOf(exponent).split("\\.")[1];
+
+		//if the base is negative, and the power is any number where the first decimal number is an odd integer, then it throws an exception
+		// (this is a math error)
+		if(base<0&&Integer.parseInt(tempDecimal.substring(0,1))%2!=0) throw new ImaginaryNumberException();
 
 		//removing any 0s from the right side of the decimal value
 		while(tempDecimal.charAt(tempDecimal.length()-1)==0){
@@ -84,12 +89,24 @@ public class Transcendentals
 		//converting the refined decimal number back to int
 		decimalExp = Integer.parseInt(tempDecimal);
 
-		//if the exponent provided is negative, then so should the decimal part of the exponent
-		if(exponent<0) decimalExp = decimalExp*-1;
-
 		//using the power function from class MathFunctions to calculate the value of the base number to the power of the integer
 		//part of the exponent
 		integerValue = MathFunctions.intPower(base,integerExp);
+
+		//if the exponent provided is negative, then so should the decimal part of the exponent
+		if(exponent<0) decimalExp = decimalExp*-1;
+
+		//when the base is negative, we have to check for imaginary numbers
+		if(base<0){
+
+			double[] temp =  MathFunctions.fractionSimplify(decimalExp,decimallength);
+			decimalExp = (int) temp[0];
+			decimallength = (int) temp[1];
+
+			//if the denominator of the fraction (which is derived from the decimal part of the exponent) is even,
+			// then the result would be an imaginary number
+			if(decimallength%2==0) throw new ImaginaryNumberException();
+		}
 
 		//calculation of base^(1/decimallength) is estimated using Newton's method
 		//in this function we're applying the equation (base^(1/decimallength))^decimalExp which is = to base^(decimalExp/decimallength)
