@@ -132,6 +132,14 @@ public class Transcendentals
 		return result;
 	}
 	
+	public static double sinh(double x){
+		return (power(2.718281828459045,x)-power(2.718281828459045,-x))/2;
+	}
+
+	public static double cosh(double x){
+		return (power(2.718281828459045,x)+power(2.718281828459045,-x))/2;
+	}
+	
 	/**
 	 *
 	 * UNTESTED AND DEFINITELY BROKEN
