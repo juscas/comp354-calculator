@@ -3,15 +3,65 @@ import java.util.Scanner;
 public class Main
 {
 	public static void main(String[] args) {
+		
+		Parser p1 = new Parser();
+		
+		String[] goodBrackets = {
+				"()(()){([()])}",
+				"((()(()){([()])}))",
+				"(){}[]",
+				"()",
+				""
+		};
+		
+		String[] badBrackets = {
+				")(()){([()])}",
+				"({[])}",
+				"(",
+				")"
+		};
+		
+		
+		System.out.println(p1.bracketMatch(badBrackets[3]));
+		
+		
+		
+//		Danny2sMainFunction();
+		
+	}
 
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void Danny2sMainFunction() {
+		double increment = 0.001;
+		double value = 0;
+		double squareError = 0;
+		
+		for(int i = 0; i < 2000; ++i) {
+			System.out.println(i + "|||" + (MathFunctions.e_to_x(value) - Math.pow(MathFunctions.E, value)));
+			value += increment;
+			squareError += Math.pow((MathFunctions.e_to_x(value) - Math.pow(MathFunctions.E, value)),2);
+		}
+		System.out.println("SQUARE ERROR: " + squareError);
+		
+		
 		Scanner input = new Scanner(System.in);
 		String manStr=null;		//String parameter for the manual request
 		String[] splited;	//raw input string seperated by " "
 		String function;	//String variable for the function name
 		double[] arguments; //String array of arguments given after the function name
 		String decimallength=".15"; //number of desimals to display
-
+	
 		//keeps looping until user types exit
 		while(true){
 			System.out.println("\nPlease input the function name, followed by the required parameters, or type in 'man [FunctionName]' for function manual\n" +
@@ -23,17 +73,17 @@ public class Main
 					"\n\t6- factorial (1)								"+
 					"\n\t7- ln (1) 										"+
 					"\n\t8- exit (0)"
-
+	
 			);
 			// obtaining the inputed string and splitting it at " "
 			splited = input.nextLine().split(" ");
-
+	
 			//converting the function name to lower case
 			function = splited[0].toLowerCase();
-
+	
 			arguments= new double[splited.length-1];
-
-
+	
+	
 			for (int i = 1; i <=arguments.length ; i++) {
 				try {
 					arguments[i-1]=Double.parseDouble(splited[i]);
@@ -41,8 +91,8 @@ public class Main
 					manStr=splited[i];
 				}
 			}
-
-
+	
+	
 			switch (function) {
 				case "addition": {
 					System.out.printf("%"+decimallength+"f \n",MathFunctions.add(arguments));
@@ -59,7 +109,7 @@ public class Main
 				case "division": {
 					System.out.printf("%"+decimallength+"f \n",MathFunctions.divide(arguments));
 					break;
-
+	
 				}
 				case "root": {
 					if (arguments[1]!=(int)arguments[1]){
@@ -79,16 +129,16 @@ public class Main
 					}
 				}
 				case "ln":{
-					System.out.printf("%"+decimallength+"f \n",Transcendentals.ln(arguments[0]));
+					System.out.printf("%"+decimallength+"f \n",MathFunctions.ln(arguments[0]));
 					break;
 				}
 				case "e^":{
-					System.out.printf("%"+decimallength+"f \n",Transcendentals.e_to_x(arguments[0]));
+					System.out.printf("%"+decimallength+"f \n",MathFunctions.e_to_x(arguments[0]));
 					break;
 				}
 				case "power":{
 					try {
-						System.out.printf("%" + decimallength + "f \n", Transcendentals.power(arguments[0], arguments[1]));
+						System.out.printf("%" + decimallength + "f \n", MathFunctions.power(arguments[0], arguments[1]));
 					} catch (ImaginaryNumberException e) {
 						System.err.println("Math Error : Imaginary Number ");
 					}
@@ -106,12 +156,10 @@ public class Main
 				}
 			}
 		}
-
-
-
 	}
-	public static void printManual(String s){
 
+	public static void printManual(String s){
+	
 		String[] manual = {"-Addition (...)\n" +
 				"  SYNTAX: addition [Double ...]\n" +
 				"  PARAMETER LIMIT: infinit  \n" +
@@ -158,7 +206,7 @@ public class Main
 				"  PARAMETER LIMIT: 2\n" +
 				"  DESCRIPTION: Calculates parameter 1 to the power of parameter 2\n" +
 				"  RETURN TYPE: Double "};
-
+	
 		switch (s){
 			case "addition":{
 				System.out.println(manual[0]);
@@ -199,10 +247,7 @@ public class Main
 			default:{
 				System.out.println("Could not find the function");
 			}
-
+	
 		}
 	}
-
 }
-
-

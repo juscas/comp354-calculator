@@ -494,4 +494,189 @@ public class MathFunctions
 		return radians = MathFunctions.abs(radians % (2 * MathFunctions.PI));
 	}
 	
+	/**
+	 * Babylonian/Newton's Method for approximating square roots 
+	 * (good for smaller numbers, larger number require more iterations to be accurate)
+	 * @param x:double
+	 * @return square root of x:double
+	 */
+	static double squareRoot(double x) {
+
+		if (x == 0){
+			return 0.0;
+		}
+		if (x < 0){
+			throw new IllegalArgumentException("No negative values allowed");
+		}
+
+		// first approximation
+		double app = 0.5 * x;
+		double moreAccurateApp = 0.0;
+		for (int i = 0; i < 100; i++){
+			moreAccurateApp = 0.5 * (app + x/app);
+			app = moreAccurateApp;
+		}
+		return moreAccurateApp;
+	}
+
+	/**
+	 * ln function that is more accurate the more iterations that are done. Currently set to 1000 iterations.
+	 * @param x: double
+	 * @return ln(x) : double
+	 */
+	static double ln(double x){
+		if (x <= 0){
+			throw new IllegalArgumentException("No values under or equal 0");
+		}
+		int precision = 1000;
+
+		// Change this in the future to figure out something more efficient for precision
+		if (x > 400){
+			precision = 5000;
+		}
+
+		double sum = 0;
+
+		for (int i = 0; i < precision; i++){
+			sum += 1.0/(2*i +1)*MathFunctions.intPower(((x-1)/(x+1)), (2*i + 1));
+		}
+
+		return 2 * sum;
+	}
+	
+	//(needs testing for accuracy) power function for decimal/fractional exponents
+	/**
+	 * Returns the result of base raised to the exponent (ie. base^exponent).
+	 * @param base : double
+	 * @param exponent : double
+	 * @return b^e : double
+	 */
+	static double power(double base, double exponent){
+
+		//if the exponent value is an integer, we perform the simple power function in MathFunctions class
+		if(exponent==(int)exponent)
+			return MathFunctions.intPower(base,(int)exponent);
+
+		int integerExp;			//integer part of the exponent
+		int decimalExp;			//decimal part of the exponent
+		double integerValue;	//value of the base number to the power of integerExp (i.e. just the integer part of the exponent)
+		double decimalValue;    //value of the base number to the power of decimalExp (i.e. just the decimal part of the exponent)
+		int decimallength = 1;	//value of the denominator when the decimal is converted into a fraction
+		double positiveBase = MathFunctions.abs(base);
+
+		//converting the exponent number into array of 2 strings. 1 containing the integer part, the other containing the decimal part
+		//the integer String is converted into an int again. The decimal part will be trimmed of any useless 0s on the right
+		integerExp = Integer.parseInt(String.valueOf(exponent).split("\\.")[0]);
+
+		//the decimal part of the given exponent, still in String form
+		String tempDecimal = String.valueOf(exponent).split("\\.")[1];
+
+		//if the base is negative, and the power is any number where the first decimal number is an odd integer, then it throws an exception
+		// (this is a math error)
+		if(base<0&&Integer.parseInt(tempDecimal.substring(0,1))%2!=0) throw new ImaginaryNumberException();
+
+		//removing any 0s from the right side of the decimal value
+		while(tempDecimal.charAt(tempDecimal.length()-1)==0){
+			tempDecimal = tempDecimal.substring(0,tempDecimal.length()-1);
+		}
+
+		//to convert a decimal into a fraction form, we have to have it in the form of number/10^n
+		//this for loop calculates the denominator (i.e. the actual value of 10^n)
+		for(int i=0;i<tempDecimal.length();i++){
+			decimallength=decimallength*10;
+		}
+
+		//converting the refined decimal number back to int
+		decimalExp = Integer.parseInt(tempDecimal);
+
+		//using the power function from class MathFunctions to calculate the value of the base number to the power of the integer
+		//part of the exponent
+		integerValue = MathFunctions.intPower(base,integerExp);
+
+		//if the exponent provided is negative, then so should the decimal part of the exponent
+		if(exponent<0) decimalExp = decimalExp*-1;
+
+		//when the base is negative, we have to check for imaginary numbers
+		if(base<0){
+
+			double[] temp =  MathFunctions.fractionSimplify(decimalExp,decimallength);
+			decimalExp = (int) temp[0];
+			decimallength = (int) temp[1];
+
+			//if the denominator of the fraction (which is derived from the decimal part of the exponent) is even,
+			// then the result would be an imaginary number
+			if(decimallength%2==0) throw new ImaginaryNumberException();
+		}
+
+		//calculation of base^(1/decimallength) is estimated using Newton's method
+		//in this function we're applying the equation (base^(1/decimallength))^decimalExp which is = to base^(decimalExp/decimallength)
+		decimalValue = MathFunctions.intPower(MathFunctions.nroot(base,decimallength,10),decimalExp);
+
+		return integerValue*decimalValue;
+	}
+		
+	/**
+	 * Calculates e^x.
+	 * @param x: double
+	 * @return e^x: double
+	 */
+	public static double e_to_x(double x) {
+		/*
+		 * ex. say x = 15.73. This is too far from 0 to give a good Taylor approximation so we divide 
+		 * by 'e' to get quotient = 15. The decimalExponent is 0.73. We will now run the Taylor expansion 
+		 * on the decimalExponent. After that we will add back the e^15 to that result.
+		 * 
+		 * note: e^15 = e^15 * e^0.73
+		 */
+		
+		// A few guard clauses that return well know exact values of e^x
+		if(x == 0) return 1;
+		if(x == 1) return MathFunctions.E;
+		if(x == -1) return 1 / MathFunctions.E;
+		
+		int precision = 13; // 13 gives lowest sum of square error for values between 0 and 1.
+		double result = 0.0;
+		
+		int integerExponent = (int) x; // retain the integer part of the exponent
+		double decimalExponent = x % integerExponent; // this is the decimal part of the exponent
+		
+		double remainderTaylorResult = 0; // This will hold the result of the Taylor expansion
+		
+		// This is the Taylor expansion of e^decimalExponent around 0
+		for(int i = 0; i < precision; ++i)
+			remainderTaylorResult += MathFunctions.intPower(decimalExponent, i) / MathFunctions.factorial(i);
+		
+		// add the appropriate multiples of E back to the Taylor expansion of the remainder.
+		result = remainderTaylorResult * MathFunctions.intPower(MathFunctions.E, integerExponent);
+		
+		// if negative, return (1 / result) else just return the result
+		if(x < 0)
+			return 1 / result;
+		else
+			return result;
+	}
+	
+	/**
+	 * Returns the hyperbolic sine of a number.
+	 * @param x: double
+	 * @return sinh(x): double
+	 */
+	public static double sinh(double x){
+		return (e_to_x(x) - e_to_x(-x)) / 2;
+	}
+	
+	/**
+	 * Returns the hyperbolic cosine of a number.
+	 * @param x: double
+	 * @return cosh(x): double
+	 */
+	public static double cosh(double x){
+		return (e_to_x(x) + e_to_x(-x)) / 2;
+	}
+	
+	
+	
+
+	
+	
 }

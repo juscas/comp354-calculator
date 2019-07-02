@@ -11,7 +11,8 @@ class Parser_Test
 	@Test
 	void bracketMatch_Test() {
 		
-		boolean pass = false;
+		boolean pass = true;
+		
 		String[] goodBrackets = {
 				"()(()){([()])}",
 				"((()(()){([()])}))",
@@ -27,16 +28,17 @@ class Parser_Test
 				")"
 		};
 		
-		// test the good strings
-		int i = 0;
-		for( ; i < goodBrackets.length; ++i) {
-			pass = p1.bracketMatch(goodBrackets[i]);
+		// test the good strings (to pass, pass must not be equal to -1 after this loop)
+		for(int i = 0 ; i < goodBrackets.length; ++i) {
+			if(p1.bracketMatch(goodBrackets[i]) == -1)
+				pass = false;
+				
 		}
 		
-		// test the bad strings
-		int j = 0;
-		for( ; i < badBrackets.length; ++i) {
-			pass = !p1.bracketMatch(badBrackets[i]);
+		// test the bad strings (to pass, fail must be equal to -1 after this loop)
+		for(int i = 0 ; i < badBrackets.length; ++i) {
+			if(p1.bracketMatch(badBrackets[i]) != -1)
+				pass = false;
 		}
 		
 		assertTrue(pass);
