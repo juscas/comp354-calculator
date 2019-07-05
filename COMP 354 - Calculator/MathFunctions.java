@@ -82,27 +82,6 @@ public class MathFunctions
 	    return fact;
 	}
 	
-		/**
-	 * Returns the absolute value of a byte.
-	 * @param x: byte
-	 * @return absolute value of x: byte
-	 */
-	public static byte abs(byte x) {
-		if(x < 0)
-			return (byte) x;
-		return (byte) x;
-	}
-	
-	/**
-	 * Returns the absolute value of a short.
-	 * @param x: short
-	 * @return absolute value of x: short
-	 */
-	public static short abs(short x) {
-		if(x < 0)
-			return (short) x;
-		return (short) x;
-	}
 	
 	/**
 	 * Returns the absolute value of an int.
@@ -147,7 +126,6 @@ public class MathFunctions
 			return -x;
 		return x;
 	}
-
 	
 	/**
 	 * returns the nth root of the base value. 3rd parameter x is for accuracy, higher x = higher accuracy
@@ -158,6 +136,10 @@ public class MathFunctions
 	 */
 	public static double nroot(double base, int root, int x) throws ImaginaryNumberException {
 
+		double epsilon = 0.001;
+		if(MathFunctions.abs(root - 0.5) < epsilon)	// if you call this with 1/2 then just call simple sqrt() function.
+			return squareRoot(x);
+		
 		//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
 		if(root%2 == 0&&base<0) throw new ImaginaryNumberException();
 
@@ -542,6 +524,61 @@ public class MathFunctions
 		}
 
 		return 2 * sum;
+	}
+	
+	/**
+	 * This returns the logarithm base 10 of a number.
+	 * @param x : double
+	 * @return log10(x) : double
+	 */
+	public static double log10(double x) {
+		
+		String answer = "";
+		int signicantDigits  = 15; // how many numbers after the decimal
+		
+		for(int i = 0; i < signicantDigits; ++i) {
+			
+			int exponent = nearestPower10(x); // this gets the digits from left to right
+			
+			answer = answer + exponent; // concatenated the successive digits into a string
+			
+			if(i == 0) // for first pass, add a decimal mark
+				answer = answer + ".";
+			
+			x = x / MathFunctions.intPower(10.0, exponent);
+			
+			x = MathFunctions.intPower(x, 10);
+		}
+		
+		return Double.parseDouble(answer);
+	}
+	
+	/**
+	 * Helper function for calculating the log10. This will return the nearest power of 10 that 
+	 * divides into a number. This is necessary for the algorithm.
+	 * @param x : double
+	 * @return nearest power of 10 : int
+	 */
+	private static int nearestPower10(double x) {
+		if(x < 0)
+			throw new MathErrorException("Logarithms undefined for negative numbers");
+		
+		int exponent = 0;
+			
+		for(exponent = 1; exponent <= x; ++exponent) {
+			if (MathFunctions.intPower(10, exponent) > x)
+				break;
+		}
+		return (exponent - 1);
+	}
+	
+	/**
+	 * This returns the logarithm of a number with user defined base.
+	 * @param x : double
+	 * @return log10(x) : double
+	 */
+	public static double log(double base, double number) {
+		return ln(number) / ln(base); // this is just the change of base formula for logarithms.
 	}
 	
 	//(needs testing for accuracy) power function for decimal/fractional exponents

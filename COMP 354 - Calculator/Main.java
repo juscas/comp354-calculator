@@ -4,26 +4,8 @@ public class Main
 {
 	public static void main(String[] args) {
 		
-		Parser p1 = new Parser();
 		
-		String[] goodBrackets = {
-				"()(()){([()])}",
-				"((()(()){([()])}))",
-				"(){}[]",
-				"()",
-				""
-		};
-		
-		String[] badBrackets = {
-				")(()){([()])}",
-				"({[])}",
-				"(",
-				")"
-		};
-		
-		
-		System.out.println(p1.bracketMatch(badBrackets[3]));
-		
+		System.out.println(MathFunctions.log10(25));
 		
 		
 //		Danny2sMainFunction();
