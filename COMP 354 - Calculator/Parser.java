@@ -66,7 +66,9 @@ public class Parser {
      * @return prioritised function with special characters
      */
 
-    public static String prioritiser(String input){
+    public String prioritiser(String input) throws SyntaxErrorException{
+
+        if(bracketMatch(input)==-1) throw new SyntaxErrorException();
 
         System.out.println(input);
 
@@ -105,26 +107,31 @@ public class Parser {
                     newStr = newStr + ")";
                     break;
                 }
-                //in case the character is ^ we assign priority #2
+                //unary operators are given the highest priority
+                case'@':
+                case'~':
+                {
+                    newStr = newStr + " #4 "+input.charAt(pointer);
+                    break;
+                }
+                //in case the character is ^ we assign priority #3
                 case '^':
                 {
                     newStr = newStr + " #3 "+input.charAt(pointer);
                     break;
                 }
-                //in case the character is + or - we assign priority #4
+                //in case the character is * or / we assign priority #2
+                case '*':
+                case '/':
+                {
+                    newStr = newStr + " #2 "+input.charAt(pointer);
+                    break;
+                }
+                //in case the character is + or - we assign priority #1
                 case '+':
                 case '-':
                 {
                     newStr = newStr + " #1 "+input.charAt(pointer);
-                    break;
-                }
-                //in case the character is * or / we assign priority #3
-                case '*':
-                case '/':
-                case'@':
-                case'~':
-                {
-                    newStr = newStr + " #2 "+input.charAt(pointer);
                     break;
                 }
                 //default case add the character pointed at to the new string
@@ -183,8 +190,11 @@ public class Parser {
     }
 
     public static String calculate(String str){
+
+        System.out.println("Calculate in : "+str);
+
         //removing any brackets that are passed to the string
-        str=str.replaceFirst("[//(//)]","");
+        str=str.replaceFirst("[//(]","");
         str=str.replaceFirst("[//)]","");
 
         //if the string contains any more brackets, return them back to the disector function to deal with them
@@ -233,7 +243,7 @@ public class Parser {
                                 rightOperand = str.substring(index + 3,next );
 
                             }
-
+                            //System.out.println(str);
                             //Finding the left operand
                             //prev is the index of the # that is before the variable index (it looks backwords)
                             int prev = str.lastIndexOf("#",index-1);
@@ -241,11 +251,12 @@ public class Parser {
                             //separate cases for when the operation is the first one in the string and when it is not
                             if(prev==-1){
                                 leftOperand=str.substring(0,index);
-
                                 str=MathFunctions.power(Double.parseDouble(leftOperand),Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
 
                             }else{
                                 leftOperand=str.substring(prev+3,index);
+
+                                str=str.substring(0,prev+3)+MathFunctions.power(Double.parseDouble(leftOperand),Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
                             }
 
                             break;
@@ -254,8 +265,9 @@ public class Parser {
                         }
                     }
                 }
+                //System.out.println(operator);
                 //urinary operators have highest priority
-                if(priority==2){
+                if(priority==4){
                     switch(operator) {
                         //if the operator is @ (special character for cosine)
                         case '@': {
@@ -444,6 +456,7 @@ public class Parser {
             }
         }
 
+        System.out.println("Calculate out : "+str);
         return str;
     }
 
