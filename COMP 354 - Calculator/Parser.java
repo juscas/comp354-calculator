@@ -131,7 +131,11 @@ public class Parser {
                 case '+':
                 case '-':
                 {
-                    newStr = newStr + " #1 "+input.charAt(pointer);
+                    if(pointer==0||isSign(input.charAt(pointer-1))){
+                        newStr=newStr+input.charAt(pointer);
+                    }else {
+                        newStr = newStr + " #1 " + input.charAt(pointer);
+                    }
                     break;
                 }
                 //default case add the character pointed at to the new string
@@ -458,6 +462,12 @@ public class Parser {
 
         System.out.println("Calculate out : "+str);
         return str;
+    }
+    //function for the + or - , whe
+    private static boolean isSign(char c){
+        if(c=='('||c=='+'||c=='-'||c=='*'||c=='/'||c=='@'||c=='~'||c=='['||c=='{'||c=='^') return true;
+        else return false;
+
     }
 
 
