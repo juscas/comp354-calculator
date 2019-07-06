@@ -198,11 +198,16 @@ public class Parser {
         System.out.println("Calculate in : "+str);
 
         //removing any brackets that are passed to the string
-        str=str.replaceFirst("[//(]","");
-        str=str.replaceFirst("[//)]","");
+        str=str.replaceFirst("[()]","");
+
+        //the above function only removes ( , so we do it again to remove )
+        str=str.replaceFirst("[()]","");
+
+        //for some reson this code removes the / operator. would be nice to know why
+       // str=str.replaceFirst("[//)]","");
 
         //if the string contains any more brackets, return them back to the disector function to deal with them
-        if(str.contains("[//(//)]")) return str;
+        if(str.contains("[()]")) return str;
 
         //setting the initial priority to the highest one
         int priority =5;
