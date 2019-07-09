@@ -85,6 +85,13 @@ public class Parser {
         input = input.replaceAll("sin\\(","~( ");
         // System.out.println(input);
 
+        //replacing log with L
+        input = input.replaceAll("log\\(","L( ");
+
+        //replacing ln with N
+        input = input.replaceAll("ln\\(","N( ");
+
+
         //keep iterating until pointer reaches the last char
         while(pointer<input.length()){
 
@@ -110,6 +117,8 @@ public class Parser {
                 //unary operators are given the highest priority
                 case'@':
                 case'~':
+                case'L':
+                case'N':
                 {
                     newStr = newStr + " #4 "+input.charAt(pointer);
                     break;
@@ -148,6 +157,7 @@ public class Parser {
         }
         //pass the string to the disector function, along with the number of brackets -1 since levelnumb is 1 ahead of the actual number
         return  disector(newStr.replaceAll(" ",""),levelnumb-1);
+       // return newStr;
     }
 
 
@@ -183,7 +193,7 @@ public class Parser {
 
                 str=str.substring(0,startPointer)+calculate(passedString)+str.substring(endPointer+1);
 
-                System.out.println("Returned string"+str);
+                System.out.println("Returned string : "+str);
                 level--;
             }
             System.out.println(str);
@@ -204,7 +214,7 @@ public class Parser {
         str=str.replaceFirst("[()]","");
 
         //for some reson this code removes the / operator. would be nice to know why
-       // str=str.replaceFirst("[//)]","");
+        str=str.replaceFirst("[//)]","");
 
         //if the string contains any more brackets, return them back to the disector function to deal with them
         if(str.contains("[()]")) return str;
@@ -238,6 +248,8 @@ public class Parser {
                 //if the priority is set to 5, we limit the operators to those with priority of 5
                 if(priority==3){
                     switch(operator){
+
+                        // handles e^x function as well
                         case '^':{
 
                             //Finding the right operand:
@@ -260,12 +272,23 @@ public class Parser {
                             //separate cases for when the operation is the first one in the string and when it is not
                             if(prev==-1){
                                 leftOperand=str.substring(0,index);
-                                str=MathFunctions.power(Double.parseDouble(leftOperand),Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
 
+                                //if the left operand is the character e, then we perform the e_to_x function instead of the power
+                                if(leftOperand.equals("e")){
+                                    str=MathFunctions.e_to_x(Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
+                                }else{
+                                    str=MathFunctions.power(Double.parseDouble(leftOperand),Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
+
+                                }
                             }else{
                                 leftOperand=str.substring(prev+3,index);
 
-                                str=str.substring(0,prev+3)+MathFunctions.power(Double.parseDouble(leftOperand),Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
+                                //if the left operand is the character e, then we perform the e_to_x function instead of the power
+                                if(leftOperand.equals("e")){
+                                    str=str.substring(0,prev+3)+MathFunctions.e_to_x(Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
+                                }else{
+                                    str=str.substring(0,prev+3)+MathFunctions.power(Double.parseDouble(leftOperand),Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
+                                }
                             }
 
                             break;
@@ -317,6 +340,47 @@ public class Parser {
                                 rightOperand = str.substring(index + 3,next );
 
                                 str=str.substring(0,index)+MathFunctions.sin(Double.parseDouble(rightOperand))+str.substring(next);
+                                //System.out.println(rightOperand);
+                                break;
+                            }
+
+                        }
+                        //log base 10
+                        case'L':{
+
+                            //Finding the right operand:
+                            //finding the next occurrence of #
+                            int next =str.indexOf("#",index+1);
+
+                            //separate cases for when the operation is the lat one in the string and when it is not
+                            if(next==-1){
+                                rightOperand = str.substring(index + 3);
+                                str=str.substring(0,index)+MathFunctions.log10(Double.parseDouble(rightOperand));
+                            }else {
+                                //the left operand should be 3 indexes after the # until the next #
+                                rightOperand = str.substring(index + 3,next );
+
+                                str=str.substring(0,index)+MathFunctions.log10(Double.parseDouble(rightOperand))+str.substring(next);
+                                //System.out.println(rightOperand);
+                                break;
+                            }
+
+                        }
+                        //ln function
+                        case 'N' :{
+                            //Finding the right operand:
+                            //finding the next occurrence of #
+                            int next =str.indexOf("#",index+1);
+
+                            //separate cases for when the operation is the lat one in the string and when it is not
+                            if(next==-1){
+                                rightOperand = str.substring(index + 3);
+                                str=str.substring(0,index)+MathFunctions.ln(Double.parseDouble(rightOperand));
+                            }else {
+                                //the left operand should be 3 indexes after the # until the next #
+                                rightOperand = str.substring(index + 3,next );
+
+                                str=str.substring(0,index)+MathFunctions.ln(Double.parseDouble(rightOperand))+str.substring(next);
                                 //System.out.println(rightOperand);
                                 break;
                             }
