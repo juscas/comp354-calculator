@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Stack;
 
 public class Parser {
@@ -68,6 +69,7 @@ public class Parser {
 
     public String prioritiser(String input) throws SyntaxErrorException{
 
+        //TODO: remove after the validator is implemented
         if(bracketMatch(input)==-1) throw new SyntaxErrorException();
 
         System.out.println(input);
@@ -79,17 +81,17 @@ public class Parser {
         String[] level=new String[0];
 
         //replacing cosine with special character @
-        input = input.replaceAll("cos\\(","@( ");
+        input = input.replaceAll("cos\\(","@(");
 
         //replacing cosine with special character ~
-        input = input.replaceAll("sin\\(","~( ");
+        input = input.replaceAll("sin\\(","~(");
         // System.out.println(input);
 
         //replacing log with L
-        input = input.replaceAll("log\\(","L( ");
+        input = input.replaceAll("log\\(","L(");
 
         //replacing ln with N
-        input = input.replaceAll("ln\\(","N( ");
+        input = input.replaceAll("ln\\(","N(");
 
 
         //keep iterating until pointer reaches the last char
@@ -140,7 +142,9 @@ public class Parser {
                 case '+':
                 case '-':
                 {
+                    System.out.println(pointer-1 + " input : "+input+" "+" charAt: "+input.charAt(pointer-1));
                     if(pointer==0||isSign(input.charAt(pointer-1))){
+
                         newStr=newStr+input.charAt(pointer);
                     }else {
                         newStr = newStr + " #1 " + input.charAt(pointer);
@@ -212,9 +216,6 @@ public class Parser {
 
         //the above function only removes ( , so we do it again to remove )
         str=str.replaceFirst("[()]","");
-
-        //for some reson this code removes the / operator. would be nice to know why
-        str=str.replaceFirst("[//)]","");
 
         //if the string contains any more brackets, return them back to the disector function to deal with them
         if(str.contains("[()]")) return str;
@@ -348,22 +349,43 @@ public class Parser {
                         //log base 10
                         case'L':{
 
-                            //Finding the right operand:
                             //finding the next occurrence of #
                             int next =str.indexOf("#",index+1);
 
-                            //separate cases for when the operation is the lat one in the string and when it is not
-                            if(next==-1){
-                                rightOperand = str.substring(index + 3);
-                                str=str.substring(0,index)+MathFunctions.log10(Double.parseDouble(rightOperand));
-                            }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                rightOperand = str.substring(index + 3,next );
 
-                                str=str.substring(0,index)+MathFunctions.log10(Double.parseDouble(rightOperand))+str.substring(next);
-                                //System.out.println(rightOperand);
-                                break;
+                            int comaIndex=str.indexOf(",");
+
+                            //if the index of , is not -1
+                            if(comaIndex!=-1){
+                                //the base would be from the beginning of the string till comma
+                                String BaseString = str.substring(index+3,comaIndex);
+
+                                //converting the base back into a double
+                                Double Base = Double.parseDouble(BaseString);
+
+                                String exponentString;
+
+                                if(next==-1){       //if there are no operations to the left anymore, the exponent string spans until the end of the string
+                                     exponentString = str.substring(comaIndex+1);
+                                }else{
+                                    //else it spans until the next #
+                                     exponentString = str.substring(comaIndex+1,next);
+                                }
+
+                                //recalculating the string in case it is an expression
+                                //exponentString = calculate(exponentString);
+
+                                //converting to double
+                                Double exponent = Double.parseDouble(exponentString);
+
+                                str=str.substring(0,index)+MathFunctions.log(Double.parseDouble(BaseString),Double.parseDouble(exponentString))+(next==-1?"":str.substring(next));
+
+                            }else{
+                                String exponentString = str.substring(index+3);
+                                str=str.substring(0,index)+MathFunctions.log(Double.parseDouble(exponentString))+(next==-1?"":str.substring(next));
                             }
+
+                            break;
 
                         }
                         //ln function
@@ -382,8 +404,9 @@ public class Parser {
 
                                 str=str.substring(0,index)+MathFunctions.ln(Double.parseDouble(rightOperand))+str.substring(next);
                                 //System.out.println(rightOperand);
-                                break;
+
                             }
+                            break;
                         }
                     }
                 }
@@ -394,63 +417,48 @@ public class Parser {
                         //if the operator is *
                         case '*':{
 
-                            //Finding the right operand:
-                            //finding the next occurrence of #
-                            int next =str.indexOf("#",index+1);
+                            boolean containsComma =str.contains(",");
 
-                            //separate cases for when the operation is the lat one in the string and when it is not
-                            if(next==-1){
-                                rightOperand = str.substring(index + 3);
-                            }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                rightOperand = str.substring(index + 3,next );
+                            //finding the next occurrence of # or , whichever comes first (helps us know if the operation is the last one in the string)
+                            int next =(int) poistiveMin((double)str.indexOf("#",index+1),(double)str.indexOf(",",index+1));
 
-                            }
+                            //finding the previous occurrence of # or , whichever comes first (helps us know if the operation is the first one in the string)
+                            int prev = (int) MathFunctions.max((double)str.lastIndexOf("#",index-1),(double)str.lastIndexOf(",",index-1));
 
-                            //Finding the left operand
-                            //prev is the index of the # that is before the variable index (it looks backwords)
-                            int prev = str.lastIndexOf("#",index-1);
+                            Double operands[] = findOperand(str,index,prev,next);
 
                             //separate cases for when the operation is the first one in the string and when it is not
                             if(prev==-1){
-                                leftOperand=str.substring(0,index);
 
-                                str=MathFunctions.multiply(Double.parseDouble(leftOperand),Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
+                                str=MathFunctions.multiply(operands[0],operands[1])+(next==-1?"":str.substring(next));
 
                             }else{
-                                leftOperand=str.substring(prev+3,index);
-                            }
 
-                            System.out.println(str);
+                                str=str.substring(0,prev+1)+MathFunctions.multiply(operands[0],operands[1])+(next==-1?"":str.substring(next,str.length()));
+                            }
                             break;
                         }
                         //if the operator is /
                             //Note: / is not picking up in a string so we might have to replace / with // which makes it work
                         case '/':{
-                            //Finding the right operand:
-                            //finding the next occurrence of #
-                            int next =str.indexOf("#",index+1);
+                            boolean containsComma =str.contains(",");
 
-                            //separate cases for when the operation is the lat one in the string and when it is not
-                            if(next==-1){
-                                rightOperand = str.substring(index + 3);
-                            }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                rightOperand = str.substring(index + 3,next );
-                            }
+                            //finding the next occurrence of # or , whichever comes first (helps us know if the operation is the last one in the string)
+                            int next =(int) poistiveMin((double)str.indexOf("#",index+1),(double)str.indexOf(",",index+1));
 
-                            //Finding the left operand and calculating
-                            //prev is the index of the # that is before the variable index (it looks backwords)
-                            int prev = str.lastIndexOf("#",index-1);
+                            //finding the previous occurrence of # or , whichever comes first (helps us know if the operation is the first one in the string)
+                            int prev = (int) MathFunctions.max((double)str.lastIndexOf("#",index-1),(double)str.lastIndexOf(",",index-1));
+
+                            Double operands[] = findOperand(str,index,prev,next);
 
                             //separate cases for when the operation is the first one in the string and when it is not
                             if(prev==-1){
-                                leftOperand=str.substring(0,index);
 
-                                str=MathFunctions.divide(Double.parseDouble(leftOperand),Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
+                                str=MathFunctions.divide(operands[0],operands[1])+(next==-1?"":str.substring(next));
 
                             }else{
-                                leftOperand=str.substring(prev+3,index);
+
+                                str=str.substring(0,prev+1)+MathFunctions.divide(operands[0],operands[1])+(next==-1?"":str.substring(next,str.length()));
                             }
                             break;
 
@@ -463,31 +471,25 @@ public class Parser {
                     switch(operator){
                         //if the operator is +
                         case '+':{
-                            //Finding the right operand:
-                            //finding the next occurrence of #
-                            int next =str.indexOf("#",index+1);
 
-                            //separate cases for when the operation is the lat one in the string and when it is not
-                            if(next==-1){
-                                rightOperand = str.substring(index + 3);
-                            }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                rightOperand = str.substring(index + 3,next );
+                            boolean containsComma =str.contains(",");
 
-                            }
+                            //finding the next occurrence of # or , whichever comes first (helps us know if the operation is the last one in the string)
+                            int next =(int) poistiveMin((double)str.indexOf("#",index+1),(double)str.indexOf(",",index+1));
 
-                            //Finding the left operand
-                            //prev is the index of the # that is before the variable index (it looks backwords)
-                            int prev = str.lastIndexOf("#",index-1);
+                            //finding the previous occurrence of # or , whichever comes first (helps us know if the operation is the first one in the string)
+                            int prev = (int) MathFunctions.max((double)str.lastIndexOf("#",index-1),(double)str.lastIndexOf(",",index-1));
 
-                            //separate cases for when the operation is the first one in the string and when it is not
+                            Double operands[] = findOperand(str,index,prev,next);
+
+                            //when the operation is the first one in the string
                             if(prev==-1){
-                                leftOperand=str.substring(0,index);
 
-                                str=(Double.parseDouble(leftOperand)+Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
+                                str=(operands[0]+operands[1])+(next==-1?"":str.substring(next));
 
-                            }else{
-                                leftOperand=str.substring(prev+3,index);
+                            }else{      //when operation is not the first in the string
+
+                                str=str.substring(0,prev+1)+(operands[0]+operands[1])+(next==-1?"":str.substring(next,str.length()));
                             }
                             break;
 
@@ -495,31 +497,26 @@ public class Parser {
                         //if the operator is -
                         case '-':{
 
-                            //Finding the right operand:
-                            //finding the next occurrence of #
-                            int next =str.indexOf("#",index+1);
+                            boolean containsComma =str.contains(",");
 
-                            //separate cases for when the operation is the lat one in the string and when it is not
-                            if(next==-1){
-                                rightOperand = str.substring(index + 3);
-                            }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                rightOperand = str.substring(index + 3,next );
+                            //finding the next occurrence of # or , whichever comes first (helps us know if the operation is the last one in the string)
+                            int next =(int) poistiveMin((double)str.indexOf("#",index+1),(double)str.indexOf(",",index+1));
 
-                            }
+                            //finding the previous occurrence of # or , whichever comes first (helps us know if the operation is the first one in the string)
+                            int prev = (int) MathFunctions.max((double)str.lastIndexOf("#",index-1),(double)str.lastIndexOf(",",index-1));
 
-                            //Finding the left operand
-                            //prev is the index of the # that is before the variable index (it looks backwords)
-                            int prev = str.lastIndexOf("#",index-1);
+                            Double operands[] = findOperand(str,index,prev,next);
 
-                            //separate cases for when the operation is the first one in the string and when it is not
+                            //when the operation is the first one in the string
                             if(prev==-1){
                                 leftOperand=str.substring(0,index);
 
-                                str=(Double.parseDouble(leftOperand)-Double.parseDouble(rightOperand))+(next==-1?"":str.substring(next));
+                                str=(operands[0]-operands[1])+(next==-1?"":str.substring(next));
 
-                            }else{
-                                leftOperand=str.substring(prev+3,index);
+                            }else{      //when operation is not the first in the string
+                                leftOperand=containsComma?str.substring(prev+1,index):str.substring(prev+3,index);
+
+                                str=str.substring(0,prev+1)+(operands[0]-operands[1])+(next==-1?"":str.substring(next,str.length()));
                             }
                             break;
 
@@ -532,9 +529,55 @@ public class Parser {
         System.out.println("Calculate out : "+str);
         return str;
     }
-    //function for the + or - , whe
+    private static Double[] findOperand(String str, int index,int prev, int next){
+
+        String rightOperand ;
+        String leftOperand ;
+
+        boolean containsComma =str.contains(",");
+
+        //Finding the right operand:
+
+
+        //separate cases for when the operation is the last one in the string and when it is not
+        if(next==-1){
+            rightOperand = str.substring(index + 3);
+        }else {
+            //the left operand should be 3 indexes after the # until the next #
+            rightOperand = str.substring(index + 3,next );
+
+        }
+        //Finding the left operand
+        //separate cases for when the operation is the first one in the string and when it is not
+        if(prev==-1){
+            leftOperand=str.substring(0,index);
+
+        }else{
+            leftOperand=containsComma?str.substring(prev+1,index):str.substring(prev+3,index);
+
+        }
+        Double temp[] = {Double.parseDouble(leftOperand),Double.parseDouble(rightOperand)};
+        return temp;
+
+    }
+    //function that returns the smaller of the 2 values, with the condition that it is a positive value, else it returns -1
+    public static double poistiveMin(double x, double y){
+        //if both values are negative, return 0
+        if(x<0&&y<0) return -1.0;
+
+        //if y is less than x, and positive, return y, else return x
+        if(y>0){
+            if(x>0){
+                if(y>x) return x;
+                else return y;
+            }else return y;
+        }
+        return x;
+    }
+
+    //function that evaluates whether +/- is a sign or operator in the context
     private static boolean isSign(char c){
-        if(c=='('||c=='+'||c=='-'||c=='*'||c=='/'||c=='@'||c=='~'||c=='['||c=='{'||c=='^') return true;
+        if(c=='('||c=='+'||c=='-'||c=='*'||c=='/'||c=='@'||c=='~'||c=='['||c=='{'||c=='^'||c==',') return true;
         else return false;
 
     }
