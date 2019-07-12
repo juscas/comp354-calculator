@@ -7,33 +7,33 @@ public class ExpressionValidator
 	 * This array holds all of the recoginzed operators. If a new operator is added in the future,
 	 * it needs to be defined in this array.
 	 * 
-	 * Note: when adding to this list, ensure that you also classigy the operator in the 
+	 * Note: when adding to this list, ensure that you also classify the operator in the 
 	 * 		"fullyBinaryOperators[]" or "binaryAndUnaryOperators[]" arrays.
 	 */
-	public final char[] recoginzedOperatorsSymbols = {'+', '-', '*', '/', '^'};
+	public static final char[] recoginzedOperatorsSymbols = {'+', '-', '*', '/', '^'};
 	
 	/**
 	 * The are the defined bracketed operators. They must have a sub-expression on their right.
 	 */
-	public final String[] unaryOperators = {	"cosh", "sinh", "cos", "sin", "tan", "csc", "sec", 
-												"cot", "exp", "abs", "ln", "log" 
-											};
+	public static final String[] unaryOperators = {	"cosh", "sinh", "cos", "sin", "tan", "csc", 
+													"sec", "cot", "exp", "abs", "ln", "log" 
+												};
 	
 	/**
 	 * These operators are fully binary and must have terms to their left and right at all times.
 	 */
-	public final char[] fullyBinaryOperators = {'*', '/', '^'};
+	public static final char[] fullyBinaryOperators = {'*', '/', '^'};
 	
 	/**
 	 * These operators can be both binary and unary (where they are in front ex: -(3.5 * 2) )
 	 * These operators must minimally have a sub-expression on their right hand side.
 	 */
-	public final char[] binaryAndUnaryOperators = {'+', '-'};
+	public static final char[] binaryAndUnaryOperators = {'+', '-'};
 	
 	
 	// EXPRESSION VALIDATION METHODS ------------------------------------------------------------
 	
-	public String validateExpression(String original) throws SyntaxErrorException {
+	public static String validateExpression(String original) throws SyntaxErrorException {
 		
 		/*
 		 * This function scans the string many times. This was a deliberate design choice to make
@@ -48,7 +48,7 @@ public class ExpressionValidator
 		
 		// 2) Check for spaces between numbers. ex: 5 6 * 3 must be an error since 5 6 is ambiguous
 		if(finalExpression.matches("\\d+\\s+\\d+|(.\\s*)")) // TODO fix.\\s+ it does not work
-			throw new SyntaxErrorException("Ambiguous: Spaces are not permitted between numbers");
+			throw new SyntaxErrorException("Error: Spaces are not permitted between numbers");
 		
 		// 3) For parsing simplicity, remove all spaces.
 		// note: do not do this step before checking for spaces between numbers (which are invalid)
@@ -56,33 +56,32 @@ public class ExpressionValidator
 		
 		// 4) Check for dangling operators (last character of cannot be an operator)
 		if(danglingOperator(finalExpression))
-			throw new SyntaxErrorException("Dangling operator at end of expression");
+			throw new SyntaxErrorException("Error: Dangling operator at end of expression");
 		
 		// 5.1) Replace double minus "--" and "++" by plus "+"
-		finalExpression = finalExpression.replaceAll("-\\s*-", "+").replaceAll("+\\s*+", "+");
+		finalExpression = finalExpression.replaceAll("-\\s*-", "+").replaceAll("\\+\\s*\\+", "+");
 		
 		// 5.2) Check that entirely binary operator (ie. '*', '^', '/') each have 2 terms.
 		// note: this must be run after you have removed all spaces in the expression
 		if(!binaryOperatorsHaveTermsOnBothSides(finalExpression))
-			throw new SyntaxErrorException("Cannot have 2 binary operators in a row");
-		
+			throw new SyntaxErrorException("Error: Cannot have 2 binary operators in a row");
 		
 		// 5.3) Check that unary/binary operators have terms on their right and 
 		if(!unaryBinaryOperatorsHaveTermsOnRHS(finalExpression))
-			throw new SyntaxErrorException("Unary operators must have an expression on their RHS");
+			throw new SyntaxErrorException("Error: Unary operators must have an expression on their RHS");
 		
 		// 5.4) No 2 operators binary operators in a row (
 		// note: do this after replacing all of "-\s*-" signs by "+"
 		if(!binaryOperatorsHaveTermsOnBothSides(finalExpression))
-			throw new SyntaxErrorException("Binary operators must have expressions on LHS and RHS");
+			throw new SyntaxErrorException("Error: Binary operators must have expressions on LHS and RHS");
 		
 		// 5.5) Check that pure unary operators have terms on their right.
 		if(!validUnaryOperatorBrackets(finalExpression))
-			throw new SyntaxErrorException("Unary operators must be of form: cos(\"expression\")");
+			throw new SyntaxErrorException("Error: Unary operators must be of form: cos(\"expression\")");
 		
 		// 6) make sure that the opening and closing brackets all match
 		if(bracketMatch(finalExpression) == -1)
-			throw new SyntaxErrorException("Unmatched brackets");
+			throw new SyntaxErrorException("Error: Unmatched brackets");
 		
 		// 7) check invalid characters
 		if(validCharacters(finalExpression) != null)
@@ -90,12 +89,12 @@ public class ExpressionValidator
 		
 		
 		// 8) check invalid expressions
-		
+		// TODO do this part
 		
 		// 9) empty brackets
 		// note: do this only after converting all non-round brackets "[{" to round brackets "()"
 		if(finalExpression.matches("(\\s*)"))
-			throw new SyntaxErrorException("Ambiguous empty brackets");
+			throw new SyntaxErrorException("Error: Ambiguous empty brackets");
 		
 		// 10) comma handling
 		
@@ -103,8 +102,23 @@ public class ExpressionValidator
 		return finalExpression;
 	}
 	
-	// TODO test this
-	public Character validCharacters(String expression) {
+	/**
+	 * This will ensure that all of the characters in the expression are valid. They are valid if
+	 * they are one of the following. 
+	 * 
+	 * Returns the first offending character.
+	 * Returns 'null' if all characters are valid.
+	 * 
+	 * -bracket: '(', ')', '[', ']', '{', '}'
+	 * -period: '.'
+	 * -numbers: 0-9
+	 * -letters: a-z, A-Z
+	 * -recoginzedOperatorsSymbols[]
+	 * 
+	 * @param expression : String
+	 * @return 
+	 */
+	public static Character validCharacters(String expression) {
 		
 		char [] decomposedExpression = expression.toCharArray();
 		
@@ -124,15 +138,17 @@ public class ExpressionValidator
 			// if not one of the hardcoded then check the operator array
 			if(!validChar) {
 				for(char op : recoginzedOperatorsSymbols) {
-					if(c != op) {
-						validChar = false;
+					if(c == op) {
+						break;
 					}
 				}
 			}
 			
 			problemChar = c;
 			
-			if(!validChar) { break; }
+			if(!validChar) { 
+				return null; 
+			}
 		}
 		
 		return new Character(problemChar);
@@ -144,7 +160,7 @@ public class ExpressionValidator
 	 * @param expression
 	 * @return
 	 */
-	public boolean binaryOperatorsHaveTermsOnBothSides(String expression) {
+	public static boolean binaryOperatorsHaveTermsOnBothSides(String expression) {
 		
 		// do this check for each unary operator defined in the array
 		for(int op = 0; op < fullyBinaryOperators.length; ++op) {
@@ -185,7 +201,7 @@ public class ExpressionValidator
 	 * @param expression : String
 	 * @return 'true' if everything is valid
 	 */
-	private boolean unaryBinaryOperatorsHaveTermsOnRHS(String expression) {
+	private static boolean unaryBinaryOperatorsHaveTermsOnRHS(String expression) {
 		
 		for(char c : binaryAndUnaryOperators) {
 			
@@ -204,7 +220,7 @@ public class ExpressionValidator
 	 * @param expression: String
 	 * @return true if all unary operators are valid
 	 */
-	private boolean validUnaryOperatorBrackets(String expression) {
+	private static boolean validUnaryOperatorBrackets(String expression) {
 		
 		// do this check for each unary operator defined in the array
 		for(int i = 0; i < unaryOperators.length; ++i) {
@@ -245,7 +261,7 @@ public class ExpressionValidator
 	 * @param original
 	 * @return
 	 */
-	private boolean danglingOperator(String original) {
+	private static boolean danglingOperator(String original) {
 		
 		char lastChar = original.charAt(original.length() - 1);
 		
@@ -268,7 +284,7 @@ public class ExpressionValidator
 	 * @param original: String
 	 * @return brackets replaced: String
 	 */
-	private String replaceBrackets(String original) {
+	private static String replaceBrackets(String original) {
 		return original.replace("[", "(").replace("]",")").replace("{", "(")
 				.replace("}", ")");
 	}
@@ -279,7 +295,7 @@ public class ExpressionValidator
      * @param expression: String
      * @return index of ending bracket: int
      */
-    private int bracketMatch(String expression) {
+    private static int bracketMatch(String expression) {
 
         int indexOfLastBracket = 0;
         String opening = "({[";
@@ -323,7 +339,7 @@ public class ExpressionValidator
      * @param expression: String
      * @return expression without spaces: String
      */
-    private String removeSpaces(String expression) {
+    private static String removeSpaces(String expression) {
         return expression.replaceAll("\\s+", "");
     }
 }
