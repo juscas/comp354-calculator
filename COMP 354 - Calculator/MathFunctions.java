@@ -165,7 +165,7 @@ public class MathFunctions
 			// calculating current value from previous
 			// value by newton's method
 			betterAprx = ((root - 1.0) * aprx +
-					(double) base / MathFunctions.intPower(aprx, root - 1))/ root;
+					(double) base / MathFunctions.exponentBySquaring(aprx, root - 1))/ root;
 			difference = abs(betterAprx - aprx);
 			aprx = betterAprx;
 		}
@@ -537,6 +537,10 @@ public class MathFunctions
 			throw new MathErrorException("No values under or equal 0");
 		}
 
+		if(x ==1){
+			throw new MathErrorException("Log of 1 is Infinity.");
+		}
+
 		String answer = "";
 		int signicantDigits  = 15; // how many numbers after the decimal
 
@@ -598,7 +602,7 @@ public class MathFunctions
 			return MathFunctions.intPower(base,(int)exponent);
 
 		int integerExp;			//integer part of the exponent
-		int decimalExp;			//decimal part of the exponent
+		double decimalExp;			//decimal part of the exponent
 		double integerValue;	//value of the base number to the power of integerExp (i.e. just the integer part of the exponent)
 		double decimalValue;    //value of the base number to the power of decimalExp (i.e. just the decimal part of the exponent)
 		int decimallength = 1;	//value of the denominator when the decimal is converted into a fraction
@@ -620,6 +624,9 @@ public class MathFunctions
 			tempDecimal = tempDecimal.substring(0,tempDecimal.length()-1);
 		}
 
+		//if the decimal length is > 6 we trim the value to 6 decimal points, since more than that takes a heavy toll on the function
+		if(tempDecimal.length()>6) tempDecimal=tempDecimal.substring(0,6);
+
 		//to convert a decimal into a fraction form, we have to have it in the form of number/10^n
 		//this for loop calculates the denominator (i.e. the actual value of 10^n)
 		for(int i=0;i<tempDecimal.length();i++){
@@ -627,7 +634,7 @@ public class MathFunctions
 		}
 
 		//converting the refined decimal number back to int
-		decimalExp = Integer.parseInt(tempDecimal);
+		decimalExp = Double.parseDouble(tempDecimal);
 
 		//using the power function from class MathFunctions to calculate the value of the base number to the power of the integer
 		//part of the exponent
@@ -650,7 +657,7 @@ public class MathFunctions
 
 		//calculation of base^(1/decimallength) is estimated using Newton's method
 		//in this function we're applying the equation (base^(1/decimallength))^decimalExp which is = to base^(decimalExp/decimallength)
-		decimalValue = MathFunctions.intPower(MathFunctions.nroot(base,decimallength,10),decimalExp);
+		decimalValue = MathFunctions.exponentBySquaring(MathFunctions.nroot(base,decimallength,10),decimalExp);
 
 		return integerValue*decimalValue;
 	}
@@ -739,6 +746,22 @@ public class MathFunctions
 		if(x<y){
 			return x;
 		}else return y;
+	}
+	public static double exponentBySquaring(double base, double exponent){
+		if(exponent==0) return 1;
+		double r=1;
+		while(exponent>1){
+			if(exponent%2==0){
+				base = base*base;
+				exponent=exponent/2;
+			}else{
+				r=base*r;
+				base=base*base;
+				exponent=(exponent-1)/2;
+			}
+		}
+		return base*r;
+
 	}
 
 
