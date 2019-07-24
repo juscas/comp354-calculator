@@ -1,4 +1,4 @@
-
+import java.util.Formatter;
 
 public class MathFunctions
 {
@@ -605,12 +605,13 @@ public class MathFunctions
 		double decimalExp;			//decimal part of the exponent
 		double integerValue;	//value of the base number to the power of integerExp (i.e. just the integer part of the exponent)
 		double decimalValue;    //value of the base number to the power of decimalExp (i.e. just the decimal part of the exponent)
-		int decimallength = 1;	//value of the denominator when the decimal is converted into a fraction
+		double decimallength = 1;	//value of the denominator when the decimal is converted into a fraction
 		double positiveBase = MathFunctions.abs(base);
 
 		//converting the exponent number into array of 2 strings. 1 containing the integer part, the other containing the decimal part
 		//the integer String is converted into an int again. The decimal part will be trimmed of any useless 0s on the right
 		integerExp = Integer.parseInt(String.valueOf(exponent).split("\\.")[0]);
+
 
 		//the decimal part of the given exponent, still in String form
 		String tempDecimal = String.valueOf(exponent).split("\\.")[1];
@@ -624,8 +625,10 @@ public class MathFunctions
 			tempDecimal = tempDecimal.substring(0,tempDecimal.length()-1);
 		}
 
+		/*
 		//if the decimal length is > 6 we trim the value to 6 decimal points, since more than that takes a heavy toll on the function
 		if(tempDecimal.length()>6) tempDecimal=tempDecimal.substring(0,6);
+		*/
 
 		//to convert a decimal into a fraction form, we have to have it in the form of number/10^n
 		//this for loop calculates the denominator (i.e. the actual value of 10^n)
@@ -635,6 +638,7 @@ public class MathFunctions
 
 		//converting the refined decimal number back to int
 		decimalExp = Double.parseDouble(tempDecimal);
+
 
 		//using the power function from class MathFunctions to calculate the value of the base number to the power of the integer
 		//part of the exponent
@@ -657,7 +661,7 @@ public class MathFunctions
 
 		//calculation of base^(1/decimallength) is estimated using Newton's method
 		//in this function we're applying the equation (base^(1/decimallength))^decimalExp which is = to base^(decimalExp/decimallength)
-		decimalValue = MathFunctions.exponentBySquaring(MathFunctions.nroot(base,decimallength,10),decimalExp);
+		decimalValue = MathFunctions.exponentBySquaring(MathFunctions.upgradedRoot(base,decimallength),decimalExp);
 
 		return integerValue*decimalValue;
 	}
@@ -761,6 +765,45 @@ public class MathFunctions
 			}
 		}
 		return base*r;
+
+	}
+	public static double roundToN(Double number, int index){
+		String temp = number.toString();
+		int Eindex = temp.indexOf("E");
+		if(Eindex !=-1){
+			String str;
+			Formatter test = new Formatter();
+			//figuring out how many times we have to shift the decimal point
+			int shiftNumber =Integer.parseInt(temp.substring(Eindex+1));
+		}
+		return 0.0;
+	}
+	public static double upgradedRoot(double base, double exponent){
+		double log = log(exponent);
+
+		int intLog = (int) log;
+
+
+		double decimalLog = log - (intLog);
+
+		double intVal=base;
+
+		double decimalVal;
+
+		for(int i =0 ; i< intLog ; i++){
+			intVal = nroot(intVal,10,10);
+		}
+
+		double temp ;
+
+
+		if(decimalLog>0){
+			return power(intVal,decimalLog);
+		}else{
+			return intVal;
+		}
+
+
 
 	}
 
