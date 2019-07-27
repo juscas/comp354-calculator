@@ -374,14 +374,14 @@ public class MathFunctions
 	public static double sin(double radians) {
 
 		// get the angles down to a positive multiple of 2Pi since cos is periodic around 2Pi
-		radians = mapRadiansToBetween0and2Pi(radians);
+		double radiansMapped = mapRadiansToBetween0and2Pi(radians);
 
 		double result = 0;
 		int accuracy = 6; // how many terms to calculate to (max 6 or else imprecise)
 		int posNeg = -1; // used to alternate between +/- in the series.
 
 		// The 2nd and 3rd quadrants of the 0 to 2Pi curve lie under the x-axis -> flip sign
-		int quadrantOf2Pi = whatQuadrantOf2Pi(radians);
+		int quadrantOf2Pi = whatQuadrantOf2Pi(radiansMapped);
 
 		// These are the mappings from the first quadrant to the appropriate quadrant.
 		switch(quadrantOf2Pi) {
@@ -389,13 +389,13 @@ public class MathFunctions
 				// do nothing
 				break;
 			case 2 :
-				radians = MathFunctions.PI - radians;
+				radiansMapped = MathFunctions.PI - radiansMapped;
 				break;
 			case 3 :
-				radians = radians - (3/2 * MathFunctions.PI) ;
+				radiansMapped = radiansMapped - (3/2 * MathFunctions.PI) ;
 				break;
 			case 4 :
-				radians = 2 * MathFunctions.PI - radians;
+				radiansMapped = 2 * MathFunctions.PI - radiansMapped;
 				break;
 			default :
 				break;
@@ -404,7 +404,7 @@ public class MathFunctions
 		// This is the Taylor expansion of sin(x)
 		for(int i = 0; i < accuracy; ++i) {
 			posNeg = -posNeg; // flip sign of this, ie. (-1)^(i)
-			result += posNeg * ( MathFunctions.intPower(radians, 2*i + 1) /
+			result += posNeg * ( MathFunctions.intPower(radiansMapped, 2*i + 1) /
 					MathFunctions.factorial(2*i+1));
 		}
 
@@ -412,6 +412,10 @@ public class MathFunctions
 		if(quadrantOf2Pi == 3 || quadrantOf2Pi == 4 )
 			result = -result;
 
+		if(quadrantOf2Pi == 2 && radians < 0)
+			return -result;
+		
+		
 		return result;
 	}
 
@@ -692,24 +696,27 @@ public class MathFunctions
 
 		int precision = 13; // 13 gives lowest sum of square error for values between 0 and 1.
 		double result = 0.0;
-
-		int integerExponent = (int) x; // retain the integer part of the exponent
-		double decimalExponent = x % integerExponent; // this is the decimal part of the exponent
-
+		
+		
+		int integerExponent = 0;
+		double decimalExponent = x;
+		
+		if(x > 1) {
+			integerExponent = (int) x; // retain the integer part of the exponent
+			decimalExponent = x % integerExponent; // this is the decimal part of the exponent
+		}
+		
 		double remainderTaylorResult = 0; // This will hold the result of the Taylor expansion
 
 		// This is the Taylor expansion of e^decimalExponent around 0
 		for(int i = 0; i < precision; ++i)
-			remainderTaylorResult += MathFunctions.intPower(decimalExponent, i) / MathFunctions.factorial(i);
-
+			result += MathFunctions.intPower(decimalExponent, i) / MathFunctions.factorial(i);
+		
 		// add the appropriate multiples of E back to the Taylor expansion of the remainder.
-		result = remainderTaylorResult * MathFunctions.intPower(MathFunctions.E, integerExponent);
+		if(x > 1)
+			result = remainderTaylorResult * MathFunctions.intPower(MathFunctions.E, integerExponent);
 
-		// if negative, return (1 / result) else just return the result
-		if(x < 0)
-			return 1 / result;
-		else
-			return result;
+		return result;
 	}
 
 	/**
