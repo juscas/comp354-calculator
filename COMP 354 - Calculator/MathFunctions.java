@@ -421,7 +421,7 @@ public class MathFunctions
 	 * @return secant(x) : double
 	 */
 	public static double csc(double radians) {
-		return 1 / cos(radians);
+		return 1 / sin(radians);
 	}
 
 	/**
