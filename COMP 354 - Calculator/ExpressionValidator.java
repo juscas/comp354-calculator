@@ -1,7 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class ExpressionValidator
 {
+	
+	// TODO make everything private except the validator function
 	
 	/**
 	 * This array holds all of the recoginzed operators. If a new operator is added in the future,
@@ -14,6 +21,8 @@ public class ExpressionValidator
 	
 	/**
 	 * The are the defined bracketed operators. They must have a sub-expression on their right.
+	 * Functions must be purely alphabetic characters, specifically: [a-zA-z][a-zA-z]+ (min 2 
+	 * letters).
 	 */
 	public static final String[] unaryOperators = {	"cosh", "sinh", "cos", "sin", "tan", "csc", 
 													"sec", "cot", "exp", "abs", "ln", "log" 
@@ -30,29 +39,45 @@ public class ExpressionValidator
 	 */
 	public static final char[] binaryAndUnaryOperators = {'+', '-'};
 	
+	/**
+	 * This puts all of the unaryOperators (worded and bracketed functions such as "sin") into a 
+	 * Trie for easy lookup.
+	 */
+	public static Trie functionLookup = new Trie(unaryOperators);;
 	
 	// EXPRESSION VALIDATION METHODS ------------------------------------------------------------
 	
 	public static String validateExpression(String original) throws SyntaxErrorException {
 		
+		// this is to enter "debug" mode.
+		if(original.equals("debug"))
+			return original;
 		/*
 		 * This function scans the string many times. This was a deliberate design choice to make
 		 * the code more modular (at the expense of efficiency). A possible optimization would be 
 		 * to check all of the operations below in one pass.
 		 */
-		
 		String finalExpression = original;
 		
 		// 1) Replace all brackets by '(' or ')' to facilitate parsing
 		finalExpression = replaceBrackets(finalExpression);
 		
 		// 2) Check for spaces between numbers. ex: 5 6 * 3 must be an error since 5 6 is ambiguous
-		if(finalExpression.matches("\\d+\\s+\\d+|(.\\s*)")) // TODO fix.\\s+ it does not work
-			throw new SyntaxErrorException("Error: Spaces are not permitted between numbers");
+		if(invalidSpaces(finalExpression))
+			throw new SyntaxErrorException("No spaces permitted between numbers or after period");
 		
-		// 3) For parsing simplicity, remove all spaces.
+		// 3.1) For parsing simplicity, remove all spaces.
 		// note: do not do this step before checking for spaces between numbers (which are invalid)
 		finalExpression = removeSpaces(finalExpression);
+		
+		// 3.2) Replace e^(<something>) by exp(<something>), and e^<number> by exp(<number>)
+		// note: do this strictly before replacing constants by their numbers
+		// TODO
+//		finalExpression = replaceExponential(finalExpression);
+		
+		// 3.3) Replace all constants by their number
+		// note: do this only after removing all spaces
+		finalExpression = replaceConstants(finalExpression);
 		
 		// 4) Check for dangling operators (last character of cannot be an operator)
 		if(danglingOperator(finalExpression))
@@ -70,12 +95,12 @@ public class ExpressionValidator
 		if(!unaryBinaryOperatorsHaveTermsOnRHS(finalExpression))
 			throw new SyntaxErrorException("Error: Unary operators must have an expression on their RHS");
 		
-		// 5.4) No 2 operators binary operators in a row (
+		// 5.4) No 2 binary operators in a row (
 		// note: do this after replacing all of "-\s*-" signs by "+"
 		if(!binaryOperatorsHaveTermsOnBothSides(finalExpression))
 			throw new SyntaxErrorException("Error: Binary operators must have expressions on LHS and RHS");
 		
-		// 5.5) Check that pure unary operators have terms on their right.
+		// 5.5) Check that pure unary operators have terms on their right. ("cos(" ok, "sin5" bad)
 		if(!validUnaryOperatorBrackets(finalExpression))
 			throw new SyntaxErrorException("Error: Unary operators must be of form: cos(\"expression\")");
 		
@@ -83,24 +108,268 @@ public class ExpressionValidator
 		if(bracketMatch(finalExpression) == -1)
 			throw new SyntaxErrorException("Error: Unmatched brackets");
 		
-		// 7) check invalid characters
+		// 7) check invalid characters or symbols
 		if(validCharacters(finalExpression) != null)
 			throw new SyntaxErrorException();
 		
-		
 		// 8) check invalid expressions
-		// TODO do this part
+		String invalidFunction = validFunctions(finalExpression);
+		if(!invalidFunction.equals(""))
+			throw new SyntaxErrorException(invalidFunction + " is not a valid function");
 		
 		// 9) empty brackets
 		// note: do this only after converting all non-round brackets "[{" to round brackets "()"
-		if(finalExpression.matches("(\\s*)"))
+		
+		if(finalExpression.equals("")) { // do not remove as all Strings match the null string
+			// do nothing and consider "" as valid
+		}
+		else if(finalExpression.matches("(\\s*)"))
 			throw new SyntaxErrorException("Error: Ambiguous empty brackets");
 		
-		// 10) comma handling
+		// 10) comma handling and parameter checking
+		// TODO change the functions array to take arity
 		
+		// 12) check that numbers are valid (and maximum number of decimals)
+		// TODO
 		
 		return finalExpression;
 	}
+	
+	/**
+	 * BROKEN
+	 * @param expression
+	 * @return
+	 */
+	public static String replaceExponential(String expression) {
+		
+		// TODO do some sort of loop to apply this to the entire function
+		
+		int occurenceOfEtoTheX = expression.indexOf("e^");
+		
+		// if the char after "e^" is a bracket then just replace "e^" by "exp"
+		if(expression.charAt(occurenceOfEtoTheX + 2) == '(') {
+			expression = expression.substring(0, occurenceOfEtoTheX) + "exp" 
+				+ expression.substring(occurenceOfEtoTheX + 2, expression.length());
+		}
+		// TODO do the part where there is a number or letter after this
+		else {
+			
+		}
+		
+		
+		return expression;
+	}
+	
+	/**
+	 * Returns 'true' if the character is a lower case letter.
+	 * 
+	 * @param aChar : char
+	 * @return if aChar is a letter
+	 */
+	private static boolean isValidLowerAlpha(char aChar) {
+		if(aChar >= 97 && aChar <= 122)
+			return true;
+		return false;
+	}
+	
+	
+	
+	 /**
+	 * This will insert a String at a specified index. The character at the specified index will be
+	 * discarded (this is meant to be a helper for other methods)
+	 * 
+	 * To append at front, use indexAt = 0.
+	 * To append to rear, use indexAt = intoMe.length(); 
+	 * 
+	 * @param intoMe : String
+	 * @param toAdd : String
+	 * @param indexAt : int
+	 * @return String with another String inserted into it.
+	 */
+	public static String insertAndReplace(String intoMe, String toAdd, int indexAt) {
+		
+		if(indexAt < 0 || indexAt > intoMe.length())
+			throw new StringIndexOutOfBoundsException("Index provided is out of range");
+		
+		return intoMe.substring(0, indexAt) + toAdd + intoMe.substring(indexAt + 1, intoMe.length());
+	}
+	
+	/**
+	 * This will insert a String into another String at the provided index. The inserted String will
+	 * be added at the provided index (its first letter will now be at that index).
+	 * 
+	 * To append at front, use indexAt = 0.
+	 * To append to rear, use indexAt = intoMe.length(); 
+	 * 
+	 * @param intoMe : String
+	 * @param toAdd : String
+	 * @param indexAt : int
+	 * @return String with another String inserted into it.
+	 */
+	public static String insertIntoString(String intoMe, String toAdd, int indexAt) {
+		
+		if(indexAt < 0 || indexAt > intoMe.length())
+			throw new StringIndexOutOfBoundsException("Index provided is out of range");
+		
+		return intoMe.substring(0, indexAt) + toAdd + intoMe.substring(indexAt, intoMe.length());
+	}
+	
+	/**
+	 * Given a mathematical expression this will replace all constants (lone letters) by their 
+	 * corresponding number value (found in UserConstants class).
+	 * 
+	 * ex. if p is mapped to 3.14
+	 * 	   then (a + 4 * 5) -> (3.14 + 4 * 5)
+	 * 
+	 * @param expression : String
+	 * @return expression with constants replaced by their values
+	 */
+	public static String replaceConstants(String expression) {
+		
+		// This is some ghetto special character stuff that makes edge cases easier.
+		expression = "%" + expression + "%";
+		
+		int addedCharacters = 0;
+		String addedIntoExpresion = "";
+		
+		for(int i = 1; i < expression.length() - 1; ++i) {
+			
+			// some weird skipping condition or we go out of bounds
+			if(i + 1 + addedCharacters == expression.length())
+				break;
+			
+			if(!isValidLowerAlpha(expression.charAt(i - 1 + addedCharacters)) && 
+					!isValidLowerAlpha(expression.charAt(i + 1 + addedCharacters))) {
+				System.out.println(i + addedCharacters);
+				if(isValidLowerAlpha(expression.charAt(i + addedCharacters))) {
+					
+					System.out.println("\n-------------------------------");
+					System.out.println("Start Expression: " + expression+ " ||| length=" + expression.length());
+					System.out.print(expression + " ||| ");
+					System.out.print("i=" + i + " ||| ");
+					System.out.print("charAt=" + (expression.charAt(i + addedCharacters)) + " ||| ");
+					
+					System.out.println("getCharAt=" + (i + addedCharacters));
+					
+					addedIntoExpresion = UserConstants.getValue(expression.charAt(i + addedCharacters));
+					
+					System.out.println(addedIntoExpresion);
+					
+					
+					expression = insertAndReplace(expression, addedIntoExpresion, i + addedCharacters);
+					
+					System.out.println("End Expression: " + expression + " ||| length=" + expression.length());
+					
+					
+					if(addedIntoExpresion.length() > 1)
+						addedCharacters += addedIntoExpresion.length() - 1;
+					
+					System.out.println("-------------------------------");
+				}
+			}
+		}
+		
+		// Remove the ghetto characters
+		return expression.subSequence(1, expression.length() - 1).toString();
+		
+	}
+	
+	
+	/**
+	 * Given a mathematical expression, this will go through all words ("sin", "cos", "happy") to 
+	 * see if they were defined as a valid functions in the 'unaryOperators' array.
+	 * 
+	 * This will return the invalid word or null if all words are valid functions.
+	 * 
+	 * @param expression : String
+	 * @return "" if all valid, else invalid function.
+	 */
+	public static String validFunctions(String expression) {
+		
+		List<String> allMatches = new ArrayList<String>();
+		Matcher m = Pattern.compile("[a-zA-z][a-zA-z]+").matcher(expression);
+		
+		while (m.find()) {
+			allMatches.add(m.group());
+		}
+		
+		if(allMatches.size() == 0)
+			return "";
+		
+		// put list into a String array
+		String[] functionArray = new String[allMatches.size()];
+		for(int i = 0; i < allMatches.size(); ++i) {
+			functionArray[i] = allMatches.get(i);
+		}
+
+		boolean foundValid = false;
+		
+		int i = 0;
+		
+		for(i = 0; i < functionArray.length; ++i) {
+			
+			foundValid = false;
+			
+			for(int j = 0; j < unaryOperators.length ; ++j) {
+				
+				if(functionArray[i].equals(unaryOperators[j])) {
+					foundValid = true;
+					break;
+				}
+			}
+			
+			if(!foundValid) {
+				break;
+			}
+		}
+		
+		if(!foundValid)
+			return functionArray[i];
+		
+		// all 'worded' functions in the expression are valid.
+		return "";
+	}
+	
+	/**
+	 * This will check the mathematical expression for invalid use of the 'space' character.
+	 * 
+	 * -space after period is invalid
+	 * -period after period is invalid
+	 * -space between numbers is invalid
+	 * 
+	 * Returns 'true' if there are invalid spaces and 'false' if the expression is valid.
+	 * 
+	 * @param expression : String
+	 * @return 'true' if invalid
+	 */
+	public static boolean invalidSpaces(String expression) {
+		
+		char[] decomposedExpression = expression.toCharArray();
+		
+		// check each character in the String
+		for(int i = 1; i < decomposedExpression.length; ++i) {
+			
+			// if the previous character is a '.' then check for subsequent space or period
+			if(decomposedExpression[i-1] == '.') {
+				if(decomposedExpression[i] == ' ' || decomposedExpression[i] == '.') {
+					return true;
+				}
+			}
+		}
+		
+		for(int i = 1; i < decomposedExpression.length - 1; ++i) {
+			// if the previous character is a number then check for subsequent space
+			if(decomposedExpression[i-1] >= '0' && decomposedExpression[i-1] <= '9') {
+				if(decomposedExpression[i] == ' ') {
+					if(decomposedExpression[i+1] >= '0' && decomposedExpression[i+1] <= '9') {
+						return true;
+					}
+				}
+			}
+		}
+		return false; // no invalid space characters (all spaces valide).
+	}
+	
 	
 	/**
 	 * This will ensure that all of the characters in the expression are valid. They are valid if
@@ -112,13 +381,18 @@ public class ExpressionValidator
 	 * -bracket: '(', ')', '[', ']', '{', '}'
 	 * -period: '.'
 	 * -numbers: 0-9
-	 * -letters: a-z, A-Z
+	 * -letters: a-z
 	 * -recoginzedOperatorsSymbols[]
 	 * 
 	 * @param expression : String
 	 * @return 
 	 */
 	public static Character validCharacters(String expression) {
+		
+		// null string is valid
+		if(expression.length() == 0)
+			return null;
+			
 		
 		char [] decomposedExpression = expression.toCharArray();
 		
@@ -130,10 +404,9 @@ public class ExpressionValidator
 			
 			// these are the hardcoded valid characters
 			validChar = (c >= 'a' && c <= 'z') || 
-						(c >= 'A' && c <= 'Z') || 
 						(c >= '0' && c <= '9') ||
 						c == '(' || c == ')' || c == '[' || c == ']' || c == '{' || c == '}' ||
-						c == '.';
+						c == '.' || c == ',';
 			
 			// if not one of the hardcoded then check the operator array
 			if(!validChar) {
@@ -154,10 +427,11 @@ public class ExpressionValidator
 		return new Character(problemChar);
 	}
 	
-	// TODO test this!!
 	/**
-	 *
-	 * @param expression
+	 * This will ensure that all binary symbol operator (ie. * / ^) are flanked on both sides by
+	 * a valid number of sub-expression.
+	 * 	ie. (5 * (2 -8)) is valid || (5 * 2 /) is invalid
+	 * @param expression : String
 	 * @return
 	 */
 	public static boolean binaryOperatorsHaveTermsOnBothSides(String expression) {
@@ -217,16 +491,17 @@ public class ExpressionValidator
 	 * This will check that all of the unary operators defined in the Parser have a bracket 
 	 * immediately following the operator.
 	 * ex: 3 * cos(5 * 4) ok, 3 * cos 5 not ok
+	 * 
 	 * @param expression: String
 	 * @return true if all unary operators are valid
 	 */
-	private static boolean validUnaryOperatorBrackets(String expression) {
+	public static boolean validUnaryOperatorBrackets(String expression) {
 		
 		// do this check for each unary operator defined in the array
 		for(int i = 0; i < unaryOperators.length; ++i) {
 			
 			int index = expression.indexOf(unaryOperators[i]);
-			boolean isFirstPassOnOperator = true;
+			boolean isFirstPassOnOperator = true; // different behaviour on the very first pass
 			
 			// This loop will scan expression and check the validity of each (ie. cos) expression
 			while(true) {
@@ -242,8 +517,17 @@ public class ExpressionValidator
 				try {
 				// If the char after operator is not '(' (ex: "cos5" is invalid, "cos(" is valid)
 					if(expression.charAt(index + unaryOperators[i].length()) != '(') {
+						if(expression.charAt(index + unaryOperators[i].length()) == 'h' &&
+							expression.charAt(index + unaryOperators[i+1].length()) == '(')
+							/* the last "if" hardcodes a check for sinh(/cosh(. The reason is that 
+							 * "sinh" will always cause an error since when checking "sin", then the
+							 * next char is 'h' and not the expected '('. Probably going to need to
+							 * fix this at some point since not very extendable.
+							 * Definitely need to fix if we incorporate user functions as this can't
+							 * be hardcoded for every functions that is a prefix of another.
+							 */
 						return false;
-				}
+					}
 				} catch(IndexOutOfBoundsException e) { // expression ends with operator ("3 * cos")
 					return false;
 				}
@@ -263,6 +547,10 @@ public class ExpressionValidator
 	 */
 	private static boolean danglingOperator(String original) {
 		
+		if(original.length() == 0)
+			return false;
+			
+			
 		char lastChar = original.charAt(original.length() - 1);
 		
 		boolean hasDanglingOperator = false;
