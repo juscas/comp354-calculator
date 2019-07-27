@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Stack;
 
@@ -77,7 +78,10 @@ public class Parser {
         int levelnumb=0;
 
         int pointer=0;
-        String newStr="";
+        ArrayList<Character> str = new ArrayList<>(input.length()*3);
+        StringBuilder newStr = new StringBuilder("");
+
+        //String newStr="";
         String[] level=new String[0];
 
         //replacing cosine with special character @
@@ -93,8 +97,13 @@ public class Parser {
         //replacing every "log" with L and setting the log function in a bracket of its own. Such operations are critical for every operator that uses commas
         int Lindex = input.indexOf("log");
         while(Lindex!=-1){
-            int bracketIndex = input.indexOf(")",Lindex);
+
+            //replace log with (L
             input=input.replace("log","(L");
+
+            //find the index of the nearest )
+            int bracketIndex = input.indexOf(")",Lindex);
+
             input=input.substring(0,bracketIndex)+")"+input.substring(bracketIndex);
             Lindex = input.indexOf("log");
         }
@@ -109,8 +118,12 @@ public class Parser {
         //replacing every "root" with R and setting the log function in a bracket of its own. Such operations are critical for every operator that uses commas
         int Rindex = input.indexOf("root");
         while(Rindex!=-1){
-            int bracketIndex = input.indexOf(")",Rindex);
+            //replace root with (R
             input=input.replace("root","(R");
+
+            //find the index of the nearest )
+            int bracketIndex = input.indexOf(")",Rindex);
+
             input=input.substring(0,bracketIndex)+")"+input.substring(bracketIndex);
             Rindex = input.indexOf("root");
         }
@@ -130,7 +143,8 @@ public class Parser {
                 case '{':
                 case'[':
                 {
-                    newStr = newStr + " $" + levelnumb+" (";
+                    //newStr = newStr + " $" + levelnumb+" (";
+                    newStr.append(" $" + levelnumb+" (");
                     levelnumb = levelnumb+1;
                     break;
                 }
@@ -138,7 +152,8 @@ public class Parser {
                 case ']':
                 case '}':
                 {
-                    newStr = newStr + ")";
+                    //newStr = newStr + ")";
+                    newStr.append(")");
                     break;
                 }
                 //unary operators are given the highest priority
@@ -149,20 +164,23 @@ public class Parser {
                 case'E':
                 case'R':
                 {
-                    newStr = newStr + " #4 "+input.charAt(pointer);
+                    //newStr = newStr + " #4 "+input.charAt(pointer);
+                    newStr.append(" #4 "+input.charAt(pointer));
                     break;
                 }
                 //in case the character is ^ we assign priority #3
                 case '^':
                 {
-                    newStr = newStr + " #3 "+input.charAt(pointer);
+                    //newStr = newStr + " #3 "+input.charAt(pointer);
+                    newStr.append(" #3 "+input.charAt(pointer));
                     break;
                 }
                 //in case the character is * or / we assign priority #2
                 case '*':
                 case '/':
                 {
-                    newStr = newStr + " #2 "+input.charAt(pointer);
+                    //newStr = newStr + " #2 "+input.charAt(pointer);
+                    newStr.append(" #2 "+input.charAt(pointer));
                     break;
                 }
                 //in case the character is + or - we assign priority #1
@@ -171,22 +189,26 @@ public class Parser {
                 {
                     if(pointer==0||isSign(input.charAt(pointer-1))){
 
-                        newStr=newStr+input.charAt(pointer);
+                        //newStr=newStr+input.charAt(pointer);
+                        newStr.append(input.charAt(pointer));
                     }else {
-                        newStr = newStr + " #1 " + input.charAt(pointer);
+                        //newStr = newStr + " #1 " + input.charAt(pointer);
+                        newStr.append( " #1 " + input.charAt(pointer));
                     }
                     break;
                 }
                 //default case add the character pointed at to the new string
                 default:{
-                    newStr=newStr+input.charAt(pointer);
+                    //newStr=newStr+input.charAt(pointer);
+                    newStr.append(input.charAt(pointer));
                 }
             }
             pointer++;
 
         }
+        System.out.println("     t : "+newStr.toString());
         //pass the string to the disector function, along with the number of brackets -1 since levelnumb is 1 ahead of the actual number
-        return  disector(newStr.replaceAll(" ",""),levelnumb-1);
+        return  disector(newStr.toString().replaceAll(" ",""),levelnumb-1);
        // return newStr;
     }
 
