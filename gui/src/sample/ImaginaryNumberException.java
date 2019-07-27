@@ -1,5 +1,4 @@
 package sample;
-
 public class ImaginaryNumberException extends ArithmeticException {
 
     /**

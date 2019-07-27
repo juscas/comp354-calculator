@@ -1,5 +1,4 @@
 package sample;
-
 /**
  * This is the exception that is thrown when we don't know what happened and probably can't recover
  * from it.

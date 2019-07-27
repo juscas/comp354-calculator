@@ -1,5 +1,4 @@
 package sample;
-
 public class ResultInfinityException extends ArithmeticException
 {
 	/**

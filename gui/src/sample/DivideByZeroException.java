@@ -1,6 +1,5 @@
 package sample;
 
-
 public class DivideByZeroException extends ArithmeticException
 {
 	/**

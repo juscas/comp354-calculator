@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 
 public class Main extends Application {
 
@@ -16,8 +17,6 @@ public class Main extends Application {
 
         @Override
         public void start(Stage stage) {
-
-            Parser parser = new Parser();
 
             // create num buttons
             Button button_0 = new Button("0");
@@ -48,13 +47,13 @@ public class Main extends Application {
             // create operation buttons
             Button button_add = new Button("+");
             Button button_sub = new Button("-");
-            Button button_mul = new Button("*");
-            Button button_div = new Button("/");
+            Button button_mul = new Button("\u008E");
+            Button button_div = new Button("\u008F");
             Button button_equ = new Button("=");
             Button button_br1 = new Button("(");
             Button button_br2 = new Button(")");
             Button button_sqr = new Button("^");
-            Button button_sqt = new Button("^(1/2)");
+            Button button_sqt = new Button("\u221A");
             Button button_ln = new Button("ln");
             Button button_cos = new Button("cos");
             Button button_sin = new Button("sin");
@@ -87,6 +86,7 @@ public class Main extends Application {
             button_cot.setMinSize(60,60);
             button_can.setMinSize(60,60);
 
+            button_equ.getStyleClass().add("button_equ");
 
             // create number grid
             GridPane numGrid = new GridPane();
@@ -117,7 +117,7 @@ public class Main extends Application {
             numGrid.add(button_1, 0, 2, 1, 1);
             numGrid.add(button_2, 1, 2, 1, 1);
             numGrid.add(button_3, 2, 2, 1, 1);
-            //numGrid.add(button_, 3, 2, 1, 1);
+            numGrid.add(button_etx, 3, 2, 1, 1);
             numGrid.add(button_sin, 4, 2, 1, 1);
             numGrid.add(button_cos, 5, 2, 1, 1);
             numGrid.add(button_tan, 6, 2, 1, 1);
@@ -131,14 +131,27 @@ public class Main extends Application {
             numGrid.add(button_sec, 5, 3, 1, 1);
             numGrid.add(button_cot, 6, 3, 1, 1);
 
-
-
             TextArea input = new TextArea();
+            input.setPrefSize(500,500);
+            TextField console = new TextField();
+            console.setPrefHeight(200);
+            console.setDisable(true);
+            console.setStyle("-fx-opacity: 1;");
+
             Tooltip inputTooltip = new Tooltip("Type in equations here...");
             input.setTooltip(inputTooltip);
 
             TextArea output = new TextArea();
-            //output.setDisable(true);
+            output.setPrefSize(800,800);
+            output.setWrapText(true);
+            output.setDisable(true);
+            output.setStyle("-fx-opacity: 1;");
+
+
+            // Clear History button
+            Button button_clear_input = new Button("Clear History");
+
+            button_clear_input.setPrefSize(500,0);
 
             /*
             ~ Button Events ~
@@ -181,7 +194,7 @@ public class Main extends Application {
 
             button_div.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_div.getText());
+                input.setText(currentInput + "/");
             });
 
             button_br1.setOnAction(value -> {
@@ -318,27 +331,82 @@ public class Main extends Application {
                 input.setText(currentInput+ button_sqt.getText());
             });
 
+            Parser parser = new Parser();
+
+            ExpressionValidator validator = new ExpressionValidator();
 
             // equals button -> compute input function string using Dan's PARSER
             button_equ.setOnAction(value -> {
                 String currentInput = input.getText();
                 String currentOutput = output.getText();
-                String answer = parser.prioritiser(currentInput);
-                output.setText(currentInput + " " + button_equ.getText() +"\n" + answer + "\n" + currentOutput + "\n");
+                String answer;
+
+                try {
+                    answer = parser.prioritiser(validator.validateExpression(currentInput));
+                } catch (SyntaxErrorException s){
+                    input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
+                    answer = s.getMessage();
+                    console.setText(answer);
+                    input.setText("");
+                    input.setText(currentInput);
+                    return;
+                } catch (MathErrorException m){
+                    input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
+                    answer = m.getMessage();
+                    console.setText(answer);
+                    input.setText("");
+                    input.setText(currentInput);
+                    return;
+                }
+                input.setStyle("-fx-text-box-border: black;");
+                output.setText("\n" + currentInput + " " + button_equ.getText() +"\n" + answer + "\n" + currentOutput);
                 input.setText("");
+                console.setText("");
             });
 
             // Equals event for text input + press enter
             input.setOnKeyPressed(event -> {
                 if(event.getCode() == KeyCode.ENTER){
-                    String currentInput = input.getText();
+                    String currentInput = input.getText().replace("\n","");
                     String currentOutput = output.getText();
-                    String answer = parser.prioritiser(currentInput);
-                    output.setText(currentInput + " " + button_equ.getText() +"\n" + answer + "\n" + currentOutput + "\n");
+                    String answer;
+
+                    try {
+                        answer = parser.prioritiser(validator.validateExpression(currentInput));
+                    } catch (SyntaxErrorException s){
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
+                        answer = s.getMessage();
+                        console.setText(answer);
+                        //input.setText("");
+                        //input.setText(currentInput);
+                        return;
+                    } catch (MathErrorException m){
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
+                        answer = m.getMessage();
+                        console.setText(answer);
+                        //input.setText("");
+                        //input.setText(currentInput);
+                        return;
+                    }
+                    System.out.print(answer);
+
+                    // BOOBS
+                    if (answer.equals("8008135.0") || answer.equals("5318008.0")){
+                        output.setText("( . Y . )");
+                        return;
+                    }
+
+                    input.setStyle("-fx-text-box-border: black;");
+                    output.setText("\n" + currentInput + " " + button_equ.getText() +"\n" + answer + "\n" + currentOutput);
                     input.setText("");
+                    console.setText("");
+
                 }
             });
 
+            button_clear_input.setOnAction(value -> {
+                output.setText("");
+            });
 
             BorderPane rootPane = new BorderPane();
             MenuBar menu = new MenuBar();
@@ -354,19 +422,33 @@ public class Main extends Application {
             menu.getMenus().add(helpMenu);
             rootPane.setTop(menu);
 
+            ColorPicker colorPicker = new ColorPicker();
+
+            colorPicker.setOnAction(value -> {
+                Color c = colorPicker.getValue();
+                System.out.println("New Color's RGB = "+c.getRed()+" "+c.getGreen()+" "+c.getBlue());
+            });
+
             VBox vbox = new VBox(
                     rootPane,
                     numGrid,    // Grid of Numbers
-                    input      // Text for input
+                    input,      // Text for input
+                    console
+            );
+
+            VBox vbox2 = new VBox(
+                    output,
+                    button_clear_input
             );
 
             HBox hbox = new HBox(
                     vbox,
-                    output      // Text for output
+                    vbox2
+                        // Text for output
             );
 
             //Creating a scene object
-            Scene scene = new Scene(hbox,700, 400);
+            Scene scene = new Scene(hbox,800, 500);
 
             //Set css style
             scene.getStylesheets().add("sample/dark.css");
@@ -389,10 +471,18 @@ public class Main extends Application {
                         .add("sample/dark.css");
             });
 
+            // Custom skin
+//            MenuItem theme3 = new MenuItem("New...");
+//            theme2.setOnAction(ae -> {
+//                Color c = colorPicker.getValue();
+//                System.out.println("New Color's RGB = "+c.getRed()+" "+c.getGreen()+" "+c.getBlue());
+//            });
+
 
             themeMenu.getItems()
                     .addAll(theme1,
                             theme2);
+                           // ,theme3);
 
 
 
@@ -411,8 +501,7 @@ public class Main extends Application {
 
             //Displaying the contents of the stage
             stage.show();
-
-            System.out.println(javafx.scene.text.Font.getFamilies());
+            //javafx.scene.text.Font.getFamilies();
         }
 
 
