@@ -53,7 +53,7 @@ public class Main extends Application {
             Button button_br1 = new Button("(");
             Button button_br2 = new Button(")");
             Button button_sqr = new Button("^");
-            Button button_sqt = new Button("\u221A");
+            Button button_sqt = new Button("\u207f\u221Ax");
             Button button_ln = new Button("ln");
             Button button_cos = new Button("cos");
             Button button_sin = new Button("sin");
@@ -189,7 +189,7 @@ public class Main extends Application {
 
             button_mul.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_mul.getText());
+                input.setText(currentInput + "*");
             });
 
             button_div.setOnAction(value -> {
@@ -331,6 +331,11 @@ public class Main extends Application {
                 input.setText(currentInput+ button_sqt.getText());
             });
 
+            button_etx.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + "e^");
+            });
+
             Parser parser = new Parser();
 
             ExpressionValidator validator = new ExpressionValidator();
@@ -342,7 +347,7 @@ public class Main extends Application {
                 String answer;
 
                 try {
-                    answer = parser.prioritiser(validator.validateExpression(currentInput));
+                    answer = Parser.prioritiser(validator.validateExpression(currentInput));
                 } catch (SyntaxErrorException s){
                     input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
                     answer = s.getMessage();
@@ -377,15 +382,11 @@ public class Main extends Application {
                         input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
                         answer = s.getMessage();
                         console.setText(answer);
-                        //input.setText("");
-                        //input.setText(currentInput);
                         return;
                     } catch (MathErrorException m){
                         input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
                         answer = m.getMessage();
                         console.setText(answer);
-                        //input.setText("");
-                        //input.setText(currentInput);
                         return;
                     }
                     System.out.print(answer);
@@ -430,10 +431,10 @@ public class Main extends Application {
             });
 
             VBox vbox = new VBox(
-                    rootPane,
+                    rootPane,   // Menu tabs
                     numGrid,    // Grid of Numbers
                     input,      // Text for input
-                    console
+                    console     // Error messaging
             );
 
             VBox vbox2 = new VBox(

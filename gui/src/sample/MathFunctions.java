@@ -1,4 +1,5 @@
 package sample;
+
 import java.util.Formatter;
 
 public class MathFunctions
@@ -144,6 +145,8 @@ public class MathFunctions
 		//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
 		if(root%2 == 0&&base<0) throw new ImaginaryNumberException();
 
+		if(root<1) return power(base,1.0/root);
+
 		//initial random guess is set to 5
 		double aprx = 5;
 
@@ -180,7 +183,7 @@ public class MathFunctions
 	 * @return the nth root of the base number
 	 */
 	public static double nroot (double base, int root){
-		return nroot(base,root,0);
+		return nroot(base,root,10);
 	}
 
 	/**
@@ -589,7 +592,6 @@ public class MathFunctions
 		return (exponent - 1);
 	}
 
-	//(needs testing for accuracy) power function for decimal/fractional exponents
 	/**
 	 * Returns the result of base raised to the exponent (ie. base^exponent).
 	 * @param base : double
@@ -643,7 +645,7 @@ public class MathFunctions
 
 		//using the power function from class MathFunctions to calculate the value of the base number to the power of the integer
 		//part of the exponent
-		integerValue = MathFunctions.intPower(base,integerExp);
+		integerValue = MathFunctions.exponentBySquaring(base,integerExp);
 
 		//if the exponent provided is negative, then so should the decimal part of the exponent
 		if(exponent<0) decimalExp = decimalExp*-1;
@@ -752,9 +754,24 @@ public class MathFunctions
 			return x;
 		}else return y;
 	}
+	/**
+	 * Same as the intPower function except this one is more efficient
+	 * @param base: double
+	 * @param exponent: double
+	 * @return double
+	 */
 	public static double exponentBySquaring(double base, double exponent){
+
 		if(exponent==0) return 1;
+
+		//in case of negative exponents, set the base = 1/base
+		if(exponent<0){
+			base=1/base;
+			exponent=exponent*-1;
+		}
+		//initialising remainder =1
 		double r=1;
+
 		while(exponent>1){
 			if(exponent%2==0){
 				base = base*base;
@@ -766,9 +783,8 @@ public class MathFunctions
 			}
 		}
 		return base*r;
-
 	}
-	public static double roundToN(Double number, int index){
+	/*public static double roundToN(Double number, int index){
 		String temp = number.toString();
 		int Eindex = temp.indexOf("E");
 		if(Eindex !=-1){
@@ -778,24 +794,33 @@ public class MathFunctions
 			int shiftNumber =Integer.parseInt(temp.substring(Eindex+1));
 		}
 		return 0.0;
-	}
-	public static double upgradedRoot(double base, double exponent){
+	}*/
+
+	/**
+	 * Does the same thing as the nroot function, except in case of a big exponent, this function calculates the root in small intervals which increases performance
+	 * Only factors of 10 should be used for exponents
+	 * @param base double
+	 * @param exponent double : must be divisible by 10
+	 * @return double
+	 */
+	private static double upgradedRoot(double base, double exponent){
+
+		//getting the log(base 10) of the exponent
 		double log = log(exponent);
 
+		//obtaining the integer of the log
 		int intLog = (int) log;
 
 
 		double decimalLog = log - (intLog);
 
+		//setting the initial integer value = to base
 		double intVal=base;
 
-		double decimalVal;
-
+		//calculating the roots in intervals
 		for(int i =0 ; i< intLog ; i++){
 			intVal = nroot(intVal,10,10);
 		}
-
-		double temp ;
 
 
 		if(decimalLog>0){
@@ -804,13 +829,5 @@ public class MathFunctions
 			return intVal;
 		}
 
-
-
 	}
-
-
-
-
-
-
 }
