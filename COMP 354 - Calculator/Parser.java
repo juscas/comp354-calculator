@@ -4,6 +4,22 @@ import java.util.Stack;
 
 public class Parser {
 
+    private static boolean debug=false;
+
+//ToDO: add support for the square root function
+    /**
+     * Initialising function that initiates the parsing process. It also defines weather the user wishes to enter debug mode or not
+     * @param input : String
+     * @return String
+     */
+    public static String parse(String input){
+        if(input.contains("debug")){
+            debug = true;
+            input = input.replaceAll("\\s+","").substring(5);
+        }
+        return prioritiser(input);
+    }
+
     /**
      * Given a mathematical expression, this will tell you if the brackets match or not. A match
      * is when it returns the index of the ending bracket. Invalid brackets return -1.
@@ -73,7 +89,7 @@ public class Parser {
         //TODO: remove after the validator is implemented
         if(bracketMatch(input)==-1) throw new SyntaxErrorException();
 
-        System.out.println(input);
+        if (debug) System.out.println("Initial input : "+input);
 
         int levelnumb=0;
 
@@ -94,6 +110,7 @@ public class Parser {
         //replacing log with L
         input = input.replaceAll("exp\\(","E(");
 
+        //ToDo: bug : ln(2^2+log(log(2),8)+5+9^9.3689)
         //replacing every "log" with L and setting the log function in a bracket of its own. Such operations are critical for every operator that uses commas
         int Lindex = input.indexOf("log");
         while(Lindex!=-1){
@@ -107,7 +124,7 @@ public class Parser {
             input=input.substring(0,bracketIndex)+")"+input.substring(bracketIndex);
             Lindex = input.indexOf("log");
         }
-        System.out.println(input);
+        if (debug) System.out.println(input);
 
         /*//replacing log with L
         input = input.replaceAll("log\\(","L(");
@@ -206,7 +223,7 @@ public class Parser {
             pointer++;
 
         }
-        System.out.println("     t : "+newStr.toString());
+        if (debug) System.out.println("     t : "+newStr.toString());
         //pass the string to the disector function, along with the number of brackets -1 since levelnumb is 1 ahead of the actual number
         return  disector(newStr.toString().replaceAll(" ",""),levelnumb-1);
        // return newStr;
@@ -222,7 +239,7 @@ public class Parser {
      * @return prioritised function with special characters
      */
     public static String disector(String str,int highestLevel){
-        System.out.println(str);
+        if (debug) System.out.println(str);
 
         //if the string has $
         if(str.contains("$")){
@@ -241,14 +258,14 @@ public class Parser {
                 endPointer=str.indexOf(")",startPointer);
 
                 passedString = str.substring(startPointer+2,endPointer+1);
-                System.out.println("passed to Calculate : "+passedString);
+                if (debug) System.out.println("passed to Calculate : "+passedString);
 
                 str=str.substring(0,startPointer)+calculate(passedString)+str.substring(endPointer+1);
 
-                System.out.println("Returned string : "+str);
+                if (debug) System.out.println("Returned string : "+str);
                 level--;
             }
-            System.out.println(str);
+            if (debug) System.out.println(str);
         }
 
         //calculate the final simple expression and then return it
@@ -257,7 +274,7 @@ public class Parser {
 
     public static String calculate(String str){
 
-        System.out.println("Calculate in : "+str);
+        if (debug) System.out.println("Calculate in : "+str);
 
         //removing any brackets that are passed to the string
         str=str.replaceFirst("[()]","");
@@ -286,7 +303,7 @@ public class Parser {
             while(index!=-1){
               //  j--;
 
-                System.out.println("first iteration : "+str);
+                if (debug) System.out.println("\nWorking on priority #"+priority+" : "+str+"\n");
 
                 //recalculating the index of the other special character of the current priority (will be -1 if does not exist)
                 index = str.indexOf("#"+priority);
@@ -394,6 +411,7 @@ public class Parser {
                                 //System.out.println(rightOperand);
                                 break;
                             }
+                            break;
 
                         }
                         case'R':{
@@ -627,7 +645,7 @@ public class Parser {
 
         }
 
-        System.out.println("Calculate out : "+str);
+        if (debug) System.out.println("Calculate out : "+str);
         return str;
     }
     private static double[] findOperand(String str, int index){

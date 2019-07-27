@@ -137,13 +137,16 @@ public class MathFunctions
 	public static double nroot(double base, int root, int x) throws ImaginaryNumberException {
 
 		double epsilon = 0.001;
+
+		//
+		boolean negative = root<1;
 		if(MathFunctions.abs(root - 0.5) < epsilon)	// if you call this with 1/2 then just call simple sqrt() function.
 			return squareRoot(x);
 
 		//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
 		if(root%2 == 0&&base<0) throw new ImaginaryNumberException();
 
-		if(root<1) return power(base,1.0/root);
+		if(negative) root=root*-1;
 
 		//initial random guess is set to 5
 		double aprx = 5;
@@ -171,7 +174,7 @@ public class MathFunctions
 			difference = abs(betterAprx - aprx);
 			aprx = betterAprx;
 		}
-		return aprx;
+		return negative? (1/aprx):aprx;
 	}
 
 	/**
@@ -762,25 +765,30 @@ public class MathFunctions
 
 		if(exponent==0) return 1;
 
+		boolean negative = exponent < 0;
 		//in case of negative exponents, set the base = 1/base
-		if(exponent<0){
-			base=1/base;
-			exponent=exponent*-1;
+		if(negative){
+			exponent = exponent * -1;
 		}
 		//initialising remainder =1
-		double r=1;
+		double r = 1;
 
-		while(exponent>1){
-			if(exponent%2==0){
-				base = base*base;
-				exponent=exponent/2;
-			}else{
-				r=base*r;
-				base=base*base;
-				exponent=(exponent-1)/2;
+		while (exponent > 1){
+			if (exponent % 2 == 0){
+				base = base * base;
+				exponent = exponent / 2;
+			}
+			else {
+				r = base * r;
+				base = base * base;
+				exponent = (exponent - 1) / 2;
 			}
 		}
-		return base*r;
+		if(negative){
+			return 1 / (base * r);
+		}else{
+			return base * r;
+		}
 	}
 	/*public static double roundToN(Double number, int index){
 		String temp = number.toString();
