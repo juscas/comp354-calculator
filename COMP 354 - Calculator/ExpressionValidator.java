@@ -109,8 +109,9 @@ public class ExpressionValidator
 			throw new SyntaxErrorException("Error: Unmatched brackets");
 		
 		// 7) check invalid characters or symbols
-		if(validCharacters(finalExpression) != null)
+		if(validCharacters(finalExpression) != null) {
 			throw new SyntaxErrorException();
+		}
 		
 		// 8) check invalid expressions
 		String invalidFunction = validFunctions(finalExpression);
@@ -119,7 +120,6 @@ public class ExpressionValidator
 		
 		// 9) empty brackets
 		// note: do this only after converting all non-round brackets "[{" to round brackets "()"
-		
 		if(finalExpression.equals("")) { // do not remove as all Strings match the null string
 			// do nothing and consider "" as valid
 		}
@@ -392,7 +392,6 @@ public class ExpressionValidator
 		// null string is valid
 		if(expression.length() == 0)
 			return null;
-			
 		
 		char [] decomposedExpression = expression.toCharArray();
 		
@@ -403,29 +402,30 @@ public class ExpressionValidator
 		for(char c : decomposedExpression) {
 			
 			// these are the hardcoded valid characters
-			validChar = (c >= 'a' && c <= 'z') || 
-						(c >= '0' && c <= '9') ||
+			if(validChar == ( (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') ||
 						c == '(' || c == ')' || c == '[' || c == ']' || c == '{' || c == '}' ||
-						c == '.' || c == ',';
+						c == '.' || c == ',')) {
+				validChar = false;
+				break;
+			}
 			
 			// if not one of the hardcoded then check the operator array
 			if(!validChar) {
 				for(char op : recoginzedOperatorsSymbols) {
 					if(c == op) {
+						validChar = true;
 						break;
+					}
+					else {
+						return new Character(c);
 					}
 				}
 			}
 			
-			problemChar = c;
-			
-			if(!validChar) { 
-				return null; 
-			}
 		}
-		
-		return new Character(problemChar);
+		return null;
 	}
+	
 	
 	/**
 	 * This will ensure that all binary symbol operator (ie. * / ^) are flanked on both sides by
