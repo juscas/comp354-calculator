@@ -546,10 +546,15 @@ public class MathFunctions
 			throw new MathErrorException("No values under or equal 0");
 		}
 
-		if(x ==1){
+		if(x == 1){
 			throw new MathErrorException("Log of 1 is Infinity.");
 		}
 
+		// this is because the algorithm for log10 only works for x >= 1 (but it is infinitely precise)
+		if(x < 1)
+			return log(10, x);
+		
+		
 		String answer = "";
 		int signicantDigits  = 15; // how many numbers after the decimal
 
@@ -576,7 +581,21 @@ public class MathFunctions
 	 * @return log10(x) : double
 	 */
 	public static double log(double base, double number) {
-		return ln(number) / ln(base); // this is just the change of base formula for logarithms.
+		
+		double denominator;
+		
+		if(base == 10)
+			denominator = 2.30258509299404568402; // ln(10) hardcoded
+		else if(base == E)
+			denominator = 1; // ln(e) hardcoded
+		else
+			denominator = ln(base);
+			
+			System.out.println("number = " + number);
+			System.out.println("ln = " + ln(number));
+			System.out.println("denominator = " + denominator);
+		
+		return ln(number) / denominator; // this is just the change of base formula for logarithms.
 	}
 	/**
 	 * Helper function for calculating the log10. This will return the nearest power of 10 that
@@ -697,25 +716,21 @@ public class MathFunctions
 		int precision = 13; // 13 gives lowest sum of square error for values between 0 and 1.
 		double result = 0.0;
 		
-		
-		int integerExponent = 0;
+		int integerExponent = (int) x; // retain the integer part of the exponent
 		double decimalExponent = x;
 		
-		if(x > 1) {
-			integerExponent = (int) x; // retain the integer part of the exponent
-			decimalExponent = x % integerExponent; // this is the decimal part of the exponent
-		}
+		// if |x| is < 1
+		if(integerExponent != 0)
+			decimalExponent = x % integerExponent; // retain the exponent part
 		
-		double remainderTaylorResult = 0; // This will hold the result of the Taylor expansion
-
 		// This is the Taylor expansion of e^decimalExponent around 0
 		for(int i = 0; i < precision; ++i)
 			result += MathFunctions.intPower(decimalExponent, i) / MathFunctions.factorial(i);
 		
 		// add the appropriate multiples of E back to the Taylor expansion of the remainder.
-		if(x > 1)
-			result = remainderTaylorResult * MathFunctions.intPower(MathFunctions.E, integerExponent);
-
+		if(x >= 2)
+			result = result * MathFunctions.intPower(MathFunctions.E, integerExponent);
+		
 		return result;
 	}
 
@@ -745,9 +760,10 @@ public class MathFunctions
 	 * @return double
 	 */
 	public  static  double max(double x, double y){
-		if(y>x){
+		if(y > x){
 			return y;
-		}else return x;
+		}else 
+			return x;
 	}
 
 	/**
