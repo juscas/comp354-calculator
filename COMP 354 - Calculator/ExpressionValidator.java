@@ -140,15 +140,12 @@ public class ExpressionValidator
 	}
 	
 	/**
-	 * BROKEN
-	 * @param expression
-	 * @return
+	 * This will replace all 
+	 * 
+	 * @param expression : String
+	 * @return expression with all e^x replaced by exp( )
 	 */
 	public static String replaceExponential(String expression) {
-		
-		// TODO do some sort of loop to apply this to the entire function
-		
-		int indexOfEtoTheX = 0;
 		
 		for(int i = 1; i < expression.length() - 1; ++i) {
 			
@@ -170,16 +167,16 @@ public class ExpressionValidator
 					// if not a constant then it must be a number
 					else {
 						
-						Pattern pattern = Pattern.compile("[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))$");
-				        Matcher matcher = pattern.matcher(expression.substring(i+1));
-				        System.out.println("substr = " + expression.substring(i+1));
-//				        System.out.println(matcher.start());
-//				        System.out.println(matcher.end());
+						Pattern pattern = Pattern.compile("[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))"); // any decimal
+				        Matcher matcher = pattern.matcher(expression.substring(i+1));	// after the "e^"
+				        matcher.find();
 				        
-				        expression = expression.substring(0, i-1) + "exp(" + expression.substring(matcher.start(), matcher.end());
-				        System.out.println("here " + expression);
-						
-//						String numberFollowingE = expression.substring(i+1).indexOf("poop");
+				        // offset used later since the index of the matcher will be offset by i+i
+				        int offset = expression.length() - expression.substring(i+1).length();
+				        
+				        expression = expression.substring(0, i-1) + "exp(" + expression.substring(matcher.start() 
+				        		+ offset, matcher.end() + offset) + ")" + expression.subSequence(matcher.end() + 
+				        				offset, expression.length());s
 					}
 				}
 			}
@@ -268,7 +265,6 @@ public class ExpressionValidator
 			
 			if(!isValidLowerAlpha(expression.charAt(i - 1 + addedCharacters)) && 
 					!isValidLowerAlpha(expression.charAt(i + 1 + addedCharacters))) {
-				System.out.println(i + addedCharacters);
 				if(isValidLowerAlpha(expression.charAt(i + addedCharacters))) {
 					
 					addedIntoExpresion = UserConstants.getValue(expression.charAt(i + addedCharacters));
