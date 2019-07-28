@@ -1,3 +1,4 @@
+import java.beans.Expression;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -49,15 +50,18 @@ public class ExpressionValidator
 	
 	public static String validateExpression(String original) throws SyntaxErrorException {
 		
-		// this is to enter "debug" mode.
-		if(original.equals("debug"))
-			return original;
 		/*
 		 * This function scans the string many times. This was a deliberate design choice to make
 		 * the code more modular (at the expense of efficiency). A possible optimization would be 
 		 * to check all of the operations below in one pass.
 		 */
 		String finalExpression = original;
+		
+		// this will be set if "debug" mode is in the front of the expression ex. "debug cos(5)"
+		boolean isDebugMode = finalExpression.matches("debug .*");
+		
+		if(isDebugMode)
+			finalExpression = (String) finalExpression.subSequence(5, finalExpression.length());
 		
 		// 1) Replace all brackets by '(' or ')' to facilitate parsing
 		finalExpression = replaceBrackets(finalExpression);
@@ -143,6 +147,13 @@ public class ExpressionValidator
 	public static String replaceExponential(String expression) {
 		
 		// TODO do some sort of loop to apply this to the entire function
+		
+		for(int i = 1; i < expression.length(); ++i) {
+			// if we hit "e^" then 
+			if(expression.charAt(i-1) == 'e' && expression.charAt(i) == '^') {
+				
+			}
+		}
 		
 		int occurenceOfEtoTheX = expression.indexOf("e^");
 		
@@ -243,28 +254,12 @@ public class ExpressionValidator
 				System.out.println(i + addedCharacters);
 				if(isValidLowerAlpha(expression.charAt(i + addedCharacters))) {
 					
-					System.out.println("\n-------------------------------");
-					System.out.println("Start Expression: " + expression+ " ||| length=" + expression.length());
-					System.out.print(expression + " ||| ");
-					System.out.print("i=" + i + " ||| ");
-					System.out.print("charAt=" + (expression.charAt(i + addedCharacters)) + " ||| ");
-					
-					System.out.println("getCharAt=" + (i + addedCharacters));
-					
 					addedIntoExpresion = UserConstants.getValue(expression.charAt(i + addedCharacters));
-					
-					System.out.println(addedIntoExpresion);
-					
 					
 					expression = insertAndReplace(expression, addedIntoExpresion, i + addedCharacters);
 					
-					System.out.println("End Expression: " + expression + " ||| length=" + expression.length());
-					
-					
 					if(addedIntoExpresion.length() > 1)
 						addedCharacters += addedIntoExpresion.length() - 1;
-					
-					System.out.println("-------------------------------");
 				}
 			}
 		}
