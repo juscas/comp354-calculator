@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Stack;
@@ -17,7 +18,18 @@ public class Parser {
             debug = true;
             input = input.replaceAll("\\s+","").substring(5);
         }
-        return prioritiser(input);
+        //creating a formatter object
+        DecimalFormat df = new DecimalFormat("#");
+
+        //specifying he number of fractions we want
+        df.setMaximumFractionDigits(7);
+
+        //calculating the answer
+        String output = prioritiser(input).replaceAll("-\\s*-", "+").replaceAll("\\+\\s*\\+", "+");
+
+        //formatting the value
+         output = df.format(Double.parseDouble(output));
+        return output;
     }
 
     /**
@@ -100,50 +112,10 @@ public class Parser {
         //String newStr="";
         String[] level=new String[0];
 
-        //replacing cosine with special character @
-        input = input.replaceAll("cos\\(","@(");
+        //filtering out words and replacing them with special characters
+        input = replaceWithSpecialChars(input);
 
-        //replacing cosine with special character ~
-        input = input.replaceAll("sin\\(","~(");
-        // System.out.println(input);
 
-        //replacing log with L
-        input = input.replaceAll("exp\\(","E(");
-
-        //ToDo: bug : ln(2^2+log(log(2),8)+5+9^9.3689)
-        //replacing every "log" with L and setting the log function in a bracket of its own. Such operations are critical for every operator that uses commas
-        int Lindex = input.indexOf("log");
-        while(Lindex!=-1){
-
-            //replace log with (L
-            input=input.replace("log","(L");
-
-            //find the index of the nearest )
-            int bracketIndex = input.indexOf(")",Lindex);
-
-            input=input.substring(0,bracketIndex)+")"+input.substring(bracketIndex);
-            Lindex = input.indexOf("log");
-        }
-        if (debug) System.out.println(input);
-
-        /*//replacing log with L
-        input = input.replaceAll("log\\(","L(");
-*/
-        //replacing ln with N
-        input = input.replaceAll("ln\\(","N(");
-
-        //replacing every "root" with R and setting the log function in a bracket of its own. Such operations are critical for every operator that uses commas
-        int Rindex = input.indexOf("root");
-        while(Rindex!=-1){
-            //replace root with (R
-            input=input.replace("root","(R");
-
-            //find the index of the nearest )
-            int bracketIndex = input.indexOf(")",Rindex);
-
-            input=input.substring(0,bracketIndex)+")"+input.substring(bracketIndex);
-            Rindex = input.indexOf("root");
-        }
         /*
         //replacing root with R
         input = input.replaceAll("root\\(","R(");
@@ -174,12 +146,17 @@ public class Parser {
                     break;
                 }
                 //unary operators are given the highest priority
-                case'@':
-                case'~':
-                case'L':
-                case'N':
-                case'E':
-                case'R':
+                case'@':    //cos
+                case'~':    //sin
+                case'L':    //log
+                case'N':    //ln
+                case'E':    //e^x
+                case'R':    //root
+                case'O':    // cot
+                case'T':    // Tanget
+                case'C':    // csc
+                case'S':    // sec
+                case'H':    //cosh
                 {
                     //newStr = newStr + " #4 "+input.charAt(pointer);
                     newStr.append(" #4 "+input.charAt(pointer));
@@ -226,7 +203,7 @@ public class Parser {
         if (debug) System.out.println("     t : "+newStr.toString());
         //pass the string to the disector function, along with the number of brackets -1 since levelnumb is 1 ahead of the actual number
         return  disector(newStr.toString().replaceAll(" ",""),levelnumb-1);
-       // return newStr;
+        //return "";
     }
 
 
@@ -402,18 +379,123 @@ public class Parser {
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
                                 //rightOperand = str.substring(index + 3);
-                                str=str.substring(0,index)+MathFunctions.cos(data[1]);
+                                str=str.substring(0,index)+MathFunctions.sin(data[1]);
                             }else {
                                 //the left operand should be 3 indexes after the # until the next #
                                 //rightOperand = str.substring(index + 3,next );
 
                                 str=str.substring(0,index)+MathFunctions.sin(data[1])+str.substring(next);
                                 //System.out.println(rightOperand);
-                                break;
                             }
                             break;
-
                         }
+                        //tan
+                        case 'T':{
+
+                            //Finding the right operand:
+                            //finding the next occurrence of #
+                            double[] data = findOperand(str,index);
+                            int next =(int)data[3];
+
+                            //separate cases for when the operation is the lat one in the string and when it is not
+                            if(next==-1){
+                                //rightOperand = str.substring(index + 3);
+                                str=str.substring(0,index)+MathFunctions.tan(data[1]);
+                            }else {
+                                //the left operand should be 3 indexes after the # until the next #
+                                //rightOperand = str.substring(index + 3,next );
+
+                                str=str.substring(0,index)+MathFunctions.tan(data[1])+str.substring(next);
+                                //System.out.println(rightOperand);
+                            }
+                            break;
+                        }
+                        //sec
+                        case 'S':{
+
+                            //Finding the right operand:
+                            //finding the next occurrence of #
+                            double[] data = findOperand(str,index);
+                            int next =(int)data[3];
+
+                            //separate cases for when the operation is the lat one in the string and when it is not
+                            if(next==-1){
+                                //rightOperand = str.substring(index + 3);
+                                str=str.substring(0,index)+MathFunctions.sec(data[1]);
+                            }else {
+                                //the left operand should be 3 indexes after the # until the next #
+                                //rightOperand = str.substring(index + 3,next );
+
+                                str=str.substring(0,index)+MathFunctions.sec(data[1])+str.substring(next);
+                                //System.out.println(rightOperand);
+                            }
+                            break;
+                        }
+                        //cot
+                        case 'O':{
+                            //Finding the right operand:
+                            //finding the next occurrence of #
+                            double[] data = findOperand(str,index);
+                            int next =(int)data[3];
+
+                            //separate cases for when the operation is the lat one in the string and when it is not
+                            if(next==-1){
+                                //rightOperand = str.substring(index + 3);
+                                str=str.substring(0,index)+MathFunctions.cot(data[1]);
+                            }else {
+                                //the left operand should be 3 indexes after the # until the next #
+                                //rightOperand = str.substring(index + 3,next );
+
+                                str=str.substring(0,index)+MathFunctions.cot(data[1])+str.substring(next);
+                                //System.out.println(rightOperand);
+                            }
+                            break;
+                        }
+                        //csc
+                        case 'C':{
+
+                            //Finding the right operand:
+                            //finding the next occurrence of #
+                            double[] data = findOperand(str,index);
+                            int next =(int)data[3];
+
+                            //separate cases for when the operation is the lat one in the string and when it is not
+                            if(next==-1){
+                                //rightOperand = str.substring(index + 3);
+                                str=str.substring(0,index)+MathFunctions.csc(data[1]);
+                            }else {
+                                //the left operand should be 3 indexes after the # until the next #
+                                //rightOperand = str.substring(index + 3,next );
+
+                                str=str.substring(0,index)+MathFunctions.csc(data[1])+str.substring(next);
+                                //System.out.println(rightOperand);
+                            }
+                            break;
+                        }
+                        //cosh
+                        case 'H':{
+
+                            //Finding the right operand:
+                            //finding the next occurrence of #
+                            double[] data = findOperand(str,index);
+                            int next =(int)data[3];
+
+                            //separate cases for when the operation is the lat one in the string and when it is not
+                            if(next==-1){
+                                //rightOperand = str.substring(index + 3);
+                                str=str.substring(0,index)+MathFunctions.cosh(data[1]);
+                            }else {
+                                //the left operand should be 3 indexes after the # until the next #
+                                //rightOperand = str.substring(index + 3,next );
+
+                                str=str.substring(0,index)+MathFunctions.cosh(data[1])+str.substring(next);
+                                //System.out.println(rightOperand);
+                            }
+                            break;
+                        }
+
+
+
                         case'R':{
                             //finding the next occurrence of # after the current index
                             int next =str.indexOf("#",index+1);
@@ -721,5 +803,66 @@ public class Parser {
 
     }
 
+    private static String replaceWithSpecialChars(String input){
+        //Cosine replaced with @
+        input = input.replaceAll("cos\\(","@(");
+
+        //Sin replaced with ~
+        input = input.replaceAll("sin\\(","~(");
+
+        //Tan replaced with T
+        input = input.replaceAll("tan","T");
+
+        //csc replaced with C
+        input = input.replaceAll("csc","C");
+
+        //sec replaced with S
+        input = input.replaceAll("sec","S");
+
+        //Cot replaced with O
+        input = input.replaceAll("cot","O");
+
+        //Cosh replaced with H
+        input = input.replaceAll("cosh","H");
+
+        //Ln replaced with N
+        input = input.replaceAll("ln\\(","N(");
+
+        //replacing log with L
+        input = input.replaceAll("exp\\(","E(");
+
+        //ToDo: bug : ln(2^2+log(log(2),8)+5+9^9.3689)
+        //replacing every "log" with L and setting the log function in a bracket of its own. Such operations are critical for every operator that uses commas
+        int Lindex = input.indexOf("log");
+        StringBuilder s = new StringBuilder();
+
+        while(Lindex!=-1){
+
+            //replace log with (L
+            input=input.replace("log","(L");
+
+            //find the index of the nearest )
+            int bracketIndex = input.indexOf(")",Lindex);
+
+            input=input.substring(0,bracketIndex)+")"+input.substring(bracketIndex);
+            Lindex = input.indexOf("log");
+        }
+
+        //replacing every "root" with R and setting the log function in a bracket of its own. Such operations are critical for every operator that uses commas
+        int Rindex = input.indexOf("root");
+        while(Rindex!=-1){
+            //replace root with (R
+            input=input.replace("root","(R");
+
+            //find the index of the nearest )
+            int bracketIndex = input.indexOf(")",Rindex);
+
+            input=input.substring(0,bracketIndex)+")"+input.substring(bracketIndex);
+            Rindex = input.indexOf("root");
+        }
+
+
+        return input;
+    }
 
 }
