@@ -148,25 +148,42 @@ public class ExpressionValidator
 		
 		// TODO do some sort of loop to apply this to the entire function
 		
-		for(int i = 1; i < expression.length(); ++i) {
+		int indexOfEtoTheX = 0;
+		
+		for(int i = 1; i < expression.length() - 1; ++i) {
+			
 			// if we hit "e^" then 
 			if(expression.charAt(i-1) == 'e' && expression.charAt(i) == '^') {
+				bracketMatch((String) expression.subSequence(i + 1, expression.length()));
 				
+				// if the char after "e^" is a bracket then just replace "e^" by "exp"
+				if(expression.charAt(i+1) == '(') {
+					expression = expression.substring(0, i-1) + "exp" 
+							+ expression.substring(i+1, expression.length());
+				}
+				// if the char after is not a bracket '(' then surround the number/constant by bracket
+				else {
+					
+					// if the next char after "e^" is a character, put brackets around it
+					if(isValidLowerAlpha(expression.charAt(i+1)))
+						expression = expression.substring(0, i-1) + "exp" + "(" + expression.charAt(i+1) + ")" + expression.substring(i+2, expression.length());
+					// if not a constant then it must be a number
+					else {
+						
+						Pattern pattern = Pattern.compile("[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))$");
+				        Matcher matcher = pattern.matcher(expression.substring(i+1));
+				        System.out.println("substr = " + expression.substring(i+1));
+//				        System.out.println(matcher.start());
+//				        System.out.println(matcher.end());
+				        
+				        expression = expression.substring(0, i-1) + "exp(" + expression.substring(matcher.start(), matcher.end());
+				        System.out.println("here " + expression);
+						
+//						String numberFollowingE = expression.substring(i+1).indexOf("poop");
+					}
+				}
 			}
 		}
-		
-		int occurenceOfEtoTheX = expression.indexOf("e^");
-		
-		// if the char after "e^" is a bracket then just replace "e^" by "exp"
-		if(expression.charAt(occurenceOfEtoTheX + 2) == '(') {
-			expression = expression.substring(0, occurenceOfEtoTheX) + "exp" 
-				+ expression.substring(occurenceOfEtoTheX + 2, expression.length());
-		}
-		// TODO do the part where there is a number or letter after this
-		else {
-			
-		}
-		
 		
 		return expression;
 	}
@@ -578,7 +595,7 @@ public class ExpressionValidator
      * @param expression: String
      * @return index of ending bracket: int
      */
-    private static int bracketMatch(String expression) {
+    public static int bracketMatch(String expression) {
 
         int indexOfLastBracket = 0;
         String opening = "({[";
@@ -616,7 +633,6 @@ public class ExpressionValidator
         return -1;
     }
 
-
     /**
      * Given a String expression, this will return the same expression minus any spaces.
      * @param expression: String
@@ -625,4 +641,56 @@ public class ExpressionValidator
     private static String removeSpaces(String expression) {
         return expression.replaceAll("\\s+", "");
     }
+    
+    /**
+     * Given a string with brackets. If the start index of the open bracket is given, find the 
+     * index of the closing bracket.
+     * 
+     * @author Rajput-Ji (https://www.geeksforgeeks.org/find-index-closing-bracket-given-opening-bracket-expression/)
+     * 
+     * @param expression : String
+     * @param openingBracketIndex 
+     * @return i : index of closing bracket
+     */
+     public static int getClosingBracket(String expression, int openingBracketIndex) { 
+         int i; 
+   
+         // If index given is invalid and is  
+         // not an opening bracket.  
+         if (expression.charAt(openingBracketIndex) != '(') { 
+             return -1; 
+         } 
+   
+         // Stack to store opening brackets.  
+         Stack<Integer> st = new Stack<>(); 
+   
+         // Traverse through string starting from  
+         // given index.  
+         for (i = openingBracketIndex; i < expression.length(); i++) { 
+   
+             // If current character is an  
+             // opening bracket push it in stack.  
+             if (expression.charAt(i) == '(') { 
+                 st.push((int) expression.charAt(i)); 
+             } 
+             // If current character is a closing  
+             // bracket, pop from stack. If stack  
+             // is empty, then this closing  
+             // bracket is required bracket.  
+             else if (expression.charAt(i) == ')') { 
+                 st.pop(); 
+                 if (st.empty()) {
+                     return i; 
+                 } 
+             }
+             
+         } 
+   
+         // If no matching closing bracket  
+         // is found.  
+         return -1;
+     } 
+    
+    
+    
 }
