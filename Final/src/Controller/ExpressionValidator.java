@@ -78,7 +78,7 @@ public class ExpressionValidator
 	 */
 	private static String assignConstant(String expression) {
 		
-		Pattern pattern = Pattern.compile("([a-zA-Z])\\s*=\\s*(.*)");
+		Pattern pattern = Pattern.compile("^([a-zA-Z])\\s*=\\s*(.*)");
 		Matcher matcher = pattern.matcher(expression);
 		
 		
