@@ -3,8 +3,10 @@ package View;
 import Controller.ExpressionValidator;
 import Controller.Parser;
 import Controller.SyntaxErrorException;
-import Model.ImaginaryNumberException;
+
 import Model.MathErrorException;
+import Model.ImaginaryNumberException;
+
 import javafx.application.Application;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -172,7 +174,7 @@ public class Main extends Application {
             output.setPrefSize(800,800);
             output.setWrapText(true);
             output.setDisable(true);
-            output.setStyle("-fx-opacity: 1;");
+            output.setStyle("-fx-opacity: 2;");
 
 
             // Clear History button
@@ -358,14 +360,13 @@ public class Main extends Application {
 
             button_sqt.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput + "root");
+                input.setText(currentInput + "sqrt");
             });
 
             button_rot.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput + button_rot.getText());
+                input.setText(currentInput + "root");
             });
-
 
             button_fac.setOnAction(value -> {
                 String currentInput = input.getText();
@@ -421,7 +422,7 @@ public class Main extends Application {
                 String answer;
 
                 try {
-                    answer = Parser.prioritiser(validator.validateExpression(currentInput));
+                    answer = Parser.parse(validator.validateExpression(currentInput));
                 } catch (SyntaxErrorException s){
                     input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
                     answer = s.getMessage();
@@ -435,6 +436,15 @@ public class Main extends Application {
                     console.setText(answer);
                     input.setText("");
                     input.setText(currentInput);
+                    return;
+                } catch (ImaginaryNumberException i){
+                    input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
+                    answer = i.getMessage();
+                    console.setText(answer);
+                    return;
+                } catch (Exception e){
+                    input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
+                    console.setText("Unknown error: please try another function");
                     return;
                 }
                 input.setStyle("-fx-text-box-border: black;");
@@ -452,7 +462,7 @@ public class Main extends Application {
                     String answer;
 
                     try {
-                        answer = parser.prioritiser(validator.validateExpression(currentInput));
+                        answer = parser.parse(validator.validateExpression(currentInput));
                     } catch (SyntaxErrorException s){
                         input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
                         answer = s.getMessage();
@@ -530,7 +540,7 @@ public class Main extends Application {
             );
 
             //Creating a scene object
-            Scene scene = new Scene(hbox,800, 500);
+            Scene scene = new Scene(hbox,900, 600);
 
             //Set css style
             scene.getStylesheets().add("View/dark.css");
@@ -575,22 +585,24 @@ public class Main extends Application {
 
             helpMenu.getItems().add(openMan);
 
-            //Setting title to the Stage
+            // Setting title to the Stage
             stage.setTitle("Calculator");
-            
-            //Disable the 'maximize' window button (does not support resizing currently)
             stage.setResizable(false);
-            
-            //Adding scene to the stage
+            // Adding scene to the stage
             stage.setScene(scene);
 
-            //Displaying the contents of the stage
+            // Displaying the contents of the stage
             stage.show();
             //javafx.scene.text.Font.getFamilies();
         }
 
 
     public static void main(String[] args) {
-            launch(args);
+            String version = System.getProperty("java.version");
+            if(version.startsWith("1.")) {
+                launch(args);
+            } else {
+                System.out.print("JavaFX is not supported for your version of Java... \nWelcome to Command Line Calculator!");
+            }
     }
 }
