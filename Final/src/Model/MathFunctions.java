@@ -148,8 +148,16 @@ public class MathFunctions
 			return -x;
 		return x;
 	}
-
+	/**
+	 * returns the nth root of the base value. 3rd parameter x is for accuracy, higher x = higher accuracy
+	 * @param base: double
+	 * @param root: int
+	 * @param x: int
+	 * @return the nth root of the base number
+	 */
 	public static double nroot(double base, double root, int x) throws ImaginaryNumberException {
+
+		root = roundToN(root,5);
 
 		if((int) root != root){
 			double numerator = root;
@@ -206,6 +214,7 @@ public class MathFunctions
 			return negative ? (1 / aprx) : aprx;
 		}
 	}
+
 
 	/**
 	 * Wrapper function for nroot(3) that takes only 2 parameters instead of 3. The 3rd parameter is set to a default of 0.
@@ -845,17 +854,11 @@ public class MathFunctions
 			return base * r;
 		}
 	}
-	/*public static double roundToN(Double number, int index){
-		String temp = number.toString();
-		int Eindex = temp.indexOf("E");
-		if(Eindex !=-1){
-			String str;
-			Formatter test = new Formatter();
-			//figuring out how many times we have to shift the decimal point
-			int shiftNumber =Integer.parseInt(temp.substring(Eindex+1));
-		}
-		return 0.0;
-	}*/
+	private static double roundToN(double number, int index){
+		DecimalFormat df = new DecimalFormat("0");
+		df.setMaximumFractionDigits(index);
+		return Double.parseDouble(df.format(number));
+	}
 
 	/**
 	 * Does the same thing as the nroot function, except in case of a big exponent, this function calculates the root in small intervals which increases performance
