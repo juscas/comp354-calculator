@@ -1,11 +1,12 @@
 package Model;
 
-import Controller.SyntaxErrorException;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
+import Controller.SyntaxErrorException;
+
 ///import Trie;
 
 public class UserConstants implements Serializable
@@ -42,7 +43,7 @@ public class UserConstants implements Serializable
 		
 		// Check if the letter is a valid constant
 		if(!validConstantLetter(letter))
-			throw new SyntaxErrorException("Error: Constants must be a single alphabetic character (not 'e')");
+			throw new SyntaxErrorException("Error: Constants must be a single alphabetic character");
 		
 		constants.put(letter, value);
 		return "Constant " + letter + " is defined as " + value;
@@ -85,7 +86,7 @@ public class UserConstants implements Serializable
 	private static boolean validConstantLetter(char letter) {
 		
 		if(letter == 'e' || letter == 'p') { // 'e' and 'pi' are predefined constants (no changing)
-			return false;
+			throw new SyntaxErrorException("That is a reserved constant and cannot be reset");
 		}
 		
 		if(letter >= 97 && letter <= 122) {

@@ -55,20 +55,78 @@ public class ExpressionValidator
 	
 	// EXPRESSION VALIDATION METHODS ------------------------------------------------------------
 	
-	public static String validateExpression(String original) throws SyntaxErrorException {
+	
+	/**
+	 * An expression is in "assignment mode" if it contains the "=" sign anywhere in it. This method
+	 * only checks if the assignment operator is present.
+	 * 
+	 * 
+	 * @param expression
+	 * @return
+	 */
+	private static boolean isAssignementMode(String expression) {
+		if(expression.contains("="))
+			return true;
+		else return false;
+			
+	}
+	
+	
+	private static String assignConstant(String expression) {
+		
+		Pattern pattern = Pattern.compile("([a-z])\\s*=\\s*(.*)");
+		Matcher matcher = pattern.matcher(expression);
+		
+		if(matcher.find()) {
+			// This is the letter on the LHS of the assignment
+			char constantLetter = matcher.group(1).charAt(0);
+			
+			//Validate the expression on the RHS of the assignment to be passed to the Parser
+			String RHS_Expression = Parser.parse(matcher.group(2));
+			
+			return UserConstants.addConstant(constantLetter, Double.parseDouble(RHS_Expression));
+		}
+		
+		return "Error: syntax error with assignment to constant";
+	}
+	
+	/**
+	 * This will validate the expression so that the Parser only ever receives a syntactically
+	 * correct expression String. Any user error will throw an exception with a handy message
+	 * indicating the nature of the syntax error.
+	 * 
+	 * This method also does some formating of the expression to facilitate the Parser's job.
+	 * 
+	 * @param expression: String
+	 * @return properly formated exception
+	 * @throws SyntaxErrorException
+	 */
+	public static String validateExpression(String expression) throws SyntaxErrorException {
 		
 		/*
 		 * This function scans the string many times. This was a deliberate design choice to make
 		 * the code more modular (at the expense of efficiency). A possible optimization would be 
 		 * to check all of the operations below in one pass.
 		 */
-		String finalExpression = original;
+		String finalExpression = expression;
+		
 		
 		// this will be set if "debug" mode is in the front of the expression ex. "debug cos(5)"
 		boolean isDebugMode = finalExpression.matches("debug .*");
 		
 		if(isDebugMode)
 			finalExpression = (String) finalExpression.subSequence(5, finalExpression.length());
+		
+		
+		
+		/* 
+		 * First thing to do before validating anything is to check if we are in "assignment" mode.
+		 * Ie, if there is an equal sign in the expression with a lowercase letter on the LHS and
+		 * a number on the RHS.
+		 */
+		if(isAssignementMode(finalExpression)) {
+			throw new SyntaxErrorException(assignConstant(expression));
+		}
 		
 		// 1) Replace all brackets by '(' or ')' to facilitate parsing
 		finalExpression = replaceBrackets(finalExpression);
@@ -120,8 +178,10 @@ public class ExpressionValidator
 			throw new SyntaxErrorException("Error: Unmatched brackets");
 		
 		// 7) check invalid characters or symbols
-		if(validCharacters(finalExpression) != null) {
-			throw new SyntaxErrorException();
+		Character invalidChar = validCharacters(finalExpression);
+		
+		if(invalidChar != null) {
+			throw new SyntaxErrorException("Error: Invalid character - " + invalidChar);
 		}
 		
 		// 8) check invalid expressions
@@ -440,34 +500,23 @@ public class ExpressionValidator
 		
 		char [] decomposedExpression = expression.toCharArray();
 		
-		boolean validChar = true;
-		
-		Character problemChar = null;
-		
 		for(char c : decomposedExpression) {
 			
-			// these are the hardcoded valid characters
-			if(validChar == ( (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') ||
-						c == '(' || c == ')' || c == '[' || c == ']' || c == '{' || c == '}' ||
-						c == '.' || c == ',')) {
-				validChar = false;
-				break;
-			}
+			boolean isValidOp = true;
 			
-			// if not one of the hardcoded then check the operator array
-			if(!validChar) {
-				for(char op : recoginzedOperatorsSymbols) {
-					if(c == op) {
-						validChar = true;
-						break;
-					}
-					else {
-						return new Character(c);
-					}
-				}
+			// these are the hardcoded valid characters
+			if( (c >= 97 && c <= 122) || (c >= 48 && c <= 57) ||
+				 c == '(' || c == ')' || c == '[' || c == ']' || c == '{' || c == '}' ||
+				 c == '.' || c == ',' || c == '+' || c == '-' || c == '*' || c == '/' ||
+				 c == '^' || c == ' ') {
+			}
+			// if not a 'valid char' then return the offending character
+			else {
+				return new Character(c);
 			}
 			
 		}
+		
 		return null;
 	}
 	
