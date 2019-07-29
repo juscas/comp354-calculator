@@ -26,7 +26,8 @@ public class ExpressionValidator
 	 * letters).
 	 */
 	public static final String[] unaryOperators = {	"cosh", "sinh", "cos", "sin", "tan", "csc", 
-													"sec", "cot", "exp", "abs", "ln", "log" 
+													"sec", "cot", "exp", "abs", "ln", "log", "sqrt",
+													"root"
 												};
 	
 	/**
@@ -76,8 +77,8 @@ public class ExpressionValidator
 		
 		// 3.2) Replace e^(<something>) by exp(<something>), and e^<number> by exp(<number>)
 		// note: do this strictly before replacing constants by their numbers
-		// TODO
-//		finalExpression = replaceExponential(finalExpression);
+		// note: must also remove all spaces before doing this
+		finalExpression = replaceExponential(finalExpression);
 		
 		// 3.3) Replace all constants by their number
 		// note: do this only after removing all spaces
@@ -140,7 +141,9 @@ public class ExpressionValidator
 	}
 	
 	/**
-	 * This will replace all 
+	 * This will replace all "e^" by "exp(" in the entire expression.
+	 * 
+	 * "e^p" -> "exp(p)" | "e^3.1415" -> "exp(3.1415)" | "e^(15)" -> "exp(15)" | "e^sin(2)" -> "exp(sin(s))"
 	 * 
 	 * @param expression : String
 	 * @return expression with all e^x replaced by exp( )
@@ -149,7 +152,7 @@ public class ExpressionValidator
 		
 		for(int i = 1; i < expression.length() - 1; ++i) {
 			
-			// if we hit "e^" then 
+			// if we hit "e^" then do the following replacements
 			if(expression.charAt(i-1) == 'e' && expression.charAt(i) == '^') {
 				bracketMatch((String) expression.subSequence(i + 1, expression.length()));
 				
@@ -158,32 +161,60 @@ public class ExpressionValidator
 					expression = expression.substring(0, i-1) + "exp" 
 							+ expression.substring(i+1, expression.length());
 				}
-				// if the char after is not a bracket '(' then surround the number/constant by bracket
-				else {
+				
+				// if the next char after "e^" is a character, put brackets around it
+				else if(isValidLowerAlpha(expression.charAt(i+1)) && !isValidLowerAlpha(expression.charAt(i+2))) {
+					expression = expression.substring(0, i-1) + "exp" + "(" + expression.charAt(i+1) + ")" + 
+								expression.substring(i+2, expression.length());
+				}
 					
-					// if the next char after "e^" is a character, put brackets around it
-					if(isValidLowerAlpha(expression.charAt(i+1)))
-						expression = expression.substring(0, i-1) + "exp" + "(" + expression.charAt(i+1) + ")" + expression.substring(i+2, expression.length());
-					// if not a constant then it must be a number
-					else {
+				// if the next char after "e^" is a number then put brackets around the number
+				else if(expression.charAt(i+1) >= 48 && expression.charAt(i+1) <= 57) {
 						
-						Pattern pattern = Pattern.compile("[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))"); // any decimal
-				        Matcher matcher = pattern.matcher(expression.substring(i+1));	// after the "e^"
-				        matcher.find();
-				        
-				        // offset used later since the index of the matcher will be offset by i+i
-				        int offset = expression.length() - expression.substring(i+1).length();
-				        
-				        expression = expression.substring(0, i-1) + "exp(" + expression.substring(matcher.start() 
-				        		+ offset, matcher.end() + offset) + ")" + expression.subSequence(matcher.end() + 
-				        				offset, expression.length());s
+					Pattern pattern = Pattern.compile("[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))"); // any decimal
+					Matcher matcher = pattern.matcher(expression.substring(i+1));	// after the "e^"
+					matcher.find();
+			
+					// offset used later since the index of the matcher will be offset by i+i
+					int offset = expression.length() - expression.substring(i+1).length();
+					
+					expression = expression.substring(0, i-1) + "exp(" + expression.substring(matcher.start() 
+							+ offset, matcher.end() + offset) + ")" + 
+							expression.subSequence(matcher.end() + offset, expression.length());
+				}
+				
+				//  if the next char after "e^" is a function then wrap function with brackets
+				else {
+						
+					Pattern pattern = Pattern.compile("[a-z][a-z]+"); // capture the functions
+					Matcher matcher = pattern.matcher(expression.substring(i+1));	// after the "e^"
+										
+					// if the function following "e^" is valid then surround it by brackets
+					if(matcher.find() && isValidFunction(matcher.group())) {
+						
+						int offset = expression.length() - expression.substring(i+1).length();
+						int functionLength = matcher.group().length();
+						int indexOfEndBracket = getClosingBracket(expression, i+1 + functionLength);
+						
+						
+						expression = expression.substring(0, i-1) + "exp(" + 
+								expression.substring(i+1, indexOfEndBracket + 1) + ")" +
+								expression.substring(indexOfEndBracket + 1, expression.length());
+						
 					}
+					
+					// no other possibility, there is an error after "e^"
+					else {
+						throw new SyntaxErrorException("Invalid function near e^(...)");
+					}
+						
 				}
 			}
 		}
 		
 		return expression;
 	}
+		
 	
 	/**
 	 * Returns 'true' if the character is a lower case letter.
@@ -687,6 +718,20 @@ public class ExpressionValidator
          return -1;
      } 
     
-    
+     /**
+      * This will tell you if the function you pass to it is defined as a valid function in this
+      * class.
+      * 
+      * @param function : String
+      * @return 'true' if function is valid and defined
+      */
+    public static boolean isValidFunction(String function) {
+    	
+    	for(String s : unaryOperators)
+    		if(function.equals(s))
+    			return true;
+    	
+		return false;
+    }
     
 }
