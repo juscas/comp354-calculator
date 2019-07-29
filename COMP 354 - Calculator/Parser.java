@@ -270,7 +270,7 @@ public class Parser {
                                 //leftOperand=str.substring(0,index);
 
                                 //if the left operand is the character e, then we perform the e_to_x function instead of the power
-                                if(data[0]==-2){
+                                if(data[0]==2.7182818){
                                     str=MathFunctions.e_to_x(data[1])+(next==-1?"":str.substring(next));
                                 }else{
                                     str=MathFunctions.power(data[0],data[1])+(next==-1?"":str.substring(next));
@@ -788,7 +788,7 @@ public class Parser {
             returnedLeft=-10;
         }else{
             if(leftOperand.equals("e")){      //if the left operand is eulers number, return -2
-                returnedLeft = -2;
+                returnedLeft = 2.7182818;
             }else{
                 returnedLeft = Double.parseDouble(leftOperand);     //else return the value of the left operand
             }
