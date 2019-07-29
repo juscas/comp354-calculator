@@ -161,7 +161,7 @@ public class MathFunctions
 			return squareRoot(x);
 
 		//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
-		if(root%2 == 0&&base<0) throw new ImaginaryNumberException("Imaginary solutions unsupported");
+		if(root%2 == 0&&base<0) throw new ImaginaryNumberException("root: Imaginary solutions unsupported");
 
 		if(negative) root=root*-1;
 
@@ -662,7 +662,8 @@ public class MathFunctions
 
 		//if the base is negative, and the power is any number where the first decimal number is an odd integer, then it throws an exception
 		// (this is a math error)
-		if(base<0&&Integer.parseInt(tempDecimal.substring(0,1))%2!=0) throw new ImaginaryNumberException();
+		if(base<0&&Integer.parseInt(tempDecimal.substring(0,1))%2!=0) 
+			throw new ImaginaryNumberException("power: imaginary numbers not supported");
 
 		//removing any 0s from the right side of the decimal value
 		while(tempDecimal.charAt(tempDecimal.length()-1)==0){
