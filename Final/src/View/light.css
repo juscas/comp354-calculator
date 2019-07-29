@@ -6,14 +6,10 @@
 
 .button{
     -fx-background-color:
-        linear-gradient(#f2f2f2, #d6d6d6),
-        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
-        linear-gradient(#dddddd 0%, #f6f6f6 50%);
-    -fx-background-radius: 8,7,6;
-    -fx-background-insets: 0,1,2;
+        linear-gradient(#f2f2f2, #d6d6d6);
     -fx-font-family: "Lato";
     -fx-text-fill: black;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.3) , 3, 0.0 , 0 , 1 );
 }
 
 .button:pressed {
@@ -26,15 +22,58 @@
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 
+.button_equ{
+    -fx-background-color:
+        linear-gradient(#696969, #2A2A2A);
+    -fx-font-family: "Lato";
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.3) , 3, 0.0 , 0 , 1 );
+    -fx-font-size: 18px;
+}
+
+.button_equ:pressed {
+    -fx-background-color:
+        linear-gradient(#f2f2f2, #d6d6d6);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-font-family: "Lato";
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+
+
+
+
 .text-area {
     -fx-display-caret: true;
     -fx-text-fill: black;
-    -fx-font-family: "Lato";
+    -fx-font-family: "MathJax_Typewriter";
     -fx-text-box-border: grey;
     -fx-font-size: 18px;
 }
 
 .text-area .content{
+    -fx-background-color:
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-text-box-border: transparent;
+}
+
+.text-field {
+    -fx-background-color:
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-display-caret: true;
+    -fx-text-fill: #CE0000;
+    -fx-font-family: "MathJax_Typewriter";
+    -fx-font-size: 14px;
+    -fx-text-box-border: black;
+}
+
+.text-field .content{
     -fx-background-color:
         linear-gradient(#f2f2f2, #d6d6d6),
         linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),

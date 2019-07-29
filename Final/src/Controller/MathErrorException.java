@@ -1,11 +1,13 @@
-package sample;
+package Controller;
 
-public class ImaginaryNumberException extends ArithmeticException {
+import View.Controller;
 
-    /**
+public class MathErrorException extends ArithmeticException
+{
+	/**
      * Default constructor.
      */
-    public ImaginaryNumberException() {
+    public MathErrorException() {
         super("Value is an imaginary number");
     }
 
@@ -13,8 +15,7 @@ public class ImaginaryNumberException extends ArithmeticException {
      * Constructor that lets you set the message.
      * @param message:String
      */
-    public ImaginaryNumberException(String message) {
+    public MathErrorException(String message) {
         super(message);
     }
-
 }

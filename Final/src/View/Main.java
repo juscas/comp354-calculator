@@ -1,4 +1,10 @@
-package sample;
+package View;
+
+import Controller.ExpressionValidator;
+import Controller.Parser;
+import Controller.SyntaxErrorException;
+import Controller.ImaginaryNumberException;
+import Controller.MathErrorException;
 
 import javafx.application.Application;
 import javafx.scene.control.*;
@@ -9,15 +15,16 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+
+import java.util.Stack;
 
 public class Main extends Application {
-
-
 
         @Override
         public void start(Stage stage) {
 
-            Parser parser = new Parser();
+            System.out.println("\nJava Version: "+System.getProperty("java.version"));
 
             // create num buttons
             Button button_0 = new Button("0");
@@ -48,13 +55,14 @@ public class Main extends Application {
             // create operation buttons
             Button button_add = new Button("+");
             Button button_sub = new Button("-");
-            Button button_mul = new Button("*");
-            Button button_div = new Button("/");
+            Button button_mul = new Button("\u008E");
+            Button button_div = new Button("\u008F");
             Button button_equ = new Button("=");
             Button button_br1 = new Button("(");
             Button button_br2 = new Button(")");
             Button button_sqr = new Button("^");
-            Button button_sqt = new Button("^(1/2)");
+            Button button_rot = new Button("\u207f\u221Ax");
+            Button button_sqt = new Button("\u221A");
             Button button_ln = new Button("ln");
             Button button_cos = new Button("cos");
             Button button_sin = new Button("sin");
@@ -64,6 +72,12 @@ public class Main extends Application {
             Button button_csc = new Button("csc");
             Button button_sec = new Button("sec");
             Button button_cot = new Button("cot");
+            Button button_ans = new Button("ANS");
+            Button button_sinh = new Button("sinh");
+            Button button_cosh = new Button("cosh");
+            Button button_tanh = new Button("tanh");
+            Button button_log = new Button("log");
+
 
             Button button_can = new Button("C");
 
@@ -76,6 +90,7 @@ public class Main extends Application {
             button_br2.setMinSize(60,60);
             button_sqr.setMinSize(60,60);
             button_sqt.setMinSize(60,60);
+            button_rot.setMinSize(60,60);
             button_ln.setMinSize(60,60);
             button_cos.setMinSize(60,60);
             button_sin.setMinSize(60,60);
@@ -86,7 +101,13 @@ public class Main extends Application {
             button_sec.setMinSize(60,60);
             button_cot.setMinSize(60,60);
             button_can.setMinSize(60,60);
+            button_ans.setMinSize(60,60);
+            button_sinh.setMinSize(60,60);
+            button_cosh.setMinSize(60,60);
+            button_tanh.setMinSize(60,60);
+            button_log.setMinSize(60,60);
 
+            button_equ.getStyleClass().add("button_equ");
 
             // create number grid
             GridPane numGrid = new GridPane();
@@ -101,44 +122,67 @@ public class Main extends Application {
             numGrid.add(button_mul, 4, 0, 1, 1);
             numGrid.add(button_br1, 5, 0, 1, 1);
             numGrid.add(button_br2, 6, 0, 1, 1);
+            numGrid.add(button_log, 7, 0, 1, 1);
+            numGrid.add(button_sqt, 8, 0, 1, 1);
 
 
             // row 2
-
             numGrid.add(button_4, 0, 1, 1, 1);
             numGrid.add(button_5, 1, 1, 1, 1);
             numGrid.add(button_6, 2, 1, 1, 1);
             numGrid.add(button_sub, 3, 1, 1, 1);
             numGrid.add(button_div, 4, 1, 1, 1);
-            numGrid.add(button_sqr, 5, 1, 1, 1);
-            numGrid.add(button_sqt, 6, 1, 1, 1);
+            numGrid.add(button_sin, 5, 1, 1, 1);
+            numGrid.add(button_cos, 6, 1, 1, 1);
+            numGrid.add(button_tan, 7, 1, 1, 1);
+            numGrid.add(button_rot, 8, 1, 1, 1);
 
             // row 3
             numGrid.add(button_1, 0, 2, 1, 1);
             numGrid.add(button_2, 1, 2, 1, 1);
             numGrid.add(button_3, 2, 2, 1, 1);
-            //numGrid.add(button_, 3, 2, 1, 1);
-            numGrid.add(button_sin, 4, 2, 1, 1);
-            numGrid.add(button_cos, 5, 2, 1, 1);
-            numGrid.add(button_tan, 6, 2, 1, 1);
+            numGrid.add(button_etx, 3, 2, 1, 1);
+            numGrid.add(button_ln, 4, 2, 1, 1);
+            numGrid.add(button_sinh, 5, 2, 1, 1);
+            numGrid.add(button_cosh, 6, 2, 1, 1);
+            numGrid.add(button_tanh, 7, 2, 1, 1);
+            numGrid.add(button_fac, 8, 2, 1, 1);
 
             // row 4
             numGrid.add(button_0, 0, 3, 1, 1);
             numGrid.add(button_dec, 1, 3, 1, 1);
             numGrid.add(button_can, 2, 3, 1, 1);
             numGrid.add(button_equ, 3, 3, 1, 1);
-            numGrid.add(button_csc, 4, 3, 1, 1);
-            numGrid.add(button_sec, 5, 3, 1, 1);
-            numGrid.add(button_cot, 6, 3, 1, 1);
-
+            numGrid.add(button_ans, 4, 3, 1, 1);
+            numGrid.add(button_csc, 5, 3, 1, 1);
+            numGrid.add(button_sec, 6, 3, 1, 1);
+            numGrid.add(button_cot, 7, 3, 1, 1);
 
 
             TextArea input = new TextArea();
+            input.setPrefSize(500,500);
+            TextField console = new TextField();
+            console.setPrefHeight(200);
+            console.setDisable(true);
+            console.setStyle("-fx-opacity: 1;");
+
             Tooltip inputTooltip = new Tooltip("Type in equations here...");
             input.setTooltip(inputTooltip);
 
             TextArea output = new TextArea();
-            //output.setDisable(true);
+            output.setPrefSize(800,800);
+            output.setWrapText(true);
+            output.setDisable(true);
+            output.setStyle("-fx-opacity: 1;");
+
+
+            // Clear History button
+            Button button_clear_input = new Button("Clear History");
+
+            button_clear_input.setPrefSize(500,0);
+
+            // Keeps answers in a stack so that answers can be popped off
+            Stack<String> answerStack = new Stack<String>();
 
             /*
             ~ Button Events ~
@@ -176,22 +220,22 @@ public class Main extends Application {
 
             button_mul.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_mul.getText());
+                input.setText(currentInput + "*");
             });
 
             button_div.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_div.getText());
+                input.setText(currentInput + "/");
             });
 
             button_br1.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_br1.getText());
+                input.setText(currentInput + button_br1.getText());
             });
 
             button_br2.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_br2.getText());
+                input.setText(currentInput + button_br2.getText());
             });
 
             button_can.setOnAction(value -> {
@@ -200,145 +244,252 @@ public class Main extends Application {
 
             button_0.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_0.getText());
+                input.setText(currentInput + button_0.getText());
             });
 
             button_1.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_1.getText());
+                input.setText(currentInput + button_1.getText());
             });
 
             button_2.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_2.getText());
+                input.setText(currentInput + button_2.getText());
             });
 
             button_3.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_3.getText());
+                input.setText(currentInput + button_3.getText());
             });
 
             button_4.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_4.getText());
+                input.setText(currentInput + button_4.getText());
             });
 
             button_5.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_5.getText());
+                input.setText(currentInput + button_5.getText());
             });
 
             button_6.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_6.getText());
+                input.setText(currentInput + button_6.getText());
             });
 
             button_7.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_7.getText());
+                input.setText(currentInput + button_7.getText());
             });
 
             button_8.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_8.getText());
+                input.setText(currentInput + button_8.getText());
             });
 
             button_9.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_9.getText());
+                input.setText(currentInput + button_9.getText());
             });
 
             button_dec.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_dec.getText());
+                input.setText(currentInput + button_dec.getText());
             });
 
             button_sqr.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_sqr.getText());
+                input.setText(currentInput + button_sqr.getText());
             });
 
             button_sqr.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_dec.getText());
+                input.setText(currentInput + button_dec.getText());
             });
 
             button_dec.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_dec.getText());
+                input.setText(currentInput + button_dec.getText());
             });
 
             button_dec.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_dec.getText());
+                input.setText(currentInput + button_dec.getText());
             });
 
             button_sin.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_sin.getText());
+                input.setText(currentInput + button_sin.getText());
             });
 
             button_cos.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_cos.getText());
+                input.setText(currentInput + button_cos.getText());
             });
 
             button_tan.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_tan.getText());
+                input.setText(currentInput + button_tan.getText());
             });
 
-            button_csc.setOnAction(value -> {
+            button_ln.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_csc.getText());
+                input.setText(currentInput + button_ln.getText());
             });
 
             button_sec.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_sec.getText());
+                input.setText(currentInput + button_sec.getText());
             });
 
             button_tan.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_tan.getText());
+                input.setText(currentInput + button_tan.getText());
             });
 
             button_cot.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_cot.getText());
+                input.setText(currentInput + button_cot.getText());
             });
 
             button_sqr.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_sqr.getText());
+                input.setText(currentInput + button_sqr.getText());
             });
 
             button_sqt.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput+ button_sqt.getText());
+                input.setText(currentInput + "root");
             });
 
+            button_rot.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + button_rot.getText());
+            });
+
+
+            button_fac.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + button_fac.getText());
+            });
+
+            button_csc.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + button_csc.getText());
+            });
+
+            button_log.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + button_log.getText());
+            });
+
+            button_sinh.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + button_sinh.getText());
+            });
+
+            button_cosh.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + button_cosh.getText());
+            });
+
+            button_tanh.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + button_tanh.getText());
+            });
+
+            button_etx.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + "e^");
+            });
+
+            button_ans.setOnAction(value -> {
+                String currentInput = input.getText();
+                if (!answerStack.empty())
+                    input.setText(currentInput + answerStack.peek());
+            });
+
+
+
+            Parser parser = new Parser();
+
+            ExpressionValidator validator = new ExpressionValidator();
 
             // equals button -> compute input function string using Dan's PARSER
             button_equ.setOnAction(value -> {
                 String currentInput = input.getText();
                 String currentOutput = output.getText();
-                String answer = parser.prioritiser(currentInput);
-                output.setText(currentInput + " " + button_equ.getText() +"\n" + answer + "\n" + currentOutput + "\n");
+                String answer;
+
+                try {
+                    answer = Parser.prioritiser(validator.validateExpression(currentInput));
+                } catch (SyntaxErrorException s){
+                    input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
+                    answer = s.getMessage();
+                    console.setText(answer);
+                    input.setText("");
+                    input.setText(currentInput);
+                    return;
+                } catch (MathErrorException m){
+                    input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
+                    answer = m.getMessage();
+                    console.setText(answer);
+                    input.setText("");
+                    input.setText(currentInput);
+                    return;
+                }
+                input.setStyle("-fx-text-box-border: black;");
+                output.setText("\n" + currentInput + " " + button_equ.getText() +"\n" + answer + "\n" + currentOutput);
+                answerStack.push(answer);
                 input.setText("");
+                console.setText("");
             });
 
             // Equals event for text input + press enter
             input.setOnKeyPressed(event -> {
                 if(event.getCode() == KeyCode.ENTER){
-                    String currentInput = input.getText();
+                    String currentInput = input.getText().replace("\n","");
                     String currentOutput = output.getText();
-                    String answer = parser.prioritiser(currentInput);
-                    output.setText(currentInput + " " + button_equ.getText() +"\n" + answer + "\n" + currentOutput + "\n");
+                    String answer;
+
+                    try {
+                        answer = parser.prioritiser(validator.validateExpression(currentInput));
+                    } catch (SyntaxErrorException s){
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
+                        answer = s.getMessage();
+                        console.setText(answer);
+                        return;
+                    } catch (MathErrorException m){
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
+                        answer = m.getMessage();
+                        console.setText(answer);
+                        return;
+                    } catch (ImaginaryNumberException i){
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
+                        answer = i.getMessage();
+                        console.setText(answer);
+                        return;
+                    } catch (Exception e){
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
+                        console.setText("Unknown error: please try another function");
+                        return;
+                    }
+
+                    System.out.print(answer);
+
+                    input.setStyle("-fx-text-box-border: black;");
+                    output.setText("\n" + currentInput + " " + button_equ.getText() +"\n" + answer + "\n" + currentOutput);
+                    answerStack.push(answer);
                     input.setText("");
+                    console.setText("");
+
                 }
             });
 
+            button_clear_input.setOnAction(value -> {
+                output.setText("");
+                answerStack.clear();
+            });
 
             BorderPane rootPane = new BorderPane();
             MenuBar menu = new MenuBar();
@@ -354,22 +505,36 @@ public class Main extends Application {
             menu.getMenus().add(helpMenu);
             rootPane.setTop(menu);
 
+            ColorPicker colorPicker = new ColorPicker();
+
+            colorPicker.setOnAction(value -> {
+                Color c = colorPicker.getValue();
+                System.out.println("New Color's RGB = "+c.getRed()+" "+c.getGreen()+" "+c.getBlue());
+            });
+
             VBox vbox = new VBox(
-                    rootPane,
+                    rootPane,   // Menu tabs
                     numGrid,    // Grid of Numbers
-                    input      // Text for input
+                    input,      // Text for input
+                    console     // Error messaging
+            );
+
+            VBox vbox2 = new VBox(
+                    output,
+                    button_clear_input
             );
 
             HBox hbox = new HBox(
                     vbox,
-                    output      // Text for output
+                    vbox2
+                        // Text for output
             );
 
             //Creating a scene object
-            Scene scene = new Scene(hbox,700, 400);
+            Scene scene = new Scene(hbox,800, 500);
 
             //Set css style
-            scene.getStylesheets().add("sample/dark.css");
+            scene.getStylesheets().add("View/dark.css");
 
 
             // Add new menu items to Skins tab
@@ -378,7 +543,7 @@ public class Main extends Application {
                 scene.getStylesheets().clear();
                 setUserAgentStylesheet(null);
                 scene.getStylesheets()
-                        .add("sample/light.css");
+                        .add("View/light.css");
             });
 
             MenuItem theme2 = new MenuItem("Dark");
@@ -386,13 +551,21 @@ public class Main extends Application {
                 scene.getStylesheets().clear();
                 setUserAgentStylesheet(null);
                 scene.getStylesheets()
-                        .add("sample/dark.css");
+                        .add("View/dark.css");
             });
+
+            // Custom skin
+//            MenuItem theme3 = new MenuItem("New...");
+//            theme2.setOnAction(ae -> {
+//                Color c = colorPicker.getValue();
+//                System.out.println("New Color's RGB = "+c.getRed()+" "+c.getGreen()+" "+c.getBlue());
+//            });
 
 
             themeMenu.getItems()
                     .addAll(theme1,
                             theme2);
+                           // ,theme3);
 
 
 
@@ -411,8 +584,7 @@ public class Main extends Application {
 
             //Displaying the contents of the stage
             stage.show();
-
-            System.out.println(javafx.scene.text.Font.getFamilies());
+            //javafx.scene.text.Font.getFamilies();
         }
 
 
