@@ -3,9 +3,8 @@ package View;
 import Controller.ExpressionValidator;
 import Controller.Parser;
 import Controller.SyntaxErrorException;
-import Controller.ImaginaryNumberException;
-import Controller.MathErrorException;
-
+import Model.ImaginaryNumberException;
+import Model.MathErrorException;
 import javafx.application.Application;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -55,8 +54,8 @@ public class Main extends Application {
             // create operation buttons
             Button button_add = new Button("+");
             Button button_sub = new Button("-");
-            Button button_mul = new Button("\u008E");
-            Button button_div = new Button("\u008F");
+            Button button_mul = new Button("*");
+            Button button_div = new Button("/");
             Button button_equ = new Button("=");
             Button button_br1 = new Button("(");
             Button button_br2 = new Button(")");
@@ -578,7 +577,10 @@ public class Main extends Application {
 
             //Setting title to the Stage
             stage.setTitle("Calculator");
-
+            
+            //Disable the 'maximize' window button (does not support resizing currently)
+            stage.setResizable(false);
+            
             //Adding scene to the stage
             stage.setScene(scene);
 

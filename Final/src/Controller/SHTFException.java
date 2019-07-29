@@ -1,6 +1,5 @@
 package Controller;
 
-import View.Controller;
 
 /**
  * This is the exception that is thrown when we don't know what happened and probably can't recover

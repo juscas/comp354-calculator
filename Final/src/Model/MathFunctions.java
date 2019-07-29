@@ -1,8 +1,6 @@
 package Model;
 
 import Controller.DivideByZeroException;
-import Controller.ImaginaryNumberException;
-import Controller.MathErrorException;
 import Controller.SyntaxErrorException;
 
 import java.util.Formatter;
@@ -320,16 +318,16 @@ public class MathFunctions
 
 	/**
 	 * Divides variable amount of numbers.
+	 * 
 	 * @param x: double
 	 * @return result: double
 	 */
-	public static double divide(double ... x) {
-		double result = x[0];
-		for(int i = 1; i < x.length; ++i) {
-			if (x[i] == 0) throw new DivideByZeroException();
-			result /= x[i];
-		}
-		return result;
+	public static double divide(double numerator, double denominator) {
+		
+		if (denominator == 0.0) 
+			throw new MathErrorException("Error: Division by zero is undefined");
+		
+		return numerator / denominator;
 	}
 
 	/**
