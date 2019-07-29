@@ -78,8 +78,6 @@ public class ExpressionValidator
 	 */
 	private static String assignConstant(String expression) {
 		
-		System.out.println("hiyo");
-		
 		Pattern pattern = Pattern.compile("([a-zA-Z])\\s*=\\s*(.*)");
 		Matcher matcher = pattern.matcher(expression);
 		
@@ -136,10 +134,8 @@ public class ExpressionValidator
 		 * Ie, if there is an equal sign in the expression with a lowercase letter on the LHS and
 		 * a number on the RHS.
 		 */
-		System.out.println(isAssignementMode(finalExpression));
-		
 		if(isAssignementMode(finalExpression)) {
-			throw new SyntaxErrorException(assignConstant(expression));
+			throw new SuccessfulAssignmentException(assignConstant(expression));
 		}
 		
 		// 1) Replace all brackets by '(' or ')' to facilitate parsing
