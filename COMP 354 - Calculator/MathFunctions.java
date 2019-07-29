@@ -59,8 +59,6 @@ public class MathFunctions
 	 * @return long
 	 */
 	public static long factorial(int n) {
-		if(n - (int) n > 0)
-			throw new SyntaxErrorException("Factorial only defined for integers");
 		if(n < 0)
 			throw new IllegalArgumentException("No negative values allowed");
 		int fact = 1;
@@ -76,8 +74,6 @@ public class MathFunctions
 	 * @return long
 	 */
 	public static long factorial(long n) {
-		if(n - (int) n > 0)
-			throw new SyntaxErrorException("Factorial only defined for integers");
 		if(n < 0)
 			throw new IllegalArgumentException("No negative values allowed");
 		int fact = 1;
