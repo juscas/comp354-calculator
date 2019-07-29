@@ -222,8 +222,12 @@ public class ExpressionValidator
 			if(expression.charAt(i-1) == 'e' && expression.charAt(i) == '^') {
 				bracketMatch((String) expression.subSequence(i + 1, expression.length()));
 				
+				// This case is for: "e^3" or "e^p". Need to handle this specifically to avoid OOB later down.
+				if(expression.length() == 3) {
+					expression = expression.substring(0,2) + "(" + expression.charAt(2) + ")";
+				}
 				// if the char after "e^" is a bracket then just replace "e^" by "exp"
-				if(expression.charAt(i+1) == '(') {
+				else if(expression.charAt(i+1) == '(') {
 					expression = expression.substring(0, i-1) + "exp" 
 							+ expression.substring(i+1, expression.length());
 				}
