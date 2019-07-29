@@ -27,7 +27,7 @@ public class ExpressionValidator
 	 */
 	public static final String[] unaryOperators = {	"cosh", "sinh", "cos", "sin", "tan", "csc", 
 													"sec", "cot", "exp", "abs", "ln", "log", "sqrt",
-													"root"
+													"root", "fact"
 												};
 	
 	/**

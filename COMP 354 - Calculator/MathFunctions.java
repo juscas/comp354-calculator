@@ -59,6 +59,8 @@ public class MathFunctions
 	 * @return long
 	 */
 	public static long factorial(int n) {
+		if(n - (int) n > 0)
+			throw new SyntaxErrorException("Factorial only defined for integers");
 		if(n < 0)
 			throw new IllegalArgumentException("No negative values allowed");
 		int fact = 1;
@@ -74,6 +76,25 @@ public class MathFunctions
 	 * @return long
 	 */
 	public static long factorial(long n) {
+		if(n - (int) n > 0)
+			throw new SyntaxErrorException("Factorial only defined for integers");
+		if(n < 0)
+			throw new IllegalArgumentException("No negative values allowed");
+		int fact = 1;
+		for (int i = 2; i <= n; i++)
+			fact = fact * i;
+		return fact;
+	}
+	
+	/**
+	 * Calculates the factorial of a number. Don't go nuts with this - you can wrap around very
+	 * quickly so limit the size of these.
+	 * @param n: long
+	 * @return long
+	 */
+	public static double factorial(double n) {
+		if(n - (int) n > 0)
+			throw new SyntaxErrorException("Factorial only defined for integers");
 		if(n < 0)
 			throw new IllegalArgumentException("No negative values allowed");
 		int fact = 1;
@@ -144,7 +165,7 @@ public class MathFunctions
 			return squareRoot(x);
 
 		//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
-		if(root%2 == 0&&base<0) throw new ImaginaryNumberException();
+		if(root%2 == 0&&base<0) throw new ImaginaryNumberException("Imaginary solutions unsupported");
 
 		if(negative) root=root*-1;
 
@@ -456,7 +477,7 @@ public class MathFunctions
 	 * @return equivalent quadrant of 2Pi: int
 	 * @throws SHTFException
 	 */
-	private static int whatQuadrantOf2Pi(double radians) throws SHTFException {
+	private static int whatQuadrantOf2Pi(double radians) throws MathErrorException {
 
 		final double PI_OVER_2 = MathFunctions.PI / 2; // saved because used 4 times
 
@@ -473,7 +494,7 @@ public class MathFunctions
 			return 4;
 
 		// Should never happen as first step maps to 0 to 2Pi
-		throw new SHTFException("Something went wrong, please try again");
+		throw new MathErrorException("Something went wrong, please try again");
 	}
 
 	/**
