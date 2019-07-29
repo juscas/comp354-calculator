@@ -1,4 +1,7 @@
-package sample;
+package Controller;
+
+import View.Controller;
+
 public class ResultInfinityException extends ArithmeticException
 {
 	/**

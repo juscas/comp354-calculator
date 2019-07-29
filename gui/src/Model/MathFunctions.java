@@ -1,4 +1,9 @@
-package sample;
+package Model;
+
+import Controller.DivideByZeroException;
+import Controller.ImaginaryNumberException;
+import Controller.MathErrorException;
+import Controller.SyntaxErrorException;
 
 import java.util.Formatter;
 
@@ -83,6 +88,23 @@ public class MathFunctions
 			fact = fact * i;
 		return fact;
 	}
+	
+	/**
+	 * Calculates the factorial of a number. Don't go nuts with this - you can wrap around very
+	 * quickly so limit the size of these.
+	 * @param n: long
+	 * @return long
+	 */
+	public static double factorial(double n) {
+		if(n - (int) n > 0)
+			throw new SyntaxErrorException("Factorial only defined for integers");
+		if(n < 0)
+			throw new IllegalArgumentException("No negative values allowed");
+		int fact = 1;
+		for (int i = 2; i <= n; i++)
+			fact = fact * i;
+		return fact;
+	}
 
 
 	/**
@@ -139,13 +161,16 @@ public class MathFunctions
 	public static double nroot(double base, int root, int x) throws ImaginaryNumberException {
 
 		double epsilon = 0.001;
+
+		//
+		boolean negative = root<1;
 		if(MathFunctions.abs(root - 0.5) < epsilon)	// if you call this with 1/2 then just call simple sqrt() function.
 			return squareRoot(x);
 
 		//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
-		if(root%2 == 0&&base<0) throw new ImaginaryNumberException();
+		if(root%2 == 0&&base<0) throw new ImaginaryNumberException("root: Imaginary solutions unsupported");
 
-		if(root<1) return power(base,1.0/root);
+		if(negative) root=root*-1;
 
 		//initial random guess is set to 5
 		double aprx = 5;
@@ -173,7 +198,7 @@ public class MathFunctions
 			difference = abs(betterAprx - aprx);
 			aprx = betterAprx;
 		}
-		return aprx;
+		return negative? (1/aprx):aprx;
 	}
 
 	/**
@@ -373,14 +398,14 @@ public class MathFunctions
 	public static double sin(double radians) {
 
 		// get the angles down to a positive multiple of 2Pi since cos is periodic around 2Pi
-		radians = mapRadiansToBetween0and2Pi(radians);
+		double radiansMapped = mapRadiansToBetween0and2Pi(radians);
 
 		double result = 0;
 		int accuracy = 6; // how many terms to calculate to (max 6 or else imprecise)
 		int posNeg = -1; // used to alternate between +/- in the series.
 
 		// The 2nd and 3rd quadrants of the 0 to 2Pi curve lie under the x-axis -> flip sign
-		int quadrantOf2Pi = whatQuadrantOf2Pi(radians);
+		int quadrantOf2Pi = whatQuadrantOf2Pi(radiansMapped);
 
 		// These are the mappings from the first quadrant to the appropriate quadrant.
 		switch(quadrantOf2Pi) {
@@ -388,13 +413,13 @@ public class MathFunctions
 				// do nothing
 				break;
 			case 2 :
-				radians = MathFunctions.PI - radians;
+				radiansMapped = MathFunctions.PI - radiansMapped;
 				break;
 			case 3 :
-				radians = radians - (3/2 * MathFunctions.PI) ;
+				radiansMapped = radiansMapped - (3/2 * MathFunctions.PI) ;
 				break;
 			case 4 :
-				radians = 2 * MathFunctions.PI - radians;
+				radiansMapped = 2 * MathFunctions.PI - radiansMapped;
 				break;
 			default :
 				break;
@@ -403,7 +428,7 @@ public class MathFunctions
 		// This is the Taylor expansion of sin(x)
 		for(int i = 0; i < accuracy; ++i) {
 			posNeg = -posNeg; // flip sign of this, ie. (-1)^(i)
-			result += posNeg * ( MathFunctions.intPower(radians, 2*i + 1) /
+			result += posNeg * ( MathFunctions.intPower(radiansMapped, 2*i + 1) /
 					MathFunctions.factorial(2*i+1));
 		}
 
@@ -411,6 +436,10 @@ public class MathFunctions
 		if(quadrantOf2Pi == 3 || quadrantOf2Pi == 4 )
 			result = -result;
 
+		if(quadrantOf2Pi == 2 && radians < 0)
+			return -result;
+		
+		
 		return result;
 	}
 
@@ -420,7 +449,7 @@ public class MathFunctions
 	 * @return secant(x) : double
 	 */
 	public static double csc(double radians) {
-		return 1 / cos(radians);
+		return 1 / sin(radians);
 	}
 
 	/**
@@ -449,9 +478,9 @@ public class MathFunctions
 	 * than pi.
 	 * @param radians : double
 	 * @return equivalent quadrant of 2Pi: int
-	 * @throws SHTFException
+	 * @throws MathErrorException
 	 */
-	private static int whatQuadrantOf2Pi(double radians) throws SHTFException {
+	private static int whatQuadrantOf2Pi(double radians) throws MathErrorException {
 
 		final double PI_OVER_2 = MathFunctions.PI / 2; // saved because used 4 times
 
@@ -468,7 +497,7 @@ public class MathFunctions
 			return 4;
 
 		// Should never happen as first step maps to 0 to 2Pi
-		throw new SHTFException("Something went wrong, please try again");
+		throw new MathErrorException("Something went wrong, please try again");
 	}
 
 	/**
@@ -486,7 +515,7 @@ public class MathFunctions
 	 * @param x:double
 	 * @return square root of x:double
 	 */
-	static double squareRoot(double x) {
+	public static double squareRoot(double x) {
 
 		if (x == 0){
 			return 0.0;
@@ -510,7 +539,7 @@ public class MathFunctions
 	 * @param x: double
 	 * @return ln(x) : double
 	 */
-	static double ln(double x){
+	public static double ln(double x){
 		if (x <= 0){
 			throw new MathErrorException("No values under or equal 0");
 		}
@@ -541,10 +570,15 @@ public class MathFunctions
 			throw new MathErrorException("No values under or equal 0");
 		}
 
-		if(x ==1){
+		if(x == 1){
 			throw new MathErrorException("Log of 1 is Infinity.");
 		}
 
+		// this is because the algorithm for log10 only works for x >= 1 (but it is infinitely precise)
+		if(x < 1)
+			return log(10, x);
+		
+		
 		String answer = "";
 		int signicantDigits  = 15; // how many numbers after the decimal
 
@@ -571,7 +605,21 @@ public class MathFunctions
 	 * @return log10(x) : double
 	 */
 	public static double log(double base, double number) {
-		return ln(number) / ln(base); // this is just the change of base formula for logarithms.
+		
+		double denominator;
+		
+		if(base == 10)
+			denominator = 2.30258509299404568402; // ln(10) hardcoded
+		else if(base == E)
+			denominator = 1; // ln(e) hardcoded
+		else
+			denominator = ln(base);
+			
+			System.out.println("number = " + number);
+			System.out.println("ln = " + ln(number));
+			System.out.println("denominator = " + denominator);
+		
+		return ln(number) / denominator; // this is just the change of base formula for logarithms.
 	}
 	/**
 	 * Helper function for calculating the log10. This will return the nearest power of 10 that
@@ -598,7 +646,7 @@ public class MathFunctions
 	 * @param exponent : double
 	 * @return b^e : double
 	 */
-	static double power(double base, double exponent){
+	public static double power(double base, double exponent){
 
 		//if the exponent value is an integer, we perform the simple power function in MathFunctions class
 		if(exponent==(int)exponent)
@@ -621,7 +669,8 @@ public class MathFunctions
 
 		//if the base is negative, and the power is any number where the first decimal number is an odd integer, then it throws an exception
 		// (this is a math error)
-		if(base<0&&Integer.parseInt(tempDecimal.substring(0,1))%2!=0) throw new ImaginaryNumberException();
+		if(base<0&&Integer.parseInt(tempDecimal.substring(0,1))%2!=0) 
+			throw new ImaginaryNumberException("power: imaginary numbers not supported");
 
 		//removing any 0s from the right side of the decimal value
 		while(tempDecimal.charAt(tempDecimal.length()-1)==0){
@@ -683,32 +732,31 @@ public class MathFunctions
 		 * note: e^15 = e^15 * e^0.73
 		 */
 
-
 		// A few guard clauses that return well know exact values of e^x
 		if(x == 0) return 1;
 		if(x == 1) return MathFunctions.E;
 		if(x == -1) return 1 / MathFunctions.E;
+		if(x == 2) return MathFunctions.E * MathFunctions.E;
 
 		int precision = 13; // 13 gives lowest sum of square error for values between 0 and 1.
 		double result = 0.0;
-
+		
 		int integerExponent = (int) x; // retain the integer part of the exponent
-		double decimalExponent = x % integerExponent; // this is the decimal part of the exponent
-
-		double remainderTaylorResult = 0; // This will hold the result of the Taylor expansion
-
+		double decimalExponent = x;
+		
+		// if |x| is < 1
+		if(integerExponent != 0)
+			decimalExponent = x % integerExponent; // retain the exponent part
+		
 		// This is the Taylor expansion of e^decimalExponent around 0
 		for(int i = 0; i < precision; ++i)
-			remainderTaylorResult += MathFunctions.intPower(decimalExponent, i) / MathFunctions.factorial(i);
-
+			result += MathFunctions.intPower(decimalExponent, i) / MathFunctions.factorial(i);
+		
 		// add the appropriate multiples of E back to the Taylor expansion of the remainder.
-		result = remainderTaylorResult * MathFunctions.intPower(MathFunctions.E, integerExponent);
-
-		// if negative, return (1 / result) else just return the result
-		if(x < 0)
-			return 1 / result;
-		else
-			return result;
+		if(abs(x) >= 2)
+			result = result * MathFunctions.intPower(MathFunctions.E, integerExponent);
+		
+		return result;
 	}
 
 	/**
@@ -737,9 +785,10 @@ public class MathFunctions
 	 * @return double
 	 */
 	public  static  double max(double x, double y){
-		if(y>x){
+		if(y > x){
 			return y;
-		}else return x;
+		}else 
+			return x;
 	}
 
 	/**
@@ -764,25 +813,30 @@ public class MathFunctions
 
 		if(exponent==0) return 1;
 
+		boolean negative = exponent < 0;
 		//in case of negative exponents, set the base = 1/base
-		if(exponent<0){
-			base=1/base;
-			exponent=exponent*-1;
+		if(negative){
+			exponent = exponent * -1;
 		}
 		//initialising remainder =1
-		double r=1;
+		double r = 1;
 
-		while(exponent>1){
-			if(exponent%2==0){
-				base = base*base;
-				exponent=exponent/2;
-			}else{
-				r=base*r;
-				base=base*base;
-				exponent=(exponent-1)/2;
+		while (exponent > 1){
+			if (exponent % 2 == 0){
+				base = base * base;
+				exponent = exponent / 2;
+			}
+			else {
+				r = base * r;
+				base = base * base;
+				exponent = (exponent - 1) / 2;
 			}
 		}
-		return base*r;
+		if(negative){
+			return 1 / (base * r);
+		}else{
+			return base * r;
+		}
 	}
 	/*public static double roundToN(Double number, int index){
 		String temp = number.toString();

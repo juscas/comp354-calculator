@@ -1,4 +1,6 @@
-package sample;
+package Controller;
+
+import View.Controller;
 
 public class MathErrorException extends ArithmeticException
 {
