@@ -71,20 +71,32 @@ public class ExpressionValidator
 			
 	}
 	
-	
+	/**
+	 * This is the method that talks to the UserConstants method to set user constants.
+	 * @param expression
+	 * @return
+	 */
 	private static String assignConstant(String expression) {
 		
-		Pattern pattern = Pattern.compile("([a-z])\\s*=\\s*(.*)");
+		System.out.println("hiyo");
+		
+		Pattern pattern = Pattern.compile("([a-zA-Z])\\s*=\\s*(.*)");
 		Matcher matcher = pattern.matcher(expression);
 		
+		
 		if(matcher.find()) {
+			
 			// This is the letter on the LHS of the assignment
 			char constantLetter = matcher.group(1).charAt(0);
 			
 			//Validate the expression on the RHS of the assignment to be passed to the Parser
 			String RHS_Expression = Parser.parse(matcher.group(2));
 			
+			if(!isValidLowerAlpha(constantLetter))
+				return "Error: Only lower case letters permitted for constants";
+			
 			return UserConstants.addConstant(constantLetter, Double.parseDouble(RHS_Expression));
+			
 		}
 		
 		return "Error: syntax error with assignment to constant";
@@ -124,6 +136,8 @@ public class ExpressionValidator
 		 * Ie, if there is an equal sign in the expression with a lowercase letter on the LHS and
 		 * a number on the RHS.
 		 */
+		System.out.println(isAssignementMode(finalExpression));
+		
 		if(isAssignementMode(finalExpression)) {
 			throw new SyntaxErrorException(assignConstant(expression));
 		}
@@ -222,8 +236,12 @@ public class ExpressionValidator
 			if(expression.charAt(i-1) == 'e' && expression.charAt(i) == '^') {
 				bracketMatch((String) expression.subSequence(i + 1, expression.length()));
 				
+				// This case is for: "e^3" or "e^p". Need to handle this specifically to avoid OOB later down.
+				if(expression.length() == 3) {
+					expression = expression.substring(0,2) + "(" + expression.charAt(2) + ")";
+				}
 				// if the char after "e^" is a bracket then just replace "e^" by "exp"
-				if(expression.charAt(i+1) == '(') {
+				else if(expression.charAt(i+1) == '(') {
 					expression = expression.substring(0, i-1) + "exp" 
 							+ expression.substring(i+1, expression.length());
 				}
