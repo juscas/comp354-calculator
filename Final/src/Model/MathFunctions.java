@@ -4,6 +4,7 @@ import Controller.DivideByZeroException;
 import Controller.SyntaxErrorException;
 
 import java.util.Formatter;
+import java.text.DecimalFormat;
 
 public class MathFunctions
 {
@@ -157,13 +158,13 @@ public class MathFunctions
 	 */
 	public static double nroot(double base, double root, int x) throws ImaginaryNumberException {
 
-		root = roundToN(root,5);
-
 		if((int) root != root){
-			double numerator = root;
+			root = roundToN(root,5);
+
+			double numerator = roundToN(root,7);
 			double denom =1;
 			while((int) numerator != numerator){
-				numerator = numerator*10;
+				numerator = roundToN(numerator*10,7);
 				denom = denom *10;
 			}
 			denom = fractionSimplify(denom,(root))[0];
