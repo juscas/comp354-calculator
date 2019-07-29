@@ -13,8 +13,7 @@
 }
 
 .button:pressed {
-    -fx-background-color:
-        linear-gradient(#f2f2f2, #d6d6d6);
+    -fx-background-color: #47a7ed;
     -fx-background-radius: 8,7,6;
     -fx-background-insets: 0,1,2;
     -fx-font-family: "Lato";
@@ -31,6 +30,14 @@
     -fx-font-size: 18px;
 }
 
+.button_num{
+    -fx-background-color:
+        linear-gradient(#e0dada, #bfced9);
+    -fx-font-family: "Lato";
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.3) , 3, 0.0 , 0 , 1 );
+}
+
 .button_equ:pressed {
     -fx-background-color:
         linear-gradient(#f2f2f2, #d6d6d6);
@@ -40,10 +47,6 @@
     -fx-text-fill: black;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
-
-
-
-
 
 .text-area {
     -fx-display-caret: true;

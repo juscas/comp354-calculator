@@ -9,13 +9,10 @@ import Model.ImaginaryNumberException;
 
 import javafx.application.Application;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 import java.util.Stack;
@@ -174,7 +171,7 @@ public class Main extends Application {
             numGrid.add(button_e, 5, 2, 1, 1);
             numGrid.add(button_sinh, 6, 2, 1, 1);
             numGrid.add(button_cosh, 7, 2, 1, 1);
-            numGrid.add(button_dummy2, 8, 2, 1, 1);
+            numGrid.add(button_sqr, 8, 2, 1, 1);
 
             // row 4
             numGrid.add(button_div, 0, 3, 1, 1);
@@ -186,7 +183,6 @@ public class Main extends Application {
             numGrid.add(button_csc, 6, 3, 1, 1);
             numGrid.add(button_sec, 7, 3, 1, 1);
             numGrid.add(button_cot, 8, 3, 1, 1);
-            //numGrid.add(button_dummy1, 8, 1, 1, 1);
 
 
             TextArea input = new TextArea();
@@ -204,6 +200,7 @@ public class Main extends Application {
             output.setWrapText(true);
             output.setDisable(true);
             output.setStyle("-fx-opacity: 1;");
+            output.getStyleClass().add("text-area_output");
 
 
             // Clear History button
@@ -504,22 +501,22 @@ public class Main extends Application {
                     try {
                         answer = parser.parse(currentInput);
                     } catch (SyntaxErrorException s){
-                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px;");
                         answer = s.getMessage();
                         console.setText(answer);
                         return;
                     } catch (MathErrorException m){
-                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px;");
                         answer = m.getMessage();
                         console.setText(answer);
                         return;
                     } catch (ImaginaryNumberException i){
-                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px;");
                         answer = i.getMessage();
                         console.setText(answer);
                         return;
                     } catch (Exception e){
-                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
+                        input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px;");
                         console.setText("Unknown error: please try another function");
                         return;
                     }
@@ -543,7 +540,7 @@ public class Main extends Application {
             BorderPane rootPane = new BorderPane();
             MenuBar menu = new MenuBar();
 
-            Menu themeMenu = new Menu("Skins");
+            Menu themeMenu = new Menu("Themes");
             themeMenu.setMnemonicParsing(true);
 
             Menu helpMenu = new Menu("Help");
@@ -620,7 +617,101 @@ public class Main extends Application {
 
             MenuItem openMan = new MenuItem("Open Manual");
             openMan.setOnAction(ae -> {
+                TextArea manual = new TextArea("Manual for Eternity Calculator :\n" +
+                        "\n" +
+                        "*Description : Eternity Calculator is a calculator that \n" +
+                        "                             supports many mathematical functions while\n" +
+                        "                             maintaining a simple and elegant look. Along \n" +
+                        "                             with its simple looks, Eternity has a range \n" +
+                        "                             of useful features, all of which will be \n" +
+                        "                             mentioned below.\n" +
+                        "\n" +
+                        "*Requirements : \n" +
+                        "\n" +
+                        "    - Java 8 or lower\n" +
+                        "\n" +
+                        "*Features : \n" +
+                        "\n" +
+                        "    (1) Support for Natural Language : (cos(2)^sqrt(2))\n" +
+                        "\n" +
+                        "    (2) Assign constants : \n" +
+                        "\t- ex : a = 34\n" +
+                        "\t- reserved letters : e (Eulers' number) , p (pi)\n" +
+                        "\t- letters must be in lower case\n" +
+                        "\n" +
+                        "\n" +
+                        "    (2) Support for multiple themes (Dark/Light)\n" +
+                        "\n" +
+                        "    (4) Error messages with feedback\n" +
+                        "\n" +
+                        "(1) Supported Functions and Syntax \n" +
+                        "\n" +
+                        "    ( Capital words/letters refer to user input )\n" +
+                        "\n" +
+                        "        -Logarithm base 10 : log(N)\n" +
+                        "\n" +
+                        "        -Logarithm with user defined base : log(B,N)\n" +
+                        "\n" +
+                        "        -Linear logarithm : ln(N)\n" +
+                        "\n" +
+                        "        -nth Root of a number: root(BASE,EXPONENT)\n" +
+                        "\n" +
+                        "        -Square root : sqrt(N)\n" +
+                        "\n" +
+                        "        -Cosine : cos(N)\n" +
+                        "\n" +
+                        "        -Sine : sin(N)\n" +
+                        "\n" +
+                        "        -Secant : sec(N)\n" +
+                        "\n" +
+                        "        -Cosecant : csc(N)\n" +
+                        "\n" +
+                        "        -Cotangent : cot(N)\n" +
+                        "\n" +
+                        "        -e to the X : e^N\n" +
+                        "\n" +
+                        "        -Power : N^X\n" +
+                        "\n" +
+                        "        -Factorial : fact(N) Where N is an Integer\n" +
+                        "\n" +
+                        "(2) Assigning constants \n" +
+                        "      \n" +
+                        "      Alphabetical constants are assigned by typing a letter\n" +
+                        "\n" +
+                        "      followed by an '=' sign and the value you wish to assign \n" +
+                        "\n" +
+                        "      to it.\n" +
+                        "\n" +
+                        "      Note : (1) alphabetical constants must be in lower case\n" +
+                        "\n" +
+                        "                   (2) e and p are reserved characters for Eulers' \n" +
+                        "   \n" +
+                        "                          number and pi\n" +
+                        "\n" +
+                        "(3) Changing Themes\n" +
+                        "    \n" +
+                        "      To changes theme, go to the Themes button in the top \n" +
+                        "\n" +
+                        "      menu bar, and select which theme you wish to use.\n\n" +
+                        "Author: Daniel Fahkr");
 
+
+                HBox manHbox = new HBox(
+                        manual
+                );
+
+                manual.setPrefSize(700,700);
+                Scene secondScene = new Scene(manHbox, 700, 500);
+                secondScene.getStylesheets().add("View/light.css");
+                Stage newWindow = new Stage();
+                newWindow.setTitle("Manual");
+                newWindow.setScene(secondScene);
+
+                // Set position of second window, related to primary window.
+                newWindow.setX(stage.getX() + 200);
+                newWindow.setY(stage.getY() + 100);
+
+                newWindow.show();
             });
 
             helpMenu.getItems().add(openMan);
@@ -630,7 +721,7 @@ public class Main extends Application {
             stage.setResizable(false);
             // Adding scene to the stage
             stage.setScene(scene);
-
+            input.requestFocus();
             // Displaying the contents of the stage
             stage.show();
             //javafx.scene.text.Font.getFamilies();
