@@ -616,12 +616,12 @@ public class Parser {
                             //separate cases for when the operation is the last one in the string and when it is not
                             if(next==-1){
                                 // rightOperand = str.substring(index + 3);
-                                str=str.substring(0,index-1)+MathFunctions.factorial((int)data[0]);
+                                str=str.substring(0,index)+MathFunctions.factorial((int)data[1]);
                             }else {
                                 //the left operand should be 3 indexes after the # until the next #
                                 // rightOperand = str.substring(index + 3,next );
 
-                                str=str.substring(0,index-1)+MathFunctions.factorial((int)data[0])+str.substring(next);
+                                str=str.substring(0,index)+MathFunctions.factorial((int)data[1])+str.substring(next);
                                 //System.out.println(rightOperand);
 
                             }
@@ -822,6 +822,10 @@ public class Parser {
     }
 
     public static String replaceWithSpecialChars(String input){
+
+        //fact replaced with !
+        input = input.replaceAll("fact","!");
+
         //Cosine replaced with @
         input = input.replaceAll("cos\\(","@(");
 
