@@ -1,3 +1,10 @@
+package Model;
+
+import Controller.DivideByZeroException;
+import Controller.ImaginaryNumberException;
+import Controller.MathErrorException;
+import Controller.SyntaxErrorException;
+
 import java.util.Formatter;
 
 public class MathFunctions
@@ -471,7 +478,7 @@ public class MathFunctions
 	 * than pi.
 	 * @param radians : double
 	 * @return equivalent quadrant of 2Pi: int
-	 * @throws SHTFException
+	 * @throws MathErrorException
 	 */
 	private static int whatQuadrantOf2Pi(double radians) throws MathErrorException {
 
@@ -508,7 +515,7 @@ public class MathFunctions
 	 * @param x:double
 	 * @return square root of x:double
 	 */
-	static double squareRoot(double x) {
+	public static double squareRoot(double x) {
 
 		if (x == 0){
 			return 0.0;
@@ -532,7 +539,7 @@ public class MathFunctions
 	 * @param x: double
 	 * @return ln(x) : double
 	 */
-	static double ln(double x){
+	public static double ln(double x){
 		if (x <= 0){
 			throw new MathErrorException("No values under or equal 0");
 		}
@@ -639,7 +646,7 @@ public class MathFunctions
 	 * @param exponent : double
 	 * @return b^e : double
 	 */
-	static double power(double base, double exponent){
+	public static double power(double base, double exponent){
 
 		//if the exponent value is an integer, we perform the simple power function in MathFunctions class
 		if(exponent==(int)exponent)

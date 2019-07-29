@@ -1,3 +1,6 @@
+package Controller;
+
+import Model.MathFunctions;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
