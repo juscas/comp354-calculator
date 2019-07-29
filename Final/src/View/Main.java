@@ -39,6 +39,9 @@ public class Main extends Application {
             Button button_8 = new Button("8");
             Button button_9 = new Button("9");
             Button button_dec = new Button(".");
+            Button button_dummy1 = new Button("");
+            Button button_dummy2 = new Button("");
+
 
             button_0.setMinSize(60,60);
             button_1.setMinSize(60,60);
@@ -51,6 +54,20 @@ public class Main extends Application {
             button_8.setMinSize(60,60);
             button_9.setMinSize(60,60);
             button_dec.setMinSize(60,60);
+
+
+            button_0.getStyleClass().add("button_num");
+            button_1.getStyleClass().add("button_num");
+            button_2.getStyleClass().add("button_num");
+            button_3.getStyleClass().add("button_num");
+            button_4.getStyleClass().add("button_num");
+            button_5.getStyleClass().add("button_num");
+            button_6.getStyleClass().add("button_num");
+            button_7.getStyleClass().add("button_num");
+            button_8.getStyleClass().add("button_num");
+            button_9.getStyleClass().add("button_num");
+            button_dec.getStyleClass().add("button_num");
+
 
 
             // create operation buttons
@@ -78,9 +95,13 @@ public class Main extends Application {
             Button button_cosh = new Button("cosh");
             Button button_tanh = new Button("tanh");
             Button button_log = new Button("log");
+            Button button_pi = new Button("\u03c0");
+            Button button_e = new Button("e");
 
 
             Button button_can = new Button("C");
+
+            button_can.getStyleClass().add("button_num");
 
             button_add.setMinSize(60,60);
             button_sub.setMinSize(60,60);
@@ -107,8 +128,13 @@ public class Main extends Application {
             button_cosh.setMinSize(60,60);
             button_tanh.setMinSize(60,60);
             button_log.setMinSize(60,60);
+            button_pi.setMinSize(60,60);
+            button_e.setMinSize(60,60);
+            button_dummy1.setMinSize(60,60);
+            button_dummy2.setMinSize(60,60);
 
             button_equ.getStyleClass().add("button_equ");
+
 
             // create number grid
             GridPane numGrid = new GridPane();
@@ -116,48 +142,51 @@ public class Main extends Application {
             // add number buttons to grid
 
             //row 1
-            numGrid.add(button_7, 0, 0, 1, 1);
-            numGrid.add(button_8, 1, 0, 1, 1);
-            numGrid.add(button_9, 2, 0, 1, 1);
-            numGrid.add(button_add, 3, 0, 1, 1);
-            numGrid.add(button_mul, 4, 0, 1, 1);
+            numGrid.add(button_add, 0, 0, 1, 1);
+            numGrid.add(button_7, 1, 0, 1, 1);
+            numGrid.add(button_8, 2, 0, 1, 1);
+            numGrid.add(button_9, 3, 0, 1, 1);
+            numGrid.add(button_ln, 4, 0, 1, 1);
             numGrid.add(button_br1, 5, 0, 1, 1);
             numGrid.add(button_br2, 6, 0, 1, 1);
-            numGrid.add(button_log, 7, 0, 1, 1);
+            numGrid.add(button_rot, 7, 0, 1, 1);
             numGrid.add(button_sqt, 8, 0, 1, 1);
 
 
             // row 2
-            numGrid.add(button_4, 0, 1, 1, 1);
-            numGrid.add(button_5, 1, 1, 1, 1);
-            numGrid.add(button_6, 2, 1, 1, 1);
-            numGrid.add(button_sub, 3, 1, 1, 1);
-            numGrid.add(button_div, 4, 1, 1, 1);
-            numGrid.add(button_sin, 5, 1, 1, 1);
-            numGrid.add(button_cos, 6, 1, 1, 1);
-            numGrid.add(button_tan, 7, 1, 1, 1);
-            numGrid.add(button_rot, 8, 1, 1, 1);
+            numGrid.add(button_sub, 0, 1, 1, 1);
+            numGrid.add(button_4, 1, 1, 1, 1);
+            numGrid.add(button_5, 2, 1, 1, 1);
+            numGrid.add(button_6, 3, 1, 1, 1);
+            numGrid.add(button_log, 4, 1, 1, 1);
+            numGrid.add(button_pi, 5, 1, 1, 1);
+            numGrid.add(button_sin, 6, 1, 1, 1);
+            numGrid.add(button_cos, 7, 1, 1, 1);
+            numGrid.add(button_tan, 8, 1, 1, 1);
+
 
             // row 3
-            numGrid.add(button_1, 0, 2, 1, 1);
-            numGrid.add(button_2, 1, 2, 1, 1);
-            numGrid.add(button_3, 2, 2, 1, 1);
-            numGrid.add(button_etx, 3, 2, 1, 1);
-            numGrid.add(button_ln, 4, 2, 1, 1);
-            numGrid.add(button_sinh, 5, 2, 1, 1);
-            numGrid.add(button_cosh, 6, 2, 1, 1);
-            numGrid.add(button_tanh, 7, 2, 1, 1);
-            numGrid.add(button_fac, 8, 2, 1, 1);
+            numGrid.add(button_mul, 0, 2, 1, 1);
+            numGrid.add(button_1, 1, 2, 1, 1);
+            numGrid.add(button_2, 2, 2, 1, 1);
+            numGrid.add(button_3, 3, 2, 1, 1);
+            numGrid.add(button_etx, 4, 2, 1, 1);
+            numGrid.add(button_e, 5, 2, 1, 1);
+            numGrid.add(button_sinh, 6, 2, 1, 1);
+            numGrid.add(button_cosh, 7, 2, 1, 1);
+            numGrid.add(button_dummy2, 8, 2, 1, 1);
 
             // row 4
-            numGrid.add(button_0, 0, 3, 1, 1);
-            numGrid.add(button_dec, 1, 3, 1, 1);
-            numGrid.add(button_can, 2, 3, 1, 1);
-            numGrid.add(button_equ, 3, 3, 1, 1);
-            numGrid.add(button_ans, 4, 3, 1, 1);
-            numGrid.add(button_csc, 5, 3, 1, 1);
-            numGrid.add(button_sec, 6, 3, 1, 1);
-            numGrid.add(button_cot, 7, 3, 1, 1);
+            numGrid.add(button_div, 0, 3, 1, 1);
+            numGrid.add(button_0, 1, 3, 1, 1);
+            numGrid.add(button_dec, 2, 3, 1, 1);
+            numGrid.add(button_can, 3, 3, 1, 1);
+            numGrid.add(button_equ, 4, 3, 1, 1);
+            numGrid.add(button_ans, 5, 3, 1, 1);
+            numGrid.add(button_csc, 6, 3, 1, 1);
+            numGrid.add(button_sec, 7, 3, 1, 1);
+            numGrid.add(button_cot, 8, 3, 1, 1);
+            //numGrid.add(button_dummy1, 8, 1, 1, 1);
 
 
             TextArea input = new TextArea();
@@ -174,7 +203,7 @@ public class Main extends Application {
             output.setPrefSize(800,800);
             output.setWrapText(true);
             output.setDisable(true);
-            output.setStyle("-fx-opacity: 2;");
+            output.setStyle("-fx-opacity: 1;");
 
 
             // Clear History button
@@ -368,6 +397,7 @@ public class Main extends Application {
                 input.setText(currentInput + "root");
             });
 
+
             button_fac.setOnAction(value -> {
                 String currentInput = input.getText();
                 input.setText(currentInput + button_fac.getText());
@@ -398,6 +428,16 @@ public class Main extends Application {
                 input.setText(currentInput + button_tanh.getText());
             });
 
+            button_pi.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + "p");
+            });
+
+            button_e.setOnAction(value -> {
+                String currentInput = input.getText();
+                input.setText(currentInput + button_e.getText());
+            });
+
             button_etx.setOnAction(value -> {
                 String currentInput = input.getText();
                 input.setText(currentInput + "e^");
@@ -422,7 +462,7 @@ public class Main extends Application {
                 String answer;
 
                 try {
-                    answer = Parser.parse(validator.validateExpression(currentInput));
+                    answer = Parser.parse(currentInput);
                 } catch (SyntaxErrorException s){
                     input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
                     answer = s.getMessage();
@@ -442,7 +482,7 @@ public class Main extends Application {
                     answer = i.getMessage();
                     console.setText(answer);
                     return;
-                } catch (Exception e){
+                } catch (Exception e) {
                     input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border: #CE0000; -fx-border-width: 5px ;");
                     console.setText("Unknown error: please try another function");
                     return;
@@ -462,7 +502,7 @@ public class Main extends Application {
                     String answer;
 
                     try {
-                        answer = parser.parse(validator.validateExpression(currentInput));
+                        answer = parser.parse(currentInput);
                     } catch (SyntaxErrorException s){
                         input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
                         answer = s.getMessage();
@@ -598,11 +638,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-            String version = System.getProperty("java.version");
-            if(version.startsWith("1.")) {
-                launch(args);
-            } else {
-                System.out.print("JavaFX is not supported for your version of Java... \nWelcome to Command Line Calculator!");
-            }
+            launch(args);
     }
 }
