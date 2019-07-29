@@ -707,11 +707,11 @@ public class MathFunctions
 		 * note: e^15 = e^15 * e^0.73
 		 */
 
-
 		// A few guard clauses that return well know exact values of e^x
 		if(x == 0) return 1;
 		if(x == 1) return MathFunctions.E;
 		if(x == -1) return 1 / MathFunctions.E;
+		if(x == 2) return MathFunctions.E * MathFunctions.E;
 
 		int precision = 13; // 13 gives lowest sum of square error for values between 0 and 1.
 		double result = 0.0;
@@ -728,7 +728,7 @@ public class MathFunctions
 			result += MathFunctions.intPower(decimalExponent, i) / MathFunctions.factorial(i);
 		
 		// add the appropriate multiples of E back to the Taylor expansion of the remainder.
-		if(x >= 2)
+		if(abs(x) >= 2)
 			result = result * MathFunctions.intPower(MathFunctions.E, integerExponent);
 		
 		return result;
