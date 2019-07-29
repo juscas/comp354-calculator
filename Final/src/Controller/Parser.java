@@ -476,7 +476,7 @@ public class Parser {
                             //converting to double
                             Double exponent = Double.parseDouble(exponentString);
 
-                            str=str.substring(0,index)+MathFunctions.nroot(Double.parseDouble(BaseString),Integer.parseInt(exponentString),12)+(next==-1?"":str.substring(next));
+                            str=str.substring(0,index)+MathFunctions.nroot(Double.parseDouble(BaseString),Double.parseDouble(exponentString),19)+(next==-1?"":str.substring(next));
 
                             break;
                         }
@@ -903,3 +903,4 @@ public class Parser {
 
 
 }
+

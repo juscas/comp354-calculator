@@ -149,54 +149,62 @@ public class MathFunctions
 		return x;
 	}
 
-	/**
-	 * returns the nth root of the base value. 3rd parameter x is for accuracy, higher x = higher accuracy
-	 * @param base: double
-	 * @param root: int
-	 * @param x: int
-	 * @return the nth root of the base number
-	 */
-	public static double nroot(double base, int root, int x) throws ImaginaryNumberException {
+	public static double nroot(double base, double root, int x) throws ImaginaryNumberException {
 
-		double epsilon = 0.001;
+		if((int) root != root){
+			double numerator = root;
+			double denom =1;
+			while((int) numerator != numerator){
+				numerator = numerator*10;
+				denom = denom *10;
+			}
+			denom = fractionSimplify(denom,(root))[0];
+			root = fractionSimplify(denom,(root))[1];
 
-		//
-		boolean negative = root<1;
-		if(MathFunctions.abs(root - 0.5) < epsilon)	// if you call this with 1/2 then just call simple sqrt() function.
-			return squareRoot(x);
 
-		//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
-		if(root%2 == 0&&base<0) throw new ImaginaryNumberException("root: Imaginary solutions unsupported");
+			return exponentBySquaring(nroot(base,numerator),denom);
+		}else {
 
-		if(negative) root=root*-1;
+			double epsilon = 0.001;
 
-		//initial random guess is set to 5
-		double aprx = 5;
+			//
+			boolean negative = root < 1;
+			if (MathFunctions.abs(root - 0.5) < epsilon)    // if you call this with 1/2 then just call simple sqrt() function.
+				return squareRoot(x);
 
-		// setting the default accuracy level
-		double acc = 0.01;
+			//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
+			if (root % 2 == 0 && base < 0) throw new ImaginaryNumberException("root: Imaginary solutions unsupported");
 
-		// decreases the acc variable, which increases accuracy
-		for(int i=0;i<x;i++){
-			acc=acc/10;
+			if (negative) root = root * -1;
+
+			//initial random guess is set to 5
+			double aprx = 5;
+
+			// setting the default accuracy level
+			double acc = 0.01;
+
+			// decreases the acc variable, which increases accuracy
+			for (int i = 0; i < x; i++) {
+				acc = acc / 10;
+			}
+
+			// initializing difference to some high number, higher than acc
+			double difference = 10;
+
+			//initialising betterAprx
+			double betterAprx = 0.0;
+
+			// loop until difference is less than acc
+			while (difference > acc) {
+				// calculating current value from previous
+				// value by newton's method
+				betterAprx = ((root - 1.0) * aprx +
+						(double) base / MathFunctions.exponentBySquaring(aprx, root - 1)) / root;
+				difference = abs(betterAprx - aprx);
+				aprx = betterAprx;
+			}
+			return negative ? (1 / aprx) : aprx;
 		}
-
-		// initializing difference to some high number, higher than acc
-		double difference = 10;
-
-		//initialising betterAprx
-		double betterAprx = 0.0;
-
-		// loop until difference is less than acc
-		while (difference > acc) {
-			// calculating current value from previous
-			// value by newton's method
-			betterAprx = ((root - 1.0) * aprx +
-					(double) base / MathFunctions.exponentBySquaring(aprx, root - 1))/ root;
-			difference = abs(betterAprx - aprx);
-			aprx = betterAprx;
-		}
-		return negative? (1/aprx):aprx;
 	}
 
 	/**
@@ -205,9 +213,10 @@ public class MathFunctions
 	 * @param root: int
 	 * @return the nth root of the base number
 	 */
-	public static double nroot (double base, int root){
+	public static double nroot (double base, double root){
 		return nroot(base,root,10);
 	}
+
 
 	/**
 	 * Calculates the greatest common divisor .
