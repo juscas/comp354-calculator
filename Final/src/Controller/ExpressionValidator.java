@@ -91,13 +91,13 @@ public class ExpressionValidator
 			String RHS_Expression = Parser.parse(matcher.group(2));
 			
 			if(!isValidLowerAlpha(constantLetter))
-				return "Error: Only lower case letters permitted for constants";
+				throw new SyntaxErrorException("Error: Only lower case letters permitted for constants");
 			
 			return UserConstants.addConstant(constantLetter, Double.parseDouble(RHS_Expression));
 			
 		}
 		
-		return "Error: syntax error with assignment to constant";
+		throw new SyntaxErrorException("Error: syntax error with assignment to constant");
 	}
 	
 	/**
