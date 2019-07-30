@@ -717,7 +717,6 @@ public class Main extends Application {
             input.requestFocus();
             // Displaying the contents of the stage
             stage.show();
-            //javafx.scene.text.Font.getFamilies();
         }
 
 
