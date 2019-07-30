@@ -544,9 +544,15 @@ public class MathFunctions
 	 * @return ln(x) : double
 	 */
 	public static double ln(double x){
+
 		if (x <= 0){
-			throw new MathErrorException("No values under or equal 0");
+			throw new MathErrorException("ln is undefined for 0 or less");
 		}
+
+		if(x == 1){
+			return 0;
+		}
+		
 		int precision = 1000;
 
 		// Change this in the future to figure out something more efficient for precision
@@ -571,11 +577,11 @@ public class MathFunctions
 	public static double log(double x) {
 
 		if (x <= 0){
-			throw new MathErrorException("No values under or equal 0");
+			throw new MathErrorException("Log is undefined for 0 or less");
 		}
 
 		if(x == 1){
-			throw new MathErrorException("Log of 1 is Infinity.");
+			return 0;
 		}
 
 		// this is because the algorithm for log10 only works for x >= 1 (but it is infinitely precise)
@@ -602,6 +608,7 @@ public class MathFunctions
 
 		return Double.parseDouble(answer);
 	}
+	
 	/**
 	 * This returns the logarithm of a number with user defined base.
 	 * @param base : double
@@ -609,6 +616,14 @@ public class MathFunctions
 	 * @return log10(x) : double
 	 */
 	public static double log(double base, double number) {
+		
+		if (number <= 0){
+			throw new MathErrorException("Log is undefined for 0 or less");
+		}
+
+		if(number == 1){
+			return 0;
+		}
 		
 		double denominator;
 		
@@ -625,6 +640,7 @@ public class MathFunctions
 		
 		return ln(number) / denominator; // this is just the change of base formula for logarithms.
 	}
+	
 	/**
 	 * Helper function for calculating the log10. This will return the nearest power of 10 that
 	 * divides into a number. This is necessary for the algorithm.
