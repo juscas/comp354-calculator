@@ -493,10 +493,7 @@ public class Parser {
                                 str=str.substring(0,index)+MathFunctions.squareRoot(data[1]);
                             }else {
                                 //the left operand should be 3 indexes after the # until the next #
-                                //rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.squareRoot(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
                             }
                             break;
                         }
@@ -509,14 +506,10 @@ public class Parser {
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                                //rightOperand = str.substring(index + 3);
                                 str=str.substring(0,index)+MathFunctions.sinh(data[1]);
                             }else {
                                 //the left operand should be 3 indexes after the # until the next #
-                                //rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.sinh(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
                             }
                             break;
                         }
@@ -525,7 +518,6 @@ public class Parser {
 
                             //finding the next occurrence of # after the current index
                             int next =str.indexOf("#",index+1);
-
 
                             int comaIndex=str.indexOf(",",index+1);
 
@@ -545,9 +537,6 @@ public class Parser {
                                     //else it spans until the next #
                                      exponentString = str.substring(comaIndex+1,next);
                                 }
-
-                                //recalculating the string in case it is an expression
-                                //exponentString = calculate(exponentString);
 
                                 //converting to double
                                 Double exponent = Double.parseDouble(exponentString);
@@ -573,14 +562,11 @@ public class Parser {
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                               // rightOperand = str.substring(index + 3);
+
                                 str=str.substring(0,index)+MathFunctions.ln(data[1]);
                             }else {
                                 //the left operand should be 3 indexes after the # until the next #
-                               // rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.ln(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
 
                             }
                             break;
@@ -619,14 +605,11 @@ public class Parser {
                             //separate cases for when the operation is the last one in the string and when it is not
                             if(next==-1){
                                 // rightOperand = str.substring(index + 3);
-                                str=str.substring(0,index)+MathFunctions.factorial((int)data[1]);
+                                str=str.substring(0,index)+MathFunctions.factorial((double) data[1]);
                             }else {
                                 //the left operand should be 3 indexes after the # until the next #
-                                // rightOperand = str.substring(index + 3,next );
 
-                                str=str.substring(0,index)+MathFunctions.factorial((int)data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
-
+                                str=str.substring(0,index)+MathFunctions.factorial((double) data[1])+str.substring(next);
                             }
                             break;
                         }
@@ -762,10 +745,7 @@ public class Parser {
         int prev = (int) MathFunctions.max((double)str.lastIndexOf("#",index-1),(double)str.lastIndexOf(",",index-1));
 
         boolean containsComma =str.contains(",");
-
         //Finding the right operand:
-
-
         //separate cases for when the operation is the last one in the string and when it is not
         if(next==-1){
             rightOperand = str.substring(index + 3);
@@ -903,3 +883,4 @@ public class Parser {
 
 
 }
+
