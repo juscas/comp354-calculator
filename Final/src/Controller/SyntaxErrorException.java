@@ -1,6 +1,5 @@
 package Controller;
 
-import View.Controller;
 
 public class SyntaxErrorException extends ArithmeticException
 {

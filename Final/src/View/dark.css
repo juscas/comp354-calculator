@@ -158,7 +158,7 @@
     -fx-text-fill: white;
 }
 
-.menu-item: focused .label{
+.menu-item:focused .label{
     -fx-text-fill: #ffa500;
 }
 
