@@ -20,8 +20,6 @@ public class Parser {
         if(debugParameter==1) debug = true;
         return parse(input);
     }
-
-//ToDO: add support for the square root function
     /**
      * Initialising function that initiates the parsing process. It also defines weather the user wishes to enter debug mode or not
      * @param input : String
@@ -35,8 +33,6 @@ public class Parser {
         }
         //validating the expression
         input = ExpressionValidator.validateExpression(input);
-
-
 
         //creating a formatter object
         DecimalFormat df = new DecimalFormat("0");
@@ -70,7 +66,6 @@ public class Parser {
 
         StringBuilder newStr = new StringBuilder("");
 
-        //String newStr="";
         String[] level=new String[0];
 
         //filtering out words and replacing them with special characters
@@ -116,14 +111,12 @@ public class Parser {
                 case'I':    //sinh
                 case'!':    //factorial
                 {
-                    //newStr = newStr + " #4 "+input.charAt(pointer);
                     newStr.append(" #4 "+input.charAt(pointer));
                     break;
                 }
                 //in case the character is ^ we assign priority #3
                 case '^':
                 {
-                    //newStr = newStr + " #3 "+input.charAt(pointer);
                     newStr.append(" #3 "+input.charAt(pointer));
                     break;
                 }
@@ -131,7 +124,6 @@ public class Parser {
                 case '*':
                 case '/':
                 {
-                    //newStr = newStr + " #2 "+input.charAt(pointer);
                     newStr.append(" #2 "+input.charAt(pointer));
                     break;
                 }
@@ -139,32 +131,25 @@ public class Parser {
                 case '+':
                 case '-':
                 {
+                    //checking if the +/- is a sign or an operator
                     if(pointer==0||isSign(input.charAt(pointer-1))){
-
-                        //newStr=newStr+input.charAt(pointer);
                         newStr.append(input.charAt(pointer));
                     }else {
-                        //newStr = newStr + " #1 " + input.charAt(pointer);
                         newStr.append( " #1 " + input.charAt(pointer));
                     }
                     break;
                 }
                 //default case add the character pointed at to the new string
                 default:{
-                    //newStr=newStr+input.charAt(pointer);
                     newStr.append(input.charAt(pointer));
                 }
             }
             pointer++;
-
         }
         if (debug) System.out.println("     t : "+newStr.toString());
         //pass the string to the disector function, along with the number of brackets -1 since levelnumb is 1 ahead of the actual number
         return  disector(newStr.toString().replaceAll(" ",""),levelnumb-1);
-        //return "";
     }
-
-
     /**
      * A follow up function to the prioritiser function that handles the expressions with modular priorities (i.e. $)
      * It operates by isolating the expressions with the modular priority, calculating it in a seperate function
@@ -202,7 +187,6 @@ public class Parser {
             }
             if (debug) System.out.println(str);
         }
-
         //calculate the final simple expression and then return it
         return calculate(str);
     }
@@ -232,11 +216,8 @@ public class Parser {
             //finding the index of the special character followed by the current priority
             int index = str.indexOf("#"+priority);
 
-            //int j=1;
-
             //there might be multiple operators with the same priority, hence the while loop
             while(index!=-1){
-              //  j--;
 
                 if (debug) System.out.println("\nWorking on priority #"+priority+" : "+str+"\n");
 
@@ -246,8 +227,6 @@ public class Parser {
                 //finding the operator that follows #P
                 operator=str.charAt(index+2);
 
-                //System.out.println(operator);
-
                 //if the priority is set to 5, we limit the operators to those with priority of 5
                 if(priority==3){
                     switch(operator){
@@ -255,199 +234,129 @@ public class Parser {
                         // handles e^x function as well
                         case '^':{
 
-                            //Finding the right operand:
-                            //finding the next occurrence of #
                             double[] data = findOperand(str,index);
 
                             int next =(int)data[3];
 
-
-
-                            //System.out.println(str);
-                            //Finding the left operand
                             //prev is the index of the # that is before the variable index (it looks backwords)
                             int prev = (int)data[2];
 
                             //separate cases for when the operation is the first one in the string and when it is not
                             if(prev==-1){
-                                //leftOperand=str.substring(0,index);
-
                                 //if the left operand is the character e, then we perform the e_to_x function instead of the power
                                 if(data[0]==2.7182818){
                                     str=MathFunctions.e_to_x(data[1])+(next==-1?"":str.substring(next));
                                 }else{
                                     str=MathFunctions.power(data[0],data[1])+(next==-1?"":str.substring(next));
-
                                 }
                             }else{
-                                //leftOperand=str.substring(prev+3,index);
-
                                 //if the left operand is the character e, then we perform the e_to_x function instead of the power
                                 if(data[0]==-2){
                                     str=str.substring(0,prev+3)+MathFunctions.e_to_x(data[1])+(next==-1?"":str.substring(next));
                                 }else{
                                     str=(str.charAt(prev)==','?str.substring(0,prev+1):str.substring(0,prev+3))+MathFunctions.power(data[0],data[1])+(next==-1?"":str.substring(next,str.length()));
-
                                 }
                             }
-
                             break;
-
-
                         }
                     }
                 }
-                //System.out.println(operator);
                 //urinary operators have highest priority
                 if(priority==4){
                     switch(operator) {
                         //if the operator is @ (special character for cosine)
                         case '@': {
-
-                            //Finding the right operand:
-                            //finding the next occurrence of #
                             double[] data = findOperand(str,index);
 
                             int next =(int) data[3];
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                               // rightOperand = data[1];
                                 str=str.substring(0,index)+MathFunctions.cos(data[1]);
                             }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                //rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.cos(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
                             }
-
-
-
                             break;
                         }
                         //if the operator is ~ special character for sine
                         case '~': {
 
-                            //Finding the right operand:
-                            //finding the next occurrence of #
                             double[] data = findOperand(str,index);
                             int next =(int)data[3];
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                                //rightOperand = str.substring(index + 3);
                                 str=str.substring(0,index)+MathFunctions.sin(data[1]);
                             }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                //rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.sin(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
                             }
                             break;
                         }
                         //tan
                         case 'T':{
-
-                            //Finding the right operand:
-                            //finding the next occurrence of #
                             double[] data = findOperand(str,index);
                             int next =(int)data[3];
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                                //rightOperand = str.substring(index + 3);
                                 str=str.substring(0,index)+MathFunctions.tan(data[1]);
                             }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                //rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.tan(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
                             }
                             break;
                         }
                         //sec
                         case 'S':{
-
-                            //Finding the right operand:
-                            //finding the next occurrence of #
                             double[] data = findOperand(str,index);
                             int next =(int)data[3];
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                                //rightOperand = str.substring(index + 3);
                                 str=str.substring(0,index)+MathFunctions.sec(data[1]);
                             }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                //rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.sec(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
                             }
                             break;
                         }
                         //cot
                         case 'O':{
-                            //Finding the right operand:
-                            //finding the next occurrence of #
                             double[] data = findOperand(str,index);
                             int next =(int)data[3];
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                                //rightOperand = str.substring(index + 3);
                                 str=str.substring(0,index)+MathFunctions.cot(data[1]);
                             }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                //rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.cot(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
                             }
                             break;
                         }
                         //csc
                         case 'C':{
 
-                            //Finding the right operand:
-                            //finding the next occurrence of #
                             double[] data = findOperand(str,index);
                             int next =(int)data[3];
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                                //rightOperand = str.substring(index + 3);
                                 str=str.substring(0,index)+MathFunctions.csc(data[1]);
                             }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                //rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.csc(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
                             }
                             break;
                         }
                         //cosh
                         case 'H':{
 
-                            //Finding the right operand:
-                            //finding the next occurrence of #
                             double[] data = findOperand(str,index);
                             int next =(int)data[3];
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                                //rightOperand = str.substring(index + 3);
                                 str=str.substring(0,index)+MathFunctions.cosh(data[1]);
                             }else {
                                 //the left operand should be 3 indexes after the # until the next #
-                                //rightOperand = str.substring(index + 3,next );
-
                                 str=str.substring(0,index)+MathFunctions.cosh(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
                             }
                             break;
                         }
@@ -472,7 +381,6 @@ public class Parser {
                                 //else it spans until the next #
                                 exponentString = str.substring(comaIndex+1,next);
                             }
-
                             //converting to double
                             Double exponent = Double.parseDouble(exponentString);
 
@@ -482,14 +390,13 @@ public class Parser {
                         }
                         //sqrt
                         case'Q':{
-                            //Finding the right operand:
-                            //finding the next occurrence of #
+
                             double[] data = findOperand(str,index);
                             int next =(int)data[3];
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                                //rightOperand = str.substring(index + 3);
+
                                 str=str.substring(0,index)+MathFunctions.squareRoot(data[1]);
                             }else {
                                 //the left operand should be 3 indexes after the # until the next #
@@ -499,8 +406,7 @@ public class Parser {
                         }
                         //sinh
                         case'I':{
-                            //Finding the right operand:
-                            //finding the next occurrence of #
+
                             double[] data = findOperand(str,index);
                             int next =(int)data[3];
 
@@ -537,24 +443,18 @@ public class Parser {
                                     //else it spans until the next #
                                      exponentString = str.substring(comaIndex+1,next);
                                 }
-
                                 //converting to double
                                 Double exponent = Double.parseDouble(exponentString);
 
                                 str=str.substring(0,index)+MathFunctions.log(Double.parseDouble(BaseString),Double.parseDouble(exponentString))+(next==-1?"":str.substring(next));
-
                             }else{
                                 String exponentString = str.substring(index+3);
                                 str=str.substring(0,index)+MathFunctions.log(Double.parseDouble(exponentString))+(next==-1?"":str.substring(next));
                             }
-
                             break;
-
                         }
                         //ln function
                         case 'N' :{
-                            //Finding the right operand:
-                            //finding the next occurrence of #
 
                             double[] data = findOperand(str,index);
 
@@ -562,52 +462,39 @@ public class Parser {
 
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-
                                 str=str.substring(0,index)+MathFunctions.ln(data[1]);
                             }else {
-                                //the left operand should be 3 indexes after the # until the next #
                                 str=str.substring(0,index)+MathFunctions.ln(data[1])+str.substring(next);
-
                             }
                             break;
                         }
                         //e^x
                         case 'E' :{
 
-                            //finding the next occurrence of #
-
                             double[] data = findOperand(str,index);
 
                             int next =(int)data[3];
 
-
                             //separate cases for when the operation is the lat one in the string and when it is not
                             if(next==-1){
-                                // rightOperand = str.substring(index + 3);
+
                                 str=str.substring(0,index)+MathFunctions.e_to_x(data[1]);
                             }else {
-                                //the left operand should be 3 indexes after the # until the next #
-                                // rightOperand = str.substring(index + 3,next );
 
                                 str=str.substring(0,index)+MathFunctions.e_to_x(data[1])+str.substring(next);
-                                //System.out.println(rightOperand);
-
                             }
                             break;
                         }
                         case '!':{
-                            //Finding the right operand:
-                            //finding the next occurrence of #
+
                             double[] data = findOperand(str,index);
 
                             int next =(int)data[3];
 
                             //separate cases for when the operation is the last one in the string and when it is not
                             if(next==-1){
-                                // rightOperand = str.substring(index + 3);
                                 str=str.substring(0,index)+MathFunctions.factorial((double) data[1]);
                             }else {
-                                //the left operand should be 3 indexes after the # until the next #
 
                                 str=str.substring(0,index)+MathFunctions.factorial((double) data[1])+str.substring(next);
                             }
@@ -615,7 +502,6 @@ public class Parser {
                         }
                     }
                 }
-
                 //if the priority is set to 5, we limit the operators to those with priority of 4
                 if(priority==2){
                     switch(operator){
@@ -636,7 +522,6 @@ public class Parser {
                             if(prev==-1){
 
                                 str=MathFunctions.multiply(operands[0],operands[1])+(next==-1?"":str.substring(next));
-
                             }else{
 
                                 str=(str.charAt(prev)==','?str.substring(0,prev+1):str.substring(0,prev+3))+MathFunctions.multiply(operands[0],operands[1])+(next==-1?"":str.substring(next,str.length()));
@@ -644,7 +529,6 @@ public class Parser {
                             break;
                         }
                         //if the operator is /
-                            //Note: / is not picking up in a string so we might have to replace / with // which makes it work
                         case '/':{
                             boolean containsComma =str.contains(",");
 
@@ -666,11 +550,9 @@ public class Parser {
                                 str=(str.charAt(prev)==','?str.substring(0,prev+1):str.substring(0,prev+3))+MathFunctions.divide(operands[0],operands[1])+(next==-1?"":str.substring(next,str.length()));
                             }
                             break;
-
                         }
                     }
                 }
-
                 //if the priority is set to 5, we limit the operators to those with priority of 3
                 if(priority==1){
                     switch(operator){
@@ -694,10 +576,8 @@ public class Parser {
 
                             }else{      //when operation is not the first in the string
                                 str=(str.charAt(prev)==','?str.substring(0,prev+1):str.substring(0,prev+3))+(operands[0]+operands[1])+(next==-1?"":str.substring(next,str.length()));
-
                             }
                             break;
-
                         }
                         //if the operator is -
                         case '-':{
@@ -715,21 +595,17 @@ public class Parser {
                             //when the operation is the first one in the string
                             if(prev==-1){
                                 str=(operands[0]-operands[1])+(next==-1?"":str.substring(next));
-
                             }else{      //when operation is not the first in the string
                                 str=(str.charAt(prev)==','?str.substring(0,prev+1):str.substring(0,prev+3))+(operands[0]-operands[1])+(next==-1?"":str.substring(next,str.length()));
                             }
                             break;
-
                         }
                     }
                 }
                 //recalculating the index of the other special character of the current priority (will be -1 if does not exist)
                 index = str.indexOf("#"+priority);
             }
-
         }
-
         if (debug) System.out.println("Calculate out : "+str);
         return str;
     }
@@ -848,7 +724,6 @@ public class Parser {
     }
     private static String logHandler(String input ){
 
-        //input = input.replaceAll("log","(log");
         int closingIndex;
         int logIndex = input.indexOf("log");
         int openIndex;
@@ -865,7 +740,6 @@ public class Parser {
     }
     private static String rootHandler(String input ){
 
-        //input = input.replaceAll("log","(log");
         int closingIndex;
         int rootIndex = input.indexOf("root");
         int openIndex;
