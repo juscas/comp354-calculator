@@ -156,33 +156,20 @@ public class MathFunctions
 	 * @param x: int
 	 * @return the nth root of the base number
 	 */
-	public static double nroot(double base, double root, int x) throws ImaginaryNumberException {
+	public static double nroot(double base, double root, int x) throws ImaginaryNumberException,SyntaxErrorException {
 
 		if((int) root != root){
-			root = roundToN(root,5);
-
-			double numerator = roundToN(root,7);
-			double denom =1;
-			while((int) numerator != numerator){
-				numerator = roundToN(numerator*10,7);
-				denom = denom *10;
-			}
-			denom = fractionSimplify(denom,(root))[0];
-			root = fractionSimplify(denom,(root))[1];
-
-
-			return exponentBySquaring(nroot(base,numerator),denom);
+			throw new SyntaxErrorException("nroot : Decimal exponents are not supported for this funcion");
 		}else {
 
 			double epsilon = 0.001;
 
-			//
 			boolean negative = root < 1;
 			if (MathFunctions.abs(root - 0.5) < epsilon)    // if you call this with 1/2 then just call simple sqrt() function.
 				return squareRoot(x);
 
 			//making sure that when the base is negative, even roots will not be calculated (Imaginary numbers)
-			if (root % 2 == 0 && base < 0) throw new ImaginaryNumberException("root: Imaginary solutions unsupported");
+			if(base < 0 && root >0 && root%2 == 0) throw new ImaginaryNumberException("root: Imaginary solutions unsupported");
 
 			if (negative) root = root * -1;
 
@@ -337,8 +324,8 @@ public class MathFunctions
 
 	/**
 	 * Divides variable amount of numbers.
-	 * 
-	 * @param x: double
+	 * @param denominator: double
+	 * @param numerator: double
 	 * @return result: double
 	 */
 	public static double divide(double numerator, double denominator) {
@@ -693,11 +680,6 @@ public class MathFunctions
 		while(tempDecimal.charAt(tempDecimal.length()-1)==0){
 			tempDecimal = tempDecimal.substring(0,tempDecimal.length()-1);
 		}
-
-		/*
-		//if the decimal length is > 6 we trim the value to 6 decimal points, since more than that takes a heavy toll on the function
-		if(tempDecimal.length()>6) tempDecimal=tempDecimal.substring(0,6);
-		*/
 
 		//to convert a decimal into a fraction form, we have to have it in the form of number/10^n
 		//this for loop calculates the denominator (i.e. the actual value of 10^n)
