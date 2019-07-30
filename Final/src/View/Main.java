@@ -2,6 +2,7 @@ package View;
 
 import Controller.ExpressionValidator;
 import Controller.Parser;
+import Controller.SuccessfulAssignmentException;
 import Controller.SyntaxErrorException;
 
 import Model.MathErrorException;
@@ -144,10 +145,10 @@ public class Main extends Application {
             numGrid.add(button_8, 2, 0, 1, 1);
             numGrid.add(button_9, 3, 0, 1, 1);
             numGrid.add(button_ln, 4, 0, 1, 1);
-            numGrid.add(button_br1, 5, 0, 1, 1);
-            numGrid.add(button_br2, 6, 0, 1, 1);
-            numGrid.add(button_rot, 7, 0, 1, 1);
-            numGrid.add(button_sqt, 8, 0, 1, 1);
+            numGrid.add(button_log, 5, 0, 1, 1);
+            numGrid.add(button_sin, 6, 0, 1, 1);
+            numGrid.add(button_csc, 7, 0, 1, 1);
+            numGrid.add(button_sinh, 8, 0, 1, 1);
 
 
             // row 2
@@ -155,11 +156,11 @@ public class Main extends Application {
             numGrid.add(button_4, 1, 1, 1, 1);
             numGrid.add(button_5, 2, 1, 1, 1);
             numGrid.add(button_6, 3, 1, 1, 1);
-            numGrid.add(button_log, 4, 1, 1, 1);
-            numGrid.add(button_pi, 5, 1, 1, 1);
-            numGrid.add(button_sin, 6, 1, 1, 1);
-            numGrid.add(button_cos, 7, 1, 1, 1);
-            numGrid.add(button_tan, 8, 1, 1, 1);
+            numGrid.add(button_sqr, 4, 1, 1, 1);
+            numGrid.add(button_etx, 5, 1, 1, 1);
+            numGrid.add(button_cos, 6, 1, 1, 1);
+            numGrid.add(button_sec, 7, 1, 1, 1);
+            numGrid.add(button_cosh, 8, 1, 1, 1);
 
 
             // row 3
@@ -167,11 +168,11 @@ public class Main extends Application {
             numGrid.add(button_1, 1, 2, 1, 1);
             numGrid.add(button_2, 2, 2, 1, 1);
             numGrid.add(button_3, 3, 2, 1, 1);
-            numGrid.add(button_etx, 4, 2, 1, 1);
-            numGrid.add(button_e, 5, 2, 1, 1);
-            numGrid.add(button_sinh, 6, 2, 1, 1);
-            numGrid.add(button_cosh, 7, 2, 1, 1);
-            numGrid.add(button_sqr, 8, 2, 1, 1);
+            numGrid.add(button_br1, 4, 2, 1, 1);
+            numGrid.add(button_br2, 5, 2, 1, 1);
+            numGrid.add(button_tan, 6, 2, 1, 1);
+            numGrid.add(button_cot, 7, 2, 1, 1);
+            numGrid.add(button_fac, 8, 2, 1, 1);
 
             // row 4
             numGrid.add(button_div, 0, 3, 1, 1);
@@ -180,9 +181,9 @@ public class Main extends Application {
             numGrid.add(button_can, 3, 3, 1, 1);
             numGrid.add(button_equ, 4, 3, 1, 1);
             numGrid.add(button_ans, 5, 3, 1, 1);
-            numGrid.add(button_csc, 6, 3, 1, 1);
-            numGrid.add(button_sec, 7, 3, 1, 1);
-            numGrid.add(button_cot, 8, 3, 1, 1);
+            numGrid.add(button_sqt, 6, 3, 1, 1);
+            numGrid.add(button_rot, 7, 3, 1, 1);
+            numGrid.add(button_pi, 8, 3, 1, 1);
 
 
             TextArea input = new TextArea();
@@ -397,7 +398,7 @@ public class Main extends Application {
 
             button_fac.setOnAction(value -> {
                 String currentInput = input.getText();
-                input.setText(currentInput + button_fac.getText());
+                input.setText(currentInput + "fact");
             });
 
             button_csc.setOnAction(value -> {
@@ -460,6 +461,11 @@ public class Main extends Application {
 
                 try {
                     answer = Parser.parse(currentInput);
+                } catch (SuccessfulAssignmentException a){
+                    input.setStyle("-fx-focus-color:#00B200;-fx-text-box-border: #00B200; -fx-border-width: 5px ;");
+                    answer = a.getMessage();
+                    console.setText(answer);
+                    return;
                 } catch (SyntaxErrorException s){
                     input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px ;");
                     answer = s.getMessage();
@@ -484,6 +490,7 @@ public class Main extends Application {
                     console.setText("Unknown error: please try another function");
                     return;
                 }
+
                 input.setStyle("-fx-text-box-border: black;");
                 output.setText("\n" + currentInput + " " + button_equ.getText() +"\n" + answer + "\n" + currentOutput);
                 answerStack.push(answer);
@@ -500,6 +507,11 @@ public class Main extends Application {
 
                     try {
                         answer = parser.parse(currentInput);
+                    } catch (SuccessfulAssignmentException a) {
+                        input.setStyle("-fx-focus-color:#00B200;-fx-text-box-border: #00B200; -fx-border-width: 5px ;");
+                        answer = a.getMessage();
+                        console.setText(answer);
+                        return;
                     } catch (SyntaxErrorException s){
                         input.setStyle("-fx-focus-color:#CE0000;-fx-text-box-border:#CE0000; -fx-border-width: 5px;");
                         answer = s.getMessage();
@@ -520,6 +532,7 @@ public class Main extends Application {
                         console.setText("Unknown error: please try another function");
                         return;
                     }
+
 
                     System.out.print(answer);
 
@@ -546,17 +559,9 @@ public class Main extends Application {
             Menu helpMenu = new Menu("Help");
             helpMenu.setMnemonicParsing(true);
 
-
             menu.getMenus().add(themeMenu);
             menu.getMenus().add(helpMenu);
             rootPane.setTop(menu);
-
-            ColorPicker colorPicker = new ColorPicker();
-
-            colorPicker.setOnAction(value -> {
-                Color c = colorPicker.getValue();
-                System.out.println("New Color's RGB = "+c.getRed()+" "+c.getGreen()+" "+c.getBlue());
-            });
 
             VBox vbox = new VBox(
                     rootPane,   // Menu tabs
@@ -600,20 +605,9 @@ public class Main extends Application {
                         .add("View/dark.css");
             });
 
-            // Custom skin
-//            MenuItem theme3 = new MenuItem("New...");
-//            theme2.setOnAction(ae -> {
-//                Color c = colorPicker.getValue();
-//                System.out.println("New Color's RGB = "+c.getRed()+" "+c.getGreen()+" "+c.getBlue());
-//            });
-
-
             themeMenu.getItems()
                     .addAll(theme1,
                             theme2);
-                           // ,theme3);
-
-
 
             MenuItem openMan = new MenuItem("Open Manual");
             openMan.setOnAction(ae -> {
@@ -695,7 +689,6 @@ public class Main extends Application {
                         "      menu bar, and select which theme you wish to use.\n\n" +
                         "Author: Daniel Fahkr");
 
-
                 HBox manHbox = new HBox(
                         manual
                 );
@@ -707,7 +700,7 @@ public class Main extends Application {
                 newWindow.setTitle("Manual");
                 newWindow.setScene(secondScene);
 
-                // Set position of second window, related to primary window.
+                // Set position of new window
                 newWindow.setX(stage.getX() + 200);
                 newWindow.setY(stage.getY() + 100);
 
@@ -716,7 +709,7 @@ public class Main extends Application {
 
             helpMenu.getItems().add(openMan);
 
-            // Setting title to the Stage
+            // Setting title to Stage
             stage.setTitle("Calculator");
             stage.setResizable(false);
             // Adding scene to the stage
