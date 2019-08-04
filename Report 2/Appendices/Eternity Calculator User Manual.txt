@@ -1,0 +1,89 @@
+
+
+*Manual for Eternity Calculator :
+
+*Description : Eternity Calculator is a calculator that 
+               supports many mathematical functions while
+               maintaining a simple and elegant look. Along 
+               with its simple looks, Eternity has a range 
+               of useful features, all of which will be 
+               mentioned below.
+
+*Requirements : 
+
+    - Java 8 or lower
+
+*Features : 
+
+    (1) Support for Natural Language : (cos(2)^sqrt(2))
+
+    (2) Assign constants : 
+	- ex : a = 34
+	- reserved letters : e (Eulers' number) , p (pi)
+	- letters must be in lower case
+
+
+    (2) Support for multiple themes (Dark/Light)
+
+    (4) Error messages with feedback
+
+(1) Supported Functions and Syntax 
+
+    ( Capital words refer to user input )
+
+      -Logarithm base 10 : log(N)
+
+      -Logarithm with user defined base : log(B,N)
+
+      -Linear logarithm : ln(N)
+
+      -nth Root of a number: root(BASE,EXPONENT)
+
+      -Square root : sqrt(N)
+
+      -Cosine : cos(N)
+
+      -Sine : sin(N)
+
+      -Secant : sec(N)
+
+      -Cosecant : csc(N)
+
+      -Cotangent : cot(N)
+
+      -e to the X : e^N
+
+      -Power : N^X
+
+      -Factorial : fact(N) Where N is an Integer
+
+(2) Assigning constants 
+      
+      Alphabetical constants are assigned by typing a letter
+
+      followed by an '=' sign and the value you wish to assign 
+
+      to it.
+
+      Note : (1) alphabetical constants must be in lower case
+
+             (2) e and p are reserved characters fo Eulers' 
+   
+                 number and pi
+
+(3) Changing Themes
+    
+      To changes theme, go to the Themes button in the top 
+
+      menu bar, and select which theme you wish to use.
+
+Author : 
+      
+      Written by Daniel Fakhr.
+
+
+
+
+
+
+
