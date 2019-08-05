@@ -23,3 +23,5 @@
 \contentsline {section}{\numberline {8}Varia}{3}% 
 \contentsline {section}{\numberline {9}Appendices}{3}% 
 \contentsline {subsection}{\numberline {9.1}Use of a Debugger}{3}% 
+\contentsline {subsection}{\numberline {9.2}ASQ Questions}{3}% 
+\contentsline {subsection}{\numberline {9.3}Calculator Manual}{3}% 
