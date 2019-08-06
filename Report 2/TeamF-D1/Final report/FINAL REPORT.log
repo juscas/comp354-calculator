@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  4 AUG 2019 16:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  5 AUG 2019 21:35
 entering extended mode
 **"./FINAL REPORT.tex"
 ("FINAL REPORT.tex"
 LaTeX2e <2018-12-01>
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
-("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.clo"
-File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12.clo"
+File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 )
 \c@part=\count80
 \c@section=\count81
@@ -432,6 +432,41 @@ ossary-tree.sty"
 Package: glossary-tree 2019/01/06 v4.42 (NLCT)
 \glstreeindent=\skip72
 ))
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count154
+\float@exts=\toks37
+\float@box=\box36
+\@float@everytoks=\toks38
+\@floatcapt=\box37
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.st
+y"
+\lst@mode=\count155
+\lst@gtempboxa=\box38
+\lst@token=\toks39
+\lst@length=\count156
+\lst@currlwidth=\dimen138
+\lst@column=\count157
+\lst@pos=\count158
+\lst@lostspace=\dimen139
+\lst@width=\dimen140
+\lst@newlines=\count159
+\lst@lineno=\count160
+\lst@maxwidth=\dimen141
+
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.sty
+"
+File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
+\c@lstnumber=\count161
+\lst@skipnumbers=\count162
+\lst@framebox=\box39
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.cf
+g"
+File: listings.cfg 2018/09/02 1.7 listings configuration
+))
+Package: listings 2018/09/02 1.7 (Carsten Heinz)
 \@indexfile=\write3
 \openout3 = `"FINAL REPORT.idx"'.
 
@@ -440,18 +475,18 @@ Writing index file "FINAL REPORT".idx
 ("FINAL REPORT.aux")
 \openout1 = `"FINAL REPORT.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -473,12 +508,12 @@ LaTeX Font Info:    ... okay on input line 91.
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=57.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -491,17 +526,17 @@ LaTeX Font Info:    ... okay on input line 91.
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/context/base\supp-pdf.mkii
 "
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count154
-\scratchdimen=\dimen138
-\scratchbox=\box36
-\nofMPsegments=\count155
-\nofMParguments=\count156
-\everyMPshowfont=\toks37
-\MPscratchCnt=\count157
-\MPscratchDim=\dimen139
-\MPnumerator=\count158
-\makeMPintoPDFobject=\count159
-\everyMPtoPDFconversion=\toks38
+\scratchcounter=\count163
+\scratchdimen=\dimen142
+\scratchbox=\box40
+\nofMPsegments=\count164
+\nofMParguments=\count165
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count166
+\MPscratchDim=\dimen143
+\MPnumerator=\count167
+\makeMPintoPDFobject=\count168
+\everyMPtoPDFconversion=\toks41
 )
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-ba
 se.sty"
@@ -554,41 +589,818 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-) [1
+)
+\c@lstlisting=\count169
+ [1
 
 
 {C:/Users/Dan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 112.
+less on input line 115.
 
 ("FINAL REPORT.toc")
 \tf@toc=\write4
 \openout4 = `"FINAL REPORT.toc"'.
 
  [2]
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--133
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--136
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 150--152
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 154.
+
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
+
+[4]
+<images/ExpectationSignatures.jpg, id=17, 890.5772pt x 658.71094pt>
+File: images/ExpectationSignatures.jpg Graphic file (type jpg)
+<use images/ExpectationSignatures.jpg>
+Package pdftex.def Info: images/ExpectationSignatures.jpg  used on input line 2
+17.
+(pdftex.def)             Requested size: 175.2664pt x 129.62912pt.
+ [5 <./images/ExpectationSignatures.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
+
+ []
+
+[7]
+<images/TestingMatrix.jpg, id=30, 512.91624pt x 312.16624pt>
+File: images/TestingMatrix.jpg Graphic file (type jpg)
+<use images/TestingMatrix.jpg>
+Package pdftex.def Info: images/TestingMatrix.jpg  used on input line 283.
+(pdftex.def)             Requested size: 328.62955pt x 200.00958pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
+
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 297.
+
+
+Overfull \hbox (62.6614pt too wide) in paragraph at lines 298--307
+[][] 
+ []
+
+[8 <./images/TestingMatrix.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--318
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
+
+ []
+
+[11]
+<images/sarah.png, id=44, 401.5pt x 401.5pt>
+File: images/sarah.png Graphic file (type png)
+<use images/sarah.png>
+Package pdftex.def Info: images/sarah.png  used on input line 421.
+(pdftex.def)             Requested size: 175.2664pt x 175.26985pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--428
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--442
+
+ []
+
+[12 <./images/sarah.png>]
+<images/kevin2.jpg, id=48, 501.875pt x 501.875pt>
+File: images/kevin2.jpg Graphic file (type jpg)
+<use images/kevin2.jpg>
+Package pdftex.def Info: images/kevin2.jpg  used on input line 446.
+(pdftex.def)             Requested size: 175.2664pt x 175.26831pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--453
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--472
+
+ []
+
+[13 <./images/kevin2.jpg>]
+<images/tarek2.jpg, id=53, 250.9375pt x 305.14pt>
+File: images/tarek2.jpg Graphic file (type jpg)
+<use images/tarek2.jpg>
+Package pdftex.def Info: images/tarek2.jpg  used on input line 475.
+(pdftex.def)             Requested size: 175.2664pt x 213.13557pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 477--483
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--503
+
+ []
+
+[14 <./images/tarek2.jpg>]
+<images/arash.jpg, id=57, 614.295pt x 433.62pt>
+File: images/arash.jpg Graphic file (type jpg)
+<use images/arash.jpg>
+Package pdftex.def Info: images/arash.jpg  used on input line 509.
+(pdftex.def)             Requested size: 175.2664pt x 123.7153pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 511--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 532--537
+
+ []
+
+[15 <./images/arash.jpg>]
+<images/victoria.jpg, id=61, 451.6875pt x 301.125pt>
+File: images/victoria.jpg Graphic file (type jpg)
+<use images/victoria.jpg>
+Package pdftex.def Info: images/victoria.jpg  used on input line 539.
+(pdftex.def)             Requested size: 175.2664pt x 116.84554pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--546
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 565--570
+
+ []
+
+[16 <./images/victoria.jpg>]
+<images/UseCaseDiagram.jpg, id=65, 502.87875pt x 422.57875pt>
+File: images/UseCaseDiagram.jpg Graphic file (type jpg)
+<use images/UseCaseDiagram.jpg>
+Package pdftex.def Info: images/UseCaseDiagram.jpg  used on input line 576.
+(pdftex.def)             Requested size: 219.08636pt x 184.09753pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 587--588
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
+
+ []
+
+[17 <./images/UseCaseDiagram.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 654--656
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 662--664
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 665--667
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 668--670
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 677--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 680--682
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--690
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 693--695
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 696--698
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 701--704
+
+ []
+
+<images/themes.png, id=79, 1927.2pt x 1084.05pt>
+File: images/themes.png Graphic file (type png)
+<use images/themes.png>
+Package pdftex.def Info: images/themes.png  used on input line 709.
+(pdftex.def)             Requested size: 350.53952pt x 197.17169pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 713--715
+
+ []
+
+[20 <./images/themes.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 726--728
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 729--731
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 732--734
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 735--737
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 738--740
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 745--747
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 748--750
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 751--753
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 759--761
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 762--764
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 772--774
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 775--777
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 782--784
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 785--787
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 788--790
+
+ []
+
+<images/Testing_1.jpg, id=92, 1927.2pt x 1084.05pt>
+File: images/Testing_1.jpg Graphic file (type jpg)
+<use images/Testing_1.jpg>
+Package pdftex.def Info: images/Testing_1.jpg  used on input line 797.
+(pdftex.def)             Requested size: 394.35277pt x 221.81816pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 807--809
+
+ []
+
+[24 <./images/Testing_1.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 812--814
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 825--827
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 828--830
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 833--835
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 845--847
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 853--855
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 856--858
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 859--861
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 867--869
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 870--872
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 873--875
+
+ []
+
+[27]
+<images/dan1.png, id=106, 3851.38875pt x 2044.63875pt>
+File: images/dan1.png Graphic file (type png)
+<use images/dan1.png>
+Package pdftex.def Info: images/dan1.png  used on input line 886.
+(pdftex.def)             Requested size: 495.13731pt x 262.8485pt.
+
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 886--887
+ [][] 
+ []
+
+<images/dan2.png, id=108, 3851.38875pt x 2041.6275pt>
+File: images/dan2.png Graphic file (type png)
+<use images/dan2.png>
+Package pdftex.def Info: images/dan2.png  used on input line 896.
+(pdftex.def)             Requested size: 495.13731pt x 262.46138pt.
+
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 896--897
+ [][] 
+ []
+
+[28 <./images/dan1.png>]
+<images/Andres1.png, id=113, 3851.38875pt x 2033.5975pt>
+File: images/Andres1.png Graphic file (type png)
+<use images/Andres1.png>
+Package pdftex.def Info: images/Andres1.png  used on input line 904.
+(pdftex.def)             Requested size: 495.13731pt x 261.4291pt.
+
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 904--905
+ [][] 
+ []
+
+<images/Andres2.png, id=114, 3847.37375pt x 2059.695pt>
+File: images/Andres2.png Graphic file (type png)
+<use images/Andres2.png>
+Package pdftex.def Info: images/Andres2.png  used on input line 913.
+(pdftex.def)             Requested size: 495.13731pt x 265.06691pt.
+
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 913--914
+ [][] 
+ []
+
+[29 <./images/dan2.png> <./images/Andres1.png>]
+<images/Dany1.png, id=120, 3854.4pt x 2168.1pt>
+File: images/Dany1.png Graphic file (type png)
+<use images/Dany1.png>
+Package pdftex.def Info: images/Dany1.png  used on input line 921.
+(pdftex.def)             Requested size: 495.13731pt x 278.48848pt.
+
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 921--922
+ [][] 
+ []
+
+<images/Dany2.png, id=121, 3854.4pt x 2168.1pt>
+File: images/Dany2.png Graphic file (type png)
+<use images/Dany2.png>
+Package pdftex.def Info: images/Dany2.png  used on input line 929.
+(pdftex.def)             Requested size: 495.13731pt x 278.48848pt.
+
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 929--930
+ [][] 
+ []
+
+[30 <./images/Andres2.png> <./images/Dany1.png>]
+<images/Dany3.png, id=127, 3854.4pt x 2168.1pt>
+File: images/Dany3.png Graphic file (type png)
+<use images/Dany3.png>
+Package pdftex.def Info: images/Dany3.png  used on input line 937.
+(pdftex.def)             Requested size: 495.13731pt x 278.48848pt.
+
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 937--938
+ [][] 
+ []
+
+<images/justin.jpg, id=128, 1927.2pt x 1084.05pt>
+File: images/justin.jpg Graphic file (type jpg)
+<use images/justin.jpg>
+Package pdftex.def Info: images/justin.jpg  used on input line 945.
+(pdftex.def)             Requested size: 495.13731pt x 278.50502pt.
+
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 945--946
+ [][] 
+ []
+
+[31 <./images/Dany2.png> <./images/Dany3.png>]
+<images/Ashkan1.png, id=135, 3851.38875pt x 2018.54124pt>
+File: images/Ashkan1.png Graphic file (type png)
+<use images/Ashkan1.png>
+Package pdftex.def Info: images/Ashkan1.png  used on input line 954.
+(pdftex.def)             Requested size: 495.13731pt x 259.49353pt.
+
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 954--955
+ [][] 
+ []
+
+[32 <./images/justin.jpg> <./images/Ashkan1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 963--965
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 966--968
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 978--980
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 981--983
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 984--986
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 987--989
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 992--994
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 995--997
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 998--1000
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1003
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1006
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1007--1009
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1016
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1023
+
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1030
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1031--1033
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1034--1036
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1037--1039
+
+ []
+
+
+LaTeX Warning: Command \textendash invalid in math mode on input line 1040.
+
+
+LaTeX Warning: Command \textendash invalid in math mode on input line 1040.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1042
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1049--1051
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1052--1054
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1055--1057
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1066
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1071--1073
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1076
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1079
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1084
+
+ []
+
+[34]
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang1.st
+y"
+File: lstlang1.sty 2018/09/02 1.7 listings language file
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang2.st
+y"
+File: lstlang2.sty 2018/09/02 1.7 listings language file
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang3.st
+y"
+File: lstlang3.sty 2018/09/02 1.7 listings language file
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang1.st
+y"
+File: lstlang1.sty 2018/09/02 1.7 listings language file
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang2.st
+y"
+File: lstlang2.sty 2018/09/02 1.7 listings language file
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang3.st
+y"
+File: lstlang3.sty 2018/09/02 1.7 listings language file
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang1.st
+y"
+File: lstlang1.sty 2018/09/02 1.7 listings language file
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang2.st
+y"
+File: lstlang2.sty 2018/09/02 1.7 listings language file
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang3.st
+y"
+File: lstlang3.sty 2018/09/02 1.7 listings language file
+)
+("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.sty
+"
+File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
+) [35] [36]
+<images/Pattern.jpg, id=152, 549.85425pt x 442.0515pt>
+File: images/Pattern.jpg Graphic file (type jpg)
+<use images/Pattern.jpg>
+Package pdftex.def Info: images/Pattern.jpg  used on input line 1186.
+(pdftex.def)             Requested size: 394.35277pt x 317.03572pt.
+ [37 <./images/Pattern.jpg>]
+<images/CRC.jpg, id=157, 1156.32pt x 650.43pt>
+File: images/CRC.jpg Graphic file (type jpg)
+<use images/CRC.jpg>
+Package pdftex.def Info: images/CRC.jpg  used on input line 1194.
+(pdftex.def)             Requested size: 1156.31718pt x 650.4284pt.
+ [38 <./images/CRC.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1215--1215
+[]\OT1/cmr/bx/n/12 Post-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1231
+[]\OT1/cmr/bx/n/12 Alternative
+ []
+
+
+Underfull \hbox (badness 2635) in paragraph at lines 1238--1239
+[]\OT1/cmr/m/n/12 Calculator dis-plays this ex-cep-tion on
+ []
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1262--1262
+[]\OT1/cmr/bx/n/12 Post-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1275
+[]\OT1/cmr/bx/n/12 Alternative
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1304--1304
+[]\OT1/cmr/bx/n/12 Post-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1321--1321
+[]\OT1/cmr/bx/n/12 Alternative
+ []
+
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 1350--1350
+[]\OT1/cmr/bx/n/12 Post-
+ []
+
+
+Underfull \hbox (badness 2393) in paragraph at lines 1353--1354
+[]\OT1/cmr/m/n/12 Intermediate cal-cu-la-tion is dis-played on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1370--1370
+[]\OT1/cmr/bx/n/12 Alternative
+ []
+
+[42]
 
 Package glossaries Warning: No \printnoidxglossary or \printnoidxglossaries
  found. (Remove \makenoidxglossaries if you don't want any glossaries.)
 This document will not have a glossary.
 
-[3] ("FINAL REPORT.aux") ) 
+("FINAL REPORT.aux") ) 
 Here is how much of TeX's memory you used:
- 10247 strings out of 492946
- 176459 string characters out of 3127155
- 308805 words of memory out of 3000000
- 13951 multiletter control sequences out of 15000+200000
- 9330 words of font info for 34 fonts, out of 3000000 for 9000
+ 13079 strings out of 492946
+ 215917 string characters out of 3127155
+ 554234 words of memory out of 3000000
+ 16716 multiletter control sequences out of 15000+200000
+ 10587 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,6n,43p,2003b,202s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dan/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Dan/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on "FINAL REPORT.pdf" (3 pages, 70667 bytes).
+ 59i,13n,124p,2003b,2474s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Dan/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Dan/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Dan/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/U
+sers/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.
+pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy8.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmti12.pfb>
+Output written on "FINAL REPORT.pdf" (42 pages, 5636367 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
+ 204 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
