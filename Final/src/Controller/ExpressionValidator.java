@@ -101,6 +101,44 @@ public class ExpressionValidator
 	}
 	
 	/**
+	 * This will find the mode of operation of the calculator. This is determined by the type of 
+	 * expression the user has entered.
+	 * 
+	 * Currently the only mode supported is "assignment" mode of which there are 2 types:
+	 * 	1) "Assignment of a user-defined constant"
+	 * 	2) "Assignment of a user-defined function"
+	 * 
+	 * Note: mode 0) is normal calculation of an expression
+	 * 
+	 * @param expression: String
+	 * @return the mode of operation : int
+	 */
+	public static int findMode(String expression) {
+		
+		// if we are in assignment mode
+		if(isAssignementMode(expression)) {
+			
+			String regexForGeneralAssignmentOperation = "^([a-zA-Z]+).*\\s*=\\s*(.*)";
+			
+			Pattern pattern = Pattern.compile(regexForGeneralAssignmentOperation);
+			Matcher matcher = pattern.matcher(expression);
+			matcher.find();
+			
+			// is of length 1 only if we are assigning to a constant letter (ie. b = 21 *3)
+			if(matcher.group(1).length() == 1) {
+				return 1; // 1 is assignment of "constant" mode
+			}
+			else {
+				return 2; // 2 is assignment of "function" mode (ie. test(a,b) = 15;
+			}
+			
+		}
+		else {
+			return 0; // 0 is the normal "calculate expression" mode
+		}
+	}
+	
+	/**
 	 * This will validate the expression so that the Parser only ever receives a syntactically
 	 * correct expression String. Any user error will throw an exception with a handy message
 	 * indicating the nature of the syntax error.

@@ -160,6 +160,153 @@ To summarize, the main goals we set out to complete during this iteration were t
 \item Resolving edge cases
 \end{compactitem}
 
+\section{Team organization and collaboration patterns}
+
+\subsection{Expectations}
+
+The first thing on our order of business was to do a round table discussions to get everyone's expectations with regards to the team dynamics. The reason for this was so that we would all be on the same page.
+
+\medskip
+
+\textbf{Danny:}
+\begin{compactitem}
+\item Do mathematical research before coding any mathematical functions.
+\item Be able to code in java and have decent technical knowledge 
+\item Be willing to compromise ,or put matters to a vote, at times of conflict
+\end{compactitem}
+\textbf{Dan: }
+\begin{compactitem}
+\item The team should be a supportive place where member can develop - if someone doesn’t know something then the team should be able to teach them. We need to communicate actively and keep our peers in the loop.
+\end{compactitem}
+\textbf{Justin:}
+\begin{compactitem}
+\item I expect everyone to respect each other and have realistic expectations of one and other.
+\item Everyone listen to each other and learn from each other.
+\end{compactitem}
+\textbf{Ashkan:}
+\begin{compactitem}
+\item It seems my level of knowledge is lower than the average of team. So I expect the team to bear with me, assign some simpler tasks to me in the beginning and support me to catch up as soon as possible.
+\end{compactitem}
+\textbf{Andres:}
+\begin{compactitem}
+\item I expect everyone to be respectful with each other
+\item I expect everyone to communicate with each other openly
+\item I expect everyone to be able to communicate if they will not be able to finish a part on time in a timely manner, so adjustments can be made before the deadline with minimal stress
+\item I expect the work to be spread fairly
+\item I expect the work to be spread out considering everyone’s skill sets and what they would like to work on themselves
+\end{compactitem}
+
+\textbf{Expectations Agreed on:}
+\begin{compactitem}
+\item The team should be a supportive place where member can develop - if someone doesn’t know something then the team should be able to teach them. We need to communicate actively and keep our peers in the loop.
+\item Respect one another
+vLearn from each other
+\item Listen 
+\item Communicate openly and constructively
+\item All tasks must be completed before the given deadline
+\item If work will not be finished it MUST be communicated in a timely manner so the team can support and readjust our strategy to deliver our work on time
+\item Team outings after milestones on a budget
+\item Distribute work fairly, evenly, and considering each member’s skill level.
+\end{compactitem}
+\bigskip
+
+This document hereby confirms that all group members listed agree to follow through with these expectations throughout the timespan of this whole project. 
+
+
+\begin{center}
+\includegraphics[width=0.4\textwidth]{ExpectationSignatures.jpg}
+\end{center}
+
+\subsection{Meeting Schedule}
+
+We agreed to meet at least once a week for 2 hours. We are also in constant contact on Discord and we all keep apprised of recent pushes to the Git repository to stay up to date with the advancement of the code base and the accompanying documents. Detailed meeting minutes are posted to the Git repository after every meeting by the designated secretary for that meeting. We are also using Google Docs to collaboratively work on draft documentation, which can then be used to create our final documentation with the correct formatting.
+
+\subsection{Our Strategy}
+
+In order to develop a working software calculator prototype in the coming weeks, our team has come up with a development strategy to be prepared for challenges that we may face. This strategy must take into account a plan for writing requirements for features implemented, the technologies selected to develop the calculator, ideas of algorithms for numerical computation of selected functions, and tasks to be allocated to each team member based each of our strengths. With a well advised plan of action, we are much more likely to collaborate efficiently as a team and ultimately meet the deadline of the project. 
+
+\subsection{Choice of technology}
+
+Our team needed to select technologies to meet our software needs while also complementing the team members’ development expertise. The necessary technologies included:
+\medskip
+\begin{compactitem}
+\item main programming language with unit testing libraries, a code documentation interface and a graphical user interface library
+\item communication tools
+\item version control software
+\end{compactitem}
+\medskip
+For our primary programming language we decided to pick the language in which all of our team members had experience writing code in, Java. This allowed each team member to jump right into coding when the time came since no one was blocked having to learn a new language. Java is also advantageous since it has many libraries that we would be able to use for unit testing (Junit), GUI development (JavaFX) and code documentation (Javadoc). Additionally, its object-oriented design fit with how we envisioned designing our calculator program. \\
+
+In order to coordinate with each other outside of regular meeting hours, we decided to use Discord as our communication tool. Discord can be accessed on almost any device, is very reliable and is easy to use. It also allowed us to create different chat channels for different subjects in order to keep our discussions on topic. For example, one channel could be for scheduling and one could be for brainstorming ideas about algorithms. \\
+
+We decided to choose git as our version control software since it is simple enough to use, it has tons of documentation to support our needs and some of our team had already used it. Furthermore, they would allow us to work on the same files at different times and easily keep track of changes made to any of the files. 
+
+\subsection{Task assignment}
+
+During the second team meeting we went over the requirements for deliverable 1 and made a list of all of the things that needed to get done. We quickly saw that this was a significant amount of work and that there were some dependencies between the tasks (ex. do interviews before use cases). We divided the tasks into 3 categories: 1) Information gathering, 2) Consolidation/Report, 3) Coding and prototyping. A cursory evaluation of the workload vs. the deadline showed that we could not possibly deliver all of these tasks on time. Rather than cut out the early-stage prototyping entirely, we decided on making a priority matrix of our tasks with the simple rule that higher priority tasks should be completed before an individual started work on the lower priority ones. \\
+
+We reasoned that the top priority items were those on the critical path of deliverable 1. We all had a good idea of what a calculator should be but we also knew better than to make a product for the developers. Consequently, we absolutely needed the information from the interviews as soon as possible so that we could align our efforts with what the calculator's potential users wanted. This step was so critical and urgent that we put 4 people on it with highest priority. \\
+
+We then consolidated and paraphrased the interview data. We were surprised at just how much information we got from 5 interviewees. Firstly, we extracted the key features each user wanted. Secondly, we distilled down each interview into the key themes that were important for that interviewee. Thirdly, we were able to classify our interviewees based on their expected usage of the calculator (basic use, mathematical use). Lastly, we looked for commonality across the different wants of the interviewees and obtained what we think is a much better approximation of what the market wants from a calculator. \\
+
+One team member was tasked with coming up with an outline of our testing strategy. We decided that since the users all seemed to value accuracy of the mathematical function on the calculator then a test-driven approach to development would be appropriated. \\
+
+Another person was tasked with researching the algorithms needed for the implementation of the non-trivial calculator functions. Some functions had multiple algorithms that varied in complexity. For this first iteration, it was decided that simplicity should be the key criteria in the choice of algorithm since the deadline was so tight. We all agreed that we could reevaluate this strategy for the next iteration. \\
+
+The very last priority was the implementation of the mathematical functions. Some team members were eager to start coding but we decided that it would be a much better idea to focus on the requirements gathering at this stage of development. Consequently, only a very rough implementation of some of these functions appear as code. \\
+
+\begin{table}[ht]
+\centering
+\caption{Task Priority Matrix}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Name}&\textbf{Priority 1}  &\textbf{Priority 2}  &\textbf{Priority 3}  \\ \hline
+ Ashkhan&SE Artifacts  &Macro architecture  &$a^x$, $10^x$  \\ \hline
+ Daniel F.&Parser  &Newtonian algorithm  &$x^y$,   \\ \hline
+ Daniel T.&Validator  &Micro architecture  &$e^x$  \\ \hline
+ Jaime&SE Artifacts  &Macro architecture  &$cos(x)$, $sin(x)$  \\ \hline
+ Justin&GUI  &Micro architecture  &$ln(x)$  \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Testing strategy}
+
+For testing purposes, we decided to use Junit to write all of our unit tests. These tests would verify the functionality of our different mathematical functions. We would need to think of and write up as many test cases as possible for different scenarios (negative numbers, large and small numbers, invalid input, etc) in order to cover all potential issues. \\
+
+Test coverage is incredibly important in the early stages of a software project. Early and thorough testing reduces the risk of having an insurmountable amount of bugs later on. Taking this into consideration, we decided to employ a Test Driven Development strategy in which we would write unit tests before the functions were complete and imposed a rule that all valid tests must pass before any team member makes a push to our master branch. This would ensure that whenever anyone pulled from the master branch, they would not have to waste time fixing someone's bugs to work on their own task. \\
+
+We all agree that testing each other's code is of paramount importance to the project. To not do so would lead to colossal wastes of time in tracking down myriad bugs. We made the following testing matrix which will ensure that there are no conflicts of interest in the testing. The arrow indicates who can test who - no arrow means you cannot test that person's code.
+
+\begin{figure}[!h]
+\caption{Testing matrix}
+\centering
+\includegraphics[width=0.75\textwidth]{TestingMatrix}
+\end{figure}
+
+The source code peer review was organized such a way that no pair of people review each others code. \\
+
+The code review was done in the similar order :
+
+\medskip
+\textit{Jaime Andres Hernandez $\rightarrow$ Daniel Fakhr $\rightarrow$ Justin Castonguay $\rightarrow$ Ashkan Yaghma $\rightarrow$ Daniel Thibult-Shea $\rightarrow$ Jaime andres Hernandez.}
+\medskip
+
+The following table summarize some of the code reviews that were undertaken and the associated comments provided to the reviewees.
+
+
+\begin{table}[]
+\begin{tabular}{|l|l|l|}
+\hline
+Reviewer                                                            & Reviewee                                                         & Comments                                                                                                                                                                                                                                                                    \\ \hline
+\begin{tabular}[c]{@{}l@{}} Andres Hernandez\end{tabular} & Daniel Fakhr                                                     & \begin{tabular}[c]{@{}l@{}}-Some functions break for edge cases\\ -Use spacing in math expressions\end{tabular}                                \\ \hline
+Daniel Fakhr                                                        & Justing Castonguay                                               & \begin{tabular}[c]{@{}l@{}}-Try to make shorter functions\\ -Use K\&R formating (check online) \\ -Stick to java conventions in mathematical \\ expressions\end{tabular} \\ \hline
+Justin Castonguay                                                  & Ashkan Yaghma                                                    & \begin{tabular}[c]{@{}l@{}}-Use more detailed comments\\ -Use better variable names\end{tabular}                                                                                                                                                                               \\ \hline
+Ashkan Yaghma                                                       & Daniel Thibault-Shea                                             & \begin{tabular}[c]{@{}l@{}}-Don't leave commented code.\\ -Comment your functions.\end{tabular}                                                                                                                                                                             \\ \hline
+Daniel Thibault-Shea                                                & \begin{tabular}[c]{@{}l@{}}Jaime\\ Andres Hernandez\end{tabular} & \begin{tabular}[c]{@{}l@{}}-Comment on what a function does rather than \\ what a function is\\ -Try to shorten your comments while\\  maintaining clarity\end{tabular}                                                                                              \\ \hline
+\end{tabular}
+\end{table}
+
+\pagebreak
 
 
 \section{Interviews of Potential Users}
@@ -634,7 +781,7 @@ We used online expression calculators to compare the results of these types of e
 Integration testing was vital for zeroing in on issues that could have only been found with the entire system consolidated. Through this layer of testing, we found many edge-case issues from combining math functions and using different syntax, developed a more robust error messaging system and ensured that all parts of the system were working in harmony together.
 
 
-\subsection{Acceptance Testing}
+\subsection{Acceptance Testing and Usability Evaluation}
 
 In order to review how successful the implementation of our calculator has been, we needed to refer to at least 1 person in each category of the personas to provide us with feedback. This would allow us to find out if we were meeting their wants/needs and also to give us a better idea of what aspects we would have to work on in the future in order to continue improving our product.
 \\
@@ -650,11 +797,16 @@ For our Academic user, Sarah Garrel, she was very impressed with the customizabl
 
 \section{Plans for Future Iterations}
 
-To conclude, we learned a great amount throughout this project. From finding ways to strengthen our team dynamics to learning to appreciate the amount of thought and effort that goes into creating a calculator, we experienced it all. We are proud of the amount of work we were able to dedicate into this, but there is a lot we would’ve liked to have completed before the due date. It would’ve been great to have had a chance to make our application available online to have had a better means of testing our features on multiple users, not only our interviewees. We also didn’t get to make our keys mappable even though it was feature we knew was very desirable. The reality though, was that this was a very ambitious feature to want to add in the first place for a project we had to build from the ground up. If we were more realistic we would’ve predicted that it wouldn’t be possible since most of our time was going to be spent on the fundamental aspects of creating a functional calculator. Lastly, analyzing the feedback our persona interviewees provided us with, it’s clear that some of the nexts steps we can take to improve our calculator could be too focus on the UX (user experience) instead of the UI to create an engaging, portable, and personalized tactile experience! 
+To conclude, we learned a great amount throughout this project. From finding ways to strengthen our team dynamics to learning to appreciate the amount of thought and effort that goes into creating a calculator, we experienced it all. We are proud of the amount of work we were able to dedicate into this, but there is a lot we would’ve liked to have completed before the due date. For example, it would’ve been great to have had a chance to make our application available online to have had a better means of testing our features on multiple users, and not only our interviewees/personas.
+\\
+
+In addition, didn’t get to make our keys mappable even though it was a feature we knew was very desirable through our interviews. The reality though, was that this was a very ambitious feature to want to add in for a project we only had 12 weeks to implement. If our goals were more realistic and if we would’ve put a greater emphasis on feasibility, we would’ve predicted that it wouldn’t be possible to accomplish in such a short amount of time since most of our time was going to be spent on the fundamental aspects of creating a functional calculator. 
+\\
+
+Lastly, analyzing the feedback our persona interviewees provided us with, it’s clear that some of the nexts steps we can take to improve our calculator could be to focus on the UX (user experience) to create an engaging, portable, and personalized tactile experience! 
 \\
 
 With that said, in regards to the future plans for our Eternity Calculator, if we were to work on it in the future, we’d definitely want to improve its overall UX experience. Simply, after gathering all our data from our own experience and the feedback of others, this would be done by implementing key mapping, more customizable skins, making our calculator available online, and making it available for different platforms like smartphones. From there we’d be able to take it even further and continue building on this great experience we executed in 12 weeks.
-
 
 \pagebreak
 

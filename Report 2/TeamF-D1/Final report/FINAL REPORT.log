@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  5 AUG 2019 20:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  5 AUG 2019 21:17
 entering extended mode
 **"./FINAL REPORT.tex"
 ("FINAL REPORT.tex"
@@ -641,253 +641,196 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 169--171
-
- []
-
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+<images/ExpectationSignatures.jpg, id=17, 890.5772pt x 658.71094pt>
+File: images/ExpectationSignatures.jpg Graphic file (type jpg)
+<use images/ExpectationSignatures.jpg>
+Package pdftex.def Info: images/ExpectationSignatures.jpg  used on input line 2
+17.
+(pdftex.def)             Requested size: 175.2664pt x 129.62912pt.
+ [5 <./images/ExpectationSignatures.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
 [6]
-<images/sarah.png, id=23, 401.5pt x 401.5pt>
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
+
+ []
+
+[7]
+<images/TestingMatrix.jpg, id=30, 512.91624pt x 312.16624pt>
+File: images/TestingMatrix.jpg Graphic file (type jpg)
+<use images/TestingMatrix.jpg>
+Package pdftex.def Info: images/TestingMatrix.jpg  used on input line 283.
+(pdftex.def)             Requested size: 328.62955pt x 200.00958pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
+
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 297.
+
+
+Overfull \hbox (62.6614pt too wide) in paragraph at lines 298--307
+[][] 
+ []
+
+[8 <./images/TestingMatrix.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--318
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
+
+ []
+
+[11]
+<images/sarah.png, id=44, 401.5pt x 401.5pt>
 File: images/sarah.png Graphic file (type png)
 <use images/sarah.png>
-Package pdftex.def Info: images/sarah.png  used on input line 274.
+Package pdftex.def Info: images/sarah.png  used on input line 421.
 (pdftex.def)             Requested size: 175.2664pt x 175.26985pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--281
+Underfull \hbox (badness 10000) in paragraph at lines 423--428
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--295
+Underfull \hbox (badness 10000) in paragraph at lines 437--442
 
  []
 
-[7 <./images/sarah.png>]
-<images/kevin2.jpg, id=28, 501.875pt x 501.875pt>
+[12 <./images/sarah.png>]
+<images/kevin2.jpg, id=48, 501.875pt x 501.875pt>
 File: images/kevin2.jpg Graphic file (type jpg)
 <use images/kevin2.jpg>
-Package pdftex.def Info: images/kevin2.jpg  used on input line 299.
+Package pdftex.def Info: images/kevin2.jpg  used on input line 446.
 (pdftex.def)             Requested size: 175.2664pt x 175.26831pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--306
+Underfull \hbox (badness 10000) in paragraph at lines 448--453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--325
+Underfull \hbox (badness 10000) in paragraph at lines 467--472
 
  []
 
-[8 <./images/kevin2.jpg>]
-<images/tarek2.jpg, id=32, 250.9375pt x 305.14pt>
+[13 <./images/kevin2.jpg>]
+<images/tarek2.jpg, id=53, 250.9375pt x 305.14pt>
 File: images/tarek2.jpg Graphic file (type jpg)
 <use images/tarek2.jpg>
-Package pdftex.def Info: images/tarek2.jpg  used on input line 328.
+Package pdftex.def Info: images/tarek2.jpg  used on input line 475.
 (pdftex.def)             Requested size: 175.2664pt x 213.13557pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--336
+Underfull \hbox (badness 10000) in paragraph at lines 477--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--356
+Underfull \hbox (badness 10000) in paragraph at lines 497--503
 
  []
 
-[9 <./images/tarek2.jpg>]
-<images/arash.jpg, id=36, 614.295pt x 433.62pt>
+[14 <./images/tarek2.jpg>]
+<images/arash.jpg, id=57, 614.295pt x 433.62pt>
 File: images/arash.jpg Graphic file (type jpg)
 <use images/arash.jpg>
-Package pdftex.def Info: images/arash.jpg  used on input line 362.
+Package pdftex.def Info: images/arash.jpg  used on input line 509.
 (pdftex.def)             Requested size: 175.2664pt x 123.7153pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--369
+Underfull \hbox (badness 10000) in paragraph at lines 511--516
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--390
+Underfull \hbox (badness 10000) in paragraph at lines 532--537
 
  []
 
-[10 <./images/arash.jpg>]
-<images/victoria.jpg, id=40, 451.6875pt x 301.125pt>
+[15 <./images/arash.jpg>]
+<images/victoria.jpg, id=61, 451.6875pt x 301.125pt>
 File: images/victoria.jpg Graphic file (type jpg)
 <use images/victoria.jpg>
-Package pdftex.def Info: images/victoria.jpg  used on input line 392.
+Package pdftex.def Info: images/victoria.jpg  used on input line 539.
 (pdftex.def)             Requested size: 175.2664pt x 116.84554pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--399
+Underfull \hbox (badness 10000) in paragraph at lines 541--546
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--423
+Underfull \hbox (badness 10000) in paragraph at lines 565--570
 
  []
 
-[11 <./images/victoria.jpg>]
-<images/UseCaseDiagram.jpg, id=44, 502.87875pt x 422.57875pt>
+[16 <./images/victoria.jpg>]
+<images/UseCaseDiagram.jpg, id=65, 502.87875pt x 422.57875pt>
 File: images/UseCaseDiagram.jpg Graphic file (type jpg)
 <use images/UseCaseDiagram.jpg>
-Package pdftex.def Info: images/UseCaseDiagram.jpg  used on input line 429.
+Package pdftex.def Info: images/UseCaseDiagram.jpg  used on input line 576.
 (pdftex.def)             Requested size: 219.08636pt x 184.09753pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 440--442
+Underfull \hbox (badness 10000) in paragraph at lines 587--589
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--450
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 451--453
-
- []
-
-[12 <./images/UseCaseDiagram.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 454--456
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 463--465
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 466--468
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 474--476
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 479--481
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 482--484
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 487--490
-
- []
-
-<images/themes.png, id=52, 1927.2pt x 1084.05pt>
-File: images/themes.png Graphic file (type png)
-<use images/themes.png>
-Package pdftex.def Info: images/themes.png  used on input line 495.
-(pdftex.def)             Requested size: 350.53952pt x 197.17169pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 499--501
-
- []
-
-[14 <./images/themes.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 512--514
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--517
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 518--520
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 521--523
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 524--526
-
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 531--533
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 534--536
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 537--539
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 545--547
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 548--550
-
- []
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 558--560
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 561--563
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 568--570
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 571--573
-
- []
-
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 574--576
-
- []
-
-<images/Testing_1.jpg, id=65, 1927.2pt x 1084.05pt>
-File: images/Testing_1.jpg Graphic file (type jpg)
-<use images/Testing_1.jpg>
-Package pdftex.def Info: images/Testing_1.jpg  used on input line 583.
-(pdftex.def)             Requested size: 394.35277pt x 221.81816pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 593--595
+Underfull \hbox (badness 10000) in paragraph at lines 595--597
 
  []
 
@@ -896,283 +839,428 @@ Underfull \hbox (badness 10000) in paragraph at lines 598--600
 
  []
 
-[18 <./images/Testing_1.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 611--613
+[17 <./images/UseCaseDiagram.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 601--603
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--616
+Underfull \hbox (badness 10000) in paragraph at lines 610--612
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 619--621
+Underfull \hbox (badness 10000) in paragraph at lines 613--615
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 631--633
+Underfull \hbox (badness 10000) in paragraph at lines 621--623
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 626--628
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 639--641
+Underfull \hbox (badness 10000) in paragraph at lines 629--631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 642--644
+Underfull \hbox (badness 10000) in paragraph at lines 634--637
 
  []
 
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 645--647
+<images/themes.png, id=72, 1927.2pt x 1084.05pt>
+File: images/themes.png Graphic file (type png)
+<use images/themes.png>
+Package pdftex.def Info: images/themes.png  used on input line 642.
+(pdftex.def)             Requested size: 350.53952pt x 197.17169pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 646--648
+
+ []
+
+[19 <./images/themes.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 659--661
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--655
+Underfull \hbox (badness 10000) in paragraph at lines 662--664
 
  []
 
-[20] [21]
-<images/dan1.png, id=81, 3851.38875pt x 2044.63875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 665--667
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 668--670
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 671--673
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 678--680
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 681--683
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 684--686
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 692--694
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--697
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 705--707
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 708--710
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 715--717
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 718--720
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 721--723
+
+ []
+
+<images/Testing_1.jpg, id=86, 1927.2pt x 1084.05pt>
+File: images/Testing_1.jpg Graphic file (type jpg)
+<use images/Testing_1.jpg>
+Package pdftex.def Info: images/Testing_1.jpg  used on input line 730.
+(pdftex.def)             Requested size: 394.35277pt x 221.81816pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 740--742
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 745--747
+
+ []
+
+[23 <./images/Testing_1.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 758--760
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--763
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 766--768
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 778--780
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 786--788
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 789--791
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 792--794
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 800--802
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 803--805
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 806--808
+
+ []
+
+[25] [26]
+<images/dan1.png, id=101, 3851.38875pt x 2044.63875pt>
 File: images/dan1.png Graphic file (type png)
 <use images/dan1.png>
-Package pdftex.def Info: images/dan1.png  used on input line 667.
+Package pdftex.def Info: images/dan1.png  used on input line 819.
 (pdftex.def)             Requested size: 495.13731pt x 262.8485pt.
 
-Overfull \hbox (56.96458pt too wide) in paragraph at lines 667--668
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 819--820
  [][] 
  []
 
-<images/dan2.png, id=83, 3851.38875pt x 2041.6275pt>
+<images/dan2.png, id=103, 3851.38875pt x 2041.6275pt>
 File: images/dan2.png Graphic file (type png)
 <use images/dan2.png>
-Package pdftex.def Info: images/dan2.png  used on input line 677.
+Package pdftex.def Info: images/dan2.png  used on input line 829.
 (pdftex.def)             Requested size: 495.13731pt x 262.46138pt.
 
-Overfull \hbox (56.96458pt too wide) in paragraph at lines 677--678
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 829--830
  [][] 
  []
 
-[22 <./images/dan1.png>]
-<images/Andres1.png, id=88, 3851.38875pt x 2033.5975pt>
+[27 <./images/dan1.png>]
+<images/Andres1.png, id=108, 3851.38875pt x 2033.5975pt>
 File: images/Andres1.png Graphic file (type png)
 <use images/Andres1.png>
-Package pdftex.def Info: images/Andres1.png  used on input line 685.
+Package pdftex.def Info: images/Andres1.png  used on input line 837.
 (pdftex.def)             Requested size: 495.13731pt x 261.4291pt.
 
-Overfull \hbox (56.96458pt too wide) in paragraph at lines 685--686
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 837--838
  [][] 
  []
 
-<images/Andres2.png, id=89, 3847.37375pt x 2059.695pt>
+<images/Andres2.png, id=109, 3847.37375pt x 2059.695pt>
 File: images/Andres2.png Graphic file (type png)
 <use images/Andres2.png>
-Package pdftex.def Info: images/Andres2.png  used on input line 694.
+Package pdftex.def Info: images/Andres2.png  used on input line 846.
 (pdftex.def)             Requested size: 495.13731pt x 265.06691pt.
 
-Overfull \hbox (56.96458pt too wide) in paragraph at lines 694--695
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 846--847
  [][] 
  []
 
-[23 <./images/dan2.png> <./images/Andres1.png>]
-<images/Dany1.png, id=95, 3854.4pt x 2168.1pt>
+[28 <./images/dan2.png> <./images/Andres1.png>]
+<images/Dany1.png, id=115, 3854.4pt x 2168.1pt>
 File: images/Dany1.png Graphic file (type png)
 <use images/Dany1.png>
-Package pdftex.def Info: images/Dany1.png  used on input line 702.
+Package pdftex.def Info: images/Dany1.png  used on input line 854.
 (pdftex.def)             Requested size: 495.13731pt x 278.48848pt.
 
-Overfull \hbox (56.96458pt too wide) in paragraph at lines 702--703
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 854--855
  [][] 
  []
 
-<images/Dany2.png, id=96, 3854.4pt x 2168.1pt>
+<images/Dany2.png, id=116, 3854.4pt x 2168.1pt>
 File: images/Dany2.png Graphic file (type png)
 <use images/Dany2.png>
-Package pdftex.def Info: images/Dany2.png  used on input line 710.
+Package pdftex.def Info: images/Dany2.png  used on input line 862.
 (pdftex.def)             Requested size: 495.13731pt x 278.48848pt.
 
-Overfull \hbox (56.96458pt too wide) in paragraph at lines 710--711
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 862--863
  [][] 
  []
 
-[24 <./images/Andres2.png> <./images/Dany1.png>]
-<images/Dany3.png, id=102, 3854.4pt x 2168.1pt>
+[29 <./images/Andres2.png> <./images/Dany1.png>]
+<images/Dany3.png, id=122, 3854.4pt x 2168.1pt>
 File: images/Dany3.png Graphic file (type png)
 <use images/Dany3.png>
-Package pdftex.def Info: images/Dany3.png  used on input line 718.
+Package pdftex.def Info: images/Dany3.png  used on input line 870.
 (pdftex.def)             Requested size: 495.13731pt x 278.48848pt.
 
-Overfull \hbox (56.96458pt too wide) in paragraph at lines 718--719
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 870--871
  [][] 
  []
 
-<images/justin.jpg, id=103, 1927.2pt x 1084.05pt>
+<images/justin.jpg, id=123, 1927.2pt x 1084.05pt>
 File: images/justin.jpg Graphic file (type jpg)
 <use images/justin.jpg>
-Package pdftex.def Info: images/justin.jpg  used on input line 726.
+Package pdftex.def Info: images/justin.jpg  used on input line 878.
 (pdftex.def)             Requested size: 495.13731pt x 278.50502pt.
 
-Overfull \hbox (56.96458pt too wide) in paragraph at lines 726--727
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 878--879
  [][] 
  []
 
-[25 <./images/Dany2.png> <./images/Dany3.png>]
-<images/Ashkan1.png, id=110, 3851.38875pt x 2018.54124pt>
+[30 <./images/Dany2.png> <./images/Dany3.png>]
+<images/Ashkan1.png, id=129, 3851.38875pt x 2018.54124pt>
 File: images/Ashkan1.png Graphic file (type png)
 <use images/Ashkan1.png>
-Package pdftex.def Info: images/Ashkan1.png  used on input line 735.
+Package pdftex.def Info: images/Ashkan1.png  used on input line 887.
 (pdftex.def)             Requested size: 495.13731pt x 259.49353pt.
 
-Overfull \hbox (56.96458pt too wide) in paragraph at lines 735--736
+Overfull \hbox (56.96458pt too wide) in paragraph at lines 887--888
  [][] 
  []
 
-[26 <./images/justin.jpg> <./images/Ashkan1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 744--746
+[31 <./images/justin.jpg> <./images/Ashkan1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 896--898
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 747--749
+Underfull \hbox (badness 10000) in paragraph at lines 899--901
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 759--761
+Underfull \hbox (badness 10000) in paragraph at lines 911--913
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 762--764
+Underfull \hbox (badness 10000) in paragraph at lines 914--916
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 765--767
+Underfull \hbox (badness 10000) in paragraph at lines 917--919
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 768--770
+Underfull \hbox (badness 10000) in paragraph at lines 920--922
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 773--775
+Underfull \hbox (badness 10000) in paragraph at lines 925--927
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 776--778
+Underfull \hbox (badness 10000) in paragraph at lines 928--930
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 779--781
+Underfull \hbox (badness 10000) in paragraph at lines 931--933
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--784
+Underfull \hbox (badness 10000) in paragraph at lines 934--936
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 785--787
+Underfull \hbox (badness 10000) in paragraph at lines 937--939
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 788--790
+Underfull \hbox (badness 10000) in paragraph at lines 940--942
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 796--797
+Underfull \hbox (badness 10000) in paragraph at lines 948--949
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 798--804
+Underfull \hbox (badness 10000) in paragraph at lines 950--956
 
  []
 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 805--811
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 812--814
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 957--963
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--817
+Underfull \hbox (badness 10000) in paragraph at lines 964--966
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--820
+Underfull \hbox (badness 10000) in paragraph at lines 967--969
 
  []
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 821.
-
-
-LaTeX Warning: Command \textendash invalid in math mode on input line 821.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 821--823
+Underfull \hbox (badness 10000) in paragraph at lines 970--972
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 830--832
+LaTeX Warning: Command \textendash invalid in math mode on input line 973.
+
+
+LaTeX Warning: Command \textendash invalid in math mode on input line 973.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 973--975
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 833--835
+Underfull \hbox (badness 10000) in paragraph at lines 982--984
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 836--838
+Underfull \hbox (badness 10000) in paragraph at lines 985--987
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 845--847
+Underfull \hbox (badness 10000) in paragraph at lines 988--990
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 852--854
+Underfull \hbox (badness 10000) in paragraph at lines 997--999
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 855--857
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1006
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 858--860
+Underfull \hbox (badness 10000) in paragraph at lines 1007--1009
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 863--865
+Underfull \hbox (badness 10000) in paragraph at lines 1010--1012
 
  []
 
-[28]
+
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1017
+
+ []
+
+[33]
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang1.st
 y"
 File: lstlang1.sty 2018/09/02 1.7 listings language file
@@ -1212,69 +1300,69 @@ File: lstlang3.sty 2018/09/02 1.7 listings language file
 ("C:\Users\Dan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.sty
 "
 File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
-) [29] [30]
-<images/Pattern.jpg, id=128, 549.85425pt x 442.0515pt>
+) [34] [35]
+<images/Pattern.jpg, id=147, 549.85425pt x 442.0515pt>
 File: images/Pattern.jpg Graphic file (type jpg)
 <use images/Pattern.jpg>
-Package pdftex.def Info: images/Pattern.jpg  used on input line 967.
+Package pdftex.def Info: images/Pattern.jpg  used on input line 1119.
 (pdftex.def)             Requested size: 394.35277pt x 317.03572pt.
- [31 <./images/Pattern.jpg>]
-<images/CRC.jpg, id=133, 1156.32pt x 650.43pt>
+ [36 <./images/Pattern.jpg>]
+<images/CRC.jpg, id=151, 1156.32pt x 650.43pt>
 File: images/CRC.jpg Graphic file (type jpg)
 <use images/CRC.jpg>
-Package pdftex.def Info: images/CRC.jpg  used on input line 975.
+Package pdftex.def Info: images/CRC.jpg  used on input line 1127.
 (pdftex.def)             Requested size: 1156.31718pt x 650.4284pt.
- [32 <./images/CRC.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 996--996
+ [37 <./images/CRC.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1148--1148
 []\OT1/cmr/bx/n/12 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1012
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1164
 []\OT1/cmr/bx/n/12 Alternative
  []
 
 
-Underfull \hbox (badness 2635) in paragraph at lines 1019--1020
+Underfull \hbox (badness 2635) in paragraph at lines 1171--1172
 []\OT1/cmr/m/n/12 Calculator dis-plays this ex-cep-tion on
  []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 1043--1043
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 1195--1195
 []\OT1/cmr/bx/n/12 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1056--1056
+Underfull \hbox (badness 10000) in paragraph at lines 1208--1208
 []\OT1/cmr/bx/n/12 Alternative
  []
 
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 1085--1085
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1237--1237
 []\OT1/cmr/bx/n/12 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1102
+Underfull \hbox (badness 10000) in paragraph at lines 1254--1254
 []\OT1/cmr/bx/n/12 Alternative
  []
 
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 1131--1131
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1283--1283
 []\OT1/cmr/bx/n/12 Post-
  []
 
 
-Underfull \hbox (badness 2393) in paragraph at lines 1134--1135
+Underfull \hbox (badness 2393) in paragraph at lines 1286--1287
 []\OT1/cmr/m/n/12 Intermediate cal-cu-la-tion is dis-played on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1151--1151
+Underfull \hbox (badness 10000) in paragraph at lines 1303--1303
 []\OT1/cmr/bx/n/12 Alternative
  []
 
-[36]
+[41]
 
 Package glossaries Warning: No \printnoidxglossary or \printnoidxglossaries
  found. (Remove \makenoidxglossaries if you don't want any glossaries.)
@@ -1282,13 +1370,13 @@ This document will not have a glossary.
 
 ("FINAL REPORT.aux") ) 
 Here is how much of TeX's memory you used:
- 13067 strings out of 492946
- 215592 string characters out of 3127155
- 554101 words of memory out of 3000000
- 16707 multiletter control sequences out of 15000+200000
- 10240 words of font info for 37 fonts, out of 3000000 for 9000
+ 13079 strings out of 492946
+ 215917 string characters out of 3127155
+ 554234 words of memory out of 3000000
+ 16716 multiletter control sequences out of 15000+200000
+ 10587 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,10n,124p,2003b,2474s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 59i,13n,124p,2003b,2474s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Dan/AppData/Local/Program
@@ -1296,10 +1384,11 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Dan/AppData/Loc
 al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Dan/A
 ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Us
 ers/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb>
-Output written on "FINAL REPORT.pdf" (36 pages, 5468314 bytes).
+.pfb><C:/Users/Dan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmti12.pfb>
+Output written on "FINAL REPORT.pdf" (41 pages, 5615262 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
+ 193 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
