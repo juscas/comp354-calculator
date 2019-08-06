@@ -269,7 +269,7 @@ The very last priority was the implementation of the mathematical functions. Som
 \end{tabular}
 \end{table}
 
-\subsection{Testing strategy}
+\subsection{Source code review results}
 
 For testing purposes, we decided to use Junit to write all of our unit tests. These tests would verify the functionality of our different mathematical functions. We would need to think of and write up as many test cases as possible for different scenarios (negative numbers, large and small numbers, invalid input, etc) in order to cover all potential issues. \\
 
@@ -581,6 +581,72 @@ Note: see appendix for full use case descriptions
 \end{center}
 
 \section{Design}
+
+\subsection{Algorithms Design and Evaluation}
+
+Based on our experience and with the information gleaned from the interview, we decided to implement at least the following transcendental functions: $x^y$, $e^x$, $sin(x)$ and $cos(x)$, $tan(x)$, $ln(x)$ and $sqrt(x)$. Currently, optional functions are $arcsin(x)$, $arccos(x)$, $arctan(x)$. In order to develop solutions for our calculator without help from Java’s math library, we would have to do research on numerical methods to compute these functions. We would have to find the sites with mathematical references such as Wolfram-Alpha, Wikipedia and YouTube in order to find solutions that would be feasible for us. \\
+
+A few of these functions $(sin(x)$, $cos(x)$, $tan(x)$, $e^x$, and the $arc*(x)$ functions could be approximated relatively easily by Taylor polynomials. Series lend themselves naturally to iterative methods (ie. simple 'for' loop) so that is what these algorithms are.
+\bigskip
+
+For example, here is the algorithm for $e^x$:
+
+\begin{center}
+\begin{tabular}{l}
+$result\leftarrow 0$ \\
+
+$precision\leftarrow p$ (arbitraty precision integer) \\
+
+\medskip
+$iterator\leftarrow 0$ \\
+
+\textbf{while} $iterator < precision$ \textbf{do} \\
+
+$\;\;\;result\leftarrow result + \frac{x^i}{i!}$ \\
+
+\medskip
+$\;\;\;i\leftarrow i + 1$ \\
+
+\textbf{return} $result$ \\ \\
+
+\end{tabular}
+\end{center}
+
+This algorithm does not pass test for a wide range of values of $e^x$. Currently, we are debugging this. This is an extremely simple algorithm compared to the other but they mostly take this form. The complexity of this particular algorithm is constant, however, it calls the $x^i$ function which we have implemented hamfistedly as $x$ multiplied by itself $i$ times. We intend to optimize the power function in later iteration to take advantage of the many optimizations possible (ie. bitshifting, etc.). \\
+
+The algorithm for $ln(x)$ is:
+
+\begin{center}
+\begin{tabular}{l}
+{\textbf{if}} $result\leq 0$ \\
+$\;\;\; return$ {\textbf{error}} \medskip \\ 
+
+$precision\leftarrow p$ (arbitraty precision integer) \\
+
+\medskip
+$iterator\leftarrow 0$ \\
+
+\textbf{while} $iterator < precision$ \textbf{do} \\
+
+$\;\;\;result\leftarrow result + \frac{1}{(2i+1)} * \frac{(x-1)}{(x+1)}^{(2i+1)}$ \\
+
+\medskip
+$\;\;\;i\leftarrow i + 1$ \\
+
+\textbf{return} $(2*result)$
+
+\end{tabular}
+\end{center}
+
+The $ln(x)$ algorithm is of a similar vein as $e^x$ and of a similar complexity. Tests have been successful up to about x = 870. We are still debugging this. We think it has something to do with our algorithms being centered around 0 and the solution becoming less and less precise as we increase or decrease x away from 0. We will definitely have this sorted out for iteration 2.
+
+\subsection{Data Structures Used}
+
+User constants were stored in a Hashmap<Character, Double> which mapped the a constant (ie. c) to its numberic value.
+
+We developed a simple Trie to store function names. This was so that we could easily store names that were also substrings of other functions names (ie. sin and sinh). This was a very interesting project to develop as the Trie was not a standard Java data structure so we made it from scratch.
+
+A stack was used to store and display the calculation history in the GUI. We pop the first one off to go back through the history to display.
 
 \subsection{Influence of Use Cases on Design Decisions}
 

@@ -15,24 +15,26 @@
 \contentsline {section}{\numberline {4}Personas Derived from Interviews}{12}% 
 \contentsline {section}{\numberline {5}Use Cases}{17}% 
 \contentsline {section}{\numberline {6}Design}{17}% 
-\contentsline {subsection}{\numberline {6.1}Influence of Use Cases on Design Decisions}{17}% 
-\contentsline {subsection}{\numberline {6.2}Macro Architecture}{17}% 
-\contentsline {subsection}{\numberline {6.3}Micro Architecture}{18}% 
-\contentsline {subsection}{\numberline {6.4}GUI Design and User Experience}{18}% 
-\contentsline {section}{\numberline {7}Implementation}{20}% 
-\contentsline {subsection}{\numberline {7.1}Roadblocks During Implementation}{20}% 
-\contentsline {subsection}{\numberline {7.2}Adjustment to the Micro Architecture}{21}% 
-\contentsline {subsection}{\numberline {7.3}Outstanding Issues}{21}% 
-\contentsline {section}{\numberline {8}Testing}{22}% 
-\contentsline {subsection}{\numberline {8.1}Usefulness of Debugger in Testing}{22}% 
-\contentsline {subsection}{\numberline {8.2}Unit Testing}{22}% 
-\contentsline {subsection}{\numberline {8.3}Integration Testing}{23}% 
-\contentsline {subsection}{\numberline {8.4}Acceptance Testing and Usability Evaluation}{24}% 
-\contentsline {section}{\numberline {9}Plans for Future Iterations}{25}% 
-\contentsline {section}{\numberline {10}Appendices}{27}% 
-\contentsline {subsection}{\numberline {10.1}Appendix A - Use of a Debugger}{27}% 
-\contentsline {subsection}{\numberline {10.2}Appendix B - ASQ Questions}{32}% 
-\contentsline {subsection}{\numberline {10.3}Appendix C - Calculator Manual}{34}% 
-\contentsline {subsection}{\numberline {10.4}Appendix D - Macro Architecture Pattern (MVC)}{36}% 
-\contentsline {subsection}{\numberline {10.5}Appendix E - Micro Architecture (MVC)}{37}% 
-\contentsline {subsection}{\numberline {10.6}Appendix E - Use Case Descriptions}{38}% 
+\contentsline {subsection}{\numberline {6.1}Algorithms Design and Evaluation}{17}% 
+\contentsline {subsection}{\numberline {6.2}Data Structures Used}{18}% 
+\contentsline {subsection}{\numberline {6.3}Influence of Use Cases on Design Decisions}{18}% 
+\contentsline {subsection}{\numberline {6.4}Macro Architecture}{19}% 
+\contentsline {subsection}{\numberline {6.5}Micro Architecture}{19}% 
+\contentsline {subsection}{\numberline {6.6}GUI Design and User Experience}{20}% 
+\contentsline {section}{\numberline {7}Implementation}{21}% 
+\contentsline {subsection}{\numberline {7.1}Roadblocks During Implementation}{21}% 
+\contentsline {subsection}{\numberline {7.2}Adjustment to the Micro Architecture}{22}% 
+\contentsline {subsection}{\numberline {7.3}Outstanding Issues}{22}% 
+\contentsline {section}{\numberline {8}Testing}{23}% 
+\contentsline {subsection}{\numberline {8.1}Usefulness of Debugger in Testing}{23}% 
+\contentsline {subsection}{\numberline {8.2}Unit Testing}{23}% 
+\contentsline {subsection}{\numberline {8.3}Integration Testing}{24}% 
+\contentsline {subsection}{\numberline {8.4}Acceptance Testing and Usability Evaluation}{26}% 
+\contentsline {section}{\numberline {9}Plans for Future Iterations}{26}% 
+\contentsline {section}{\numberline {10}Appendices}{28}% 
+\contentsline {subsection}{\numberline {10.1}Appendix A - Use of a Debugger}{28}% 
+\contentsline {subsection}{\numberline {10.2}Appendix B - ASQ Questions}{33}% 
+\contentsline {subsection}{\numberline {10.3}Appendix C - Calculator Manual}{35}% 
+\contentsline {subsection}{\numberline {10.4}Appendix D - Macro Architecture Pattern (MVC)}{37}% 
+\contentsline {subsection}{\numberline {10.5}Appendix E - Micro Architecture (MVC)}{38}% 
+\contentsline {subsection}{\numberline {10.6}Appendix E - Use Case Descriptions}{39}% 
