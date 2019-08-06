@@ -2,26 +2,30 @@
 \contentsline {section}{\numberline {1}Introduction and Lead Up to Iteration 2}{3}% 
 \contentsline {subsection}{\numberline {1.1}Recap of Iteration 1}{3}% 
 \contentsline {subsection}{\numberline {1.2}Intro to current Iteration}{3}% 
-\contentsline {subsection}{\numberline {1.3}Goals for current Iteration}{3}% 
-\contentsline {section}{\numberline {2}Interviews of Potential Users}{3}% 
-\contentsline {section}{\numberline {3}Personas Derived from Interviews}{3}% 
-\contentsline {section}{\numberline {4}Use Cases}{3}% 
-\contentsline {section}{\numberline {5}Design}{3}% 
-\contentsline {subsection}{\numberline {5.1}Influence of Use Cases on Design Decisions}{3}% 
-\contentsline {subsection}{\numberline {5.2}Macro Architecture}{3}% 
-\contentsline {subsection}{\numberline {5.3}Micro Architecture}{3}% 
-\contentsline {subsection}{\numberline {5.4}GUI Design and User Experience}{3}% 
-\contentsline {section}{\numberline {6}Implementation}{3}% 
-\contentsline {subsection}{\numberline {6.1}Roadblocks During Implementation}{3}% 
-\contentsline {subsection}{\numberline {6.2}Adjustment to the Micro Architecture}{3}% 
-\contentsline {subsection}{\numberline {6.3}Outstanding Issues}{3}% 
-\contentsline {section}{\numberline {7}Testing}{3}% 
-\contentsline {subsection}{\numberline {7.1}Usefulness of Debugger in Testing}{3}% 
-\contentsline {subsection}{\numberline {7.2}Unit Testing}{3}% 
-\contentsline {subsection}{\numberline {7.3}Integration Testing}{3}% 
-\contentsline {subsection}{\numberline {7.4}Acceptance Testing}{3}% 
-\contentsline {section}{\numberline {8}Varia}{3}% 
-\contentsline {section}{\numberline {9}Appendices}{3}% 
-\contentsline {subsection}{\numberline {9.1}Use of a Debugger}{3}% 
-\contentsline {subsection}{\numberline {9.2}ASQ Questions}{3}% 
-\contentsline {subsection}{\numberline {9.3}Calculator Manual}{3}% 
+\contentsline {subsection}{\numberline {1.3}Goals for current Iteration}{4}% 
+\contentsline {section}{\numberline {2}Interviews of Potential Users}{4}% 
+\contentsline {subsection}{\numberline {2.1}Common Ideas}{5}% 
+\contentsline {section}{\numberline {3}Personas Derived from Interviews}{7}% 
+\contentsline {section}{\numberline {4}Use Cases}{12}% 
+\contentsline {section}{\numberline {5}Design}{12}% 
+\contentsline {subsection}{\numberline {5.1}Influence of Use Cases on Design Decisions}{12}% 
+\contentsline {subsection}{\numberline {5.2}Macro Architecture}{12}% 
+\contentsline {subsection}{\numberline {5.3}Micro Architecture}{13}% 
+\contentsline {subsection}{\numberline {5.4}GUI Design and User Experience}{13}% 
+\contentsline {section}{\numberline {6}Implementation}{15}% 
+\contentsline {subsection}{\numberline {6.1}Roadblocks During Implementation}{15}% 
+\contentsline {subsection}{\numberline {6.2}Adjustment to the Micro Architecture}{16}% 
+\contentsline {subsection}{\numberline {6.3}Outstanding Issues}{16}% 
+\contentsline {section}{\numberline {7}Testing}{17}% 
+\contentsline {subsection}{\numberline {7.1}Usefulness of Debugger in Testing}{17}% 
+\contentsline {subsection}{\numberline {7.2}Unit Testing}{17}% 
+\contentsline {subsection}{\numberline {7.3}Integration Testing}{18}% 
+\contentsline {subsection}{\numberline {7.4}Acceptance Testing}{19}% 
+\contentsline {section}{\numberline {8}Plans for Future Iterations}{20}% 
+\contentsline {section}{\numberline {9}Appendices}{22}% 
+\contentsline {subsection}{\numberline {9.1}Appendix A - Use of a Debugger}{22}% 
+\contentsline {subsection}{\numberline {9.2}Appendix B - ASQ Questions}{27}% 
+\contentsline {subsection}{\numberline {9.3}Appendix C - Calculator Manual}{29}% 
+\contentsline {subsection}{\numberline {9.4}Appendix D - Macro Architecture Pattern (MVC)}{31}% 
+\contentsline {subsection}{\numberline {9.5}Appendix E - Micro Architecture (MVC)}{32}% 
+\contentsline {subsection}{\numberline {9.6}Appendix E - Use Case Descriptions}{33}% 
