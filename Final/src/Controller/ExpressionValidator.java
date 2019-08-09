@@ -131,7 +131,6 @@ public class ExpressionValidator
 			else {
 				return 2; // 2 is assignment of "function" mode (ie. test(a,b) = 15;
 			}
-			
 		}
 		else {
 			return 0; // 0 is the normal "calculate expression" mode
@@ -165,8 +164,6 @@ public class ExpressionValidator
 		if(isDebugMode)
 			finalExpression = (String) finalExpression.subSequence(5, finalExpression.length());
 		
-		
-		
 		/* 
 		 * First thing to do before validating anything is to check if we are in "assignment" mode.
 		 * Ie, if there is an equal sign in the expression with a lowercase letter on the LHS and
@@ -175,6 +172,8 @@ public class ExpressionValidator
 		if(isAssignementMode(finalExpression)) {
 			throw new SuccessfulAssignmentException(assignConstant(expression));
 		}
+		
+		// TODO check which assignment mode: constants or functions
 		
 		// 1) Replace all brackets by '(' or ')' to facilitate parsing
 		finalExpression = replaceBrackets(finalExpression);
@@ -404,7 +403,7 @@ public class ExpressionValidator
 		expression = "%" + expression + "%";
 		
 		int addedCharacters = 0;
-		String addedIntoExpresion = "";
+		String addedIntoExpression = "";
 		
 		for(int i = 1; i < expression.length() - 1; ++i) {
 			
@@ -416,12 +415,12 @@ public class ExpressionValidator
 					!isValidLowerAlpha(expression.charAt(i + 1 + addedCharacters))) {
 				if(isValidLowerAlpha(expression.charAt(i + addedCharacters))) {
 					
-					addedIntoExpresion = UserConstants.getValue(expression.charAt(i + addedCharacters));
+					addedIntoExpression = UserConstants.getValue(expression.charAt(i + addedCharacters));
 					
-					expression = insertAndReplace(expression, addedIntoExpresion, i + addedCharacters);
+					expression = insertAndReplace(expression, addedIntoExpression, i + addedCharacters);
 					
-					if(addedIntoExpresion.length() > 1)
-						addedCharacters += addedIntoExpresion.length() - 1;
+					if(addedIntoExpression.length() > 1)
+						addedCharacters += addedIntoExpression.length() - 1;
 				}
 			}
 		}
@@ -840,5 +839,7 @@ public class ExpressionValidator
     	
 		return false;
     }
+    
+    
     
 }
