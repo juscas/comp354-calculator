@@ -173,29 +173,35 @@ public class UserFunctions implements Serializable
 	private static ArrayList<String> getFunctionCallParameters(Matcher tokenizedFunctionCall) {
 		
 		ArrayList<String> parameterList = new ArrayList<String>();
-		String rawParameters = tokenizedFunctionCall.group(parameterPart);
-		String temp = "";
 		
-		for(int i = 0; i < rawParameters.length(); ++i) {
+		String rawParameters = tokenizedFunctionCall.group(parameterPart);
+		
+		String param = "";
+		
+		int start = 0;
+		int end = 0;
+		
+		end = rawParameters.indexOf(',', start);
+		
+		while(end != -1) {
 			
-			if(i == rawParameters.length() - 1) {
-				temp += rawParameters.charAt(i);
-				Controller.ExpressionValidator.validateExpression(temp, false);
-				parameterList.add(temp);
-			}
-			else if(rawParameters.charAt(i) != ',') {
-				if(rawParameters.charAt(i) != ' ')
-					temp += rawParameters.charAt(i);
+			param = rawParameters.substring(start, end);
+			
+			if(Controller.ExpressionValidator.bracketMatch(param) != -1) {
+				parameterList.add("(" + param + ")");
+				start = end + 1;
+				end = rawParameters.indexOf(',', start);
 			}
 			else {
-				Controller.ExpressionValidator.validateExpression(temp, false);
-				parameterList.add(temp);
-				temp = "";
+				end = rawParameters.indexOf(',', end + 1);
 			}
 		}
 		
+		parameterList.add("(" + rawParameters.substring(start, rawParameters.length()) + ")");
+		
 		return parameterList;
 	}
+	
 	
 	/**
 	 * Given a Matcher from tokenizeFunctionCall(), this will replace all parameters with the

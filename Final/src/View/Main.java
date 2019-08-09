@@ -727,20 +727,29 @@ public class Main extends Application {
     	String fn1 = "test(a,b,c) = 15 * a + b + c + b^2 + cos(c)";
     	String fn2 = "fun(x,y,z) = x + y + z";
     	String fn3 = "joke(x, y, z) = x^y - z";
-    	String fn4 = "tim(x,y,z) = x + y + z + x";
+    	String fn4 = "tim(w,x,y,z) = w + x + y + z";
+    	String fn5 = "hi(a) = 2*a";
     	
     	// seed the user function map with some bogus functions
     	Model.UserFunctions.setFunction(fn1);
     	Model.UserFunctions.setFunction(fn2);
     	Model.UserFunctions.setFunction(fn3);
-    	Model.UserFunctions.setFunction(fn4);
+    	Model.UserFunctions.setFunction(fn4); 
+    	Model.UserFunctions.setFunction(fn5); 
     	
     	// Simulates a user making a functions call
-    	String userFunctionCallTest = "tim(15, cos(28), (108^2))";
+    	String userFunctionCallTest = "tim(15+7,cos(15),root(4,2),log(3, 27))";
+    	String hi = "tim(15+7, hi(15), root(4,2), log(3, 27))";
     	
-    	// prints the replacement string with arguments in the right place
-    	System.out.println(Model.UserFunctions.getUserFunction(userFunctionCallTest));
     	
-            launch(args);
+    	ArrayList<String> parameters = Model.UserFunctions.getFunctionCallParameters(hi);
+    	
+    	System.out.println(expression);
+    	
+    	
+    	
+    	
+    	
+//            launch(args);
     }
 }
