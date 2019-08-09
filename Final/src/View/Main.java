@@ -15,8 +15,9 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-
+import java.util.ArrayList;
 import java.util.Stack;
+import java.util.regex.Matcher;
 
 public class Main extends Application {
 
@@ -721,6 +722,41 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+    	
+    	String fn1 = "test(a,b,c) = 15 * a + b + c + b^2 + cos(c)";
+    	String fn2 = "fun(x,y,z) = x + y + z";
+    	String fn3 = "joke(x, y, z) = x^y - z";
+    	
+    	System.out.println("Print original functions:");
+    	System.out.println(fn1);
+    	System.out.println(fn2);
+    	System.out.println(fn3);
+    	System.out.println();
+    	
+    	// seed the user function map with some bogus functions
+//    	Model.UserFunctions.setFunction(fn1);
+//    	Model.UserFunctions.setFunction(fn2);
+//    	Model.UserFunctions.setFunction(fn3);
+//    	
+//    	System.out.println("Print new functions:");
+//    	System.out.println(Model.UserFunctions.getFunction("test").getExpression());
+//    	System.out.println(Model.UserFunctions.getFunction("fun").getExpression());
+//    	System.out.println(Model.UserFunctions.getFunction("joke").getExpression());
+//    	System.out.println();
+    	
+    	String fn4 = "yolo((14 * cos(9)), 16 * 14)";
+    	
+    	
+    	String fn5 = "tim(x,y) = x + y";
+    	            // 0123456789012345
+    	String test = "tim(15, cos(28))";
+    	
+    	Matcher m = Model.UserFunctions.tokenizeFunctionCall(test);
+    	
+    	ArrayList<String> list = Model.UserFunctions.functionCallParameters(m);
+    	
+    	
+    	
             launch(args);
     }
 }

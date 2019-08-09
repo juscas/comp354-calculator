@@ -83,7 +83,7 @@ public class UserConstants implements Serializable
 	 * @param letter : char
 	 * @return true if valid constant label
 	 */
-	private static boolean validConstantLetter(char letter) {
+	static boolean validConstantLetter(char letter) {
 		
 		if(letter == 'e' || letter == 'p') { // 'e' and 'pi' are predefined constants (no changing)
 			throw new SyntaxErrorException("That is a reserved constant and cannot be reset");

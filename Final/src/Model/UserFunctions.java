@@ -28,12 +28,18 @@ public class UserFunctions implements Serializable
 	/*
 	 * This is a function. It is defined by its arity and its String mathematical expression.
 	 */
-	private static class Function
+	public static class Function // TODO make private after tests
 	{
 		private int arity;
 		private String expression;
 		
 		private Function(int arity, String expression) {
+			
+			// this is here because when we replace constant by number, we dont' yet deal with 
+			UserFunctions	// the case where we replace a constant with "10". This can be fixed in future.
+			if(arity > 9)
+				throw new SyntaxErrorException("Error: max of 9 parameters in custom function");
+			
 			this.arity = arity;
 			this.expression = expression;
 		}
@@ -42,7 +48,7 @@ public class UserFunctions implements Serializable
 			return arity;
 		}
 		
-		private String getExpression() {
+		public String getExpression() { // TODO make private after tests
 			return expression;
 		}
 		
@@ -111,6 +117,109 @@ public class UserFunctions implements Serializable
 		return test;
 	}
 	
+	/**
+	 * Takes a function call and tokenizes it.
+	 * 
+	 * ie. test(15, cos(28)) and returns matcher:
+	 * 	group(1) = "tim"
+	 * 	group(2) = "15, cos(28)"
+	 * 
+	 * @param functionCall
+	 * @return
+	 */
+	public static Matcher tokenizeFunctionCall(String functionCall) {
+		
+		// These hold the different parts of regex (separated for easy maintenance)
+		String functionName = "[a-zA-Z][a-zA-Z]+";
+		String parameters = ".*";
+		
+		// This regex captures: 1) name, 2) parameter list, 3) RHS math expression
+		String validUserFunctionRegex = "^" + "(" + functionName + ")" +
+				"\\(" + "(" +  parameters + ")" + "\\)";
+		
+		Pattern pattern = Pattern.compile(validUserFunctionRegex);
+		Matcher matcher = pattern.matcher(functionCall);
+		matcher.find();
+
+		return matcher;
+	}
+	
+	public static ArrayList<String> functionCallParameters(Matcher tokenizedFunctionCall) {
+		
+		ArrayList<String> parameterList = new ArrayList<String>();
+		String rawParameters = tokenizedFunctionCall.group(parameterPart);
+		
+		
+		Pattern pattern = Pattern.compile("(.*),");
+		Matcher matcher = pattern.matcher(rawParameters);
+		
+		while(matcher.find()) {
+			parameterList.add(matcher.group(1));
+			System.out.println(matcher.group(1));
+			System.out.println("INDEX = " + matcher.end());
+		}
+		
+		
+		
+		
+		return parameterList;
+	}
+	
+	
+	public static String replaceParametersWithArguments(Matcher tokenizedExpression) {
+		
+		Function function = customFunctions.get(tokenizedExpression.group(functionNamePart));
+		int arity = function.getArity();
+		
+		String expression = replaceConstantsWithNumbers(tokenizedExpression);
+		
+		// arguments.group(1) == argument 1, arguments.group(2) == argument 2, etc.
+		Matcher arguments = getArgumentsOfFunctions(expression);
+		int addedCharacters = 0;
+		String addedIntoExpression = "";
+		
+		// for each number in arity (!0, !1, !2,...) replace all occurences of that !number by the 
+		// corresponding capture group (argument) of the Matcher.
+		for(int i = 0; i < arity; ++i) {
+			
+			for(int j = 1; j < expression.length(); ++j) {
+				
+				if(expression.charAt(j-1 + addedCharacters) == '!' &&
+						expression.charAt(j + addedCharacters) == (char) i) {
+					addedIntoExpression = arguments.group(i);
+					
+					expression = insertAndReplace(expression,addedIntoExpression , j + addedCharacters);
+							
+					if(addedIntoExpression.length() > 1)
+						addedCharacters += addedIntoExpression.length() - 1;
+				}
+				
+			}
+			
+			addedCharacters = 0;
+		}
+		
+		
+		return expression;
+	}
+	
+	/**
+	 * Given an expression of the form : test(15*2, cos(4)) this will return a matcher where
+	 * group 1 corresponds to the first argument (15*2) and group 2 corresponds to the second 
+	 * (cos(4)) and so on.
+	 * 
+	 * @param expression
+	 * @return
+	 */
+	private static Matcher getArgumentsOfFunctions(String expression) {
+		
+		Pattern pattern = Pattern.compile("\\(\\s*(.*), \\s*(.*)\\s*\\).*");
+		Matcher matcher = pattern.matcher(expression);
+		matcher.find();
+		
+		return matcher;
+		
+	}
 	
 	/**
 	 * This will add the function to the map. It will return 'true' if the functions already existed
@@ -158,7 +267,7 @@ public class UserFunctions implements Serializable
 	 * @param usrFunctionDefinition : String
 	 * @return Matcher
 	 */
-	private static Matcher tokenizeUserFunctions(String usrFunctionDefinition) {
+	public static Matcher tokenizeUserFunctions(String usrFunctionDefinition) {
 		
 		// These hold the different parts of regex (separated for easy maintenance)
 		String functionName = "[a-zA-Z][a-zA-Z]+";
@@ -213,7 +322,7 @@ public class UserFunctions implements Serializable
 		
 		String formattedExpression = replaceConstantsWithNumbers(tokenizedExpression);
 		
-		return Controller.ExpressionValidator.validateExpression(formattedExpression);
+		return Controller.ExpressionValidator.validateExpression(formattedExpression, true);
 	}
 	
 	
@@ -379,11 +488,13 @@ public class UserFunctions implements Serializable
 	/**
 	 * This will replace the constants with a number. This is how the functions expression will be
 	 * stored. The reason for this is that when the user calls the function with parameters, we will
-	 * be able to match the first parameter to its occurences in the expression and so forth.
+	 * be able to match the first parameter to its occurences in the expression and so forth. The
+	 * special character '!' is used to differentiate the constant from a number which may be
+	 * present in the expression definition
 	 * 
-	 * ex. "test(x,y,z) = x^y + cos(z) - x + y"  would give  "1^2 + cos(3) - 1 + 2"
-	 * 	   where all occurences of the first parameter int the RHS expression are replaced by "1",
-	 *     the second parameters are replaced by 2, and so on.
+	 * ex. "test(x,y,z) = x^y + 18 * cos(z) - x + y"  would give  "!0^!1 + 18 * cos(!3) - !0 + !2"
+	 * 	   where all occurences of the first parameter int the RHS expression are replaced by "!0",
+	 *     the second parameters are replaced by "!2", and so on.
 	 *     
 	 * @param tokenizedExpression
 	 * @return
@@ -396,23 +507,31 @@ public class UserFunctions implements Serializable
 		// This is some ghetto special character stuff that makes edge cases easier.
 		expression = "%" + expression + "%";
 		
+		int addedCharacters = 0;
 		String addedIntoExpression = "";
 		
 		for(int i = 1; i < expression.length() - 1; ++i) {
 			
+			// some weird skipping condition or we go out of bounds
+			if(i + 1 + addedCharacters == expression.length())
+				break;
 			
-			if(!isValidLowerAlpha(expression.charAt(i - 1)) && 
-					!isValidLowerAlpha(expression.charAt(i + 1))) {
-				if(isValidLowerAlpha(expression.charAt(i)) && 
-						(expression.charAt(i) != 'e') && (expression.charAt(i) != 'p')) {
+			if(!isValidLowerAlpha(expression.charAt(i - 1 + addedCharacters)) && 
+					!isValidLowerAlpha(expression.charAt(i + 1 + addedCharacters))) {
+				if(isValidLowerAlpha(expression.charAt(i + addedCharacters)) && 
+						(expression.charAt(i + addedCharacters) != 'e') && 
+						(expression.charAt(i + addedCharacters) != 'p')) {
 					
 					for(int j = 0; j < parameters.length; ++j) {
-						if(parameters[j] == expression.charAt(i)) {
-							addedIntoExpression = new Integer(j).toString();
+						if(parameters[j] == expression.charAt(i + addedCharacters)) {
+							addedIntoExpression = "!" + new Integer(j).toString();
 						}
 					}
 					
-					expression = insertAndReplace(expression, addedIntoExpression, i);
+					expression = insertAndReplace(expression, addedIntoExpression, i + addedCharacters);
+					
+					if(addedIntoExpression.length() > 1)
+						addedCharacters += addedIntoExpression.length() - 1;
 				}
 			}
 		}
@@ -423,7 +542,7 @@ public class UserFunctions implements Serializable
 	}
 	
 	/**
-	 * This will remove the commas from a parameter list.
+	 * This will remove the commas and spaces from a parameter list.
 	 * 
 	 * ie. "a,b,c" => "abc"
 	 * 
@@ -432,13 +551,15 @@ public class UserFunctions implements Serializable
 	 */
 	private static String removeCommasFromConstantList(Matcher tokenizedExpression) {
 		
-		String paramters = tokenizedExpression.group(parameterPart);
+		String parameters = tokenizedExpression.group(parameterPart);
 		String parametersWithoutCommas = "";
 		
-		// remove commas
-		for(int i = 0; i < paramters.length(); ++i) {
-			if(paramters.charAt(i) != ',') // parameters already checked and of the form : "a,b,c"
-				parametersWithoutCommas += paramters.charAt(i);
+		
+		// remove commas and spaces
+		for(int i = 0; i < parameters.length(); ++i) {
+			if(parameters.charAt(i) != ' ')
+				if(parameters.charAt(i) != ',') // parameters already checked and of the form : "a,b,c"
+					parametersWithoutCommas += parameters.charAt(i);
 		}
 		
 		return parametersWithoutCommas;

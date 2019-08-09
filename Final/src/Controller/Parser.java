@@ -32,7 +32,7 @@ public class Parser {
             debug = true;
         }
         //validating the expression
-        input = ExpressionValidator.validateExpression(input);
+        input = ExpressionValidator.validateExpression(input, false);
 
         //creating a formatter object
         DecimalFormat df = new DecimalFormat("0");

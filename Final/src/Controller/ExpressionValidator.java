@@ -15,10 +15,8 @@ import java.util.regex.Pattern;
 public class ExpressionValidator
 {
 	
-	// TODO make everything private except the validator function
-	
 	/**
-	 * This array holds all of the recoginzed operators. If a new operator is added in the future,
+	 * This array holds all of the recognized operators. If a new operator is added in the future,
 	 * it needs to be defined in this array.
 	 * 
 	 * Note: when adding to this list, ensure that you also classify the operator in the 
@@ -148,7 +146,7 @@ public class ExpressionValidator
 	 * @return properly formated exception
 	 * @throws SyntaxErrorException
 	 */
-	public static String validateExpression(String expression) throws SyntaxErrorException {
+	public static String validateExpression(String expression, boolean isSkipExclamationMode) throws SyntaxErrorException {
 		
 		/*
 		 * This function scans the string many times. This was a deliberate design choice to make
@@ -157,6 +155,7 @@ public class ExpressionValidator
 		 */
 		String finalExpression = expression;
 		
+		int mode = findMode(finalExpression);	// the mode: 1) constant, 2) function, 0) normal
 		
 		// this will be set if "debug" mode is in the front of the expression ex. "debug cos(5)"
 		boolean isDebugMode = finalExpression.matches("debug .*");
@@ -169,8 +168,21 @@ public class ExpressionValidator
 		 * Ie, if there is an equal sign in the expression with a lowercase letter on the LHS and
 		 * a number on the RHS.
 		 */
+		switch (mode) {
+			case 0: // in "normal" mode: skip this and keep going with normal expression validation
+				break;
+			case 1: // in "assign constant" mode: proceed with assigning constant
+				throw new SuccessfulAssignmentException(assignConstant(expression));
+			case 2: // in "assign function" mode: proceed with assigning function
+				throw new SuccessfulAssignmentException(assignConstant(expression));
+
+			default:
+				break;
+		}
+		
+		
 		if(isAssignementMode(finalExpression)) {
-			throw new SuccessfulAssignmentException(assignConstant(expression));
+			
 		}
 		
 		// TODO check which assignment mode: constants or functions
@@ -227,7 +239,12 @@ public class ExpressionValidator
 		// 7) check invalid characters or symbols
 		Character invalidChar = validCharacters(finalExpression);
 		
-		if(invalidChar != null) {
+		// this is used to allow the normally invalid char '!' when validating assignment expressions
+		// this is broken, as-is would allow invalid chars if found after first '!'
+		if(isSkipExclamationMode && invalidChar == '!') {
+			// do nothing
+		}
+		else if(invalidChar != null){
 			throw new SyntaxErrorException("Error: Invalid character - " + invalidChar);
 		}
 		
