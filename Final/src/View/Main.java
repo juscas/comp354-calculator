@@ -641,7 +641,7 @@ public class Main extends Application {
 
             MenuItem openMan = new MenuItem("Open Manual");
             openMan.setOnAction(ae -> {
-                TextArea manual = new TextArea("Manual for Eternity Calculator :\n" +
+            	TextArea manual = new TextArea("Manual for Eternity Calculator :\n" +
                         "\n" +
                         "*Description : Eternity Calculator is a calculator that \n" +
                         "                             supports many mathematical functions while\n" +
@@ -663,8 +663,15 @@ public class Main extends Application {
                         "\t- reserved letters : e (Eulers' number) , p (pi)\n" +
                         "\t- letters must be in lower case\n" +
                         "\n" +
+                        "    (2) Assign Functions : \n" +
+                        "\t- ex : function(a,b,c) = a+b/c\n" +
+                        "\t- reserved Functions : All mathematical functions are reserved \n" +
+                        "\t  Conditions :\n" +
+                        "\t\t- letters must be in lower case\n" +
+                        "\t\t- Can not assign the same function twice \n" +
+                        "\t\t- Can not have numerals anywhere in the line while assigning functions \n" +
                         "\n" +
-                        "    (2) Support for multiple themes (Dark/Light)\n" +
+                        "    (3) Support for multiple themes (Dark/Light)\n" +
                         "\n" +
                         "    (4) Error messages with feedback\n" +
                         "\n" +
@@ -712,12 +719,33 @@ public class Main extends Application {
                         "   \n" +
                         "                          number and pi\n" +
                         "\n" +
-                        "(3) Changing Themes\n" +
+                        "(3) Assigning Functions \n" +
+                        "      \n" +
+                        "      Functions are assigned by typing the function name\n" +
+                        "\n" +
+                        "      followed by brackets in which the parameters for  \n" +
+                        "\n" +
+                        "      the function are represented by lower case letters \n" +
+                        "\n" +
+                        "      and separated by commas. Follow that with an = sign \n" +
+                        "\n" +
+                        "      and the mathematical operations you would like the  \n" +
+                        "\n" +
+                        "      function to perform on the variables. \n" +
+                        "\n" +
+                        "      Note : (1) alphabetical constants must be in lower case\n" +
+                        "\n" +
+                        "                   (2) all mathematical functions are reserved  \n" +
+                        "\n" +
+                        "                   (3) no numerals should be present in the line  \n" +
+                        "\n" +
+                        "(4) Changing Themes\n" +
                         "    \n" +
                         "      To changes theme, go to the Themes button in the top \n" +
                         "\n" +
                         "      menu bar, and select which theme you wish to use.\n\n" +
-                        "Author: Daniel Fahkr");
+                        "Author: Daniel Fakhr");
+
 
                 HBox manHbox = new HBox(
                         manual

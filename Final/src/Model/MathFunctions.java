@@ -697,8 +697,10 @@ public class MathFunctions
 			tempDecimal = tempDecimal.substring(0,tempDecimal.length()-1);
 		}
 
-		tempDecimal = tempDecimal.substring(0,9);
+		if(tempDecimal.length() > 8)
+			tempDecimal = tempDecimal.substring(0,9);
 
+		
 		//to convert a decimal into a fraction form, we have to have it in the form of number/10^n
 		//this for loop calculates the denominator (i.e. the actual value of 10^n)
 		for(int i=0;i<tempDecimal.length();i++){
