@@ -50,7 +50,7 @@ public class UserFunctions implements Serializable
             return arity;
         }
 
-        public String getExpression() { // TODO make private after tests
+        private String getExpression() {
             return expression;
         }
 
@@ -157,7 +157,7 @@ public class UserFunctions implements Serializable
             actualFunc = getUserFunction(expression.substring(funcIndex,closingIndex+1));
 
             //replacing. Note : closingIndex + 1 is intentional because without it we'd be stuck with the closing bracket of the custom function
-            expression = expression.substring(0,funcIndex)+actualFunc+expression.substring(closingIndex+1);
+            expression = expression.substring(0, funcIndex) + "( " + actualFunc +" )"+expression.substring(closingIndex+1);
 
         }
 
@@ -296,7 +296,7 @@ public class UserFunctions implements Serializable
      * @param tokenizedExpression : Matcher
      * @return 'true' if we are overwriting the function
      */
-    public static boolean setFunction(String userFunctionAssignment) {
+    public static String setFunction(String userFunctionAssignment) {
 
         Matcher tokenizedExpression = tokenizeUserFunctions(userFunctionAssignment);
 
@@ -310,7 +310,7 @@ public class UserFunctions implements Serializable
 
         customFunctions.put(tokenizedExpression.group(functionNamePart), functionToAdd);
 
-        return isOverwritingMap;
+        return tokenizedExpression.group(functionNamePart);
     }
 
 

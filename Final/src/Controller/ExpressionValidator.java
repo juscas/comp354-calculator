@@ -174,18 +174,14 @@ public class ExpressionValidator
 			case 1: // in "assign constant" mode: proceed with assigning constant
 				throw new SuccessfulAssignmentException(assignConstant(expression));
 			case 2: // in "assign function" mode: proceed with assigning function
-				throw new SuccessfulAssignmentException(assignConstant(expression));
-
+				throw new SuccessfulAssignmentException("Function \"" + 
+				Model.UserFunctions.setFunction(expression) + " \"" + " assigned");
 			default:
 				break;
 		}
 		
-		
-		if(isAssignementMode(finalExpression)) {
-			
-		}
-		
-		// TODO check which assignment mode: constants or functions
+		// This replaces all user-defined functions by their String representation
+		finalExpression = Model.UserFunctions.replaceUserFunctionsInExpression(finalExpression);
 		
 		// 1) Replace all brackets by '(' or ')' to facilitate parsing
 		finalExpression = replaceBrackets(finalExpression);

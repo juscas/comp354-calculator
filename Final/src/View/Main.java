@@ -197,7 +197,7 @@ public class Main extends Application {
             TextArea output = new TextArea();
             output.setPrefSize(800,800);
             output.setWrapText(true);
-            output.setDisable(true);
+            //output.setDisable(true);
             output.setStyle("-fx-opacity: 1;");
             output.getStyleClass().add("text-area_output");
 
@@ -629,7 +629,7 @@ public class Main extends Application {
 
             viewMenu.getItems().add(simpleMode);
 
-            themeSubMenu.getItems().addAll(theme1, theme2, theme3);
+            themeSubMenu.getItems().addAll(theme2, theme1, theme3);
 
             simpleMode.setOnAction(e -> {
                     if(vbox.getChildren().size() == 4){
@@ -751,6 +751,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+    	
             launch(args);
+            
     }
 }
