@@ -36,7 +36,7 @@ public class UserFunctions implements Serializable
 		private Function(int arity, String expression) {
 			
 			// this is here because when we replace constant by number, we dont' yet deal with 
-			UserFunctions	// the case where we replace a constant with "10". This can be fixed in future.
+			// the case where we replace a constant with "10". This can be fixed in future.
 			if(arity > 9)
 				throw new SyntaxErrorException("Error: max of 9 parameters in custom function");
 			
@@ -74,7 +74,7 @@ public class UserFunctions implements Serializable
 	 * @param functionName: String
 	 * @return expression associate to the functionName
 	 */
-	public static Function getFunction(String functionName) {
+	private static Function getFunction(String functionName) {
 		
 		return customFunctions.get(functionName);
 		
@@ -92,8 +92,26 @@ public class UserFunctions implements Serializable
 				
 	}
 	
+	/**
+	 * This is what is called to get the String from a function call.
+	 * 	Where "test(a,b,c) = a + b + c"
+	 * 	If User passes "test(1,2,3)" 
+	 * 	then he receives "1 + 2 + 3" back from this function
+	 * 
+	 * @param userFunctionCall
+	 * @return
+	 */
+	public static String getUserFunction(String userFunctionCall) {
+		
+		Matcher matcher = Model.UserFunctions.tokenizeFunctionCall(userFunctionCall);
+    	
+    	String replacementExpression = Model.UserFunctions.replaceParametersWithArguments(matcher);
+    	
+		return replacementExpression;
+	}
 	
-	public static String replaceUserFunctionsInExpression(String expression) {
+	
+	private static String replaceUserFunctionsInExpression(String expression) {
 		
 		String test = "";
 		
@@ -127,7 +145,7 @@ public class UserFunctions implements Serializable
 	 * @param functionCall
 	 * @return
 	 */
-	public static Matcher tokenizeFunctionCall(String functionCall) {
+	private static Matcher tokenizeFunctionCall(String functionCall) {
 		
 		// These hold the different parts of regex (separated for easy maintenance)
 		String functionName = "[a-zA-Z][a-zA-Z]+";
@@ -144,37 +162,64 @@ public class UserFunctions implements Serializable
 		return matcher;
 	}
 	
-	public static ArrayList<String> functionCallParameters(Matcher tokenizedFunctionCall) {
+	/**
+	 * Given a functionCallTokenized Matcher, this will return an ArrayList<String> of validated
+	 * arguments (run through expressionValidator). These will serve as replacements for their 
+	 * corresponding parameters.
+	 * 
+	 * @param tokenizedFunctionCall
+	 * @return
+	 */
+	private static ArrayList<String> getFunctionCallParameters(Matcher tokenizedFunctionCall) {
 		
 		ArrayList<String> parameterList = new ArrayList<String>();
 		String rawParameters = tokenizedFunctionCall.group(parameterPart);
+		String temp = "";
 		
-		
-		Pattern pattern = Pattern.compile("(.*),");
-		Matcher matcher = pattern.matcher(rawParameters);
-		
-		while(matcher.find()) {
-			parameterList.add(matcher.group(1));
-			System.out.println(matcher.group(1));
-			System.out.println("INDEX = " + matcher.end());
+		for(int i = 0; i < rawParameters.length(); ++i) {
+			
+			if(i == rawParameters.length() - 1) {
+				temp += rawParameters.charAt(i);
+				Controller.ExpressionValidator.validateExpression(temp, false);
+				parameterList.add(temp);
+			}
+			else if(rawParameters.charAt(i) != ',') {
+				if(rawParameters.charAt(i) != ' ')
+					temp += rawParameters.charAt(i);
+			}
+			else {
+				Controller.ExpressionValidator.validateExpression(temp, false);
+				parameterList.add(temp);
+				temp = "";
+			}
 		}
-		
-		
-		
 		
 		return parameterList;
 	}
 	
-	
-	public static String replaceParametersWithArguments(Matcher tokenizedExpression) {
+	/**
+	 * Given a Matcher from tokenizeFunctionCall(), this will replace all parameters with the
+	 * arguments that the user passed.
+	 * 
+	 * @param tokenizeFunctionCall
+	 * @return
+	 */
+	private static String replaceParametersWithArguments(Matcher tokenizeFunctionCall) {
 		
-		Function function = customFunctions.get(tokenizedExpression.group(functionNamePart));
+		Function function = customFunctions.get(tokenizeFunctionCall.group(functionNamePart));
+		
+		if(function == null)
+			throw new SyntaxErrorException("Error: unknown function " + "\"" +
+					tokenizeFunctionCall.group(functionNamePart) + "\"");
+		
 		int arity = function.getArity();
 		
-		String expression = replaceConstantsWithNumbers(tokenizedExpression);
+		// this is the expresion with the parameters replaced with "!0" etc.
+		String expression = function.getExpression();
+		System.out.println("expression before : " + expression);
 		
-		// arguments.group(1) == argument 1, arguments.group(2) == argument 2, etc.
-		Matcher arguments = getArgumentsOfFunctions(expression);
+		ArrayList<String> argumentList = getFunctionCallParameters(tokenizeFunctionCall);
+		
 		int addedCharacters = 0;
 		String addedIntoExpression = "";
 		
@@ -182,23 +227,10 @@ public class UserFunctions implements Serializable
 		// corresponding capture group (argument) of the Matcher.
 		for(int i = 0; i < arity; ++i) {
 			
-			for(int j = 1; j < expression.length(); ++j) {
-				
-				if(expression.charAt(j-1 + addedCharacters) == '!' &&
-						expression.charAt(j + addedCharacters) == (char) i) {
-					addedIntoExpression = arguments.group(i);
-					
-					expression = insertAndReplace(expression,addedIntoExpression , j + addedCharacters);
-							
-					if(addedIntoExpression.length() > 1)
-						addedCharacters += addedIntoExpression.length() - 1;
-				}
-				
-			}
+			expression = expression.replaceAll(("!" + i), argumentList.get(i));
 			
-			addedCharacters = 0;
 		}
-		
+			
 		
 		return expression;
 	}
@@ -230,7 +262,6 @@ public class UserFunctions implements Serializable
 	 * @return 'true' if we are overwriting the function
 	 */
 	public static boolean setFunction(String userFunctionAssignment) {
-		
 		
 		Matcher tokenizedExpression = tokenizeUserFunctions(userFunctionAssignment);
 		
@@ -267,7 +298,7 @@ public class UserFunctions implements Serializable
 	 * @param usrFunctionDefinition : String
 	 * @return Matcher
 	 */
-	public static Matcher tokenizeUserFunctions(String usrFunctionDefinition) {
+	private static Matcher tokenizeUserFunctions(String usrFunctionDefinition) {
 		
 		// These hold the different parts of regex (separated for easy maintenance)
 		String functionName = "[a-zA-Z][a-zA-Z]+";
