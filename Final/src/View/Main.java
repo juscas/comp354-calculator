@@ -746,7 +746,6 @@ public class Main extends Application {
                         "      menu bar, and select which theme you wish to use.\n\n" +
                         "Author: Daniel Fakhr");
 
-
                 HBox manHbox = new HBox(
                         manual
                 );
